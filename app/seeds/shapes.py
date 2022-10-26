@@ -1,4 +1,5 @@
-from app.models import db, Shape
+from app.models import db
+from app.models.templates import Shape
 
 shapes = [
   {
@@ -109,7 +110,7 @@ instances = []
 
 for shape in shapes:
     instances.append(Shape(
-      name = shape['name']
+      name = shape['name'],
       url = shape['url']
     ))
 

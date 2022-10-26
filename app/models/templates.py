@@ -4,7 +4,7 @@ from app.models import *
 template_shapes = db.Table(
   'template_shapes',
   db.Model.metadata,
-  db.Column('template_id', db.Integer, db.ForeignKey('templates.id'), primary_key=True)
+  db.Column('template_id', db.Integer, db.ForeignKey('templates.id'), primary_key=True),
   db.Column('shape_id', db.Integer, db.ForeignKey('shapes.id'), primary_key=True)
 )
 
@@ -16,7 +16,7 @@ class Template(db.Model):
   design_id = db.Column(db.Integer, db.ForeignKey('designs.id'))
   brand_id = db.Column(db.Integer, db.ForeignKey('brands.id'))
 
-  design = db.relationship('Template', back_populates='template')
+  design = db.relationship('Design', back_populates='template')
 
   shapes = db.relationship(
     'Shape',

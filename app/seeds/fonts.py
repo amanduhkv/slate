@@ -1,4 +1,5 @@
-from app.models import db, Font
+from app.models import db
+from app.models.brands import Font
 
 fonts = [
 {
@@ -32993,7 +32994,7 @@ fonts = [
 instances = []
 
 for font in fonts:
-  f = (Font(name=font['family'], url=font['files']['regular']))
+  f = (Font(brand_id=1, name=font['family'], url=font['files'] if font['files'] else 'None'))
   instances.append(f)
 
 

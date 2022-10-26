@@ -1,5 +1,6 @@
 from .db import db
 from app.models import *
+from datetime import datetime
 
 class Brand(db.Model):
   __tablename__ = 'brands'
@@ -27,7 +28,7 @@ class Logo(db.Model):
   __tablename__ = 'logos'
 
   id = db.Column(db.Integer, primary_key=True)
-  brand_id = db.Column(db.Integer)
+  brand_id = db.Column(db.Integer, db.ForeignKey('brands.id'))
   url = db.Column(db.String(255))
 
   brand = db.relationship('Brand', back_populates='logo')
@@ -43,7 +44,7 @@ class Color(db.Model):
   __tablename__ = 'colors'
 
   id = db.Column(db.Integer, primary_key=True)
-  brand_id = db.Column(db.Integer)
+  brand_id = db.Column(db.Integer, db.ForeignKey('brands.id'))
   name = db.Column(db.String(255))
 
   brand = db.relationship('Brand', back_populates='color')
@@ -59,15 +60,16 @@ class Font(db.Model):
   __tablename__ = 'fonts'
 
   id = db.Column(db.Integer, primary_key=True)
-  brand_id = db.Column(db.Integer)
+  brand_id = db.Column(db.Integer, db.ForeignKey('brands.id'))
   name = db.Column(db.String(255))
-  url = db.Column(db.String(255))
+  url = db.Column(db.JSON(255))
 
-  brand = db.relationship('Brand', back_populates='color')
+  brand = db.relationship('Brand', back_populates='font')
 
   def to_dict(self):
         return {
             "id": self.id,
             "name": self.name,
+            "url": self.url,
             "brand_id": self.brand_id
         }
