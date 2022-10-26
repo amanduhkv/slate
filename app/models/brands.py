@@ -1,4 +1,5 @@
 from .db import db
+from app.models import *
 
 class Brand(db.Model):
   __tablename__ = 'brands'
@@ -8,6 +9,8 @@ class Brand(db.Model):
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
   created_at = db.Column(db.String(255), default=datetime.now)
   updated_at = db.Column(db.String, default=datetime.now, onupdate=datetime.now)
+
+  user = db.relationship('User', back_populates='brand')
 
   logo = db.relationship('Logo', back_populates='brand')
   color = db.relationship('Color', back_populates='brand')

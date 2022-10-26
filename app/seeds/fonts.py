@@ -1,3 +1,5 @@
+from app.models import db, Font
+
 fonts = [
 {
   "family": "ABeeZee",
@@ -32990,21 +32992,14 @@ fonts = [
 
 instances = []
 
-font_dict = {}
-
 for font in fonts:
   f = (Font(name=font['family'], url=font['files']['regular']))
   instances.append(f)
-  font_dict[font['family']] = f
+
 
 def seed_fonts():
-  for i in range(0, len(fonts)):
-    name = fonts[i]['family']
-    url = fonts[i]['files']['regular']
-  db.session.add(Font(
-                name=name,
-                url=url
-                ))
+  for i in instances:
+    db.session.add(i)
   db.session.commit()
 
 

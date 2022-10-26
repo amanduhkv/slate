@@ -1,3 +1,5 @@
+from app.models import db, Shape
+
 shapes = [
   {
     'id': 1,
@@ -104,21 +106,18 @@ shapes = [
 
 instances = []
 
-shape_dict = {}
+
+for shape in shapes:
+    instances.append(Shape(
+      name = shape['name']
+      url = shape['url']
+    ))
 
 
 def seed_shapes():
-  for i in range(0, len(shapes)):
-    name = shapes[i]['name']
-    url = shapes[i]['url']
-
-  db.session.add(Shape(
-                  name=name,
-                  url=url,
-                  # template_id=i
-                ))
+  for i in instances:
+    db.session.add(i)
   db.session.commit()
-
 
 
 def undo_seed_shapes():
