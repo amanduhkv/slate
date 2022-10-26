@@ -1,9 +1,9 @@
 from app.models import db, Design, User, Brand, Template
 
 def seed_designs():
-  business = Design(name='business')
-  social_media = Design(name='social_media')
-  marketing = Design(name='marketing')
+  business = Design(name='business', user_id=1)
+  social_media = Design(name='social_media', user_id=1)
+  marketing = Design(name='marketing', user_id=1)
 
   db.session.add(business)
   db.session.add(social_media)

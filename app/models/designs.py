@@ -1,5 +1,4 @@
 from .db import db
-from app.models.user import User
 from datetime import datetime
 
 class Design(db.Model):
@@ -8,8 +7,8 @@ class Design(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.String(255), nullable=False)
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-  created_at = db.Column(db.String(255), default=datetime.now)
-  updated_at = db.Column(db.String, default=datetime.now, onupdate=datetime.now)
+  # created_at = db.Column(db.String(255), default=datetime.now)
+  # updated_at = db.Column(db.String, default=datetime.now, onupdate=datetime.now)
 
   user = db.relationship('User', back_populates='design')
   template = db.relationship('Template', back_populates='design')
@@ -19,6 +18,6 @@ class Design(db.Model):
             "id": self.id,
             "name": self.name,
             "user_id": self.user_id,
-            "created_at": self.created_at,
-            "updated_at": self.updated_at
+            # "created_at": self.created_at,
+            # "updated_at": self.updated_at
         }

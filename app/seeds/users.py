@@ -16,7 +16,7 @@ def seed_users():
     periwinkle = User(
         first_name='Periwinkle',
         last_name='Peri',
-        email='periwinkle@user.io', 
+        email='periwinkle@user.io',
         password='password')
 
     db.session.add(blue)
