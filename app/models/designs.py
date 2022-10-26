@@ -5,7 +5,7 @@ class Design(db.Model):
 
   id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.String(255), nullable=False)
-  user_id = db.Column(db.Integer)
+  user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
   created_at = db.Column(db.String(255), default=datetime.now)
   updated_at = db.Column(db.String, default=datetime.now, onupdate=datetime.now)
 
