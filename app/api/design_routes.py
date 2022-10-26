@@ -5,6 +5,7 @@ from flask_login import current_user, login_user, logout_user, login_required
 
 from ..forms.add_design_form import AddDesignForm
 from ..forms.edit_design_form import EditDesignForm
+from ..forms.delete_design_form import DeleteDesignForm
 
 from sqlalchemy import func
 
@@ -155,3 +156,34 @@ def edit_design(design_id):
 
   else:
         return {"message": "Forbidden", "status_code": 403}, 403
+
+
+
+# DELETE DESIGN -------------------------------------
+@design_routes.route('/<int:design_id>', methods=['DELETE'])
+@login_required
+def delete_design(design_id):
+  user = current_user.to_dict()
+  user_id = user['id']
+
+  form = DeleteDesignForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
+
+  delete_design = Design.query.get(design_id)
+
+  if not delete_design:
+    return jsonify({
+      "message": 'Design could not be found.',
+      "status_code": 404
+    }), 404
+
+  if user_id == delete_design.to_dict()['user_id']:
+    if form.validate_on_submit():
+      db.session.delete(delete_design)
+      db.session.commit()
+      return {
+        "message": "Successfully deleted design.",
+        "status_code": 200
+      }
+    else:
+      return {"message": "Forbidden", "status_code": 403}, 403
