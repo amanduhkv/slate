@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import Design, Brand, db
+from app.models import Design, Brand, User, db
 
 from flask_login import current_user, login_user, logout_user, login_required
 
@@ -20,11 +20,16 @@ def validation_errors_to_error_messages(validation_errors):
 
 
 #LOAD ALL DESIGNS
-
+@design_routes.route('/')
+def all_designs():
+  design = Design.query.all()
+  all_des = [des.to_dict() for des in design]
+  return jsonify({ 'Designs': all_des })
 
 
 #LOAD ALL USER'S DESIGNS
-@design_routes.route('/')
+@design_routes.route('/current')
+@login_required
 def get_all_user_designs():
   user = current_user.to_dict()
   user_id = user['id']
@@ -42,3 +47,6 @@ def get_all_user_designs():
       'Designs': current_des
     })
   return 'Current user does not have any designs yet.'
+
+
+#
