@@ -150,23 +150,23 @@ def add_brand():
   if len(login_val_error["errors"]) > 0:
       return jsonify(login_val_error), 400
 
-  # print(form.data['fonts'])
+  print(form.data['logo'])
 
   if form.validate_on_submit():
     logo_lst = []
     for logo in form.data['logo']:
       l = [Logo(url=logo)]
-      logo_lst.append(l)
+      logo_lst.extend(l)
 
     font_lst = []
     for font in form.data['fonts']:
       f = [Font(name=font)]
-      font_lst.append(f)
+      font_lst.extend(f)
 
     color_lst = []
     for color in form.data['colors']:
       c = [Color(name=color)]
-      color_lst.append(c)
+      color_lst.extend(c)
 
     brand = Brand(
       user_id=user_id,
@@ -180,8 +180,8 @@ def add_brand():
     db.session.commit()
 
     logo_lst = [l.to_dict() for l in brand.logo]
-    font_lst = [f.to_dict() for f in brand.fonts]
-    color_lst = [c.to_dict() for c in brand.colors]
+    font_lst = [f.to_dict() for f in brand.font]
+    color_lst = [c.to_dict() for c in brand.color]
 
     new_brand = brand.to_dict()
     new_brand['Logos'] = logo_lst
