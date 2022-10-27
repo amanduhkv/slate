@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import Design, Brand, User, db
+from app.models import Design, Brand, User, Template, db
 
 from flask_login import current_user, login_user, logout_user, login_required
 
@@ -28,6 +28,16 @@ def validation_errors_to_error_messages(validation_errors):
 def all_designs():
   design = Design.query.all()
   all_des = [des.to_dict() for des in design]
+
+  templates = Template.query.all()
+
+  templates_lst = []
+  if templates:
+    templates_lst = [template.to_dict() for template in templates]
+
+  for des in all_des:
+    des['Templates'] = templates_lst
+
   return jsonify({ 'Designs': all_des })
 
 
@@ -35,6 +45,13 @@ def all_designs():
 @design_routes.route('/<int:design_id>')
 def get_one_design(design_id):
   design = Design.query.get(design_id)
+
+  templates = Template.query.all()
+
+  templates_lst = []
+  if templates:
+    templates_lst = [template.to_dict() for template in templates]
+
   if not design:
     return jsonify({
       "message": "Design could not be found.",
@@ -42,6 +59,8 @@ def get_one_design(design_id):
     }), 404
 
   des = design.to_dict()
+  des['Templates'] = templates_lst
+
   return des
 
 
@@ -58,8 +77,15 @@ def get_all_user_designs():
   all_designs = [des.to_dict() for des in designs]
   current_des = []
 
+  templates = Template.query.all()
+
+  templates_lst = []
+  if templates:
+    templates_lst = [template.to_dict() for template in templates]
+
   if len(all_designs) > 0:
     for design in all_designs:
+      design['Template'] = templates_lst
       current_des.append(design)
     return jsonify({
       'Designs': current_des
