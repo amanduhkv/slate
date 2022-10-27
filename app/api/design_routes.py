@@ -85,7 +85,7 @@ def get_all_user_designs():
 
   if len(all_designs) > 0:
     for design in all_designs:
-      design['Template'] = templates_lst
+      design['Templates'] = templates_lst
       current_des.append(design)
     return jsonify({
       'Designs': current_des
