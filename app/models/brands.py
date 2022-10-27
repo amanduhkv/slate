@@ -9,7 +9,7 @@ class Brand(db.Model):
   name = db.Column(db.String(255), nullable=False)
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
   created_at = db.Column(db.String(255), default=datetime.now)
-  updated_at = db.Column(db.String, default=datetime.now, onupdate=datetime.now)
+  updated_at = db.Column(db.String(255), default=datetime.now, onupdate=datetime.now)
 
   user = db.relationship('User', back_populates='brand')
 
