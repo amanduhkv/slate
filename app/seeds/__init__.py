@@ -4,6 +4,7 @@ from .designs import seed_designs, undo_designs
 from .fonts import seed_fonts, undo_seed_fonts
 from .shapes import seed_shapes, undo_seed_shapes
 from .brands import seed_brands, undo_brands
+from .templates import seed_templates, undo_seed_templates
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -19,6 +20,7 @@ def seed():
     seed_fonts()
     seed_shapes()
     seed_brands()
+    seed_templates()
 
 # Creates the `flask seed undo` command
 @seed_commands.command('undo')
@@ -29,3 +31,4 @@ def undo():
     undo_seed_fonts()
     undo_seed_shapes()
     undo_brands()
+    undo_seed_templates()
