@@ -22,6 +22,6 @@
   background-color: white;
   border-radius: 12px;
   width: 368px;
-  height: 505px;
+  min-height: 505px;
   padding: 20px;
 }

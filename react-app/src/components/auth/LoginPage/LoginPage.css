@@ -84,21 +84,37 @@
   margin-top: 15px;
 }
 
-#form-input label {
+#form-input label,
+#form-input-1 label {
   font-size: 12px;
   font-weight: 600;
 }
 
-#form-input input {
+#form-input input,
+#form-input-1 input {
   height: 35px;
   border: 1px solid rgb(195, 195, 195);
   border-radius: 4px;
   padding: 0 10px;
 }
 
-#form-input input::placeholder {
+#form-input input::placeholder,
+#form-input-1 input::placeholder {
   opacity: 70%;
   font-family: 'Noto Sans', Helvetica, Arial, sans-serif;
+}
+
+#form-input-1 {
+  display: flex;
+  margin-top: 15px;
+}
+
+#form-input-1 input {
+  width: 7.5vw;
+}
+
+#form-input-1 input:first-of-type {
+  margin-right: 7.5px;
 }
 
 #login-err {

@@ -83,7 +83,7 @@ def sign_up():
         "errors": {}
     }
     if "@" not in form.data['email'] or "." not in form.data['email']:
-        login_val_error["errors"]["email"] = "Invalid email"
+        login_val_error["errors"]["email"] = "Please enter a valid email."
 
     if not form.data['first_name']:
         login_val_error["errors"]["first_name"] = "First name is required"
@@ -94,7 +94,8 @@ def sign_up():
 
     if form.validate_on_submit():
         user = User(
-            username=form.data['username'],
+            firstname=form.data['firstname'],
+            lastname=form.data['lastname'],
             email=form.data['email'],
             password=form.data['password']
         )
