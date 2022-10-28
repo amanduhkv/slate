@@ -1,3 +1,4 @@
+/* --------------BACKGROUND-------------- */
 #empty-div{
   background: linear-gradient(180deg, rgba(0,0,0,0.5) 20%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.5) 80%);
   position: absolute;
@@ -19,6 +20,26 @@
 }
 
 
+/* --------------TITLE SECTION-------------- */
+.login-page {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 20px 30px;
+}
+
+#logo {
+  display: flex;
+  align-items: center;
+}
+
+#logo img {
+  margin-right: 18px;
+}
+
+
+/* --------------LOGIN/SIGNUP BUTTONS-------------- */
 #login-button {
   background-color: rgba(255, 255, 255, 0.2);
   border: white 2px solid;
@@ -31,4 +52,80 @@
   color: rgba(0, 0, 0, 0.5);
   border: white 2px solid;
   padding: 7px 15px;
+}
+
+
+/* --------------NAV BUTTONS-------------- */
+#login-text {
+  color: white;
+  margin-right: 3px;
+  padding: 0 10px;
+
+  display: flex;
+  align-items: center;
+}
+
+
+/* --------------LOGIN/SIGNUP FORMS-------------- */
+#demo-user {
+  width: 100%;
+  padding: 8px;
+  background-color: white;
+  color:rgb(72, 76, 79);
+}
+
+#demo-user:hover {
+  background-color: rgba(72, 76, 79, 0.1);
+}
+
+#form-input {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+#form-input label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+#form-input input {
+  height: 35px;
+  border: 1px solid rgb(195, 195, 195);
+  border-radius: 4px;
+  padding: 0 10px;
+}
+
+#form-input input::placeholder {
+  opacity: 70%;
+  font-family: 'Noto Sans', Helvetica, Arial, sans-serif;
+}
+
+#login-err {
+  color: red;
+  font-size: 12px;
+}
+
+#login-signup-button {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  padding: 8px;
+  background-color: white;
+  color:rgb(72, 76, 79);
+}
+
+#login-signup-button svg {
+  margin-right: 8px;
+}
+
+#login-signup-button:hover {
+  color:rgba(72, 76, 79, 0.6);
+}
+
+#login-submit {
+  width: 100%;
+  padding: 8px;
+  margin-top: 15px;
 }

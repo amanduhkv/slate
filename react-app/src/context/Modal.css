@@ -21,8 +21,7 @@
   position: absolute;
   background-color: white;
   border-radius: 12px;
-  width: 100%;
-  max-width: 920px;
-  min-width: 700px;
+  width: 368px;
+  height: 505px;
   padding: 20px;
 }

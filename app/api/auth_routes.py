@@ -45,9 +45,9 @@ def login():
         "errors": {}
     }
     if not form.data['email']:
-        login_val_error["errors"]["credential"] = "Email is required"
+        login_val_error["errors"]["credential"] = "Please enter a valid email."
     if not form.data['password']:
-        login_val_error["errors"]["password"] = "Password is required"
+        login_val_error["errors"]["password"] = "Password is incorrect."
     if len(login_val_error["errors"]) > 0:
         return jsonify(login_val_error), 400
 
