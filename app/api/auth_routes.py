@@ -82,13 +82,14 @@ def sign_up():
         "status_code": 400,
         "errors": {}
     }
+    print("This is the data", form.data)
     if "@" not in form.data['email'] or "." not in form.data['email']:
         login_val_error["errors"]["email"] = "Please enter a valid email."
 
-    if not form.data['first_name']:
-        login_val_error["errors"]["first_name"] = "First name is required"
-    if not form.data['last_name']:
-        login_val_error["errors"]["last_name"] = "Last name is required"
+    if not form.data['firstname']:
+        login_val_error["errors"]["firstname"] = "First name is required"
+    if not form.data['lastname']:
+        login_val_error["errors"]["lastname"] = "Last name is required"
     if len(login_val_error["errors"]) > 0:
         return jsonify(login_val_error), 400
 
