@@ -8,12 +8,14 @@ import backgd from '../../../icons/login-bckgd.svg'
 import slate from '../../../icons/slate-white.png';
 import './LoginPage.css';
 import LoginForm from '../LoginForm';
+import SignUpForm from '../SignUpForm';
 
 const LoginPage = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showLogModal, setShowLogModal] = useState(false);
+  const [showSignModal, setShowSignModal] = useState(false);
 
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
@@ -63,15 +65,31 @@ const LoginPage = () => {
       <div>
         <button
           id='login-button'
-          onClick={() => setShowLogModal(true)}
+          onClick={() => {
+            setShowLogModal(true)
+            setShowSignModal(false)
+          }}
         >
             Log in
         </button>
-        <button id='signup-button'>Sign up</button>
+        <button
+          id='signup-button'
+          onClick={() => {
+            setShowSignModal(true)
+            setShowLogModal(false)
+          }}
+        >
+          Sign up
+        </button>
       </div>
       {showLogModal && (
-        <Modal>
+        <Modal onClose={() => setShowLogModal(false)}>
           <LoginForm />
+        </Modal>
+      )}
+      {showSignModal && (
+        <Modal onClose={() => setShowSignModal(false)}>
+          <SignUpForm />
         </Modal>
       )}
     </div>
