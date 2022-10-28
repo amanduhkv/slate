@@ -78,7 +78,7 @@ export const getADesign = (id) => async dispatch => {
 
 // ------------------------ CREATE ------------------------
 export const createDesign = (design) => async dispatch => {
-  const response = await fetch('/api/designs', {
+  const response = await fetch('/api/designs/new', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',

@@ -13,6 +13,7 @@ import User from './components/User';
 import Designs from './components/Designs';
 import UserDesigns from './components/Designs/UserDesigns';
 import SingleDesign from './components/Designs/SingleDesign';
+import CreateDesign from './components/CreateDesignForm';
 
 function App() {
   const user = useSelector(state => state.session.user);
@@ -57,6 +58,10 @@ function App() {
         <Route path='/designs/current' exact={true}>
           <NavBar />
           <UserDesigns />
+        </Route>
+        <Route path='/designs/new'>
+          <NavBar />
+          <CreateDesign />
         </Route>
         <Route path='/designs/:designId' exact={true}>
           <NavBar />
