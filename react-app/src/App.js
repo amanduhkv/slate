@@ -11,6 +11,8 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import Designs from './components/Designs';
+import UserDesigns from './components/Designs/UserDesigns';
+import SingleDesign from './components/Designs/SingleDesign';
 
 function App() {
   const user = useSelector(state => state.session.user);
@@ -52,7 +54,15 @@ function App() {
           <User />
         </ProtectedRoute>
          */}
-        <Route path='/designs'>
+        <Route path='/designs/current' exact={true}>
+          <NavBar />
+          <UserDesigns />
+        </Route>
+        <Route path='/designs/:designId' exact={true}>
+          <NavBar />
+          <SingleDesign />
+        </Route>
+        <Route path='/designs' exact={true}>
           <NavBar />
           <Designs />
         </Route>

@@ -5,29 +5,12 @@ import LogoutButton from './auth/LogoutButton';
 import './NavBar.css';
 
 import slate from '../icons/slate.png';
+import avi from '../icons/avi.svg';
 import LoginForm from './auth/LoginForm';
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
 
-  let sessionLinks;
-  if(sessionUser) {
-    sessionLinks = (
-      <>
-        <div>
-          <NavBar />
-        </div>
-      </>
-    )
-  } else {
-    sessionLinks = (
-      <>
-        <div>
-          <LoginForm />
-        </div>
-      </>
-    )
-  }
 
   return (
     <nav>
@@ -55,7 +38,9 @@ const NavBar = () => {
         <button>
           Create a design
         </button>
-        <div id='user-initial'>A</div>
+        <div id='user-initial'>
+          {sessionUser ? sessionUser.firstname[0] : {avi}}
+        </div>
         <LogoutButton />
       </div>
     </nav>
