@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SelectMultipleField, SubmitField
+from wtforms import StringField, MultipleFileField, SelectMultipleField, SubmitField
 from wtforms.validators import DataRequired
 
 from ..seeds.fonts import fonts
@@ -11,7 +11,7 @@ for font in fonts:
 # SelectMultipleField choices must be list of tuples: (alias, name)
 class AddBrandForm(FlaskForm):
   name = StringField('Name', validators=[DataRequired()])
-  logo = StringField('Brand Logo (optional)')
+  logo = MultipleFileField('Brand Logo (optional)')
   fonts = SelectMultipleField('Brand Fonts (select up to 3)', choices=f)
   colors = SelectMultipleField('Brand Colors (select up to 5)', choices=[('red', 'red'), ('blue', 'blue'), ('green', 'green'), ('yellow', 'yellow'), ('pink', 'pink'), ('orange', 'orange'), ('magenta', 'magenta'), ('periwinkle', 'periwinkle')])
 

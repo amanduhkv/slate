@@ -3,6 +3,7 @@ from app.models import Design, Brand, User, db
 from app.models.brands import Logo, Color, Font
 
 from ..forms.add_brand_form import AddBrandForm
+from ..forms.delete_brand_form import DeleteBrandForm
 
 from flask_login import current_user, login_user, logout_user, login_required
 
@@ -150,23 +151,23 @@ def add_brand():
   if len(login_val_error["errors"]) > 0:
       return jsonify(login_val_error), 400
 
-  # print(form.data['fonts'])
+  print(form.data['logo'])
 
   if form.validate_on_submit():
     logo_lst = []
     for logo in form.data['logo']:
       l = [Logo(url=logo)]
-      logo_lst.append(l)
+      logo_lst.extend(l)
 
     font_lst = []
     for font in form.data['fonts']:
       f = [Font(name=font)]
-      font_lst.append(f)
+      font_lst.extend(f)
 
     color_lst = []
     for color in form.data['colors']:
       c = [Color(name=color)]
-      color_lst.append(c)
+      color_lst.extend(c)
 
     brand = Brand(
       user_id=user_id,
@@ -180,8 +181,8 @@ def add_brand():
     db.session.commit()
 
     logo_lst = [l.to_dict() for l in brand.logo]
-    font_lst = [f.to_dict() for f in brand.fonts]
-    color_lst = [c.to_dict() for c in brand.colors]
+    font_lst = [f.to_dict() for f in brand.font]
+    color_lst = [c.to_dict() for c in brand.color]
 
     new_brand = brand.to_dict()
     new_brand['Logos'] = logo_lst
@@ -194,3 +195,110 @@ def add_brand():
 
 
 # UPDATE BRAND ----------------------------------------------
+@brands_routes.route('/<int:brand_id>', methods=['PUT'])
+@login_required
+def edit_brand(brand_id):
+  user = current_user.to_dict()
+  user_id = user['id']
+
+  form = AddBrandForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
+
+  brand_update = Brand.query.get(brand_id)
+  if not brand_update:
+    return jsonify({
+      "message": "Brand could not be found.",
+      "status_code": 404
+    })
+
+  # Body validation error handlers:
+  login_val_error = {
+      "message": "Validation error",
+      "status_code": 400,
+      "errors": {}
+  }
+
+  if not form.data['name']:
+      login_val_error["errors"]["name"] = "Name of brand is is required."
+  if len(login_val_error["errors"]) > 0:
+      return jsonify(login_val_error), 400
+
+  # Check if current user owns this brand
+  if user_id != brand_update.to_dict()['user_id']:
+      return {
+        "message": "Forbidden",
+        "status_code": 403
+      }, 403
+
+  if user_id == brand_update.to_dict()['user_id']:
+      if form.validate_on_submit():
+        logo_lst = []
+        for logo in form.data['logo']:
+          l = [Logo(url=logo)]
+          logo_lst.extend(l)
+
+        font_lst = []
+        for font in form.data['fonts']:
+          f = [Font(name=font)]
+          font_lst.extend(f)
+
+        color_lst = []
+        for color in form.data['colors']:
+          c = [Color(name=color)]
+          color_lst.extend(c)
+
+        brand_update.user_id = user_id
+        brand_update.name = form.data['name']
+        brand_update.logo = logo_lst
+        brand_update.font = font_lst
+        brand_update.color = color_lst
+
+        db.session.commit()
+
+        logo_lst = [l.to_dict() for l in brand_update.logo]
+        font_lst = [f.to_dict() for f in brand_update.font]
+        color_lst = [c.to_dict() for c in brand_update.color]
+
+        b = brand_update.to_dict()
+        b['Logos'] = logo_lst
+        b['Fonts'] = font_lst
+        b['Colors'] = color_lst
+        return b
+
+      else:
+        return {
+          'errors': validation_errors_to_error_messages(form.errors)
+          }, 400
+
+  else:
+        return {"message": "Forbidden", "status_code": 403}, 403
+
+
+# DELETE BRAND -------------------------------------------------
+@brands_routes.route('/<int:brand_id>', methods=['DELETE'])
+@login_required
+def delete_brand(brand_id):
+  user = current_user.to_dict()
+  user_id = user['id']
+
+  form = DeleteBrandForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
+
+  delete_brand = Brand.query.get(brand_id)
+
+  if not delete_brand:
+    return jsonify({
+      "message": 'Brand could not be found.',
+      "status_code": 404
+    }), 404
+
+  if user_id == delete_brand.to_dict()['user_id']:
+    if form.validate_on_submit():
+      db.session.delete(delete_brand)
+      db.session.commit()
+      return {
+        "message": "Successfully deleted brand.",
+        "status_code": 200
+      }
+    else:
+      return {"message": "Forbidden", "status_code": 403}, 403

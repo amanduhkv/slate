@@ -1,0 +1,25 @@
+nav {
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-shadow: 0 2px 5px .5px rgb(225, 225, 225);
+  /* border-bottom: 1px solid rgb(225, 225, 225); */
+}
+
+.left-nav {
+  display: flex;
+  align-items: center;
+}
+
+#user-initial {
+  background-color: rgb(72,58,199);
+  color: white;
+  font-size: 20px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
