@@ -130,14 +130,20 @@ def add_design():
       for alias in form.data['template']:
         filtered_temp = [i for i in templates if i['alias'] == alias]
         form.data['template'] = filtered_temp
-        # filtered_temp.extend(filtered_temp)
-        temp_list.append(filtered_temp)
-      # for alias in form.data['template']:
-      #   filtered_temp = [i for i in templates if i['alias'] == alias]
-        # t = (Template(name=filtered_temp['title'], alias=filtered_temp['alias']))
-        # temp_list.append(t)
+        if type(filtered_temp) is list:
+          for i in filtered_temp:
+            new_list = list(i.values())
+            alias = new_list[0]
+            title = new_list[1]
+            t = (Template(name=title, alias=alias))
+            temp_list.append(t)
+
       print('FILTERED', filtered_temp)
-      print('TEMP LIST', form.data['template'])
+      print('TEMP LIST', temp_list)
+      print('NEW LIST', new_list)
+      # print('LISTED', [(k, *v) for i in temp_list for k,v in i.items()])
+      print('FORM DATA', t)
+
 
       design = Design(
         user_id=user_id,
