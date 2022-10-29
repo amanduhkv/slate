@@ -24,18 +24,20 @@ for temp in templates:
 
 
 def seed_designs():
+  templates = Template.query.all()
+
   business = Design(
              name='business',
              user_id=1,
-             template=[t])
+             template=templates)
   social_media = Design(
                  name='social_media',
                  user_id=1,
-                 template=[t])
+                 template=templates)
   marketing = Design(
               name='marketing',
               user_id=1,
-              template=[t])
+              template=templates)
 
   db.session.add(business)
   db.session.add(social_media)

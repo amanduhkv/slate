@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, session, request
 from app.models import Design, Brand, User, db
+from app.models.designs import Template
 
 from flask_login import current_user, login_user, logout_user, login_required
 
@@ -28,15 +29,16 @@ def validation_errors_to_error_messages(validation_errors):
 def all_designs():
   design = Design.query.all()
   all_des = [des.to_dict() for des in design]
+  print('designs', all_des)
 
-  templates = Template.query.all()
-
-  templates_lst = []
-  if templates:
-    templates_lst = [template.to_dict() for template in templates]
+  # templates = Template.query.all()
+  # all_temps = [temp.to_dict() for temp in templates]
+  # print('temps', templates)
+  # print('temps to dict', all_temps)
 
   for des in all_des:
-    des['Templates'] = templates_lst
+    templates = [temp.to_dict() for temp in des['template']]
+    des['template'] = templates
 
   return jsonify({ 'Designs': all_des })
 
@@ -46,11 +48,6 @@ def all_designs():
 def get_one_design(design_id):
   design = Design.query.get(design_id)
 
-  templates = Template.query.all()
-
-  templates_lst = []
-  if templates:
-    templates_lst = [template.to_dict() for template in templates]
 
   if not design:
     return jsonify({

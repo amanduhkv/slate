@@ -47,8 +47,6 @@ class Template(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.String(255), nullable=False)
   alias = db.Column(db.String(255))
-  design_id = db.Column(db.Integer, db.ForeignKey('designs.id'))
-  brand_id = db.Column(db.Integer, db.ForeignKey('brands.id'))
 
   design = db.relationship(
     'Design',
@@ -73,7 +71,6 @@ class Shape(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.String(255), nullable=False)
   url = db.Column(db.String(255), nullable=False)
-  template_id = db.Column(db.Integer, db.ForeignKey('templates.id'))
 
   templates = db.relationship(
     'Template',
@@ -84,6 +81,5 @@ class Shape(db.Model):
     return {
       'id': self.id,
       'name': self.name,
-      'url': self.url,
-      'template_id': self.template_id
+      'url': self.url
     }

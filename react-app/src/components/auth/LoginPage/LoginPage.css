@@ -111,6 +111,7 @@
 
 #form-input-1 input {
   width: 7.5vw;
+  min-width: 120px;
 }
 
 #form-input-1 input:first-of-type {
