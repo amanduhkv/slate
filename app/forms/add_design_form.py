@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SelectField, SubmitField
+from wtforms import StringField, SelectMultipleField, SubmitField
 from wtforms.validators import DataRequired
 
 templates = [
@@ -16,6 +16,6 @@ templates = [
 
 class AddDesignForm(FlaskForm):
   name = StringField('Name', validators=[DataRequired()])
-  template = SelectField('Design dimensions (select one)', validators=[DataRequired()], choices=templates)
+  template = SelectMultipleField('Design dimensions (select up to 3)', validators=[DataRequired()], choices=templates)
 
   submit = SubmitField('Enter')
