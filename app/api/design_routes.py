@@ -138,11 +138,11 @@ def add_design():
             t = (Template(name=title, alias=alias))
             temp_list.append(t)
 
-      print('FILTERED', filtered_temp)
-      print('TEMP LIST', temp_list)
-      print('NEW LIST', new_list)
-      # print('LISTED', [(k, *v) for i in temp_list for k,v in i.items()])
-      print('FORM DATA', t)
+      # print('FILTERED', filtered_temp)
+      # print('TEMP LIST', temp_list)
+      # print('NEW LIST', new_list)
+      # # print('LISTED', [(k, *v) for i in temp_list for k,v in i.items()])
+      # print('FORM DATA', t)
 
 
       design = Design(
@@ -171,7 +171,7 @@ def edit_design(design_id):
   user = current_user.to_dict()
   user_id = user['id']
 
-  form = EditDesignForm()
+  form = AddDesignForm()
   form['csrf_token'].data = request.cookies['csrf_token']
 
   design_update = Design.query.get(design_id)
@@ -190,6 +190,8 @@ def edit_design(design_id):
 
   if not form.data['name']:
       login_val_error["errors"]["name"] = "Name of design is is required."
+  if not form.data['template']:
+      login_val_error["errors"]["template"] = "Please select the template(s) for this design."
   if len(login_val_error["errors"]) > 0:
       return jsonify(login_val_error), 400
 
@@ -202,12 +204,29 @@ def edit_design(design_id):
 
   if user_id == design_update.to_dict()['user_id']:
       if form.validate_on_submit():
+        temp_list = []
+
+        for alias in form.data['template']:
+          filtered_temp = [i for i in templates if i['alias'] == alias]
+          form.data['template'] = filtered_temp
+          if type(filtered_temp) is list:
+            for i in filtered_temp:
+              new_list = list(i.values())
+              alias = new_list[0]
+              title = new_list[1]
+              t = (Template(name=title, alias=alias))
+              temp_list.append(t)
+
         design_update.user_id = user_id
         design_update.name = form.data['name']
+        design_update.template = temp_list
 
         db.session.commit()
 
+        temp_list_dict = [temp.to_dict() for temp in design_update.template]
+
         des = design_update.to_dict()
+        des['template'] = temp_list_dict
         return des
 
       else:
