@@ -1,4 +1,4 @@
-from app.models import db, Design, User, Brand, Template
+from app.models import db, Design, User, Brand
 
 def seed_brands():
   neutrals = Brand(name='Neutrals', user_id=1)

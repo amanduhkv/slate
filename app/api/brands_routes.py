@@ -151,7 +151,7 @@ def add_brand():
   if len(login_val_error["errors"]) > 0:
       return jsonify(login_val_error), 400
 
-  print(form.data['logo'])
+  # print(form.data['logo'])
 
   if form.validate_on_submit():
     logo_lst = []

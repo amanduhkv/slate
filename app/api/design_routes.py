@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import Design, Brand, User, Template, db
+from app.models import Design, Brand, User, db
+from app.models.designs import Template
 
 from flask_login import current_user, login_user, logout_user, login_required
 
@@ -28,15 +29,16 @@ def validation_errors_to_error_messages(validation_errors):
 def all_designs():
   design = Design.query.all()
   all_des = [des.to_dict() for des in design]
+  print('designs', all_des)
 
-  templates = Template.query.all()
-
-  templates_lst = []
-  if templates:
-    templates_lst = [template.to_dict() for template in templates]
+  # templates = Template.query.all()
+  # all_temps = [temp.to_dict() for temp in templates]
+  # print('temps', templates)
+  # print('temps to dict', all_temps)
 
   for des in all_des:
-    des['Templates'] = templates_lst
+    templates = [temp.to_dict() for temp in des['template']]
+    des['template'] = templates
 
   return jsonify({ 'Designs': all_des })
 
@@ -46,11 +48,6 @@ def all_designs():
 def get_one_design(design_id):
   design = Design.query.get(design_id)
 
-  templates = Template.query.all()
-
-  templates_lst = []
-  if templates:
-    templates_lst = [template.to_dict() for template in templates]
 
   if not design:
     return jsonify({
@@ -59,7 +56,9 @@ def get_one_design(design_id):
     }), 404
 
   des = design.to_dict()
-  des['Templates'] = templates_lst
+
+  templates = [temp.to_dict() for temp in des['template']]
+  des['template'] = templates
 
   return des
 
@@ -77,15 +76,12 @@ def get_all_user_designs():
   all_designs = [des.to_dict() for des in designs]
   current_des = []
 
-  templates = Template.query.all()
 
-  templates_lst = []
-  if templates:
-    templates_lst = [template.to_dict() for template in templates]
 
   if len(all_designs) > 0:
     for design in all_designs:
-      design['Templates'] = templates_lst
+      templates = [temp.to_dict() for temp in design['template']]
+      design['template'] = templates
       current_des.append(design)
     return jsonify({
       'Designs': current_des
@@ -93,7 +89,19 @@ def get_all_user_designs():
   return 'Current user does not have any designs yet.'
 
 
+
 #CREATE A DESIGN -------------------------------------
+templates = [
+  { 'alias': 'presentation', 'title': 'Presentation (1920 x 1080 px)' },
+  { 'alias': 'website', 'title': 'Website (1366 x 768 px)' },
+  { 'alias': 'resume', 'title': 'Resume (8.5 x 11 in)' },
+  { 'alias': 'igpost', 'title': 'Instagram Post (1080 x 1080 px)' },
+  { 'alias': 'igstory', 'title': 'Instagram Story (1080 x 1920 px)' },
+  { 'alias': 'fbpost', 'title': 'Facebook Post (940 x 788 px)' },
+  { 'alias': 'invitation', 'title': 'Invitation (5 x 7 in)' },
+  { 'alias': 'businesscard', 'title': 'Business Card (3.5 x 2 in)' },
+  { 'alias': 'infograph', 'title': 'Infographic (1080 x 1920 px)' }
+]
 @design_routes.route('/new', methods=['POST'])
 @login_required
 def add_design():
@@ -101,7 +109,7 @@ def add_design():
   user_id = user['id']
   form = AddDesignForm()
   form['csrf_token'].data = request.cookies['csrf_token']
-
+  # print('FORM DATA', form.data)
   # Body validation error handlers:
   login_val_error = {
       "message": "Validation error",
@@ -111,19 +119,46 @@ def add_design():
 
   if not form.data['name']:
       login_val_error["errors"]["name"] = "Name of design is is required."
+  if not form.data['template']:
+      login_val_error["errors"]["template"] = "Please select the template(s) for this design."
   if len(login_val_error["errors"]) > 0:
       return jsonify(login_val_error), 400
 
   if form.validate_on_submit():
+      temp_list = []
+
+      for alias in form.data['template']:
+        filtered_temp = [i for i in templates if i['alias'] == alias]
+        form.data['template'] = filtered_temp
+        if type(filtered_temp) is list:
+          for i in filtered_temp:
+            new_list = list(i.values())
+            alias = new_list[0]
+            title = new_list[1]
+            t = (Template(name=title, alias=alias))
+            temp_list.append(t)
+
+      # print('FILTERED', filtered_temp)
+      # print('TEMP LIST', temp_list)
+      # print('NEW LIST', new_list)
+      # # print('LISTED', [(k, *v) for i in temp_list for k,v in i.items()])
+      # print('FORM DATA', t)
+
+
       design = Design(
         user_id=user_id,
-        name=form.data["name"]
+        name=form.data["name"],
+        template=temp_list
       )
 
       db.session.add(design)
       db.session.commit()
 
+      temp_list_dict = [temp.to_dict() for temp in design.template]
+
       des = design.to_dict()
+      des['template'] = temp_list_dict
+
       return des
 
   return {'errors': validation_errors_to_error_messages(form.errors)}, 401
@@ -136,7 +171,7 @@ def edit_design(design_id):
   user = current_user.to_dict()
   user_id = user['id']
 
-  form = EditDesignForm()
+  form = AddDesignForm()
   form['csrf_token'].data = request.cookies['csrf_token']
 
   design_update = Design.query.get(design_id)
@@ -155,6 +190,8 @@ def edit_design(design_id):
 
   if not form.data['name']:
       login_val_error["errors"]["name"] = "Name of design is is required."
+  if not form.data['template']:
+      login_val_error["errors"]["template"] = "Please select the template(s) for this design."
   if len(login_val_error["errors"]) > 0:
       return jsonify(login_val_error), 400
 
@@ -167,12 +204,29 @@ def edit_design(design_id):
 
   if user_id == design_update.to_dict()['user_id']:
       if form.validate_on_submit():
+        temp_list = []
+
+        for alias in form.data['template']:
+          filtered_temp = [i for i in templates if i['alias'] == alias]
+          form.data['template'] = filtered_temp
+          if type(filtered_temp) is list:
+            for i in filtered_temp:
+              new_list = list(i.values())
+              alias = new_list[0]
+              title = new_list[1]
+              t = (Template(name=title, alias=alias))
+              temp_list.append(t)
+
         design_update.user_id = user_id
         design_update.name = form.data['name']
+        design_update.template = temp_list
 
         db.session.commit()
 
+        temp_list_dict = [temp.to_dict() for temp in design_update.template]
+
         des = design_update.to_dict()
+        des['template'] = temp_list_dict
         return des
 
       else:

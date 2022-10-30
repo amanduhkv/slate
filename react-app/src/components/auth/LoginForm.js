@@ -62,7 +62,7 @@ const LoginForm = () => {
           onChange={updateEmail}
         />
         <div id='login-err'>
-          {errors.map((error) => error.toLowerCase().includes('email') ? error : null)}
+          {errors.map((error) => error.includes('Email') ? error : null)}
         </div>
       </div>
       <div id='form-input'>

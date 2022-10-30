@@ -1,5 +1,5 @@
 from app.models import db
-from app.models.templates import Shape
+from app.models.designs import Shape
 
 shapes = [
   {
