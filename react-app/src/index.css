@@ -1,5 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;400;500;600;700;800;900&family=Source+Sans+Pro&display=swap');
 /* TODO Add site wide styles */
+
+* {
+  box-sizing: border-box;
+  font-family: 'Noto Sans', Helvetica, Arial, sans-serif;
+}
 
 html, body {
   top: 0;
@@ -24,13 +29,13 @@ div {
 }
 
 button {
-  background-color: rgb(139,61,255);
+  background-color: rgb(153, 170, 179);
   color: white;
   border: 2px solid transparent;
   font-family: 'Noto Sans', Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-weight: 600;
-  padding: 0px 6px;
+  padding: 0px 12px;
   border-radius: 3px;
 }
 

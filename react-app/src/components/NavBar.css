@@ -1,9 +1,10 @@
+/* ------------------------- OVERALL LAYOUT ------------------------- */
 nav {
   justify-content: space-between;
   align-items: center;
   width: 100%;
   box-shadow: 0 2px 5px .5px rgb(225, 225, 225);
-  /* border-bottom: 1px solid rgb(225, 225, 225); */
+  padding: 22px;
 }
 
 .left-nav {
@@ -11,15 +12,65 @@ nav {
   align-items: center;
 }
 
+.logo {
+  margin-right: 20px;
+}
+
+.logo:hover {
+  cursor: pointer;
+}
+
+.right-nav {
+  display: flex;
+}
+
 #user-initial {
-  background-color: rgb(72,58,199);
+  background-color: rgb(75,97,110);
   color: white;
   font-size: 20px;
   border-radius: 50%;
   width: 40px;
   height: 40px;
+  margin: 0 14px;
 
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* ---------------------------- REDIRECTS/DROPDOWNS ---------------------------- */
+#hamburger {
+  margin-right: 14px;
+  background-color: white;
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+}
+
+#hamburger:hover {
+  background-color: rgb(245, 245, 245);
+  cursor: pointer;
+}
+
+#hamburger svg {
+  text-align: center;
+  width: 24px;
+  height: 24px;
+}
+
+#nav-title-buttons {
+  background-color: white;
+  color: rgb(72, 76, 79);
+
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+}
+
+#nav-title-buttons:hover {
+  background-color: rgb(245, 245, 245);
 }
