@@ -8,6 +8,7 @@ import ig from '../../icons/ig.png';
 import invite from '../../icons/invite.png';
 import squiggles from '../../icons/squiggles.png';
 import './index.css';
+import NavBar from "../NavBar";
 
 export default function Designs() {
   const designs = useSelector(state => state.designs.allDesigns);
@@ -23,6 +24,7 @@ export default function Designs() {
 
   return (
     <div>
+      <NavBar />
       <div className="title-box">
         <h1 id='box-title'>Thanks for being you!</h1>
         <div className="box-temp-buttons-container">

@@ -1,10 +1,13 @@
 /* ------------------------- OVERALL LAYOUT ------------------------- */
 nav {
+  /* position: absolute;
+  z-index: 5; */
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  box-shadow: 0 2px 5px .5px rgb(225, 225, 225);
+  box-shadow: 0 2px 5px .5px rgba(0, 0, 0, 0.2);
   padding: 22px;
+  background-color: white;
 }
 
 .left-nav {
@@ -38,6 +41,10 @@ nav {
   align-items: center;
 }
 
+#user-initial:hover {
+  cursor: pointer;
+}
+
 /* ---------------------------- REDIRECTS/DROPDOWNS ---------------------------- */
 #hamburger {
   margin-right: 14px;
@@ -65,6 +72,7 @@ nav {
 #nav-title-buttons {
   background-color: white;
   color: rgb(72, 76, 79);
+  font-weight: 400;
 
   display: flex;
   align-items: center;
@@ -72,5 +80,131 @@ nav {
 }
 
 #nav-title-buttons:hover {
+  background-color: rgb(245, 245, 245);
+}
+
+/* ----------------- PROFILE BUTTON ----------------- */
+
+.profile-dropdown {
+  position: absolute;
+  background-color: white;
+  width: 300px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  top: 72px;
+  right: 40px;
+
+  border-radius: 6px;
+  border: 1px solid rgb(235, 235, 235);
+}
+
+#icon-name {
+  display: flex;
+  align-items: center;
+
+}
+
+#logout {
+  padding: 10px 0;
+}
+
+#logout-button {
+  padding: 20px;
+  width: 100%;
+  height: 20px;
+
+  background-color: white;
+  color: rgb(72, 76, 79);
+  font-weight: 400;
+  text-align: left;
+
+  display: flex;
+  align-items: center;
+}
+
+#logout-button:hover {
+  background-color: rgb(245, 245, 245);
+}
+
+#user-details {
+  padding: 20px;
+  border-bottom: 1px solid rgb(235, 235, 235);
+}
+
+#user-email {
+  margin: 5px 0;
+  font-weight: 400;
+  font-size: 12px;
+  color: rgb(156, 156, 156)
+}
+
+#user-initial-big {
+  background-color: rgb(75,97,110);
+  color: white;
+  font-size: 30px;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin: 0 14px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#user-name {
+  font-size: 20px;
+  margin: 0;
+}
+
+/* ----------------- HAMBURGER DD ----------------- */
+.ham-dropdown {
+  position: absolute;
+  background-color: white;
+  width: 300px;
+  height: 100vh;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: auto;
+  top: 87px;
+  left: 0;
+
+  /* border: 1px solid rgb(235, 235, 235); */
+}
+
+/* -------------------- DES DD -------------------- */
+.des-dropdown {
+  position: absolute;
+  background-color: white;
+  width: 200px;
+
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: auto;
+  top: 75px;
+  left: 178px;
+
+  border-radius: 6px;
+  border: 1px solid rgb(235, 235, 235);
+  text-align: left;
+  padding: 20px;
+
+  font-weight: 700;
+  font-size: 16px;
+  color: rgb(72, 76, 79);
+  cursor: default;
+}
+
+.des-dropdown a {
+  display: flex;
+  margin-top: 10px;
+  padding: 8px;
+
+  color: rgb(72, 76, 79);
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.des-dropdown a:hover {
   background-color: rgb(245, 245, 245);
 }

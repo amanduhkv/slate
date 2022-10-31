@@ -68,7 +68,6 @@ function App() {
           <SingleDesign />
         </Route>
         <Route path='/designs' exact={true}>
-          <NavBar />
           <Designs />
         </Route>
       </Switch>
