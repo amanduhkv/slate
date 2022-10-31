@@ -47,8 +47,8 @@ const SignUpForm = () => {
   return (
     <form onSubmit={onSignUp}>
       <h1>Log in or sign up in seconds</h1>
-      <p>Use your email or login as a demo user to continue with Slate (it's free!)</p>
-      <button
+      <p>Use your email to sign up with Slate (it's free!)</p>
+      {/* <button
         id='demo-user'
         onClick={(e) => {
           updateEmail('periwinkle@user.io')
@@ -56,7 +56,7 @@ const SignUpForm = () => {
         }}
       >
         Continue with Demo User
-      </button>
+      </button> */}
       <div>
       <div id='form-input-1'>
         <div>

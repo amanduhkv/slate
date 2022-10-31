@@ -60,7 +60,7 @@ function App() {
           <UserDesigns />
         </Route>
         <Route path='/designs/new'>
-          <NavBar />
+          {/* <NavBar /> */}
           <CreateDesign />
         </Route>
         <Route path='/designs/:designId' exact={true}>
@@ -68,7 +68,6 @@ function App() {
           <SingleDesign />
         </Route>
         <Route path='/designs' exact={true}>
-          <NavBar />
           <Designs />
         </Route>
       </Switch>

@@ -58,13 +58,54 @@
 /* --------------NAV BUTTONS-------------- */
 #login-text {
   color: white;
-  margin-right: 3px;
-  padding: 0 10px;
+  margin-left: 10px;
+  padding: 10px 20px;
+  border-radius: 4px;
 
   display: flex;
   align-items: center;
 }
 
+#login-text:hover {
+  background-color: rgba(245, 245, 245, 0.2);
+}
+
+.des-dropdown-login {
+  position: absolute;
+  background-color: white;
+  width: 200px;
+
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: auto;
+  top: 75px;
+  left: 140px;
+
+  border-radius: 6px;
+  border: 1px solid rgb(235, 235, 235);
+  text-align: left;
+  padding: 20px;
+
+  font-weight: 700;
+  font-size: 16px;
+  color: rgb(72, 76, 79);
+  cursor: default;
+}
+
+.des-dropdown-login a {
+  display: flex;
+  margin-top: 10px;
+  padding: 8px;
+
+  color: rgb(72, 76, 79);
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.des-dropdown-login a:hover {
+  background-color: rgb(245, 245, 245);
+}
 
 /* --------------LOGIN/SIGNUP FORMS-------------- */
 #demo-user {
