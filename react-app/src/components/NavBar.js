@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
+import { getAllDesigns, clearData } from "../store/designs";
+
 import './NavBar.css';
 
 import slate from '../icons/slate.png';
@@ -11,11 +13,21 @@ import Designs from './Designs';
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
+  const designs = useSelector(state => state.designs.allDesigns);
 
   const [showProfMenu, setShowProfMenu] = useState(false);
   const [showHamMenu, setShowHamMenu] = useState(false);
   const [showDesMenu, setShowDesMenu] = useState(false);
+  const [showCreateMenu, setShowCreateMenu] = useState(false);
   const history = useHistory();
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllDesigns())
+
+    return () => dispatch(clearData())
+  }, [dispatch])
 
   // OPEN/CLOSE MENU FXNS ---------------------------------------------------
   const openProfMenu = () => {
@@ -32,6 +44,10 @@ const NavBar = () => {
   };
   const closeDesMenu = () => {
     setShowDesMenu(false);
+  };
+  const openCreateMenu = () => {
+    if (showCreateMenu) return;
+    setShowCreateMenu(true);
   };
   // MENU USE-EFFECTS -------------------------------------------------
   useEffect(() => {
@@ -51,6 +67,15 @@ const NavBar = () => {
     document.addEventListener('click', closeHamMenu);
     return () => document.removeEventListener("click", closeHamMenu);
   }, [showHamMenu]);
+
+  useEffect(() => {
+    if (!showCreateMenu) return;
+    const closeCreateMenu = () => {
+      setShowCreateMenu(false);
+    };
+    document.addEventListener('click', closeCreateMenu);
+    return () => document.removeEventListener("click", closeCreateMenu);
+  }, [showCreateMenu]);
 
 
   return (
@@ -107,10 +132,22 @@ const NavBar = () => {
 
       <div className='right-nav'>
         <button
-          onClick={() => window.location = '/designs/new'}
+          onClick={openCreateMenu}
         >
           Create a design
         </button>
+        {showCreateMenu && (
+          <div className='create-dropdown'>
+            {Object.values(designs)[0]?.template.map(temp => (
+              <div
+                onClick={() => history.push(`/designs/new/${temp.alias}`)}
+                id='temp-name'
+              >
+                {temp.name}
+              </div>
+            ))}
+          </div>
+        )}
         <div id='user-initial' onClick={openProfMenu}>
           {sessionUser ? sessionUser.firstname[0] : <img src={avi} height='20px' />}
         </div>

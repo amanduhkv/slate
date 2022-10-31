@@ -60,7 +60,7 @@ function App() {
           <UserDesigns />
         </Route>
         <Route path='/designs/new'>
-          <NavBar />
+          {/* <NavBar /> */}
           <CreateDesign />
         </Route>
         <Route path='/designs/:designId' exact={true}>

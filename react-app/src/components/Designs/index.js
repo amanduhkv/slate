@@ -7,13 +7,26 @@ import web from '../../icons/website.png';
 import ig from '../../icons/ig.png';
 import invite from '../../icons/invite.png';
 import squiggles from '../../icons/squiggles.png';
+import present from '../../icons/temps/presentation.png';
+import website from '../../icons/temps/website.png';
+import resume from '../../icons/temps/resume.png';
+import igpost from '../../icons/temps/ig-post.png';
+import igstory from '../../icons/temps/ig-story.png';
+import fbpost from '../../icons/temps/fb-post.png';
+import inv from '../../icons/temps/invite.png';
+import bizcard from '../../icons/temps/biz-card.png';
+import info from '../../icons/temps/infographic.png';
+
 import './index.css';
 import NavBar from "../NavBar";
+import { useHistory } from "react-router-dom";
 
 export default function Designs() {
   const designs = useSelector(state => state.designs.allDesigns);
   const designArr = Object.values(designs);
+  const user = useSelector(state => state.session.user);
 
+  const history = useHistory();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -31,7 +44,7 @@ export default function Designs() {
           <div id='temp-button-container'>
             <button
               id='box-temp-buttons'
-              onClick={() => window.location = '/designs/new/presentation'}
+              onClick={() => history.push('/designs/new/presentation')}
             >
               <img src={pres} alt='presentation-icon' width='30px' height='30px' />
             </button>
@@ -40,7 +53,7 @@ export default function Designs() {
           <div id='temp-button-container'>
             <button
               id='box-temp-buttons'
-              onClick={() => window.location = '/designs/new/website'}
+              onClick={() => history.push('/designs/new/website')}
             >
               <img src={web} alt='website-icon' width='30px' height='30px' />
             </button>
@@ -49,7 +62,7 @@ export default function Designs() {
           <div id='temp-button-container'>
             <button
               id='box-temp-buttons'
-              onClick={() => window.location = '/designs/new/igpost'}
+              onClick={() => history.push('/designs/new/igpost')}
             >
               <img src={ig} alt='ig-icon' width='30px' height='30px' />
             </button>
@@ -58,7 +71,7 @@ export default function Designs() {
           <div id='temp-button-container'>
             <button
               id='box-temp-buttons'
-              onClick={() => window.location = '/designs/new/invitation'}
+              onClick={() => history.push('/designs/new/invitation')}
             >
               <img src={invite} alt='invitation-icon' width='30px' height='30px' />
             </button>
@@ -66,12 +79,68 @@ export default function Designs() {
           </div>
         </div>
       </div>
-      <div>
+
+
+      <div className="temp-box-container">
         <h3>You might want to try...</h3>
+        <div className="temp-cards">
+          {/* <button
+            id='left-arrow'
+            type='button'
+            onClick={() => document.getElementById('temp-box').scrollLeft += 20}
+          >
+            left
+          </button> */}
+          <div id='temp-box'>
+          {designArr[0]?.template.map(temp => (
+            <div className="temp-box">
+              <div>
+                {temp.alias === 'presentation' ?
+                  <img id='temp-img' src={present} alt='pres' width='160px' /> :
+                  temp.alias === 'website' ?
+                    <img id='temp-img' src={website} alt='pres' width='160px' /> :
+                    temp.alias === 'resume' ?
+                      <img id='temp-img' src={resume} alt='pres' width='160px' /> :
+                      temp.alias === 'igpost' ?
+                        <img id='temp-img' src={igpost} alt='pres' width='160px' /> :
+                        temp.alias === 'igstory' ?
+                          <img id='temp-img' src={igstory} alt='pres' width='160px' /> :
+                          temp.alias === 'fbpost' ?
+                            <img id='temp-img' src={fbpost} alt='pres' width='160px' /> :
+                            temp.alias === 'invitation' ?
+                              <img id='temp-img' src={inv} alt='pres' width='160px' /> :
+                              temp.alias === 'businesscard' ?
+                                <img id='temp-img' src={bizcard} alt='pres' width='160px' /> :
+                                temp.alias === 'infograph' ?
+                                  <img id='temp-img' src={info} alt='pres' width='160px' /> :
+                                  "Your template here"
+                }
+                <div>{temp.name}</div>
+              </div>
+            </div>
+          ))}
+          </div>
+          {/* <button
+            id='right-arrow'
+            type='button'
+            onClick={() => document.getElementById('temp-box').scrollRight += 5}
+          >
+            right
+          </button> */}
+        </div>
       </div>
-      <div>
+
+
+      {/* <div className="recent-container">
         <h2>Recent designs</h2>
-      </div>
+        <div>
+          {user.id && designArr.map(des => (
+            <div>
+
+            </div>
+          ))}
+        </div>
+      </div> */}
     </div>
   )
 }

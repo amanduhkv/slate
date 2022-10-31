@@ -52,3 +52,46 @@
 
   color: whitesmoke;
 }
+
+
+/* -------------------- TEMPLATE BOXES -------------------- */
+.temp-box-container {
+  padding: 30px;
+}
+
+.temp-cards {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  /* overflow-x: hidden; */
+  justify-content: center;
+
+}
+
+/* .temp-cards::-webkit-scrollbar {
+  display: none;
+} */
+
+#temp-box {
+  display: flex;
+  /* width: 400px; */
+}
+
+.temp-box {
+  /* height: 160px;
+  width: 160px; */
+  /* border: blue solid 1px;
+  border-radius: 8px; */
+  margin: 0 20px;
+
+}
+
+#temp-img {
+  border-radius: 8px;
+}
+
+
+/* --------------------- RECENT DESIGNS --------------------- */
+.recent-container {
+  margin: 30px;
+}
