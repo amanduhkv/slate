@@ -39,10 +39,23 @@
   background-color: rgb(45, 46, 47);
 }
 
+
+.temp-menu-container {
+  overflow: hidden;
+}
+
 #temp-menu-item {
+  display: flex;
+  flex-direction: column;
+
+  flex-flow: wrap row;
+  overflow: scroll;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+
   position: absolute;
   background-color: rgb(45, 46, 47);
-  width: 350px;
+  width: 360px;
   height: 100vh;
 
   z-index: 1;
@@ -55,9 +68,32 @@
   font-weight: 700;
   font-size: 16px;
   color: rgb(72, 76, 79);
-  cursor: default;
+  cursor: pointer;
+
 }
 
+#warning {
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 20px;
+  width: 20px;
+}
+
+#temp-img-des {
+  margin-right: 20px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+}
+
+#create-des-temp-button {
+  height: fit-content;
+  margin: 10px 0;
+  padding: 0;
+  width: 130px;
+}
 
 
 /* FORM AREA/NAV */

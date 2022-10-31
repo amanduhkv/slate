@@ -5,6 +5,17 @@ import { createDesign, getAllDesigns, clearData } from "../../store/designs";
 
 import './CreateDesignForm.css';
 
+
+import present from '../../icons/temps/presentation.png';
+import website from '../../icons/temps/website.png';
+import resume from '../../icons/temps/resume.png';
+import igpost from '../../icons/temps/igpost.png';
+import igstory from '../../icons/temps/igstory.png';
+import fbpost from '../../icons/temps/fbpost.png';
+import inv from '../../icons/temps/invitation.png';
+import bizcard from '../../icons/temps/businesscard.png';
+import info from '../../icons/temps/infograph.png';
+
 export default function CreateDesign() {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -57,7 +68,7 @@ export default function CreateDesign() {
     return () => document.removeEventListener("click", closeEleMenu);
   }, [showEleMenu]);
 
-   // SUBMIT FXNS ---------------------------------------------
+  // SUBMIT FXNS ---------------------------------------------
   useEffect(() => {
     const errors = [];
 
@@ -87,12 +98,12 @@ export default function CreateDesign() {
   if (alias === 'presentation') {
     template = (
       <div
-      style={{
-        width:'960px',
-        height:'540px',
-        backgroundColor:'white',
-        boxShadow:'0px 8px 16px 0px rgba(0,0,0,0.2)',
-      }}
+        style={{
+          width: '960px',
+          height: '540px',
+          backgroundColor: 'white',
+          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+        }}
       >
       </div>
     )
@@ -100,12 +111,12 @@ export default function CreateDesign() {
   if (alias === 'website') {
     template = (
       <div
-      style={{
-        width:'683px',
-        height:'384px',
-        backgroundColor:'white',
-        boxShadow:'0px 8px 16px 0px rgba(0,0,0,0.2)',
-      }}
+        style={{
+          width: '683px',
+          height: '384px',
+          backgroundColor: 'white',
+          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+        }}
       >
       </div>
     )
@@ -113,12 +124,12 @@ export default function CreateDesign() {
   if (alias === 'resume') {
     template = (
       <div
-      style={{
-        width:'637.5px',
-        height:'825px',
-        backgroundColor:'white',
-        boxShadow:'0px 8px 16px 0px rgba(0,0,0,0.2)',
-      }}
+        style={{
+          width: '637.5px',
+          height: '825px',
+          backgroundColor: 'white',
+          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+        }}
       >
       </div>
     )
@@ -126,12 +137,12 @@ export default function CreateDesign() {
   if (alias === 'igpost') {
     template = (
       <div
-      style={{
-        width:'480px',
-        height:'480px',
-        backgroundColor:'white',
-        boxShadow:'0px 8px 16px 0px rgba(0,0,0,0.2)',
-      }}
+        style={{
+          width: '480px',
+          height: '480px',
+          backgroundColor: 'white',
+          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+        }}
       >
       </div>
     )
@@ -139,12 +150,12 @@ export default function CreateDesign() {
   if (alias === 'igstory') {
     template = (
       <div
-      style={{
-        width:'540px',
-        height:'960px',
-        backgroundColor:'white',
-        boxShadow:'0px 8px 16px 0px rgba(0,0,0,0.2)',
-      }}
+        style={{
+          width: '270px',
+          height: '480px',
+          backgroundColor: 'white',
+          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+        }}
       >
       </div>
     )
@@ -152,12 +163,12 @@ export default function CreateDesign() {
   if (alias === 'fbpost') {
     template = (
       <div
-      style={{
-        width:'470px',
-        height:'394px',
-        backgroundColor:'white',
-        boxShadow:'0px 8px 16px 0px rgba(0,0,0,0.2)',
-      }}
+        style={{
+          width: '470px',
+          height: '394px',
+          backgroundColor: 'white',
+          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+        }}
       >
       </div>
     )
@@ -165,12 +176,12 @@ export default function CreateDesign() {
   if (alias === 'invitation') {
     template = (
       <div
-      style={{
-        width:'375px',
-        height:'525px',
-        backgroundColor:'white',
-        boxShadow:'0px 8px 16px 0px rgba(0,0,0,0.2)',
-      }}
+        style={{
+          width: '375px',
+          height: '525px',
+          backgroundColor: 'white',
+          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+        }}
       >
       </div>
     )
@@ -178,12 +189,12 @@ export default function CreateDesign() {
   if (alias === 'businesscard') {
     template = (
       <div
-      style={{
-        width:'336px',
-        height:'192px',
-        backgroundColor:'white',
-        boxShadow:'0px 8px 16px 0px rgba(0,0,0,0.2)',
-      }}
+        style={{
+          width: '336px',
+          height: '192px',
+          backgroundColor: 'white',
+          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+        }}
       >
       </div>
     )
@@ -191,12 +202,12 @@ export default function CreateDesign() {
   if (alias === 'infograph') {
     template = (
       <div
-      style={{
-        width:'200px',
-        height:'500px',
-        backgroundColor:'white',
-        boxShadow:'0px 8px 16px 0px rgba(0,0,0,0.2)',
-      }}
+        style={{
+          width: '200px',
+          height: '500px',
+          backgroundColor: 'white',
+          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+        }}
       >
       </div>
     )
@@ -211,7 +222,7 @@ export default function CreateDesign() {
           Home
         </div> */}
       <form className='create-des-form' onSubmit={handleSubmit}>
-      {/* Create Design Form HERE */}
+        {/* Create Design Form HERE */}
         <input
           id='des-name'
           type='text'
@@ -223,32 +234,58 @@ export default function CreateDesign() {
       </form>
 
       <div className="edit-container">
-      <div className="sidebar">
-        <button onClick={openSideMenu}>Templates</button>
-        {showSideMenu && (
-          <div id='temp-menu-item'>
-            {templates.map(temp => (
-              <div>
-                {/* <img src={temp.alias}/> */}
-                <button>{temp.name}</button>
+        <div className="sidebar">
+          <button onClick={openSideMenu}>Templates</button>
+          {showSideMenu && (
+            <div className="temp-menu-container">
+              {/* <div id='warning'>Warning: Switching templates deletes any previous work made.</div> */}
+              <div id='temp-menu-item'>
+                {templates.map(temp => (
+                  <div id='temp-container-des' onClick={() => history.push(`/designs/new/${temp.alias}`)}>
+                    {temp.alias === 'presentation' ?
+                      <img id='temp-img-des' src={present} alt='pres' width='130px' /> :
+                      temp.alias === 'website' ?
+                        <img id='temp-img-des' src={website} alt='pres' width='130px' /> :
+                        temp.alias === 'resume' ?
+                          <img id='temp-img-des' src={resume} alt='pres' width='130px' /> :
+                          temp.alias === 'igpost' ?
+                            <img id='temp-img-des' src={igpost} alt='pres' width='130px' /> :
+                            temp.alias === 'igstory' ?
+                              <img id='temp-img-des' src={igstory} alt='pres' width='130px' /> :
+                              temp.alias === 'fbpost' ?
+                                <img id='temp-img-des' src={fbpost} alt='pres' width='130px' /> :
+                                temp.alias === 'invitation' ?
+                                  <img id='temp-img-des' src={inv} alt='pres' width='130px' /> :
+                                  temp.alias === 'businesscard' ?
+                                    <img id='temp-img-des' src={bizcard} alt='pres' width='130px' /> :
+                                    temp.alias === 'infograph' ?
+                                      <img id='temp-img-des' src={info} alt='pres' width='130px' /> :
+                                      "Your template here"
+                    }
+                    <button id='create-des-temp-button'>{temp.name}</button>
+                  </div>
+                ))}
+
               </div>
-            ))}
-          </div>
-        )}
-        <button onClick={openEleMenu}>Elements</button>
-        {showEleMenu && (
-          <div id='temp-menu-item'>
-            elements here
-          </div>
-        )}
-        {/* <button onClick={openSideMenu}>Text</button>
+
+            </div>
+          )}
+
+          <button onClick={openEleMenu}>Elements</button>
+          {showEleMenu && (
+            <div id='temp-menu-item'>
+              elements here
+            </div>
+          )}
+          {/* <button onClick={openSideMenu}>Text</button>
         <button onClick={openSideMenu}>Styles</button>
         <button onClick={openSideMenu}>Logos</button> */}
-      </div>
+        </div>
 
-      <div className="edit-area">
-        <div id="inserted-temp">{template}</div>
-      </div>
+        <div className="edit-area">
+          <div id="inserted-temp">{template}</div>
+
+        </div>
       </div>
     </div>
   )

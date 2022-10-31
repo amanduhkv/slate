@@ -10,12 +10,12 @@ import squiggles from '../../icons/squiggles.png';
 import present from '../../icons/temps/presentation.png';
 import website from '../../icons/temps/website.png';
 import resume from '../../icons/temps/resume.png';
-import igpost from '../../icons/temps/ig-post.png';
-import igstory from '../../icons/temps/ig-story.png';
-import fbpost from '../../icons/temps/fb-post.png';
-import inv from '../../icons/temps/invite.png';
-import bizcard from '../../icons/temps/biz-card.png';
-import info from '../../icons/temps/infographic.png';
+import igpost from '../../icons/temps/igpost.png';
+import igstory from '../../icons/temps/igstory.png';
+import fbpost from '../../icons/temps/fbpost.png';
+import inv from '../../icons/temps/invitation.png';
+import bizcard from '../../icons/temps/businesscard.png';
+import info from '../../icons/temps/infograph.png';
 
 import './index.css';
 import NavBar from "../NavBar";
