@@ -5,7 +5,7 @@ import { createDesign, getAllDesigns, clearData } from "../../store/designs";
 
 import './CreateDesignForm.css';
 
-
+import left from '../../icons/left.svg';
 import present from '../../icons/temps/presentation.png';
 import website from '../../icons/temps/website.png';
 import resume from '../../icons/temps/resume.png';
@@ -222,7 +222,11 @@ export default function CreateDesign() {
           Home
         </div> */}
       <form className='create-des-form' onSubmit={handleSubmit}>
-        {/* Create Design Form HERE */}
+        <div id='home-button' onClick={() => history.push('/designs')}>
+          <img src={left} alt='left' height='14px' />
+          Home
+        </div>
+        <div>
         <input
           id='des-name'
           type='text'
@@ -230,7 +234,8 @@ export default function CreateDesign() {
           value={name}
           onChange={e => setName(e.target.value)}
         />
-        <button type='submit'>Save new design</button>
+        <button id='create-des-button' type='submit'>Save new design</button>
+        </div>
       </form>
 
       <div className="edit-container">

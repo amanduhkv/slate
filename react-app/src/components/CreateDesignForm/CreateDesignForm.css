@@ -99,7 +99,16 @@
 /* FORM AREA/NAV */
 .create-des-form {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#create-des-button {
+  padding: 8px 12px;
+}
+
+#create-des-button:hover {
+  opacity: 60%;
 }
 
 #des-name {
@@ -117,4 +126,22 @@
 
 #des-name::placeholder {
   opacity: 50%;
+}
+
+#home-button {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  padding: 8px 12px;
+  margin-left: 10px;
+  border-radius: 4px;
+}
+
+#home-button:hover {
+  background-color: rgba(153,170,179, 0.4);
+  cursor: pointer;
+}
+
+#home-button img {
+  margin-right: 20px;
 }
