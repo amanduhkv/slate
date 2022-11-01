@@ -29,7 +29,7 @@ def validation_errors_to_error_messages(validation_errors):
 def all_designs():
   design = Design.query.all()
   all_des = [des.to_dict() for des in design]
-  print('designs', all_des)
+  # print('designs', all_des)
 
   # templates = Template.query.all()
   # all_temps = [temp.to_dict() for temp in templates]
@@ -118,7 +118,7 @@ def add_design():
   }
 
   if not form.data['name']:
-      login_val_error["errors"]["name"] = "Name of design is is required."
+      login_val_error["errors"]["name"] = "Name of design is required."
   if not form.data['template']:
       login_val_error["errors"]["template"] = "Please select the template(s) for this design."
   if len(login_val_error["errors"]) > 0:

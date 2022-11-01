@@ -26,9 +26,8 @@ class Brand(db.Model):
 
   user = db.relationship('User', back_populates='brand')
 
-  logo = db.relationship(
-    'Logo',
-    back_populates='brand')
+
+  logo = db.Column(db.String(255))
   colors = db.relationship(
     'Color',
     secondary=brand_colors,
@@ -48,22 +47,22 @@ class Brand(db.Model):
             "fonts": self.fonts
         }
 
-class Logo(db.Model):
-  __tablename__ = 'logos'
+# class Logo(db.Model):
+#   __tablename__ = 'logos'
 
-  id = db.Column(db.Integer, primary_key=True)
-  brand_id = db.Column(db.Integer, db.ForeignKey('brands.id'))
-  url = db.Column(db.String(255))
+#   id = db.Column(db.Integer, primary_key=True)
+#   brand_id = db.Column(db.Integer, db.ForeignKey('brands.id'))
+#   url = db.Column(db.String(255))
 
-  brand = db.relationship(
-    'Brand',
-    back_populates='logo')
+#   brand = db.relationship(
+#     'Brand',
+#     back_populates='logo')
 
-  def to_dict(self):
-        return {
-            "id": self.id,
-            "url": self.url
-        }
+#   def to_dict(self):
+#         return {
+#             "id": self.id,
+#             "url": self.url
+#         }
 
 class Color(db.Model):
   __tablename__ = 'colors'
