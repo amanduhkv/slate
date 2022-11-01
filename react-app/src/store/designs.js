@@ -67,7 +67,7 @@ export const getAllUserDesigns = () => async dispatch => {
 // single design
 export const getADesign = (id) => async dispatch => {
   const response = await fetch(`/api/designs/${id}`);
-
+  // console.log('RESPONSE', response)
   if (response.ok) {
     const des = await response.json();
 
@@ -102,7 +102,7 @@ export const updateDesign = (designId, design) => async dispatch => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(design)
   });
-
+  console.log('REPONSE for update', response)
   if (response.ok) {
     const updatedDesign = await response.json();
     dispatch(update_des(designId, updatedDesign));

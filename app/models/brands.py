@@ -14,8 +14,8 @@ class Brand(db.Model):
   user = db.relationship('User', back_populates='brand')
 
   logo = db.relationship('Logo', back_populates='brand')
-  color = db.relationship('Color', back_populates='brand')
-  font = db.relationship('Font', back_populates='brand')
+  colors = db.relationship('Color', back_populates='brand')
+  fonts = db.relationship('Font', back_populates='brand')
 
   def to_dict(self):
         return {
@@ -47,7 +47,7 @@ class Color(db.Model):
   brand_id = db.Column(db.Integer, db.ForeignKey('brands.id'))
   name = db.Column(db.String(255))
 
-  brand = db.relationship('Brand', back_populates='color')
+  brand = db.relationship('Brand', back_populates='colors')
 
   def to_dict(self):
         return {
@@ -64,7 +64,7 @@ class Font(db.Model):
   name = db.Column(db.String(255))
   url = db.Column(db.JSON(255))
 
-  brand = db.relationship('Brand', back_populates='font')
+  brand = db.relationship('Brand', back_populates='fonts')
 
   def to_dict(self):
         return {

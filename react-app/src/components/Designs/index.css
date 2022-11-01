@@ -83,6 +83,7 @@
   /* border: blue solid 1px;
   border-radius: 8px; */
   margin: 0 20px;
+  cursor: pointer;
 
 }
 
@@ -94,4 +95,41 @@
 /* --------------------- RECENT DESIGNS --------------------- */
 .recent-container {
   margin: 30px;
+}
+
+.recent-des {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.des-containers {
+  display: flex;
+  justify-content: center;
+
+  border: rgb(235, 235, 235) solid 1px;
+  background-color: rgb(242,243,245);
+  border-radius: 8px;
+  height: 180px;
+  width: 280px;
+  margin: 10px;
+  flex-wrap: wrap;
+
+  background-image: url('../../icons/recent-des.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.des-containers:hover {
+  opacity: 60%;
+  cursor: pointer;
+}
+
+.des-containers h3 {
+  display: flex;
+
+  align-items: center;
+  color: whitesmoke;
+  font-style: oblique;
 }

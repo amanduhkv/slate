@@ -1,20 +1,20 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { deleteDesign } from "../../store/designs";
+import { deleteBrand } from "../../store/brands";
 
 export default function DeleteDesign() {
-  const design = useSelector(state => state.designs.singleDesign);
+  const brand = useSelector(state => state.brands.singleBrand);
   const dispatch = useDispatch();
   const history = useHistory();
 
   const handleDelete = async e => {
     e.preventDefault();
 
-    const deletion = dispatch(deleteDesign(design.id));
+    const deletion = dispatch(deleteBrand(brand.id));
     if (deletion) history.push('/');
   };
 
   return (
-    <button id='create-des-button' onClick={handleDelete}>Remove design</button>
+    <button id='create-des-button' onClick={handleDelete}>Remove brand</button>
   )
 };
