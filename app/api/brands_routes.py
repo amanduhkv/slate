@@ -34,8 +34,6 @@ def all_brands():
     br['fonts'] = fonts
     colors = [color.to_dict() for color in br['colors']]
     br['colors'] = colors
-    logos = [logo.to_dict() for logo in br['logo']]
-    br['logo'] = logos
 
 
   return jsonify({ 'Brands': all_brands })
@@ -58,10 +56,6 @@ def get_one_brand(brand_id):
   brand['fonts'] = fonts
   colors = [color.to_dict() for color in brand['colors']]
   brand['colors'] = colors
-  logos = [logo.to_dict() for logo in brand['logo']]
-  brand['logo'] = logos
-
-
 
   return brand
 
@@ -86,8 +80,7 @@ def get_user_brands():
       brand['fonts'] = fonts
       colors = [color.to_dict() for color in brand['colors']]
       brand['colors'] = colors
-      logos = [logo.to_dict() for logo in brand['logo']]
-      brand['logo'] = logos
+      
       current_brands.append(brand)
     return jsonify({
       'Brands': current_brands
@@ -33366,7 +33359,7 @@ def edit_brand(brand_id):
         b = brand_update.to_dict()
         b['fonts'] = font_lst
         b['colors'] = color_lst
-        
+
         return b
 
       else:
