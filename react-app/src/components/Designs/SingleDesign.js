@@ -214,7 +214,7 @@ export default function SingleDesign() {
     if (!validationErrs.length) {
       let updatedDes = await dispatch(updateDesign(payload));
 
-      if (updatedDes) history.push(`/designs/${updatedDes.id}?temp=${alias}`);
+      if (updatedDes) history.push(`/designs/${updatedDes.id}/?temp=${alias}`);
     };
   };
 
