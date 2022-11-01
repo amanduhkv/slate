@@ -14,6 +14,9 @@ import Designs from './components/Designs';
 import UserDesigns from './components/Designs/UserDesigns';
 import SingleDesign from './components/Designs/SingleDesign';
 import CreateDesign from './components/CreateDesignForm';
+import Brands from './components/Brands';
+import UserBrands from './components/Brands/UserBrands';
+import SingleBrand from './components/Brands/SingleBrand';
 
 function App() {
   const user = useSelector(state => state.session.user);
@@ -69,6 +72,19 @@ function App() {
         </Route>
         <Route path='/designs' exact={true}>
           <Designs />
+        </Route>
+
+        <Route path='/brand/current' exact={true}>
+          <NavBar />
+          <UserBrands />
+        </Route>
+        <Route path='/brand/:brandId' >
+          <NavBar />
+          <SingleBrand />
+        </Route>
+        <Route path='/brand' exact={true}>
+          <NavBar />
+          <Brands />
         </Route>
       </Switch>
     </BrowserRouter>
