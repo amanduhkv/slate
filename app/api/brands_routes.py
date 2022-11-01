@@ -33263,14 +33263,14 @@ def add_brand():
     for font_fam in form.data['fonts']:
       filtered = [i for i in fonts if i['family'] == font_fam][0]
       f = (Font(name=font_fam, url=filtered['files']))
-      # print('FONTS', f)
+
       font_lst.append(f)
 
     color_lst = []
     for color_alias in form.data['colors']:
       filtered = [i for i in colors if i['alias'] == color_alias][0]
       c = (Color(name=color_alias))
-      # print('COLORS', c)
+
       color_lst.append(c)
 
     print('FONTLIST', font_lst)
@@ -33338,37 +33338,35 @@ def edit_brand(brand_id):
 
   if user_id == brand_update.to_dict()['user_id']:
       if form.validate_on_submit():
-        logo_lst = []
-        for logo in form.data['logo']:
-          l = [Logo(url=logo)]
-          logo_lst.extend(l)
-
         font_lst = []
-        for font in form.data['fonts']:
-          f = [Font(name=font)]
-          font_lst.extend(f)
+        for font_fam in form.data['fonts']:
+          filtered = [i for i in fonts if i['family'] == font_fam][0]
+          f = (Font(name=font_fam, url=filtered['files']))
+
+          font_lst.append(f)
 
         color_lst = []
-        for color in form.data['colors']:
-          c = [Color(name=color)]
-          color_lst.extend(c)
+        for color_alias in form.data['colors']:
+          filtered = [i for i in colors if i['alias'] == color_alias][0]
+          c = (Color(name=color_alias))
+
+          color_lst.append(c)
 
         brand_update.user_id = user_id
         brand_update.name = form.data['name']
-        brand_update.logo = logo_lst
+        brand_update.logo = form.data['logo']
         brand_update.font = font_lst
         brand_update.color = color_lst
 
         db.session.commit()
 
-        logo_lst = [l.to_dict() for l in brand_update.logo]
         font_lst = [f.to_dict() for f in brand_update.font]
         color_lst = [c.to_dict() for c in brand_update.color]
 
         b = brand_update.to_dict()
-        b['Logos'] = logo_lst
-        b['Fonts'] = font_lst
-        b['Colors'] = color_lst
+        b['fonts'] = font_lst
+        b['colors'] = color_lst
+        
         return b
 
       else:
