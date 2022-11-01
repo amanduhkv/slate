@@ -83,6 +83,7 @@
   /* border: blue solid 1px;
   border-radius: 8px; */
   margin: 0 20px;
+  cursor: pointer;
 
 }
 
@@ -94,4 +95,14 @@
 /* --------------------- RECENT DESIGNS --------------------- */
 .recent-container {
   margin: 30px;
+}
+
+.des-containers {
+  display: flex;
+
+  border: blue solid 1px;
+  height: 180px;
+  width: 180px;
+  margin-right: 10px;
+  flex-wrap: wrap;
 }

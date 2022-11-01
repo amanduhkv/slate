@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { deleteDesign } from "../../store/designs";
 
 export default function DeleteDesign() {
-  const design = useSelector(state => state.design.singleDesign);
+  const design = useSelector(state => state.designs.singleDesign);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -15,6 +15,6 @@ export default function DeleteDesign() {
   };
 
   return (
-    <button onClick={handleDelete}>Remove design</button>
+    <button id='create-des-button' onClick={handleDelete}>Remove design</button>
   )
 };

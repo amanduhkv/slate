@@ -89,7 +89,7 @@ export default function CreateDesign() {
     if (!validationErrs.length) {
       let createdDes = await dispatch(createDesign(payload));
 
-      if (createdDes) history.push(`/designs/${createdDes.id}`);
+      if (createdDes) history.push(`/designs/${createdDes.id}?temp=${alias}`);
     };
   };
 

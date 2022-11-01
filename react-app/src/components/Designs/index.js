@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllDesigns, clearData } from "../../store/designs";
+import { getAllDesigns, clearData, getAllUserDesigns } from "../../store/designs";
 
 import pres from '../../icons/pres.png';
 import web from '../../icons/website.png';
@@ -20,6 +20,7 @@ import info from '../../icons/temps/infograph.png';
 import './index.css';
 import NavBar from "../NavBar";
 import { useHistory } from "react-router-dom";
+import UserDesigns from "./UserDesigns";
 
 export default function Designs() {
   const designs = useSelector(state => state.designs.allDesigns);
@@ -92,33 +93,33 @@ export default function Designs() {
             left
           </button> */}
           <div id='temp-box'>
-          {designArr[0]?.template.map(temp => (
-            <div className="temp-box">
-              <div>
-                {temp.alias === 'presentation' ?
-                  <img id='temp-img' src={present} alt='pres' width='160px' /> :
-                  temp.alias === 'website' ?
-                    <img id='temp-img' src={website} alt='pres' width='160px' /> :
-                    temp.alias === 'resume' ?
-                      <img id='temp-img' src={resume} alt='pres' width='160px' /> :
-                      temp.alias === 'igpost' ?
-                        <img id='temp-img' src={igpost} alt='pres' width='160px' /> :
-                        temp.alias === 'igstory' ?
-                          <img id='temp-img' src={igstory} alt='pres' width='160px' /> :
-                          temp.alias === 'fbpost' ?
-                            <img id='temp-img' src={fbpost} alt='pres' width='160px' /> :
-                            temp.alias === 'invitation' ?
-                              <img id='temp-img' src={inv} alt='pres' width='160px' /> :
-                              temp.alias === 'businesscard' ?
-                                <img id='temp-img' src={bizcard} alt='pres' width='160px' /> :
-                                temp.alias === 'infograph' ?
-                                  <img id='temp-img' src={info} alt='pres' width='160px' /> :
-                                  "Your template here"
-                }
-                <div>{temp.name}</div>
+            {designArr[0]?.template.map(temp => (
+              <div className="temp-box" onClick={() => history.push(`/designs/new/${temp.alias}`)}>
+                <div>
+                  {temp.alias === 'presentation' ?
+                    <img id='temp-img' src={present} alt='pres' width='160px' /> :
+                    temp.alias === 'website' ?
+                      <img id='temp-img' src={website} alt='pres' width='160px' /> :
+                      temp.alias === 'resume' ?
+                        <img id='temp-img' src={resume} alt='pres' width='160px' /> :
+                        temp.alias === 'igpost' ?
+                          <img id='temp-img' src={igpost} alt='pres' width='160px' /> :
+                          temp.alias === 'igstory' ?
+                            <img id='temp-img' src={igstory} alt='pres' width='160px' /> :
+                            temp.alias === 'fbpost' ?
+                              <img id='temp-img' src={fbpost} alt='pres' width='160px' /> :
+                              temp.alias === 'invitation' ?
+                                <img id='temp-img' src={inv} alt='pres' width='160px' /> :
+                                temp.alias === 'businesscard' ?
+                                  <img id='temp-img' src={bizcard} alt='pres' width='160px' /> :
+                                  temp.alias === 'infograph' ?
+                                    <img id='temp-img' src={info} alt='pres' width='160px' /> :
+                                    "Your template here"
+                  }
+                  <div>{temp.name}</div>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
           </div>
           {/* <button
             id='right-arrow'
@@ -131,16 +132,12 @@ export default function Designs() {
       </div>
 
 
-      {/* <div className="recent-container">
+      <div className="recent-container">
         <h2>Recent designs</h2>
         <div>
-          {user.id && designArr.map(des => (
-            <div>
-
-            </div>
-          ))}
+          <UserDesigns />
         </div>
-      </div> */}
+      </div>
     </div>
   )
 }

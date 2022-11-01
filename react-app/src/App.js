@@ -63,8 +63,8 @@ function App() {
           {/* <NavBar /> */}
           <CreateDesign />
         </Route>
-        <Route path='/designs/:designId' exact={true}>
-          <NavBar />
+        <Route path='/designs/:designId' >
+          {/* <NavBar /> */}
           <SingleDesign />
         </Route>
         <Route path='/designs' exact={true}>

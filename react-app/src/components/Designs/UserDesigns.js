@@ -1,9 +1,12 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getAllUserDesigns, clearData } from "../../store/designs";
 
 export default function UserDesigns() {
+  const designs = useSelector(state => state.designs.allDesigns);
+  const desArr = Object.values(designs);
   const dispatch = useDispatch();
+  console.log('DESARR', desArr)
 
   useEffect(() => {
     dispatch(getAllUserDesigns())
@@ -13,7 +16,11 @@ export default function UserDesigns() {
 
   return (
     <div>
-      User's Designs page
+      {desArr.map(des => (
+        <div className="des-containers">
+          {des.name}
+        </div>
+      ))}
     </div>
   )
 }
