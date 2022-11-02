@@ -18,7 +18,7 @@ const LoginForm = () => {
     const data = await dispatch(login(email, password));
     if (data) {
       // console.log(data)
-      setErrors([data.credential ?? data.password]);
+      setErrors(['Invalid credentials. Please check your email/password.']);
     }
   };
 
@@ -47,11 +47,11 @@ const LoginForm = () => {
       >
         Continue with Demo User
       </button>
-      {/* <div>
+      <div>
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div className='errors' key={ind}>{error}</div>
         ))}
-      </div> */}
+      </div>
       <div id='form-input'>
         <label htmlFor='email'>Email</label>
         <input
