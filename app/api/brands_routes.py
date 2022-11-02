@@ -80,12 +80,12 @@ def get_user_brands():
       brand['fonts'] = fonts
       colors = [color.to_dict() for color in brand['colors']]
       brand['colors'] = colors
-      
+
       current_brands.append(brand)
     return jsonify({
       'Brands': current_brands
     })
-  return 'Current user does not have any brands yet.'
+  return {'Current user does not have any brands yet.'}
 
 
 
