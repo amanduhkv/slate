@@ -32994,7 +32994,7 @@ fonts = [
 instances = []
 
 for font in fonts:
-  f = (Font(brand_id=1, name=font['family'], url=font['files'] if font['files'] else 'None'))
+  f = (Font(name=font['family'], url=font['files'] if font['files'] else 'None'))
   instances.append(f)
 
 

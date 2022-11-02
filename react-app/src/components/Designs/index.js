@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllDesigns, clearData, getAllUserDesigns } from "../../store/designs";
+import { getAllDesigns, clearData } from "../../store/designs";
 
 import pres from '../../icons/pres.png';
 import web from '../../icons/website.png';
 import ig from '../../icons/ig.png';
 import invite from '../../icons/invite.png';
-import squiggles from '../../icons/squiggles.png';
 import present from '../../icons/temps/presentation.png';
 import website from '../../icons/temps/website.png';
 import resume from '../../icons/temps/resume.png';
@@ -25,7 +24,7 @@ import UserDesigns from "./UserDesigns";
 export default function Designs() {
   const designs = useSelector(state => state.designs.allDesigns);
   const designArr = Object.values(designs);
-  const user = useSelector(state => state.session.user);
+  
 
   const history = useHistory();
   const dispatch = useDispatch();

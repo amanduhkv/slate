@@ -31,7 +31,6 @@ export default function SingleDesign() {
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [showEleMenu, setShowEleMenu] = useState(false);
 
-  const [query, setQuery] = useState('');
 
 
   useEffect(() => {
@@ -214,7 +213,7 @@ export default function SingleDesign() {
     if (!validationErrs.length) {
       let updatedDes = await dispatch(updateDesign(payload));
 
-      if (updatedDes) history.push(`/designs/${updatedDes.id}?temp=${alias}`);
+      if (updatedDes) history.push(`/designs/${updatedDes.id}/?temp=${alias}`);
     };
   };
 

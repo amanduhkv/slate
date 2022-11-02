@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 
-import slate from '../../icons/slate-white.png';
+
 
 
 const LoginForm = () => {
@@ -61,9 +61,9 @@ const LoginForm = () => {
           value={email}
           onChange={updateEmail}
         />
-        <div id='login-err'>
-          {errors.map((error) => error.includes('Email') ? error : null)}
-        </div>
+        {/* <div id='login-err'>
+          {errors.map((error) => error.toLowerCase().includes('email') ? error : null)}
+        </div> */}
       </div>
       <div id='form-input'>
         <label htmlFor='password'>Password</label>
@@ -74,9 +74,9 @@ const LoginForm = () => {
           value={password}
           onChange={updatePassword}
         />
-        <div id='login-err'>
+        {/* <div id='login-err'>
           {errors.map((error) => error.toLowerCase().includes('password') ? error : null)}
-        </div>
+        </div> */}
       </div>
         <button id='login-submit' type='submit'>Log in</button>
     </form>

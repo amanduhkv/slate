@@ -19,9 +19,9 @@ const load = payload => ({
 });
 
 // get one brand
-const load_one = brandId => ({
+const load_one = brand => ({
   type: LOAD_ONE,
-  brandId
+  brand
 });
 
 // create brand
@@ -148,7 +148,7 @@ const brandReducer = (state = initialState, action) => {
       return newState;
     case LOAD_ONE:
       newState = { ...state, allBrands: { ...state.allBrands }, singleBrand: { ...state.singleBrand } };
-      const newOneBrand = { ...action.brandId };
+      const newOneBrand = { ...action.brand };
       newState.singleBrand = newOneBrand;
       return newState;
     case CREATE_BRAND:
