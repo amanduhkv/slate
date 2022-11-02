@@ -83,7 +83,8 @@ function App() {
           <CreateBrand />
         </Route>
         <Route path='/brand/:brandId/edit' exact={true}>
-         <UpdateBrand />
+          <NavBar />
+          <UpdateBrand />
         </Route>
         <Route path='/brand/:brandId' exact={true}>
           <NavBar />

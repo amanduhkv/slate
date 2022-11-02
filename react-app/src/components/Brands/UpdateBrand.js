@@ -45,49 +45,53 @@ export default function UpdateBrand() {
   }, [name]);
 
   // inputs original data
-  // useEffect(() => {
-  //   if(brand) {
-  //     setName(brand.name);
-  //     setLogo(brand.logo);
+  useEffect(() => {
+    if(brand) {
+      setName(brand.name);
+      setLogo(brand.logo);
 
-  //     const originalColors = [];
-  //     if(brand.colors && brand.colors.length > 0) {
-  //       brand.colors.forEach(color => {
-  //         console.log('COLOR IN CURR BRAND', color)
-  //         originalColors.push(color.name)
-  //         console.log('COLOR ARR', originalColors)
-  //       })
-  //     }
-  //     setColors(originalColors);
+      const originalColors = [];
+      if(brand.colors && brand.colors.length > 0) {
+        // console.log('brand.colors', brand.colors)
+        brand.colors.forEach(color => {
+          // console.log('COLOR IN CURR BRAND', color)
+          originalColors.push(color)
+          // console.log('COLOR ARR', originalColors)
+        })
+      }
+      setColors(originalColors);
 
-  //     const originalFonts = [];
-  //     if(brand.fonts && brand.fonts.length > 0) {
-  //       brand.fonts.forEach(font => {
-  //         console.log('FONT IN CURR BRAND', font)
-  //         originalFonts.push(font.name)
-  //         console.log('FONT ARR', originalFonts)
-  //       })
-  //     }
-  //     setFonts(originalFonts);
-  //   }
-  // }, [brand, name, logo]);
+      const originalFonts = [];
+      if(brand.fonts && brand.fonts.length > 0) {
+        brand.fonts.forEach(font => {
+          // console.log('FONT IN CURR BRAND', font)
+          originalFonts.push(font)
+          // console.log('FONT ARR', originalFonts)
+        })
+      }
+      setFonts(originalFonts);
+    }
+  }, [brand]);
 
   // inputs checks from original data
-  // useEffect(() => {
-  //   const currentColors = document.querySelectorAll('brand-colors');
-  //   colors.forEach(color => {
-  //     currentColors.forEach(checkedColor => {
-  //       if(checkedColor.value === color) checkedColor = true;
-  //     })
-  //   });
+  useEffect(() => {
+    const currentColors = document.querySelectorAll('#brand-colors');
+    // console.log('currentColors', currentColors)
+    colors.forEach(color => {
+      // console.log('CHECKING COLOR', color)
+      currentColors.forEach(checkedColor => {
+        // console.log('checkedColor', checkedColor)
+        if(checkedColor.value === color.name) checkedColor.checked = true;
+      })
+    });
 
-  //   const currFonts = document.querySelectorAll('brand-fonts');
-  //   fonts.forEach(font => {
-  //     currFonts.forEach(checkedFont => {
-  //       if(checkedFont.value === font) checkedFont = true;
-  //     })
-  //   });
-  // }, [brand, colors, fonts])
+    const currFonts = document.querySelectorAll('#brand-fonts');
+    fonts.forEach(font => {
+      currFonts.forEach(checkedFont => {
+        if(checkedFont.value === font.name) checkedFont.checked = true;
+      })
+    });
+  }, [brand, colors, fonts])
 
   const handleSubmit = async e => {
     e.preventDefault();

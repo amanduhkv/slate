@@ -46,6 +46,16 @@ nav {
 }
 
 /* ---------------------------- REDIRECTS/DROPDOWNS ---------------------------- */
+#ham-dd-content {
+  /* margin: 30px 0; */
+  padding: 30px;
+}
+
+#ham-dd-content:hover {
+  background-color: rgb(235, 235, 235);
+  cursor: pointer;
+}
+
 #hamburger {
   margin-right: 14px;
   background-color: white;
