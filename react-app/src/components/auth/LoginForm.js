@@ -8,6 +8,7 @@ import { login } from '../../store/session';
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
+  const [submitted, setSubmitted] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
@@ -15,6 +16,9 @@ const LoginForm = () => {
 
   const onLogin = async (e) => {
     e.preventDefault();
+
+    setSubmitted(true);
+
     const data = await dispatch(login(email, password));
     if (data) {
       // console.log(data)
@@ -47,11 +51,13 @@ const LoginForm = () => {
       >
         Continue with Demo User
       </button>
-      <div>
-        {errors.map((error, ind) => (
-          <div className='errors' key={ind}>{error}</div>
-        ))}
-      </div>
+      {submitted && errors.length > 0 && (
+        <div className='errors'>
+          {errors.map((error, ind) => (
+            <div key={ind}>{error}</div>
+          ))}
+        </div>
+      )}
       <div id='form-input'>
         <label htmlFor='email'>Email</label>
         <input
@@ -78,7 +84,7 @@ const LoginForm = () => {
           {errors.map((error) => error.toLowerCase().includes('password') ? error : null)}
         </div> */}
       </div>
-        <button id='login-submit' type='submit'>Log in</button>
+      <button id='login-submit' type='submit'>Log in</button>
     </form>
   );
 };
