@@ -1,0 +1,68 @@
+.brand-page {
+  padding: 10px 40px;
+}
+
+.brand-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-title button {
+  height: 40px;
+  background-color: rgb(235, 235, 235);
+  color: rgb(72, 76, 79);
+}
+
+/* ----------------------- BRANDS AREA ----------------------- */
+.brand-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#brand-box {
+  width: 30%;
+}
+
+.brand-logo-box,
+.brand-color-box,
+.brand-font-box {
+  flex-direction: column;
+  background-color: rgba(153,170,179, 0.3);
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px;
+  height: fit-content;
+}
+
+.brand-logo-box h2,
+.brand-color-box h2,
+.brand-font-box h2 {
+  margin: 0;
+
+}
+
+#brand-name {
+  font-weight: 600;
+  font-style: oblique;
+  margin-bottom: 0;
+}
+
+/* ----------------------- LOGOS AREA ----------------------- */
+#logo-pic img {
+  height: 80px;
+  width: 80px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+
+
+/* ----------------------- COLORS AREA ----------------------- */
+#indiv-colors {
+  display: flex;
+  padding: 0 auto;
+}
+
+
+/* ----------------------- FONTS AREA ----------------------- */

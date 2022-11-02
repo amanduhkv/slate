@@ -17,6 +17,7 @@ import CreateDesign from './components/CreateDesignForm';
 import Brands from './components/Brands';
 import UserBrands from './components/Brands/UserBrands';
 import SingleBrand from './components/Brands/SingleBrand';
+import CreateBrand from './components/CreateBrandForm/CreateBrand';
 
 function App() {
   const user = useSelector(state => state.session.user);
@@ -77,6 +78,10 @@ function App() {
         <Route path='/brand/current' exact={true}>
           <NavBar />
           <UserBrands />
+        </Route>
+        <Route path='/brand/new' >
+          <NavBar />
+          <CreateBrand />
         </Route>
         <Route path='/brand/:brandId' >
           <NavBar />

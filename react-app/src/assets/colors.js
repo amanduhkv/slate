@@ -1,7 +1,4 @@
-from app.models import db
-from app.models.brands import Color
-
-colors = [
+export const __colors = [
   {'alias': "aliceblue" , 'title': "Aliceblue"},
   {'alias': "antiquewhite" , 'title': "Antiquewhite"},
   {'alias': "aqua" , 'title': "Aqua"},
@@ -151,21 +148,3 @@ colors = [
   {'alias': "yellow" , 'title': "Yellow"},
   {'alias': "yellowgreen" , 'title': "Yellowgreen"},
 ]
-
-
-instances = []
-
-for color in colors:
-  c = (Color(name=color['alias']))
-  instances.append(c)
-
-
-def seed_colors():
-  for i in instances:
-    db.session.add(i)
-  db.session.commit()
-
-
-def undo_seed_colors():
-  db.session.execute('TRUNCATE colors RESTART IDENTITY CASCADE;')
-  db.session.commit()

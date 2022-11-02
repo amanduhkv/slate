@@ -27,7 +27,7 @@ class Brand(db.Model):
   user = db.relationship('User', back_populates='brand')
 
 
-  logo = db.Column(db.String(255))
+  logo = db.Column(db.String(1000))
   colors = db.relationship(
     'Color',
     secondary=brand_colors,
