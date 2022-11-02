@@ -5,6 +5,8 @@ import { getAllBrands, clearData } from "../../store/brands";
 
 import './Brands.css';
 
+import logo from '../../icons/logo.png';
+
 export default function Brands() {
   const brands = useSelector(state => state.brands.allBrands);
   const brandArr = Object.values(brands);
@@ -15,7 +17,7 @@ export default function Brands() {
   useEffect(() => {
     dispatch(getAllBrands());
 
-    return () => dispatch(clearData())
+    // return () => dispatch(clearData())
   }, [dispatch])
 
   return (
@@ -27,11 +29,14 @@ export default function Brands() {
       <div className="brand-container">
         {brandArr.map(brand => (
           <div id='brand-box'>
-            <h2 id='brand-name'>{brand.name}</h2>
+            <h2
+              id='brand-name'
+              onClick={()  => history.push(`/brand/${brand.id}`)}
+            >{brand.name}</h2>
             <div className="brand-logo-box">
               <h2>Brand logos</h2>
               <div id='logo-pic'>
-                {brand.logo ? <img src={brand.logo} alt='logo' /> : <img src='https://images.unsplash.com/photo-1517639493569-5666a7b2f494?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGFzdGVsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60' alt='alt-logo' />}
+                <img src={brand.logo} alt='logo' onError={e => e.target.src=logo} />
               </div>
             </div>
             <div className="brand-color-box">

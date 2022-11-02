@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { deleteBrand } from "../../store/brands";
 
-export default function DeleteDesign() {
+export default function DeleteBrand() {
   const brand = useSelector(state => state.brands.singleBrand);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -11,7 +11,7 @@ export default function DeleteDesign() {
     e.preventDefault();
 
     const deletion = dispatch(deleteBrand(brand.id));
-    if (deletion) history.push('/');
+    if (deletion) history.push('/brand');
   };
 
   return (

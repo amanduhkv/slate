@@ -31,7 +31,6 @@ export default function SingleDesign() {
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [showEleMenu, setShowEleMenu] = useState(false);
 
-  const [query, setQuery] = useState('');
 
 
   useEffect(() => {

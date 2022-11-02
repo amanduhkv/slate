@@ -4,12 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { authenticate } from './store/session';
 
 import LoginPage from './components/auth/LoginPage/LoginPage';
-import LoginForm from './components/auth/LoginForm';
-import SignUpForm from './components/auth/SignUpForm';
+
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
+
 import Designs from './components/Designs';
 import UserDesigns from './components/Designs/UserDesigns';
 import SingleDesign from './components/Designs/SingleDesign';
@@ -18,6 +16,7 @@ import Brands from './components/Brands';
 import UserBrands from './components/Brands/UserBrands';
 import SingleBrand from './components/Brands/SingleBrand';
 import CreateBrand from './components/CreateBrandForm/CreateBrand';
+import UpdateBrand from './components/Brands/UpdateBrand';
 
 function App() {
   const user = useSelector(state => state.session.user);
@@ -63,11 +62,11 @@ function App() {
           <NavBar />
           <UserDesigns />
         </Route>
-        <Route path='/designs/new'>
+        <Route path='/designs/new' exact={true}>
           {/* <NavBar /> */}
           <CreateDesign />
         </Route>
-        <Route path='/designs/:designId' >
+        <Route path='/designs/:designId' exact={true}>
           {/* <NavBar /> */}
           <SingleDesign />
         </Route>
@@ -79,11 +78,14 @@ function App() {
           <NavBar />
           <UserBrands />
         </Route>
-        <Route path='/brand/new' >
+        <Route path='/brand/new' exact={true}>
           <NavBar />
           <CreateBrand />
         </Route>
-        <Route path='/brand/:brandId' >
+        <Route path='/brand/:brandId/edit' exact={true}>
+         <UpdateBrand />
+        </Route>
+        <Route path='/brand/:brandId' exact={true}>
           <NavBar />
           <SingleBrand />
         </Route>

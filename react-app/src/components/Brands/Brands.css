@@ -46,6 +46,13 @@
   font-weight: 600;
   font-style: oblique;
   margin-bottom: 0;
+  cursor: pointer;
+}
+
+.single-brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* ----------------------- LOGOS AREA ----------------------- */

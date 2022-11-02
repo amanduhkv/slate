@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import { getAllDesigns, clearData } from "../store/designs";
 
@@ -8,8 +8,7 @@ import './NavBar.css';
 
 import slate from '../icons/slate.png';
 import avi from '../icons/avi.svg';
-import LoginForm from './auth/LoginForm';
-import Designs from './Designs';
+
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
@@ -98,7 +97,7 @@ const NavBar = () => {
           className='logo'
           onClick={() => window.location = '/designs'}
         >
-          <img src={slate} width='80px' />
+          <img src={slate} width='80px' alt='logo' />
         </div>
 
         <button id='nav-title-buttons' onMouseOver={openDesMenu} >
@@ -107,10 +106,10 @@ const NavBar = () => {
           {showDesMenu && (
             <div className='des-dropdown' onMouseLeave={closeDesMenu}>
               Past projects
-              <a href='https://github.com/amanduhkv/Behrbnb' target="_blank" >
+              <a href='https://github.com/amanduhkv/Behrbnb' target="_blank" rel="noreferrer">
                 Behrbnb
               </a>
-              <a href='https://github.com/amanduhkv/Squeal' target="_blank" >
+              <a href='https://github.com/amanduhkv/Squeal' target="_blank" rel="noreferrer">
                 Squeal
               </a>
             </div>
@@ -149,14 +148,14 @@ const NavBar = () => {
           </div>
         )}
         <div id='user-initial' onClick={openProfMenu}>
-          {sessionUser ? sessionUser.firstname[0] : <img src={avi} height='20px' />}
+          {sessionUser ? sessionUser.firstname[0] : <img src={avi} height='20px' alt='avatar' />}
         </div>
         {showProfMenu && (
           <div className='profile-dropdown'>
             <div id='user-details'>
               <div id='icon-name'>
                 <div id='user-initial-big'>
-                  {sessionUser ? sessionUser.firstname[0] : <img src={avi} height='20px' />}
+                  {sessionUser ? sessionUser.firstname[0] : <img src={avi} height='20px' alt='avatar' />}
                 </div>
                 <h3 id='user-name'>
                   {sessionUser.firstname} {sessionUser.lastname}

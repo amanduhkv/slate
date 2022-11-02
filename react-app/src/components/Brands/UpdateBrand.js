@@ -1,62 +1,115 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { createBrand } from "../../store/brands";
+import { useHistory, useParams } from "react-router-dom";
+import { updateBrand, getABrand, clearData } from "../../store/brands";
 
-import './CreateBrand.css';
+// import './CreateBrand.css';
 
 import { __colors } from "../../assets/colors";
 import { __fonts } from "../../assets/fonts";
 
-export default function CreateBrand() {
+export default function UpdateBrand() {
   const dispatch = useDispatch();
   const history = useHistory();
-
+  const { brandId } = useParams();
   const user = useSelector(state => state.session.user);
-  const brands = useSelector(state => state.brands.allBrands);
+  const brand = useSelector(state => state.brands.singleBrand);
 
-  const [name, setName] = useState('');
-  const [logo, setLogo] = useState('');
-  const [colors, setColors] = useState([]);
-  const [fonts, setFonts] = useState([]);
+  const [name, setName] = useState(brand.name);
+  const [logo, setLogo] = useState(brand.logo);
+  const [colors, setColors] = useState(brand.colors);
+  const [fonts, setFonts] = useState(brand.fonts);
 
   const [validationErrs, setValidationErrs] = useState([]);
 
   if (!user) {
-    <h1>Please log in or create an account to create a brand.</h1>
+    <h1>Please log in or create an account to update your brand.</h1>
   }
+
+  useEffect(() => {
+    dispatch(getABrand(brandId));
+
+    return () => dispatch(clearData())
+  }, [dispatch, brandId])
 
   useEffect(() => {
     const errs = [];
 
-    if (name.length && name.length < 2) {
+    if (name?.length && name.length < 2) {
       errs.push('Brand names must be at least 2 characters.')
     }
-    if (name.length && name.length > 255) {
+    if (name?.length && name.length > 255) {
       errs.push('This brand name is too long.')
     }
     setValidationErrs(errs);
   }, [name]);
 
+  // inputs original data
+  // useEffect(() => {
+  //   if(brand) {
+  //     setName(brand.name);
+  //     setLogo(brand.logo);
+
+  //     const originalColors = [];
+  //     if(brand.colors && brand.colors.length > 0) {
+  //       brand.colors.forEach(color => {
+  //         console.log('COLOR IN CURR BRAND', color)
+  //         originalColors.push(color.name)
+  //         console.log('COLOR ARR', originalColors)
+  //       })
+  //     }
+  //     setColors(originalColors);
+
+  //     const originalFonts = [];
+  //     if(brand.fonts && brand.fonts.length > 0) {
+  //       brand.fonts.forEach(font => {
+  //         console.log('FONT IN CURR BRAND', font)
+  //         originalFonts.push(font.name)
+  //         console.log('FONT ARR', originalFonts)
+  //       })
+  //     }
+  //     setFonts(originalFonts);
+  //   }
+  // }, [brand, name, logo]);
+
+  // inputs checks from original data
+  // useEffect(() => {
+  //   const currentColors = document.querySelectorAll('brand-colors');
+  //   colors.forEach(color => {
+  //     currentColors.forEach(checkedColor => {
+  //       if(checkedColor.value === color) checkedColor = true;
+  //     })
+  //   });
+
+  //   const currFonts = document.querySelectorAll('brand-fonts');
+  //   fonts.forEach(font => {
+  //     currFonts.forEach(checkedFont => {
+  //       if(checkedFont.value === font) checkedFont = true;
+  //     })
+  //   });
+  // }, [brand, colors, fonts])
+
   const handleSubmit = async e => {
     e.preventDefault();
 
-    const newBrand = {
+    const editBrand = {
       name,
       logo,
       colors,
       fonts
     }
     if (!validationErrs.length) {
-      const createdBrand = await dispatch(createBrand(newBrand));
+      console.log('WORKING')
+      console.log('brand', editBrand)
+      const updatedBrand = await dispatch(updateBrand(brand.id, editBrand));
 
-      if (createdBrand) history.push(`/brand/${createdBrand.id}`);
+      if (updatedBrand) history.push(`/brand/${updatedBrand.id}`);
     };
   }
 
   return (
     <div>
-      <h1 className="title">Create a brand</h1>
+      <h1 className="title">Update brand</h1>
       <form className="brand-form" onSubmit={handleSubmit}>
         <div id='req'>
           * = required
@@ -152,7 +205,7 @@ export default function CreateBrand() {
           ))}
         </div>
 
-        <button id='brand-submit-button' type='submit'>Create new brand</button>
+        <button id='brand-submit-button' type='submit'>Update brand</button>
       </form>
 
     </div>
