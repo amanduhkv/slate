@@ -47,6 +47,11 @@
   font-style: oblique;
   margin-bottom: 0;
   cursor: pointer;
+  width: fit-content;
+}
+
+#brand-name:hover {
+  color: rgb(121,161,184);
 }
 
 .single-brand {

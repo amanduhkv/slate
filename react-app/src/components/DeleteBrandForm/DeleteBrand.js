@@ -10,7 +10,7 @@ export default function DeleteBrand() {
   const handleDelete = async e => {
     e.preventDefault();
 
-    const deletion = dispatch(deleteBrand(brand.id));
+    const deletion = await dispatch(deleteBrand(brand.id));
     if (deletion) history.push('/brand');
   };
 

@@ -226,7 +226,8 @@ export default function SingleDesign() {
     if (!validationErrs.length) {
       let updatedDes = await dispatch(updateDesign(singleDesign.id, payload));
       console.log('updatedDes', updatedDes)
-      if (updatedDes) history.push(`/designs/${updatedDes.id}/${alias}`);
+      // if (updatedDes) history.push(`/designs/${updatedDes.id}/${alias}`);
+      if (updatedDes) history.push(`/designs`);
     };
   };
 
@@ -303,12 +304,12 @@ export default function SingleDesign() {
             </div>
           )}
 
-          <button onClick={openEleMenu}>Elements</button>
+          {/* <button onClick={openEleMenu}>Elements</button>
           {showEleMenu && (
             <div id='temp-menu-item'>
               elements here
             </div>
-          )}
+          )} */}
           {/* <button onClick={openSideMenu}>Text</button>
         <button onClick={openSideMenu}>Styles</button>
         <button onClick={openSideMenu}>Logos</button> */}

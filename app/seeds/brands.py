@@ -33193,4 +33193,6 @@ def seed_brands():
 
 def undo_brands():
     db.session.execute('TRUNCATE brands RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE fonts RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE colors RESTART IDENTITY CASCADE;')
     db.session.commit()

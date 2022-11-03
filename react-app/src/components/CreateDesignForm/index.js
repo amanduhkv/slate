@@ -281,12 +281,12 @@ export default function CreateDesign() {
             </div>
           )}
 
-          <button onClick={openEleMenu}>Elements</button>
+          {/* <button onClick={openEleMenu}>Elements</button>
           {showEleMenu && (
             <div id='temp-menu-item'>
               elements here
             </div>
-          )}
+          )} */}
           {/* <button onClick={openSideMenu}>Text</button>
         <button onClick={openSideMenu}>Styles</button>
         <button onClick={openSideMenu}>Logos</button> */}
