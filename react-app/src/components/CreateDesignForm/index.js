@@ -15,6 +15,7 @@ import fbpost from '../../icons/temps/fbpost.png';
 import inv from '../../icons/temps/invitation.png';
 import bizcard from '../../icons/temps/businesscard.png';
 import info from '../../icons/temps/infograph.png';
+import { getAllBrands } from "../../store/brands";
 
 export default function CreateDesign() {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ export default function CreateDesign() {
   const designs = useSelector(state => state.designs.allDesigns);
   const templates = Object.values(designs)[0]?.template;
   // console.log(templates)
+  const brands = useSelector(state => state.brands.allBrands);
 
   let alias = url.split('/')[3]
   // console.log('Alias', alias)
@@ -32,11 +34,11 @@ export default function CreateDesign() {
   const [validationErrs, setValidationErrs] = useState([]);
   const [hasSubmit, setHasSubmit] = useState(false);
   const [showSideMenu, setShowSideMenu] = useState(false);
-  const [showEleMenu, setShowEleMenu] = useState(false);
+  const [showBrandMenu, setShowBrandMenu] = useState(false);
 
   useEffect(() => {
-    dispatch(getAllDesigns())
-
+    dispatch(getAllDesigns());
+    dispatch(getAllBrands());
     return () => dispatch(clearData())
   }, [dispatch])
 
@@ -55,19 +57,19 @@ export default function CreateDesign() {
     return () => document.removeEventListener("click", closeSideMenu);
   }, [showSideMenu]);
 
-  const openEleMenu = () => {
-    if (showEleMenu) return;
-    setShowEleMenu(true);
+  const openBrandMenu = () => {
+    if (showBrandMenu) return;
+    setShowBrandMenu(true);
   };
 
   useEffect(() => {
-    if (!showEleMenu) return;
-    const closeEleMenu = () => {
-      setShowEleMenu(false);
+    if (!showBrandMenu) return;
+    const closeBrandMenu = () => {
+      setShowBrandMenu(false);
     };
-    document.addEventListener('click', closeEleMenu);
-    return () => document.removeEventListener("click", closeEleMenu);
-  }, [showEleMenu]);
+    document.addEventListener('click', closeBrandMenu);
+    return () => document.removeEventListener("click", closeBrandMenu);
+  }, [showBrandMenu]);
 
   // SUBMIT FXNS ---------------------------------------------
   useEffect(() => {
@@ -281,12 +283,23 @@ export default function CreateDesign() {
             </div>
           )}
 
-          {/* <button onClick={openEleMenu}>Elements</button>
-          {showEleMenu && (
+          <button onClick={openBrandMenu}>Brands</button>
+          {showBrandMenu && (
             <div id='temp-menu-item'>
-              elements here
+              {Object.values(brands).map(brand => (
+                <div className="des-brand-colors">
+                  {brand.colors.map(color => (
+                  <div>{color.name}</div>
+                  ))}
+                  {brand.fonts.map(font => (
+                    <div>
+                      {font.name}
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
-          )} */}
+          )}
           {/* <button onClick={openSideMenu}>Text</button>
         <button onClick={openSideMenu}>Styles</button>
         <button onClick={openSideMenu}>Logos</button> */}

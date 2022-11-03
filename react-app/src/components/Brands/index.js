@@ -43,7 +43,7 @@ export default function Brands() {
               <h2>Brand colors</h2>
               <div id='indiv-colors'>
                 {brand.colors.map(color => (
-                  <div style={{
+                  <div id='brand-color-indiv' style={{
                     backgroundColor: `${color.name}`,
                     width: '60px',
                     height: '60px',
