@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
 import { createDesign, getAllDesigns, clearData } from "../../store/designs";
 
 import './CreateDesignForm.css';
+import './Draggable.css';
 
 import left from '../../icons/left.svg';
 import present from '../../icons/temps/presentation.png';
@@ -15,6 +16,17 @@ import fbpost from '../../icons/temps/fbpost.png';
 import inv from '../../icons/temps/invitation.png';
 import bizcard from '../../icons/temps/businesscard.png';
 import info from '../../icons/temps/infograph.png';
+
+import biz from '../../icons/temp-placeholders/biz-card-temp.svg';
+import fb from '../../icons/temp-placeholders/fb-temp.svg';
+import igs from '../../icons/temp-placeholders/ig-story-temp.svg';
+import ig from '../../icons/temp-placeholders/ig-temp.svg';
+import infogr from '../../icons/temp-placeholders/info-temp.svg';
+import invite from '../../icons/temp-placeholders/invite-temp.svg';
+import pres from '../../icons/temp-placeholders/present-temp.svg';
+import res from '../../icons/temp-placeholders/resume-temp.svg';
+import web from '../../icons/temp-placeholders/website-temp.png';
+
 import { getAllBrands } from "../../store/brands";
 
 export default function CreateDesign() {
@@ -26,6 +38,7 @@ export default function CreateDesign() {
   const templates = Object.values(designs)[0]?.template;
   // console.log(templates)
   const brands = useSelector(state => state.brands.allBrands);
+
 
   let alias = url.split('/')[3]
   // console.log('Alias', alias)
@@ -41,6 +54,49 @@ export default function CreateDesign() {
     dispatch(getAllBrands());
     return () => dispatch(clearData())
   }, [dispatch])
+
+  // DRAG FXNS -------------------------------
+  const dragItem = (item) => {
+    console.log('ITEM', item)
+    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    if(document.getElementById(item)) {
+      item.onmousedown = dragMouseDown;
+    }
+
+    const dragMouseDown = (e) => {
+      e = e || window.event;
+      e.preventDefault();
+      // grabs mouse position on start
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+
+      document.onmouseup = closeDragItem;
+      // this happens when cursor moves
+      document.onmousemove = itemDrag;
+    }
+
+    const itemDrag = (e) => {
+      e = e || window.event;
+      e.preventDefault();
+
+      // calculates the item's new position (x, y coords)
+      pos1 = pos3 - e.clientX;
+      pos2 = pos4 - e.clientY;
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      // sets the new position
+      item.style.top = (item.offsetTop - pos2) + 'px';
+      item.style.left = (item.offsetLeft - pos1) + 'px';
+    }
+
+    const closeDragItem = () => {
+      // item stops moving when mouse is released
+      document.onmouseup = null;
+      document.onmousemove = null;
+    }
+  }
+
+  dragItem(document.getElementById('drag-text'));
 
   // SIDEBAR MENU FXNS ---------------------------------------------
   const openSideMenu = () => {
@@ -106,6 +162,8 @@ export default function CreateDesign() {
           height: '540px',
           backgroundColor: 'white',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          backgroundImage: `url(${pres})`,
+          backgroundSize: 'cover',
         }}
       >
       </div>
@@ -119,6 +177,11 @@ export default function CreateDesign() {
           height: '384px',
           backgroundColor: 'white',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          backgroundImage: `url(${web})`,
+          // backgroundSize: '683px 384px',
+          backgroundSize: 'cover',
+          // backgroundRepeat:
+          backgroundPositionY: 'center',
         }}
       >
       </div>
@@ -128,10 +191,12 @@ export default function CreateDesign() {
     template = (
       <div
         style={{
-          width: '637.5px',
-          height: '825px',
+          width: '425px',
+          height: '550px',
           backgroundColor: 'white',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          backgroundImage: `url(${res})`,
+          backgroundSize: 'cover',
         }}
       >
       </div>
@@ -145,6 +210,8 @@ export default function CreateDesign() {
           height: '480px',
           backgroundColor: 'white',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          backgroundImage: `url(${ig})`,
+          backgroundSize: 'cover',
         }}
       >
       </div>
@@ -158,6 +225,8 @@ export default function CreateDesign() {
           height: '480px',
           backgroundColor: 'white',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          backgroundImage: `url(${igs})`,
+          backgroundSize: 'cover',
         }}
       >
       </div>
@@ -171,6 +240,8 @@ export default function CreateDesign() {
           height: '394px',
           backgroundColor: 'white',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          backgroundImage: `url(${fb})`,
+          backgroundSize: 'cover',
         }}
       >
       </div>
@@ -184,6 +255,8 @@ export default function CreateDesign() {
           height: '525px',
           backgroundColor: 'white',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          backgroundImage: `url(${invite})`,
+          backgroundSize: 'cover',
         }}
       >
       </div>
@@ -197,6 +270,10 @@ export default function CreateDesign() {
           height: '192px',
           backgroundColor: 'white',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          backgroundImage: `url(${biz})`,
+          backgroundSize: 'contain',
+          backgroundRepeat: 'no-repeat',
+          backgroundPositionX: 'center',
         }}
       >
       </div>
@@ -210,6 +287,8 @@ export default function CreateDesign() {
           height: '500px',
           backgroundColor: 'white',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          backgroundImage: `url(${infogr})`,
+          backgroundSize: 'cover',
         }}
       >
       </div>
@@ -283,7 +362,7 @@ export default function CreateDesign() {
             </div>
           )}
 
-          <button onClick={openBrandMenu}>Brands</button>
+          {/* <button onClick={openBrandMenu}>Brands</button>
           {showBrandMenu && (
             <div id='temp-menu-item'>
               {Object.values(brands).map(brand => (
@@ -299,15 +378,24 @@ export default function CreateDesign() {
                 </div>
               ))}
             </div>
-          )}
+          )} */}
           {/* <button onClick={openSideMenu}>Text</button>
         <button onClick={openSideMenu}>Styles</button>
         <button onClick={openSideMenu}>Logos</button> */}
         </div>
 
         <div className="edit-area">
+          <div id='under-construction'>This feature is in the making</div>
           <div id="inserted-temp">{template}</div>
+          {/* <div
+            id='drag-text'
 
+            height='100px'
+            width='100px'
+            // draggable
+          >
+          hi
+          </div> */}
         </div>
       </div>
     </div>

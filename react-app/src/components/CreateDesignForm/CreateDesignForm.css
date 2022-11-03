@@ -17,6 +17,24 @@
   top: 80px;
 }
 
+#under-construction {
+  position: absolute;
+  z-index: 5;
+
+  top: 70px;
+  width: 1000px;
+  height: 700px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(205, 205, 205, 0.7);
+
+  font-size: 40px;
+  font-weight: 700;
+  font-style: oblique;
+}
+
 /* SIDEBAR */
 .sidebar {
   display: flex;

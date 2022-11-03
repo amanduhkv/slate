@@ -1,0 +1,12 @@
+#drag-text {
+  position: absolute;
+  z-index: 100;
+  background-color: #f1f1f1;
+  /* text-align: center; */
+  border: 1px solid #d3d3d3;
+  cursor: move;
+  /* resize: both; */
+  height: 100px;
+  width: 100px;
+}
+
