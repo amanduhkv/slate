@@ -22,8 +22,12 @@ export default function SingleBrand() {
 
   return (
     <div className="brand-page">
+      <button id='back-title' onClick={() => history.push('/brand')}>{`< Back`}</button>
       <div className='brand-title'>
-        <h1>Brand</h1>
+        <div>
+          <h1>Brand</h1>
+        </div>
+
         {user && user.id === brand.user_id && (
         <div>
         <button onClick={() => history.push(`/brand/${brandId}/edit`)}>Edit brand</button>

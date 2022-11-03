@@ -66,6 +66,7 @@ const LoginForm = () => {
           type='text'
           value={email}
           onChange={updateEmail}
+          onKeyPress={e => e.key === 'Enter' && e.preventDefault()}
         />
         {/* <div id='login-err'>
           {errors.map((error) => error.toLowerCase().includes('email') ? error : null)}
@@ -79,12 +80,19 @@ const LoginForm = () => {
           type='password'
           value={password}
           onChange={updatePassword}
+          onKeyPress={e => e.key === 'Enter' && e.preventDefault()}
         />
         {/* <div id='login-err'>
           {errors.map((error) => error.toLowerCase().includes('password') ? error : null)}
         </div> */}
       </div>
-      <button id='login-submit' type='submit'>Log in</button>
+      <button
+        id='login-submit'
+        type='submit'
+        // onKeyPress={e => e.key === 'Enter' && e.preventDefault()}
+      >
+        Log in
+      </button>
     </form>
   );
 };

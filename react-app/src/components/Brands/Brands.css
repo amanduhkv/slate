@@ -6,12 +6,23 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* margin-top: 20px;
+  border-top: 1px solid rgb(235, 235, 235); */
 }
 
 .brand-title button {
   height: 40px;
   background-color: rgb(235, 235, 235);
   color: rgb(72, 76, 79);
+}
+
+.brand-title button:hover {
+  opacity: 80%;
+}
+
+#back-title {
+  margin-top: 10px;
+  padding: 5px 10px;
 }
 
 /* ----------------------- BRANDS AREA ----------------------- */
