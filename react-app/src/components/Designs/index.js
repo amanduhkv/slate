@@ -24,7 +24,7 @@ import UserDesigns from "./UserDesigns";
 export default function Designs() {
   const designs = useSelector(state => state.designs.allDesigns);
   const designArr = Object.values(designs);
-  
+
 
   const history = useHistory();
   const dispatch = useDispatch();

@@ -9,8 +9,8 @@ import logo from '../../icons/logo.png';
 export default function SingleBrand() {
   const { brandId } = useParams();
   const brand = useSelector(state => state.brands.singleBrand);
-  console.log('BRAND', brand)
-  // const brandArr = Object.values(brands);
+  const user = useSelector(state => state.session.user);
+
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -24,10 +24,12 @@ export default function SingleBrand() {
     <div className="brand-page">
       <div className='brand-title'>
         <h1>Brand</h1>
+        {user && user.id === brand.user_id && (
         <div>
         <button onClick={() => history.push(`/brand/${brandId}/edit`)}>Edit brand</button>
         <DeleteBrand />
         </div>
+        )}
       </div>
       <div id='brand-box' className="single-brand">
             <h2 id='brand-name'>{brand.name}</h2>

@@ -5,9 +5,9 @@ import Cookies from 'js-cookie';
 // ACTION TYPES ========================================
 const LOAD = 'brand/LOAD';
 const LOAD_ONE = 'brand/LOAD_ONE';
-const CREATE_BRAND = 'brand/CREATE_DES';
-const UPDATE_BRAND = 'brand/UPDATE_DES';
-const DELETE_BRAND = 'brand/DELETE_DES';
+const CREATE_BRAND = 'brand/CREATE_BRAND';
+const UPDATE_BRAND = 'brand/UPDATE_BRAND';
+const DELETE_BRAND = 'brand/DELETE_BRAND';
 
 const CLEAR_DATA = 'brand/CLEAR_DATA';
 
@@ -106,7 +106,7 @@ export const updateBrand = (brandId, brand) => async dispatch => {
   // console.log('REPONSE for update', response)
   if (response.ok) {
     const updatedBrand = await response.json();
-    dispatch(update_brand(brandId, updatedBrand));
+    await dispatch(update_brand(brandId, updatedBrand));
     return updatedBrand;
   };
 };
@@ -158,10 +158,12 @@ const brandReducer = (state = initialState, action) => {
       newState.singleBrand[action.brand.id] = newBrand;
       return newState;
     case DELETE_BRAND:
-      newState = { ...state, allBrands: { ...state.allBrands }, singleBrand: { ...state.singleBrand } };
+      newState = { ...state, allBrands: { ...state.allBrands }, singleBrand: { } };
       delete newState.allBrands[action.brandId];
       newState = { ...newState };
       return newState;
+    case CLEAR_DATA:
+      return initialState;
     default:
       return state;
   }

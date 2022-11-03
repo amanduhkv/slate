@@ -86,10 +86,20 @@ const NavBar = () => {
         </div>
         {showHamMenu && (
           <div className='ham-dropdown'>
-            <div>home</div>
-            <div>templates</div>
-            <div>Tools</div>
-            <div>Brand</div>
+            <div
+              id='ham-dd-content'
+              onClick={() => history.push('/')}
+            >
+              Home
+            </div>
+            {/* <div>Templates</div>
+            <div>Tools</div> */}
+            <div
+              id='ham-dd-content'
+              onClick={() => history.push('/brand')}
+            >
+              Brand
+            </div>
           </div>
         )}
 
@@ -115,7 +125,7 @@ const NavBar = () => {
             </div>
           )}
         </button>
-        <button id='nav-title-buttons'>
+        {/* <button id='nav-title-buttons'>
           Business
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#484C4F" d="m11.71 6.47-3.53 3.54c-.1.1-.26.1-.36 0L4.3 6.47a.75.75 0 1 0-1.06 1.06l3.53 3.54c.69.68 1.8.68 2.48 0l3.53-3.54a.75.75 0 0 0-1.06-1.06z"></path></svg>
         </button>
@@ -126,7 +136,7 @@ const NavBar = () => {
         <button id='nav-title-buttons'>
           Social Media
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#484C4F" d="m11.71 6.47-3.53 3.54c-.1.1-.26.1-.36 0L4.3 6.47a.75.75 0 1 0-1.06 1.06l3.53 3.54c.69.68 1.8.68 2.48 0l3.53-3.54a.75.75 0 0 0-1.06-1.06z"></path></svg>
-        </button>
+        </button> */}
       </div>
 
       <div className='right-nav'>

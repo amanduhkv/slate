@@ -45,49 +45,53 @@ export default function UpdateBrand() {
   }, [name]);
 
   // inputs original data
-  // useEffect(() => {
-  //   if(brand) {
-  //     setName(brand.name);
-  //     setLogo(brand.logo);
+  useEffect(() => {
+    if(brand) {
+      setName(brand.name);
+      setLogo(brand.logo);
 
-  //     const originalColors = [];
-  //     if(brand.colors && brand.colors.length > 0) {
-  //       brand.colors.forEach(color => {
-  //         console.log('COLOR IN CURR BRAND', color)
-  //         originalColors.push(color.name)
-  //         console.log('COLOR ARR', originalColors)
-  //       })
-  //     }
-  //     setColors(originalColors);
+      const originalColors = [];
+      if(brand.colors && brand.colors.length > 0) {
+        console.log('brand.colors', brand.colors)
+        brand.colors.forEach(color => {
+          console.log('COLOR IN CURR BRAND', color)
+          originalColors.push(color.name)
+          console.log('COLOR ARR', originalColors)
+        })
+      }
+      setColors(originalColors);
 
-  //     const originalFonts = [];
-  //     if(brand.fonts && brand.fonts.length > 0) {
-  //       brand.fonts.forEach(font => {
-  //         console.log('FONT IN CURR BRAND', font)
-  //         originalFonts.push(font.name)
-  //         console.log('FONT ARR', originalFonts)
-  //       })
-  //     }
-  //     setFonts(originalFonts);
-  //   }
-  // }, [brand, name, logo]);
+      const originalFonts = [];
+      if(brand.fonts && brand.fonts.length > 0) {
+        brand.fonts.forEach(font => {
+          console.log('FONT IN CURR BRAND', font)
+          originalFonts.push(font.name)
+          console.log('FONT ARR', originalFonts)
+        })
+      }
+      setFonts(originalFonts);
+    }
+  }, [brand]);
 
   // inputs checks from original data
-  // useEffect(() => {
-  //   const currentColors = document.querySelectorAll('brand-colors');
-  //   colors.forEach(color => {
-  //     currentColors.forEach(checkedColor => {
-  //       if(checkedColor.value === color) checkedColor = true;
-  //     })
-  //   });
+  useEffect(() => {
+    const currentColors = document.querySelectorAll('#brand-colors');
+    // console.log('currentColors', currentColors)
+    colors.forEach(color => {
+      // console.log('CHECKING COLOR', color)
+      currentColors.forEach(checkedColor => {
+        // console.log('checkedColor', checkedColor)
+        if(checkedColor.value === color.name) checkedColor.checked = true;
+      })
+    });
 
-  //   const currFonts = document.querySelectorAll('brand-fonts');
-  //   fonts.forEach(font => {
-  //     currFonts.forEach(checkedFont => {
-  //       if(checkedFont.value === font) checkedFont = true;
-  //     })
-  //   });
-  // }, [brand, colors, fonts])
+    const currFonts = document.querySelectorAll('#brand-fonts');
+    fonts.forEach(font => {
+      currFonts.forEach(checkedFont => {
+        if(checkedFont.value === font.name) checkedFont.checked = true;
+      })
+    });
+  }, [brand, colors, fonts])
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -135,21 +139,23 @@ export default function UpdateBrand() {
 
         <label id='brand-tag' for='brand-colors'>Brand colors:</label>
         <div className="color-container">
-          {__colors.map(color => (
-            <div id={color.alias} className='colors'>
+          {__colors.map((color, idx) => (
+            <div key={idx} id={color.alias} className='colors'>
               <input
                 type='checkbox'
                 id='brand-colors'
                 value={color.alias}
                 onChange={e => {
-                  const colorList = colors;
+                  let colorList = [...colors];
+                  console.log('COLORLIST', colorList)
                   if (e.target.checked) {
-                    colorList.push(e.target.value)
+                    console.log('COLOR TARGET', e.target)
+                    colorList = [...colors, e.target.value]
                   }
                   else {
-                    const i = colorList.indexOf(e.target.value);
-                    colorList.splice(i, 1);
+                    colorList.splice(colors.indexOf(e.target.value), 1);
                   }
+                  console.log('COLORLIST second', colorList)
                   setColors(colorList)
                 }}
               />
@@ -178,7 +184,7 @@ export default function UpdateBrand() {
                 id='brand-fonts'
                 value={font.family}
                 onChange={e => {
-                  const fontList = fonts;
+                  const fontList = [];
                   if (e.target.checked) {
                     fontList.push(e.target.value)
                   }

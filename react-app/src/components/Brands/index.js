@@ -17,7 +17,7 @@ export default function Brands() {
   useEffect(() => {
     dispatch(getAllBrands());
 
-    // return () => dispatch(clearData())
+    return () => dispatch(clearData())
   }, [dispatch])
 
   return (

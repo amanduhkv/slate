@@ -86,7 +86,7 @@ def get_all_user_designs():
     return jsonify({
       'Designs': current_des
     })
-  return 'Current user does not have any designs yet.'
+  return {'Current user does not have any designs yet.'}
 
 
 

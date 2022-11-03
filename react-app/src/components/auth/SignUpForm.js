@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 
 const SignUpForm = () => {
-  const [errors, setErrors] = useState([]);
+  const [validationErr, setValidationErr] = useState([]);
+  const [submitted, setSubmitted] = useState(false);
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
   const [email, setEmail] = useState('');
@@ -13,13 +14,24 @@ const SignUpForm = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    let errs = [];
+
+    if(firstname.length < 2) errs.push('First name must be at least 2 characters.');
+    if(lastname.length < 2) errs.push('Last name must be at least 2 characters.');
+    if(!email.length || !email.includes('@') || !email.includes('.')) errs.push('Invalid email. (Must include "@" and ".")');
+    if(password.length < 6) errs.push('Passwords must be at least 6 characters.');
+
+    setValidationErr(errs);
+  }, [firstname, lastname, email, password]);
+
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password) {
-      const data = await dispatch(signUp(firstname, lastname, email, password));
-      if (data) {
-        setErrors([data])
-      }
+
+    setSubmitted(true);
+
+    if (!validationErr.length) {
+      await dispatch(signUp(firstname, lastname, email, password));
     }
   };
 
@@ -48,6 +60,13 @@ const SignUpForm = () => {
     <form onSubmit={onSignUp}>
       <h1>Log in or sign up in seconds</h1>
       <p>Use your email to sign up with Slate (it's free!)</p>
+      {submitted && validationErr.length > 0 && (
+        <div className='errors'>
+        {validationErr.map((error, ind) => (
+          <div key={ind}>{error}</div>
+        ))}
+      </div>
+      )}
       {/* <button
         id='demo-user'
         onClick={(e) => {
@@ -77,7 +96,7 @@ const SignUpForm = () => {
           placeholder='Last name'
           onChange={updateLastname}
           value={lastname}
-          required={true}
+          // required={true}
         ></input>
         </div>
       </div>

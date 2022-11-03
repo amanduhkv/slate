@@ -19,7 +19,7 @@ export default function UserDesigns() {
   return (
     <div className="recent-des">
       {desArr.map(des => (
-        <div className="des-containers" onClick={() => history.push(`/designs/${des.id}`)}>
+        <div className="des-containers" onClick={() => history.push(`/designs/${des.id}/${des.template[0].alias}`)}>
           <h3>{des.name}</h3>
         </div>
       ))}

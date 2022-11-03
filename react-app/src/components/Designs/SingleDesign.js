@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory, useLocation } from "react-router-dom";
-import { getADesign, updateDesign, clearData } from "../../store/designs";
+import { getADesign, updateDesign, clearData, getAllDesigns } from "../../store/designs";
 
 import left from '../../icons/left.svg';
 import present from '../../icons/temps/presentation.png';
@@ -18,14 +18,17 @@ import DeleteDesign from "../DeleteDesignForm";
 export default function SingleDesign() {
   const { designId } = useParams();
   const singleDesign = useSelector(state => state.designs.singleDesign);
+  const allDesigns = useSelector(state => state.designs.allDesigns);
+  const user = useSelector(state => state.session.user);
 
   const history = useHistory();
   const dispatch = useDispatch();
-  const url = useLocation().search;
-  const alias = url.split('=')[1];
+  const url = useLocation().pathname.split('/');
+  let alias = url[3];
   // console.log('URL', url)
 
   const [name, setName] = useState('');
+  const [temp, setTemp] = useState('');
   const [validationErrs, setValidationErrs] = useState([]);
   const [hasSubmit, setHasSubmit] = useState(false);
   const [showSideMenu, setShowSideMenu] = useState(false);
@@ -35,8 +38,9 @@ export default function SingleDesign() {
 
   useEffect(() => {
     dispatch(getADesign(designId))
+    dispatch(getAllDesigns());
 
-    return () => dispatch(clearData())
+    // return () => dispatch(clearData())
   }, [dispatch, designId])
 
 
@@ -72,6 +76,7 @@ export default function SingleDesign() {
 
   // LOADING TEMPLATES --------------------------------------------------
   let template;
+  // let alias = template.alias;
   // let alias = singleDesign?.template?.[0].alias;
   // console.log('CURRENT ALIAS', alias)
   if (alias === 'presentation') {
@@ -192,6 +197,14 @@ export default function SingleDesign() {
     )
   }
 
+  // // LOADING PREV DATA ---------------------------------------
+  // useEffect(() => {
+  //   if(singleDesign) {
+  //     setName(singleDesign.name);
+  //     setTemp(singleDesign.template[0])
+  //   }
+  // }, [singleDesign])
+
   // SUBMIT FXNS ---------------------------------------------
   useEffect(() => {
     const errors = [];
@@ -211,9 +224,10 @@ export default function SingleDesign() {
     };
 
     if (!validationErrs.length) {
-      let updatedDes = await dispatch(updateDesign(payload));
-
-      if (updatedDes) history.push(`/designs/${updatedDes.id}/?temp=${alias}`);
+      let updatedDes = await dispatch(updateDesign(singleDesign.id, payload));
+      console.log('updatedDes', updatedDes)
+      // if (updatedDes) history.push(`/designs/${updatedDes.id}/${alias}`);
+      if (updatedDes) history.push(`/designs`);
     };
   };
 
@@ -223,21 +237,30 @@ export default function SingleDesign() {
   return (
     <div>
       <form className='create-des-form' onSubmit={handleSubmit}>
-      <div id='home-button' onClick={() => history.push('/designs')}>
+        <div id='home-button' onClick={() => history.push('/designs')}>
           <img src={left} alt='left' height='14px' />
           Home
         </div>
         <div>
-        <input
-          id='des-name'
-          type='text'
-          placeholder={singleDesign.name}
-          value={name}
-          onChange={e => setName(e.target.value)}
-        />
-
-        <button id='create-des-button' type='submit'>Save design</button>
-        <DeleteDesign />
+          <input
+            id='des-name'
+            type='text'
+            placeholder={singleDesign.name}
+            value={name}
+            onChange={e => setName(e.target.value)}
+          />
+          <input
+            type='text'
+            value={temp}
+            hidden
+            onChange={e => setTemp(e.target.value)}
+          />
+          {user && user.id === singleDesign.user_id && (
+            <>
+              <button id='create-des-button' type='submit'>Save design</button>
+              <DeleteDesign />
+            </>
+          )}
         </div>
       </form>
       <div className="edit-container">
@@ -247,8 +270,11 @@ export default function SingleDesign() {
             <div className="temp-menu-container">
               {/* <div id='warning'>Warning: Switching templates deletes any previous work made.</div> */}
               <div id='temp-menu-item'>
-                {singleDesign.template.map(temp => (
-                  <div id='temp-container-des' onClick={() => history.push(`/designs/${designId}?temp=${temp.alias}`)}>
+                {allDesigns[1].template.map(temp => (
+                  <div id='temp-container-des' onClick={() => {
+                    setTemp(temp)
+                    history.push(`/designs/${designId}/${temp.alias}`)
+                  }}>
                     {temp.alias === 'presentation' ?
                       <img id='temp-img-des' src={present} alt='pres' width='130px' /> :
                       temp.alias === 'website' ?
@@ -278,12 +304,12 @@ export default function SingleDesign() {
             </div>
           )}
 
-          <button onClick={openEleMenu}>Elements</button>
+          {/* <button onClick={openEleMenu}>Elements</button>
           {showEleMenu && (
             <div id='temp-menu-item'>
               elements here
             </div>
-          )}
+          )} */}
           {/* <button onClick={openSideMenu}>Text</button>
         <button onClick={openSideMenu}>Styles</button>
         <button onClick={openSideMenu}>Logos</button> */}
@@ -291,7 +317,6 @@ export default function SingleDesign() {
 
         <div className="edit-area">
           <div id="inserted-temp">{template}</div>
-
         </div>
       </div>
       {/* {template} */}

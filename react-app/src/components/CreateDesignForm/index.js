@@ -28,6 +28,7 @@ export default function CreateDesign() {
   let alias = url.split('/')[3]
   // console.log('Alias', alias)
   const [name, setName] = useState('');
+  const [temp, setTemp] = useState('');
   const [validationErrs, setValidationErrs] = useState([]);
   const [hasSubmit, setHasSubmit] = useState(false);
   const [showSideMenu, setShowSideMenu] = useState(false);
@@ -88,8 +89,8 @@ export default function CreateDesign() {
 
     if (!validationErrs.length) {
       let createdDes = await dispatch(createDesign(payload));
-
-      if (createdDes) history.push(`/designs/${createdDes.id}?temp=${alias}`);
+      console.log('template', alias)
+      if (createdDes) history.push(`/designs/${createdDes.id}/${alias}`);
     };
   };
 
@@ -215,12 +216,6 @@ export default function CreateDesign() {
 
   return (
     <div>
-      {/* <div
-          className='logo'
-          onClick={() => window.location = '/designs'}
-        >
-          Home
-        </div> */}
       <form className='create-des-form' onSubmit={handleSubmit}>
         <div id='home-button' onClick={() => history.push('/designs')}>
           <img src={left} alt='left' height='14px' />
@@ -234,6 +229,12 @@ export default function CreateDesign() {
           value={name}
           onChange={e => setName(e.target.value)}
         />
+        <input
+          type='text'
+          value={temp}
+          hidden
+          onChange={e => setTemp(e.target.value)}
+        />
         <button id='create-des-button' type='submit'>Save new design</button>
         </div>
       </form>
@@ -246,7 +247,11 @@ export default function CreateDesign() {
               {/* <div id='warning'>Warning: Switching templates deletes any previous work made.</div> */}
               <div id='temp-menu-item'>
                 {templates.map(temp => (
-                  <div id='temp-container-des' onClick={() => history.push(`/designs/new/${temp.alias}`)}>
+                  <div id='temp-container-des' onClick={() => {
+                    // console.log('TEMP', temp)
+                    setTemp(temp)
+                    history.push(`/designs/new/${temp.alias}`)
+                    }}>
                     {temp.alias === 'presentation' ?
                       <img id='temp-img-des' src={present} alt='pres' width='130px' /> :
                       temp.alias === 'website' ?
@@ -276,12 +281,12 @@ export default function CreateDesign() {
             </div>
           )}
 
-          <button onClick={openEleMenu}>Elements</button>
+          {/* <button onClick={openEleMenu}>Elements</button>
           {showEleMenu && (
             <div id='temp-menu-item'>
               elements here
             </div>
-          )}
+          )} */}
           {/* <button onClick={openSideMenu}>Text</button>
         <button onClick={openSideMenu}>Styles</button>
         <button onClick={openSideMenu}>Logos</button> */}

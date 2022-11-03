@@ -80,12 +80,12 @@ def get_user_brands():
       brand['fonts'] = fonts
       colors = [color.to_dict() for color in brand['colors']]
       brand['colors'] = colors
-      
+
       current_brands.append(brand)
     return jsonify({
       'Brands': current_brands
     })
-  return 'Current user does not have any brands yet.'
+  return {'Current user does not have any brands yet.'}
 
 
 
@@ -33348,13 +33348,13 @@ def edit_brand(brand_id):
         brand_update.user_id = user_id
         brand_update.name = form.data['name']
         brand_update.logo = form.data['logo']
-        brand_update.font = font_lst
-        brand_update.color = color_lst
+        brand_update.fonts = font_lst
+        brand_update.colors = color_lst
 
         db.session.commit()
 
-        font_lst = [f.to_dict() for f in brand_update.font]
-        color_lst = [c.to_dict() for c in brand_update.color]
+        font_lst = [f.to_dict() for f in brand_update.fonts]
+        color_lst = [c.to_dict() for c in brand_update.colors]
 
         b = brand_update.to_dict()
         b['fonts'] = font_lst
