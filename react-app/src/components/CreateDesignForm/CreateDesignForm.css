@@ -109,7 +109,7 @@
 }
 
 #create-des-button:hover {
-  opacity: 60%;
+  background-color: rgba(153,170,179, 0.4);
 }
 
 #des-name {

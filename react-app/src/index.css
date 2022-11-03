@@ -41,7 +41,7 @@ button {
 
 button:hover {
   cursor: pointer;
-  
+  background-color: rgba(153,170,179, 0.4)
 }
 
 form {
