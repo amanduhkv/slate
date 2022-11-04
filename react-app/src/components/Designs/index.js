@@ -22,53 +22,53 @@ import pres3 from '../../icons/change-temps/present-temp/pres-aesthetic.svg';
 import pres4 from '../../icons/change-temps/present-temp/pres-green.svg';
 import pres5 from '../../icons/change-temps/present-temp/pres-bw.svg';
 
-import web1 from '../../icons/change-temps/website-temp/website-original.png';
-import web2 from '../../icons/change-temps/website-temp/website-fun.png';
-import web3 from '../../icons/change-temps/website-temp/website-aesthetic.png';
-import web4 from '../../icons/change-temps/website-temp/website-green.png';
-import web5 from '../../icons/change-temps/website-temp/website-bw.png';
+import web1 from '../../icons/change-temps/website-temp/web-original.png';
+import web2 from '../../icons/change-temps/website-temp/web-fun.png';
+import web3 from '../../icons/change-temps/website-temp/web-aesthetic.png';
+import web4 from '../../icons/change-temps/website-temp/web-green.png';
+import web5 from '../../icons/change-temps/website-temp/web-bw.png';
 
-import ig1 from '../../icons/change-temps/ig-temp/ig-original.svg';
-import ig2 from '../../icons/change-temps/ig-temp/ig-fun.svg';
-import ig3 from '../../icons/change-temps/ig-temp/ig-aesthetic.svg';
-import ig4 from '../../icons/change-temps/ig-temp/ig-green.svg';
-import ig5 from '../../icons/change-temps/ig-temp/ig-bw.svg';
+// import ig1 from '../../icons/change-temps/ig-temp/ig-original.svg';
+// import ig2 from '../../icons/change-temps/ig-temp/ig-fun.svg';
+// import ig3 from '../../icons/change-temps/ig-temp/ig-aesthetic.svg';
+// import ig4 from '../../icons/change-temps/ig-temp/ig-green.svg';
+// import ig5 from '../../icons/change-temps/ig-temp/ig-bw.svg';
 
-import igs1 from '../../icons/change-temps/igs-temp/igs-original.svg';
-import igs2 from '../../icons/change-temps/igs-temp/igs-fun.svg';
-import igs3 from '../../icons/change-temps/igs-temp/igs-aesthetic.svg';
-import igs4 from '../../icons/change-temps/igs-temp/igs-green.svg';
-import igs5 from '../../icons/change-temps/igs-temp/igs-pink.svg';
+// import igs1 from '../../icons/change-temps/igs-temp/igs-original.svg';
+// import igs2 from '../../icons/change-temps/igs-temp/igs-fun.svg';
+// import igs3 from '../../icons/change-temps/igs-temp/igs-aesthetic.svg';
+// import igs4 from '../../icons/change-temps/igs-temp/igs-green.svg';
+// import igs5 from '../../icons/change-temps/igs-temp/igs-pink.svg';
 
-import fb1 from '../../icons/change-temps/fb-temp/fb-original.svg';
-import fb2 from '../../icons/change-temps/fb-temp/fb-fun.svg';
-import fb3 from '../../icons/change-temps/fb-temp/fb-aesthetic.svg';
-import fb4 from '../../icons/change-temps/fb-temp/fb-green.svg';
-import fb5 from '../../icons/change-temps/fb-temp/fb-bw.svg';
+// import fb1 from '../../icons/change-temps/fb-temp/fb-original.svg';
+// import fb2 from '../../icons/change-temps/fb-temp/fb-fun.svg';
+// import fb3 from '../../icons/change-temps/fb-temp/fb-aesthetic.svg';
+// import fb4 from '../../icons/change-temps/fb-temp/fb-green.svg';
+// import fb5 from '../../icons/change-temps/fb-temp/fb-bw.svg';
 
-import inv1 from '../../icons/change-temps/invite-temp/invite-original.svg';
-import inv2 from '../../icons/change-temps/invite-temp/invite-fun.svg';
-import inv3 from '../../icons/change-temps/invite-temp/invite-aesthetic.svg';
-import inv4 from '../../icons/change-temps/invite-temp/invite-green.svg';
-import inv5 from '../../icons/change-temps/invite-temp/invite-bw.svg';
+// import inv1 from '../../icons/change-temps/invite-temp/invite-original.svg';
+// import inv2 from '../../icons/change-temps/invite-temp/invite-fun.svg';
+// import inv3 from '../../icons/change-temps/invite-temp/invite-aesthetic.svg';
+// import inv4 from '../../icons/change-temps/invite-temp/invite-green.svg';
+// import inv5 from '../../icons/change-temps/invite-temp/invite-bw.svg';
 
-import biz1 from '../../icons/change-temps/bizcard-temp/bizcard-original.svg';
-import biz2 from '../../icons/change-temps/bizcard-temp/bizcard-fun.svg';
-import biz3 from '../../icons/change-temps/bizcard-temp/bizcard-aesthetic.svg';
-import biz4 from '../../icons/change-temps/bizcard-temp/bizcard-green.svg';
-import biz5 from '../../icons/change-temps/bizcard-temp/bizcard-bw.svg';
+// import biz1 from '../../icons/change-temps/bizcard-temp/bizcard-original.svg';
+// import biz2 from '../../icons/change-temps/bizcard-temp/bizcard-fun.svg';
+// import biz3 from '../../icons/change-temps/bizcard-temp/bizcard-aesthetic.svg';
+// import biz4 from '../../icons/change-temps/bizcard-temp/bizcard-green.svg';
+// import biz5 from '../../icons/change-temps/bizcard-temp/bizcard-bw.svg';
 
-import info1 from '../../icons/change-temps/info-temp/info-original.svg';
-import info2 from '../../icons/change-temps/info-temp/info-fun.svg';
-import info3 from '../../icons/change-temps/info-temp/info-aesthetic.svg';
-import info4 from '../../icons/change-temps/info-temp/info-green.svg';
-import info5 from '../../icons/change-temps/info-temp/info-bw.svg';
+// import info1 from '../../icons/change-temps/info-temp/info-original.svg';
+// import info2 from '../../icons/change-temps/info-temp/info-fun.svg';
+// import info3 from '../../icons/change-temps/info-temp/info-aesthetic.svg';
+// import info4 from '../../icons/change-temps/info-temp/info-green.svg';
+// import info5 from '../../icons/change-temps/info-temp/info-bw.svg';
 
-import res1 from '../../icons/change-temps/res-temp/res-original.svg';
-import res2 from '../../icons/change-temps/res-temp/res-fun.svg';
-import res3 from '../../icons/change-temps/res-temp/res-aesthetic.svg';
-import res4 from '../../icons/change-temps/res-temp/res-green.svg';
-import res5 from '../../icons/change-temps/res-temp/res-bw.svg';
+// import res1 from '../../icons/change-temps/res-temp/res-original.svg';
+// import res2 from '../../icons/change-temps/res-temp/res-fun.svg';
+// import res3 from '../../icons/change-temps/res-temp/res-aesthetic.svg';
+// import res4 from '../../icons/change-temps/res-temp/res-green.svg';
+// import res5 from '../../icons/change-temps/res-temp/res-bw.svg';
 
 import './index.css';
 import NavBar from "../NavBar";

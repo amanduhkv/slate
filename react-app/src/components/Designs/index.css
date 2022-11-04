@@ -66,9 +66,11 @@
 }
 
 .temp-cards {
+  width: fit-content;
+  object-fit: cover;
   display: flex;
-  flex-wrap: nowrap;
-  /* overflow: hidden; */
+  flex-wrap: wrap;
+  /* overflow: scroll; */
   /* overflow-x: hidden; */
   justify-content: center;
 
@@ -80,7 +82,7 @@
 
 #temp-box {
   display: flex;
-  /* width: 400px; */
+  width: 400px;
 }
 
 .temp-box {
