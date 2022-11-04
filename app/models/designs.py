@@ -47,6 +47,11 @@ class Template(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.String(255), nullable=False)
   alias = db.Column(db.String(255))
+  text_input_1 = db.Column(db.Text)
+  text_input_2 = db.Column(db.Text)
+  text_input_3 = db.Column(db.Text)
+  text_input_4 = db.Column(db.Text)
+  text_input_5 = db.Column(db.Text)
 
   design = db.relationship(
     'Design',
@@ -62,7 +67,12 @@ class Template(db.Model):
     return {
       'id': self.id,
       'name': self.name,
-      'alias': self.alias
+      'alias': self.alias,
+      'text_input_1': self.text_input_1,
+      'text_input_2': self.text_input_2,
+      'text_input_3': self.text_input_3,
+      'text_input_4': self.text_input_4,
+      'text_input_5': self.text_input_5,
     }
 
 class Shape(db.Model):
