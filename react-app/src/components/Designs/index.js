@@ -28,47 +28,47 @@ import web3 from '../../icons/change-temps/website-temp/web-aesthetic.png';
 import web4 from '../../icons/change-temps/website-temp/web-green.png';
 import web5 from '../../icons/change-temps/website-temp/web-bw.png';
 
-// import ig1 from '../../icons/change-temps/ig-temp/ig-original.svg';
-// import ig2 from '../../icons/change-temps/ig-temp/ig-fun.svg';
-// import ig3 from '../../icons/change-temps/ig-temp/ig-aesthetic.svg';
-// import ig4 from '../../icons/change-temps/ig-temp/ig-green.svg';
-// import ig5 from '../../icons/change-temps/ig-temp/ig-bw.svg';
+import ig1 from '../../icons/change-temps/ig-temp/ig-original.svg';
+import ig2 from '../../icons/change-temps/ig-temp/ig-fun.svg';
+import ig3 from '../../icons/change-temps/ig-temp/ig-aesthetic.svg';
+import ig4 from '../../icons/change-temps/ig-temp/ig-green.svg';
+import ig5 from '../../icons/change-temps/ig-temp/ig-bw.svg';
 
-// import igs1 from '../../icons/change-temps/igs-temp/igs-original.svg';
-// import igs2 from '../../icons/change-temps/igs-temp/igs-fun.svg';
-// import igs3 from '../../icons/change-temps/igs-temp/igs-aesthetic.svg';
-// import igs4 from '../../icons/change-temps/igs-temp/igs-green.svg';
-// import igs5 from '../../icons/change-temps/igs-temp/igs-pink.svg';
+import igs1 from '../../icons/change-temps/ig-story-temp/igs-original.svg';
+import igs2 from '../../icons/change-temps/ig-story-temp/igs-fun.svg';
+import igs3 from '../../icons/change-temps/ig-story-temp/igs-aesthetic.svg';
+import igs4 from '../../icons/change-temps/ig-story-temp/igs-green.svg';
+import igs5 from '../../icons/change-temps/ig-story-temp/igs-pink.svg';
 
-// import fb1 from '../../icons/change-temps/fb-temp/fb-original.svg';
-// import fb2 from '../../icons/change-temps/fb-temp/fb-fun.svg';
-// import fb3 from '../../icons/change-temps/fb-temp/fb-aesthetic.svg';
-// import fb4 from '../../icons/change-temps/fb-temp/fb-green.svg';
-// import fb5 from '../../icons/change-temps/fb-temp/fb-bw.svg';
+import fb1 from '../../icons/change-temps/fb-temp/fb-original.svg';
+import fb2 from '../../icons/change-temps/fb-temp/fb-fun.svg';
+import fb3 from '../../icons/change-temps/fb-temp/fb-aesthetic.svg';
+import fb4 from '../../icons/change-temps/fb-temp/fb-green.svg';
+import fb5 from '../../icons/change-temps/fb-temp/fb-bw.svg';
 
-// import inv1 from '../../icons/change-temps/invite-temp/invite-original.svg';
-// import inv2 from '../../icons/change-temps/invite-temp/invite-fun.svg';
-// import inv3 from '../../icons/change-temps/invite-temp/invite-aesthetic.svg';
-// import inv4 from '../../icons/change-temps/invite-temp/invite-green.svg';
-// import inv5 from '../../icons/change-temps/invite-temp/invite-bw.svg';
+import inv1 from '../../icons/change-temps/invite-temp/inv-original.svg';
+import inv2 from '../../icons/change-temps/invite-temp/inv-fun.svg';
+import inv3 from '../../icons/change-temps/invite-temp/inv-aesthetic.svg';
+import inv4 from '../../icons/change-temps/invite-temp/inv-green.svg';
+import inv5 from '../../icons/change-temps/invite-temp/inv-bw.svg';
 
-// import biz1 from '../../icons/change-temps/bizcard-temp/bizcard-original.svg';
-// import biz2 from '../../icons/change-temps/bizcard-temp/bizcard-fun.svg';
-// import biz3 from '../../icons/change-temps/bizcard-temp/bizcard-aesthetic.svg';
-// import biz4 from '../../icons/change-temps/bizcard-temp/bizcard-green.svg';
-// import biz5 from '../../icons/change-temps/bizcard-temp/bizcard-bw.svg';
+import biz1 from '../../icons/change-temps/bizcard-temp/biz-original.svg';
+import biz2 from '../../icons/change-temps/bizcard-temp/biz-fun.svg';
+import biz3 from '../../icons/change-temps/bizcard-temp/biz-aesthetic.svg';
+import biz4 from '../../icons/change-temps/bizcard-temp/biz-green.svg';
+import biz5 from '../../icons/change-temps/bizcard-temp/biz-bw.svg';
 
-// import info1 from '../../icons/change-temps/info-temp/info-original.svg';
-// import info2 from '../../icons/change-temps/info-temp/info-fun.svg';
-// import info3 from '../../icons/change-temps/info-temp/info-aesthetic.svg';
-// import info4 from '../../icons/change-temps/info-temp/info-green.svg';
-// import info5 from '../../icons/change-temps/info-temp/info-bw.svg';
+import info1 from '../../icons/change-temps/info-temp/info-original.svg';
+import info2 from '../../icons/change-temps/info-temp/info-fun.svg';
+import info3 from '../../icons/change-temps/info-temp/info-aesthetic.svg';
+import info4 from '../../icons/change-temps/info-temp/info-green.svg';
+import info5 from '../../icons/change-temps/info-temp/info-bw.svg';
 
-// import res1 from '../../icons/change-temps/res-temp/res-original.svg';
-// import res2 from '../../icons/change-temps/res-temp/res-fun.svg';
-// import res3 from '../../icons/change-temps/res-temp/res-aesthetic.svg';
-// import res4 from '../../icons/change-temps/res-temp/res-green.svg';
-// import res5 from '../../icons/change-temps/res-temp/res-bw.svg';
+import res1 from '../../icons/change-temps/res-temp/res-original.svg';
+import res2 from '../../icons/change-temps/res-temp/res-fun.svg';
+import res3 from '../../icons/change-temps/res-temp/res-aesthetic.svg';
+import res4 from '../../icons/change-temps/res-temp/res-green.svg';
+import res5 from '../../icons/change-temps/res-temp/res-bw.svg';
 
 import './index.css';
 import NavBar from "../NavBar";
@@ -169,31 +169,79 @@ export default function Designs() {
                       <img id='temp-img' src={web4} alt='pres' width='160px' /> :
                     temp.alias === 'website-bw' ?
                       <img id='temp-img' src={web5} alt='pres' width='160px' /> :
-                      // temp.alias === 'resume' ?
-                      //   <img id='temp-img' src={resume} alt='pres' width='160px' /> :
-                      // temp.alias === 'resume' ?
-                      //   <img id='temp-img' src={resume} alt='pres' width='160px' /> :
-                      // temp.alias === 'resume' ?
-                      //   <img id='temp-img' src={resume} alt='pres' width='160px' /> :
-                      // temp.alias === 'resume' ?
-                      //   <img id='temp-img' src={resume} alt='pres' width='160px' /> :
-                      // temp.alias === 'resume' ?
-                      //   <img id='temp-img' src={resume} alt='pres' width='160px' /> :
-                      //   temp.alias === 'igpost' ?
-                      //     <img id='temp-img' src={igpost} alt='pres' width='160px' /> :
-                      //     temp.alias === 'igstory' ?
-                      //       <img id='temp-img' src={igstory} alt='pres' width='160px' /> :
-                      //       temp.alias === 'fbpost' ?
-                      //         <img id='temp-img' src={fbpost} alt='pres' width='160px' /> :
-                      //         temp.alias === 'invitation' ?
-                      //           <img id='temp-img' src={inv} alt='pres' width='160px' /> :
-                      //           temp.alias === 'businesscard' ?
-                      //             <img id='temp-img' src={bizcard} alt='pres' width='160px' /> :
-                      //             temp.alias === 'infograph' ?
-                      //               <img id='temp-img' src={info} alt='pres' width='160px' /> :
+                      temp.alias === 'resume-original' ?
+                        <img id='temp-img' src={res1} alt='pres' width='160px' /> :
+                      temp.alias === 'resume-fun' ?
+                        <img id='temp-img' src={res2} alt='pres' width='160px' /> :
+                      temp.alias === 'resume-aesthetic' ?
+                        <img id='temp-img' src={res3} alt='pres' width='160px' /> :
+                      temp.alias === 'resume-green' ?
+                        <img id='temp-img' src={res4} alt='pres' width='160px' /> :
+                      temp.alias === 'resume-bw' ?
+                        <img id='temp-img' src={res5} alt='pres' width='160px' /> :
+                        temp.alias === 'igpost-original' ?
+                          <img id='temp-img' src={ig1} alt='pres' width='160px' /> :
+                        temp.alias === 'igpost-fun' ?
+                          <img id='temp-img' src={ig2} alt='pres' width='160px' /> :
+                        temp.alias === 'igpost-aesthetic' ?
+                          <img id='temp-img' src={ig3} alt='pres' width='160px' /> :
+                        temp.alias === 'igpost-green' ?
+                          <img id='temp-img' src={ig4} alt='pres' width='160px' /> :
+                        temp.alias === 'igpost-bw' ?
+                          <img id='temp-img' src={ig5} alt='pres' width='160px' /> :
+                          temp.alias === 'igstory-original' ?
+                            <img id='temp-img' src={igs1} alt='pres' width='160px' /> :
+                          temp.alias === 'igstory-fun' ?
+                            <img id='temp-img' src={igs2} alt='pres' width='160px' /> :
+                          temp.alias === 'igstory-aesthetic' ?
+                            <img id='temp-img' src={igs3} alt='pres' width='160px' /> :
+                          temp.alias === 'igstory-green' ?
+                            <img id='temp-img' src={igs4} alt='pres' width='160px' /> :
+                          temp.alias === 'igstory-pink' ?
+                            <img id='temp-img' src={igs5} alt='pres' width='160px' /> :
+                            temp.alias === 'fbpost-original' ?
+                              <img id='temp-img' src={fb1} alt='pres' width='160px' /> :
+                            temp.alias === 'fbpost-fun' ?
+                              <img id='temp-img' src={fb2} alt='pres' width='160px' /> :
+                            temp.alias === 'fbpost-aesthetic' ?
+                              <img id='temp-img' src={fb3} alt='pres' width='160px' /> :
+                            temp.alias === 'fbpost-green' ?
+                              <img id='temp-img' src={fb4} alt='pres' width='160px' /> :
+                            temp.alias === 'fbpost-bw' ?
+                              <img id='temp-img' src={fb5} alt='pres' width='160px' /> :
+                              temp.alias === 'invitation-original' ?
+                                <img id='temp-img' src={inv1} alt='pres' width='160px' /> :
+                              temp.alias === 'invitation-fun' ?
+                                <img id='temp-img' src={inv2} alt='pres' width='160px' /> :
+                              temp.alias === 'invitation-aesthetic' ?
+                                <img id='temp-img' src={inv3} alt='pres' width='160px' /> :
+                              temp.alias === 'invitation-green' ?
+                                <img id='temp-img' src={inv4} alt='pres' width='160px' /> :
+                              temp.alias === 'invitation-bw' ?
+                                <img id='temp-img' src={inv5} alt='pres' width='160px' /> :
+                                temp.alias === 'businesscard-original' ?
+                                  <img id='temp-img' src={biz1} alt='pres' width='160px' /> :
+                                temp.alias === 'businesscard-fun' ?
+                                  <img id='temp-img' src={biz2} alt='pres' width='160px' /> :
+                                temp.alias === 'businesscard-aesthetic' ?
+                                  <img id='temp-img' src={biz3} alt='pres' width='160px' /> :
+                                temp.alias === 'businesscard-green' ?
+                                  <img id='temp-img' src={biz4} alt='pres' width='160px' /> :
+                                temp.alias === 'businesscard-bw' ?
+                                  <img id='temp-img' src={biz5} alt='pres' width='160px' /> :
+                                  temp.alias === 'infograph-original' ?
+                                    <img id='temp-img' src={info1} alt='pres' width='160px' /> :
+                                  temp.alias === 'infograph-fun' ?
+                                    <img id='temp-img' src={info2} alt='pres' width='160px' /> :
+                                  temp.alias === 'infograph-aesthetic' ?
+                                    <img id='temp-img' src={info3} alt='pres' width='160px' /> :
+                                  temp.alias === 'infograph-green' ?
+                                    <img id='temp-img' src={info4} alt='pres' width='160px' /> :
+                                  temp.alias === 'infograph-bw' ?
+                                    <img id='temp-img' src={info5} alt='pres' width='160px' /> :
                                     "Your template here"
                   }
-                  <div>{temp.name}</div>
+                  <div>{temp.alias ? temp.name : null}</div>
                 </div>
               </div>
             ))}
