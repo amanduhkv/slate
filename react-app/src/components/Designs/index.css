@@ -82,7 +82,9 @@
 
 #temp-box {
   display: flex;
-  width: 400px;
+  /* width: 400px; */
+  width: 100vw;
+  overflow: scroll;
 }
 
 .temp-box {
@@ -105,9 +107,8 @@
 #temp-img {
   border-radius: 8px;
   width: 160px;
-
-  /* height: 160px; */
-  /* object-fit: cover; */
+  height: 160px;
+  object-fit: cover;
 }
 
 
@@ -138,6 +139,10 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.des-containers:first-of-type {
+  display: none;
 }
 
 .des-containers:hover {

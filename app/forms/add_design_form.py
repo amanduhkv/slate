@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SelectField, SubmitField
+from wtforms import StringField, SelectField, TextAreaField, SubmitField
 from wtforms.validators import DataRequired
 
 templates = [
@@ -53,5 +53,10 @@ templates = [
 class AddDesignForm(FlaskForm):
   name = StringField('Name', validators=[DataRequired()])
   template = SelectField('Template', validators=[DataRequired()], choices=templates)
+  text_input_1 = TextAreaField('Input 1')
+  text_input_2 = TextAreaField('Input 2')
+  text_input_3 = TextAreaField('Input 3')
+  text_input_4 = TextAreaField('Input 4')
+  text_input_5 = TextAreaField('Input 5')
 
   submit = SubmitField('Enter')

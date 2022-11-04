@@ -92,15 +92,51 @@ def get_all_user_designs():
 
 #CREATE A DESIGN -------------------------------------
 templates = [
-  { 'alias': 'presentation', 'title': 'Presentation (1920 x 1080 px)' },
-  { 'alias': 'website', 'title': 'Website (1366 x 768 px)' },
-  { 'alias': 'resume', 'title': 'Resume (8.5 x 11 in)' },
-  { 'alias': 'igpost', 'title': 'Instagram Post (1080 x 1080 px)' },
-  { 'alias': 'igstory', 'title': 'Instagram Story (1080 x 1920 px)' },
-  { 'alias': 'fbpost', 'title': 'Facebook Post (940 x 788 px)' },
-  { 'alias': 'invitation', 'title': 'Invitation (5 x 7 in)' },
-  { 'alias': 'businesscard', 'title': 'Business Card (3.5 x 2 in)' },
-  { 'alias': 'infograph', 'title': 'Infographic (1080 x 1920 px)' }
+  { 'alias': 'presentation-original', 'title': 'Original Presentation (1920 x 1080 px)' },
+  { 'alias': 'presentation-fun', 'title': 'Fun Presentation (1920 x 1080 px)' },
+  { 'alias': 'presentation-aesthetic', 'title': 'Aesthetic Presentation (1920 x 1080 px)' },
+  { 'alias': 'presentation-green', 'title': 'Green Presentation (1920 x 1080 px)' },
+  { 'alias': 'presentation-bw', 'title': 'Black & White Presentation (1920 x 1080 px)' },
+  { 'alias': 'website-original', 'title': 'Original Website (1366 x 768 px)' },
+  { 'alias': 'website-fun', 'title': 'Fun Website (1366 x 768 px)' },
+  { 'alias': 'website-aesthetic', 'title': 'Aesthetic Website (1366 x 768 px)' },
+  { 'alias': 'website-green', 'title': 'Green Website (1366 x 768 px)' },
+  { 'alias': 'website-bw', 'title': 'Black & White Website (1366 x 768 px)' },
+  { 'alias': 'resume-original', 'title': 'Original Resume (8.5 x 11 in)' },
+  { 'alias': 'resume-fun', 'title': 'Fun Resume (8.5 x 11 in)' },
+  { 'alias': 'resume-aesthetic', 'title': 'Aesthetic Resume (8.5 x 11 in)' },
+  { 'alias': 'resume-green', 'title': 'Green Resume (8.5 x 11 in)' },
+  { 'alias': 'resume-bw', 'title': 'Black & White Resume (8.5 x 11 in)' },
+  { 'alias': 'igpost-original', 'title': 'Original Instagram Post (1080 x 1080 px)' },
+  { 'alias': 'igpost-fun', 'title': 'Fun Instagram Post (1080 x 1080 px)' },
+  { 'alias': 'igpost-aesthetic', 'title': 'Aesthetic Instagram Post (1080 x 1080 px)' },
+  { 'alias': 'igpost-green', 'title': 'Green Instagram Post (1080 x 1080 px)' },
+  { 'alias': 'igpost-bw', 'title': 'Black & White Instagram Post (1080 x 1080 px)' },
+  { 'alias': 'igstory-original', 'title': 'Original Instagram Story (1080 x 1920 px)' },
+  { 'alias': 'igstory-fun', 'title': 'Fun Instagram Story (1080 x 1920 px)' },
+  { 'alias': 'igstory-aesthetic', 'title': 'Aesthetic Instagram Story (1080 x 1920 px)' },
+  { 'alias': 'igstory-green', 'title': 'Green Instagram Story (1080 x 1920 px)' },
+  { 'alias': 'igstory-pink', 'title': 'Pink Instagram Story (1080 x 1920 px)' },
+  { 'alias': 'fbpost-original', 'title': 'Original Facebook Post (940 x 788 px)' },
+  { 'alias': 'fbpost-fun', 'title': 'Fun Facebook Post (940 x 788 px)' },
+  { 'alias': 'fbpost-aesthetic', 'title': 'Aesthetic Facebook Post (940 x 788 px)' },
+  { 'alias': 'fbpost-green', 'title': 'Green Facebook Post (940 x 788 px)' },
+  { 'alias': 'fbpost-bw', 'title': 'Black & White Facebook Post (940 x 788 px)' },
+  { 'alias': 'invitation-original', 'title': 'Original Invitation (5 x 7 in)' },
+  { 'alias': 'invitation-fun', 'title': 'Fun Invitation (5 x 7 in)' },
+  { 'alias': 'invitation-aesthetic', 'title': 'Aesthetic Invitation (5 x 7 in)' },
+  { 'alias': 'invitation-green', 'title': 'Green Invitation (5 x 7 in)' },
+  { 'alias': 'invitation-bw', 'title': 'Black & White Invitation (5 x 7 in)' },
+  { 'alias': 'businesscard-original', 'title': 'Original Business Card (3.5 x 2 in)' },
+  { 'alias': 'businesscard-fun', 'title': 'Fun Business Card (3.5 x 2 in)' },
+  { 'alias': 'businesscard-aesthetic', 'title': 'Aesthetic Business Card (3.5 x 2 in)' },
+  { 'alias': 'businesscard-green', 'title': 'Green Business Card (3.5 x 2 in)' },
+  { 'alias': 'businesscard-bw', 'title': 'Black & White Business Card (3.5 x 2 in)' },
+  { 'alias': 'infograph-original', 'title': 'Original Infographic (1080 x 1920 px)' },
+  { 'alias': 'infograph-fun', 'title': 'Fun Infographic (1080 x 1920 px)' },
+  { 'alias': 'infograph-aesthetic', 'title': 'Aesthetic Infographic (1080 x 1920 px)' },
+  { 'alias': 'infograph-green', 'title': 'Green Infographic (1080 x 1920 px)' },
+  { 'alias': 'infograph-bw', 'title': 'Black & White Infographic (1080 x 1920 px)' }
 ]
 @design_routes.route('/new', methods=['POST'])
 @login_required
@@ -127,10 +163,11 @@ def add_design():
   if form.validate_on_submit():
       temp_list = []
 
-      for alias in form.data['template']:
-        filtered_temp = [i for i in templates if i['alias'] == alias]
-        form.data['template'] = filtered_temp
-        if type(filtered_temp) is list:
+      # for alias in form.data['template']:
+      #   print('-----data-----', form.data['template'])
+      filtered_temp = [i for i in templates if i['alias'] == form.data['template']]
+      form.data['template'] = filtered_temp
+      if type(filtered_temp) is list:
           for i in filtered_temp:
             new_list = list(i.values())
             alias = new_list[0]
@@ -148,7 +185,12 @@ def add_design():
       design = Design(
         user_id=user_id,
         name=form.data["name"],
-        template=temp_list
+        template=temp_list,
+        text_input_1=form.data["text_input_1"],
+        text_input_2=form.data["text_input_2"],
+        text_input_3=form.data["text_input_3"],
+        text_input_4=form.data["text_input_4"],
+        text_input_5=form.data["text_input_5"],
       )
 
       db.session.add(design)

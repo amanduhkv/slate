@@ -23,11 +23,11 @@ class Design(db.Model):
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
   created_at = db.Column(db.String(255), default=datetime.now)
   updated_at = db.Column(db.String, default=datetime.now, onupdate=datetime.now)
-  text_input_1 = db.Column(db.Text)
-  text_input_2 = db.Column(db.Text)
-  text_input_3 = db.Column(db.Text)
-  text_input_4 = db.Column(db.Text)
-  text_input_5 = db.Column(db.Text)
+  text_input_1 = db.Column(db.String)
+  text_input_2 = db.Column(db.String)
+  text_input_3 = db.Column(db.String)
+  text_input_4 = db.Column(db.String)
+  text_input_5 = db.Column(db.String)
 
   user = db.relationship('User', back_populates='design')
   template = db.relationship(

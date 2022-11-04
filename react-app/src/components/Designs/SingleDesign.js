@@ -16,6 +16,60 @@ import bizcard from '../../icons/temps/businesscard.png';
 import info from '../../icons/temps/infograph.png';
 import DeleteDesign from "../DeleteDesignForm";
 
+import pres1 from '../../icons/change-temps/present-temp/pres-original.svg';
+import pres2 from '../../icons/change-temps/present-temp/pres-fun.svg';
+import pres3 from '../../icons/change-temps/present-temp/pres-aesthetic.svg';
+import pres4 from '../../icons/change-temps/present-temp/pres-green.svg';
+import pres5 from '../../icons/change-temps/present-temp/pres-bw.svg';
+
+import web1 from '../../icons/change-temps/website-temp/web-original.png';
+import web2 from '../../icons/change-temps/website-temp/web-fun.png';
+import web3 from '../../icons/change-temps/website-temp/web-aesthetic.png';
+import web4 from '../../icons/change-temps/website-temp/web-green.png';
+import web5 from '../../icons/change-temps/website-temp/web-bw.png';
+
+import ig1 from '../../icons/change-temps/ig-temp/ig-original.svg';
+import ig2 from '../../icons/change-temps/ig-temp/ig-fun.svg';
+import ig3 from '../../icons/change-temps/ig-temp/ig-aesthetic.svg';
+import ig4 from '../../icons/change-temps/ig-temp/ig-green.svg';
+import ig5 from '../../icons/change-temps/ig-temp/ig-bw.svg';
+
+import igs1 from '../../icons/change-temps/ig-story-temp/igs-original.svg';
+import igs2 from '../../icons/change-temps/ig-story-temp/igs-fun.svg';
+import igs3 from '../../icons/change-temps/ig-story-temp/igs-aesthetic.svg';
+import igs4 from '../../icons/change-temps/ig-story-temp/igs-green.svg';
+import igs5 from '../../icons/change-temps/ig-story-temp/igs-pink.svg';
+
+import fb1 from '../../icons/change-temps/fb-temp/fb-original.svg';
+import fb2 from '../../icons/change-temps/fb-temp/fb-fun.svg';
+import fb3 from '../../icons/change-temps/fb-temp/fb-aesthetic.svg';
+import fb4 from '../../icons/change-temps/fb-temp/fb-green.svg';
+import fb5 from '../../icons/change-temps/fb-temp/fb-bw.svg';
+
+import inv1 from '../../icons/change-temps/invite-temp/inv-original.svg';
+import inv2 from '../../icons/change-temps/invite-temp/inv-fun.svg';
+import inv3 from '../../icons/change-temps/invite-temp/inv-aesthetic.svg';
+import inv4 from '../../icons/change-temps/invite-temp/inv-green.svg';
+import inv5 from '../../icons/change-temps/invite-temp/inv-bw.svg';
+
+import biz1 from '../../icons/change-temps/bizcard-temp/biz-original.svg';
+import biz2 from '../../icons/change-temps/bizcard-temp/biz-fun.svg';
+import biz3 from '../../icons/change-temps/bizcard-temp/biz-aesthetic.svg';
+import biz4 from '../../icons/change-temps/bizcard-temp/biz-green.svg';
+import biz5 from '../../icons/change-temps/bizcard-temp/biz-bw.svg';
+
+import info1 from '../../icons/change-temps/info-temp/info-original.svg';
+import info2 from '../../icons/change-temps/info-temp/info-fun.svg';
+import info3 from '../../icons/change-temps/info-temp/info-aesthetic.svg';
+import info4 from '../../icons/change-temps/info-temp/info-green.svg';
+import info5 from '../../icons/change-temps/info-temp/info-bw.svg';
+
+import res1 from '../../icons/change-temps/res-temp/res-original.svg';
+import res2 from '../../icons/change-temps/res-temp/res-fun.svg';
+import res3 from '../../icons/change-temps/res-temp/res-aesthetic.svg';
+import res4 from '../../icons/change-temps/res-temp/res-green.svg';
+import res5 from '../../icons/change-temps/res-temp/res-bw.svg';
+
 export default function SingleDesign() {
   const { designId } = useParams();
   const singleDesign = useSelector(state => state.designs.singleDesign);
@@ -35,6 +89,11 @@ export default function SingleDesign() {
   const [hasSubmit, setHasSubmit] = useState(false);
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [showBrandMenu, setShowBrandMenu] = useState(false);
+  const [input1, setInput1] = useState('');
+  const [input2, setInput2] = useState('');
+  const [input3, setInput3] = useState('');
+  const [input4, setInput4] = useState('');
+  const [input5, setInput5] = useState('');
 
   const [backgroundColor, setBackgroundColor] = useState('white');
   const [currFont, setCurrFont] = useState('');
@@ -78,20 +137,18 @@ export default function SingleDesign() {
   }, [showBrandMenu]);
 
   // CHANGING BCKGD COLOR FXNS ------------------------------------------
-  useEffect(() => {
-    const resultingTemp = document.getElementsByClassName('template')[0];
-    console.log('RESULTING TEMPS', resultingTemp);
-    if(singleDesign) {
-      resultingTemp.style['background-color'] = backgroundColor
-    }
-  }, [backgroundColor])
+  // useEffect(() => {
+  //   const resultingTemp = document.getElementsByClassName('template')[0];
+  //   console.log('RESULTING TEMPS', resultingTemp);
+  //   if(singleDesign) {
+  //     resultingTemp.style['background-color'] = backgroundColor
+  //   }
+  // }, [backgroundColor])
 
   // LOADING TEMPLATES --------------------------------------------------
   let template;
-  // let alias = template.alias;
-  // let alias = singleDesign?.template?.[0].alias;
-  // console.log('CURRENT ALIAS', alias)
-  if (alias === 'presentation') {
+
+  if (alias.includes('presentation')) {
     template = (
       <div
         className="template"
@@ -99,21 +156,20 @@ export default function SingleDesign() {
           width: '960px',
           height: '540px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          backgroundColor: 'white'
+          backgroundColor: 'white',
+          backgroundImage: `url(${alias.includes('original') ? pres1 :
+            alias.includes('fun') ? pres2 :
+              alias.includes('aesthetic') ? pres3 :
+                alias.includes('green') ? pres4 :
+                  alias.includes('bw') ? pres5 :
+                    null
+            })`
         }}
       >
-        <div id='template-words'
-          style={{
-            fontFamily: `${localStorage.getItem('font')}`
-          }}
-        >
-          <h1>Hello World!</h1>
-          <p>You can't add anything here yet, but try changing the template, font, or background color by clicking on the buttons in the sidebar!</p>
-        </div>
       </div>
     )
   }
-  if (alias === 'website') {
+  if (alias.includes('website')) {
     template = (
       <div
         className="template"
@@ -121,21 +177,21 @@ export default function SingleDesign() {
           width: '683px',
           height: '384px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          backgroundColor: `${backgroundColor}`
+          backgroundColor: `${backgroundColor}`,
+          backgroundImage: `url(${alias.includes('original') ? web1 :
+            alias.includes('fun') ? web2 :
+              alias.includes('aesthetic') ? web3 :
+                alias.includes('green') ? web4 :
+                  alias.includes('bw') ? web5 :
+                    null
+            })`
         }}
       >
-        <div id='template-words'
-          style={{
-            fontFamily: `${localStorage.getItem('font')}`
-          }}
-        >
-          <h1>Hello World!</h1>
-          <p>You can't add anything here yet, but try changing the template, font, or background color by clicking on the buttons in the sidebar!</p>
-        </div>
+
       </div>
     )
   }
-  if (alias === 'resume') {
+  if (alias.includes('resume')) {
     template = (
       <div
         className="template"
@@ -143,21 +199,21 @@ export default function SingleDesign() {
           width: '637.5px',
           height: '825px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          backgroundColor: 'white'
+          backgroundColor: 'white',
+          backgroundImage: `url(${alias.includes('original') ? res1 :
+            alias.includes('fun') ? res2 :
+              alias.includes('aesthetic') ? res3 :
+                alias.includes('green') ? res4 :
+                  alias.includes('bw') ? res5 :
+                    null
+            })`
         }}
       >
-        <div id='template-words'
-          style={{
-            fontFamily: `${localStorage.getItem('font')}`
-          }}
-        >
-          <h1>Hello World!</h1>
-          <p>You can't add anything here yet, but try changing the template, font, or background color by clicking on the buttons in the sidebar!</p>
-        </div>
+
       </div>
     )
   }
-  if (alias === 'igpost') {
+  if (alias.includes('igpost')) {
     template = (
       <div
         className="template"
@@ -165,21 +221,21 @@ export default function SingleDesign() {
           width: '480px',
           height: '480px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          backgroundColor: 'white'
+          backgroundColor: 'white',
+          backgroundImage: `url(${alias.includes('original') ? ig1 :
+            alias.includes('fun') ? ig2 :
+              alias.includes('aesthetic') ? ig3 :
+                alias.includes('green') ? ig4 :
+                  alias.includes('bw') ? ig5 :
+                    null
+            })`
         }}
       >
-        <div id='template-words'
-          style={{
-            fontFamily: `${localStorage.getItem('font')}`
-          }}
-        >
-          <h1>Hello World!</h1>
-          <p>You can't add anything here yet, but try changing the template, font, or background color by clicking on the buttons in the sidebar!</p>
-        </div>
+
       </div>
     )
   }
-  if (alias === 'igstory') {
+  if (alias.includes('igstory')) {
     template = (
       <div
         className="template"
@@ -187,21 +243,21 @@ export default function SingleDesign() {
           width: '270px',
           height: '480px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          backgroundColor: 'white'
+          backgroundColor: 'white',
+          backgroundImage: `url(${alias.includes('original') ? igs1 :
+            alias.includes('fun') ? igs2 :
+              alias.includes('aesthetic') ? igs3 :
+                alias.includes('green') ? igs4 :
+                  alias.includes('pink') ? igs5 :
+                    null
+            })`
         }}
       >
-        <div id='template-words'
-          style={{
-            fontFamily: `${localStorage.getItem('font')}`
-          }}
-        >
-          <h1>Hello World!</h1>
-          <p>You can't add anything here yet, but try changing the template, font, or background color by clicking on the buttons in the sidebar!</p>
-        </div>
+
       </div>
     )
   }
-  if (alias === 'fbpost') {
+  if (alias.includes('fbpost')) {
     template = (
       <div
         className="template"
@@ -209,21 +265,21 @@ export default function SingleDesign() {
           width: '470px',
           height: '394px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          backgroundColor: 'white'
+          backgroundColor: 'white',
+          backgroundImage: `url(${alias.includes('original') ? fb1 :
+            alias.includes('fun') ? fb2 :
+              alias.includes('aesthetic') ? fb3 :
+                alias.includes('green') ? fb4 :
+                  alias.includes('bw') ? fb5 :
+                    null
+            })`
         }}
       >
-        <div id='template-words'
-          style={{
-            fontFamily: `${localStorage.getItem('font')}`
-          }}
-        >
-          <h1>Hello World!</h1>
-          <p>You can't add anything here yet, but try changing the template, font, or background color by clicking on the buttons in the sidebar!</p>
-        </div>
+
       </div>
     )
   }
-  if (alias === 'invitation') {
+  if (alias.includes('invitation')) {
     template = (
       <div
         className="template"
@@ -231,21 +287,21 @@ export default function SingleDesign() {
           width: '375px',
           height: '525px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          backgroundColor: 'white'
+          backgroundColor: 'white',
+          backgroundImage: `url(${alias.includes('original') ? inv1 :
+            alias.includes('fun') ? inv2 :
+              alias.includes('aesthetic') ? inv3 :
+                alias.includes('green') ? inv4 :
+                  alias.includes('bw') ? inv5 :
+                    null
+            })`
         }}
       >
-        <div id='template-words'
-          style={{
-            fontFamily: `${localStorage.getItem('font')}`
-          }}
-        >
-          <h1>Hello World!</h1>
-          <p>You can't add anything here yet, but try changing the template, font, or background color by clicking on the buttons in the sidebar!</p>
-        </div>
+
       </div>
     )
   }
-  if (alias === 'businesscard') {
+  if (alias.includes('businesscard')) {
     template = (
       <div
         className="template"
@@ -253,21 +309,21 @@ export default function SingleDesign() {
           width: '336px',
           height: '192px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          backgroundColor: 'white'
+          backgroundColor: 'white',
+          backgroundImage: `url(${alias.includes('original') ? biz1 :
+            alias.includes('fun') ? biz2 :
+              alias.includes('aesthetic') ? biz3 :
+                alias.includes('green') ? biz4 :
+                  alias.includes('bw') ? biz5 :
+                    null
+            })`
         }}
       >
-        <div id='template-words'
-          style={{
-            fontFamily: `${localStorage.getItem('font')}`
-          }}
-        >
-          <h1>Hello World!</h1>
-          <p>You can't add anything here yet, but try changing the template, font, or background color by clicking on the buttons in the sidebar!</p>
-        </div>
+
       </div>
     )
   }
-  if (alias === 'infograph') {
+  if (alias.includes('infograph')) {
     template = (
       <div
         className="template"
@@ -275,24 +331,22 @@ export default function SingleDesign() {
           width: '200px',
           height: '500px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          backgroundColor: 'white'
+          backgroundColor: 'white',
+          backgroundImage: `url(${alias.includes('original') ? info1 :
+            alias.includes('fun') ? info2 :
+              alias.includes('aesthetic') ? info3 :
+                alias.includes('green') ? info4 :
+                  alias.includes('bw') ? info5 :
+                    null
+            })`
         }}
       >
-        <div id='template-words'>
-          <h1
-            style={{
-              fontFamily: `${localStorage.getItem('font')}`
-            }}
-          >
-            Hello World!
-          </h1>
-          <p
-          style={{
-            fontFamily: `${localStorage.getItem('font')}`
-          }}
-          >
-            You can't add anything here yet, but try changing the template, font, or background color by clicking on the buttons in the sidebar!
-          </p>
+        <div>
+          <input
+            type='text'
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
         </div>
       </div>
     )
@@ -346,9 +400,9 @@ export default function SingleDesign() {
         <div>
           {hasSubmit && validationErrs.length > 0 && (
             <div className='errors' id='des-errs'>
-            {validationErrs.map((error, idx) => (
-              <div key={idx}>{error}</div>
-            ))}
+              {validationErrs.map((error, idx) => (
+                <div key={idx}>{error}</div>
+              ))}
             </div>
           )}
           <input
@@ -416,7 +470,7 @@ export default function SingleDesign() {
           <button onClick={openBrandMenu}>Brands</button>
           {showBrandMenu && (
             <div id='temp-menu-item-brand'>
-            Oops! Looks like this feature is still in the works.
+              Oops! Looks like this feature is still in the works.
             </div>
             // <div id='temp-menu-item'>
             //   {Object.values(brands).map(brand => (
@@ -445,7 +499,9 @@ export default function SingleDesign() {
         </div>
 
         <div className="edit-area">
-          <div id="inserted-temp">{template}</div>
+          <div id="inserted-temp">
+            {template}
+          </div>
         </div>
       </div>
       {/* {template} */}
