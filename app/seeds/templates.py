@@ -46,7 +46,7 @@ templates = [
   { 'alias': 'infograph-fun', 'title': 'Fun Infographic (1080 x 1920 px)' },
   { 'alias': 'infograph-aesthetic', 'title': 'Aesthetic Infographic (1080 x 1920 px)' },
   { 'alias': 'infograph-green', 'title': 'Green Infographic (1080 x 1920 px)' },
-  { 'alias': 'infograph-bw', 'title': 'Black & White Infographic (1080 x 1920 px)' },
+  { 'alias': 'infograph-bw', 'title': 'Black & White Infographic (1080 x 1920 px)' }
 ]
 
 instances = []

@@ -46,35 +46,56 @@ templates = [
   { 'alias': 'infograph-fun', 'title': 'Fun Infographic (1080 x 1920 px)' },
   { 'alias': 'infograph-aesthetic', 'title': 'Aesthetic Infographic (1080 x 1920 px)' },
   { 'alias': 'infograph-green', 'title': 'Green Infographic (1080 x 1920 px)' },
-  { 'alias': 'infograph-bw', 'title': 'Black & White Infographic (1080 x 1920 px)' },
+  { 'alias': 'infograph-bw', 'title': 'Black & White Infographic (1080 x 1920 px)' }
 ]
-
-instances = []
-
-temp_dict = {}
-
-for temp in templates:
-    t = (Template(name=temp['title'], alias=temp['alias']))
-    instances.append(t)
-    temp_dict[temp['alias']] = t
 
 
 def seed_designs():
-  templates = Template.query.all()
+  temp_dict = {}
 
+  for temp in templates:
+      # print('TEMP', temp)
+      t = Template.query.filter_by(alias=temp['alias']).first()
+      # print("TEMPLATE", t)
+      # print("ALIAS", temp['alias'])
+      temp_dict[temp['alias']] = t
+      # print("-----", temp_dict[temp['alias']])
+
+      # print("T.TO_DICT", t.to_dict())
+
+      # print('TEMP_DICT', temp_dict)
+
+  template = Template.query.all()
+  # print("TEMPLATE", template)
+  all_templates = Design(
+             name='Templates',
+             user_id=1,
+             template=template
+             )
   business = Design(
              name='Blue\'s Resume',
              user_id=1,
-             template=templates)
+             text_input_1='Blue Clues',
+             text_input_2='A human host welcomes his preschool audience to the "Blue\'s Clues" house, where his animated puppy, Blue, helps find three clues to something they are trying to figure out. Viewers are invited to participate, with Blue and her friends stopping to listen to what the audience has to say.',
+             text_input_3='September 8, 1996 - August 6, 2006'
+             )
   social_media = Design(
                  name='bluesclues',
                  user_id=1,
-                 template=templates)
+                 text_input_1='Welcome to Blue\'s Clues!'
+                 )
   marketing = Design(
               name='Finding Clues',
               user_id=1,
-              template=templates)
-
+              text_input_1='Snack Time',
+              text_input_2='Blue tries to figure out what is missing from her snack, by playing Blue\'s Clues. She looks at different colours and shapes to see what could be gone.',
+              text_input_3='Help her find her snacks!',
+              text_input_4='November 18, 2022 All Day'
+              )
+  business.template.append(temp_dict['resume-fun'])
+  social_media.template.append(temp_dict['igpost-fun'])
+  marketing.template.append(temp_dict['invitation-fun'])
+  db.session.add(all_templates)
   db.session.add(business)
   db.session.add(social_media)
   db.session.add(marketing)
