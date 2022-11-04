@@ -49,6 +49,8 @@ export default function CreateDesign() {
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [showBrandMenu, setShowBrandMenu] = useState(false);
 
+  const [backgroundColor, setBackgroundColor] = useState('white');
+
   useEffect(() => {
     dispatch(getAllDesigns());
     dispatch(getAllBrands());
@@ -131,6 +133,7 @@ export default function CreateDesign() {
   useEffect(() => {
     const errors = [];
 
+    if (name.length > 25) errors.push('The name of this design is too long.')
     if (!name.length) errors.push('Please enter a name for the design.')
     setValidationErrs(errors);
   }, [name]);
@@ -157,13 +160,12 @@ export default function CreateDesign() {
   if (alias === 'presentation') {
     template = (
       <div
+        className="template"
         style={{
           width: '960px',
           height: '540px',
-          backgroundColor: 'white',
-          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
           backgroundImage: `url(${pres})`,
-          backgroundSize: 'cover',
+          backgroundColor: `${backgroundColor}`
         }}
       >
       </div>
@@ -172,16 +174,12 @@ export default function CreateDesign() {
   if (alias === 'website') {
     template = (
       <div
+        className="template"
         style={{
           width: '683px',
           height: '384px',
-          backgroundColor: 'white',
-          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
           backgroundImage: `url(${web})`,
-          // backgroundSize: '683px 384px',
-          backgroundSize: 'cover',
-          // backgroundRepeat:
-          backgroundPositionY: 'center',
+          backgroundColor: `${backgroundColor}`
         }}
       >
       </div>
@@ -190,13 +188,12 @@ export default function CreateDesign() {
   if (alias === 'resume') {
     template = (
       <div
+        className="template"
         style={{
           width: '425px',
           height: '550px',
-          backgroundColor: 'white',
-          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
           backgroundImage: `url(${res})`,
-          backgroundSize: 'cover',
+          backgroundColor: `${backgroundColor}`
         }}
       >
       </div>
@@ -205,13 +202,12 @@ export default function CreateDesign() {
   if (alias === 'igpost') {
     template = (
       <div
+        className="template"
         style={{
           width: '480px',
           height: '480px',
-          backgroundColor: 'white',
-          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
           backgroundImage: `url(${ig})`,
-          backgroundSize: 'cover',
+          backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
       </div>
@@ -220,13 +216,12 @@ export default function CreateDesign() {
   if (alias === 'igstory') {
     template = (
       <div
+        className="template"
         style={{
           width: '270px',
           height: '480px',
-          backgroundColor: 'white',
-          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
           backgroundImage: `url(${igs})`,
-          backgroundSize: 'cover',
+          backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
       </div>
@@ -235,13 +230,12 @@ export default function CreateDesign() {
   if (alias === 'fbpost') {
     template = (
       <div
+        className="template"
         style={{
           width: '470px',
           height: '394px',
-          backgroundColor: 'white',
-          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
           backgroundImage: `url(${fb})`,
-          backgroundSize: 'cover',
+          backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
       </div>
@@ -250,13 +244,12 @@ export default function CreateDesign() {
   if (alias === 'invitation') {
     template = (
       <div
+        className="template"
         style={{
           width: '375px',
           height: '525px',
-          backgroundColor: 'white',
-          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
           backgroundImage: `url(${invite})`,
-          backgroundSize: 'cover',
+          backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
       </div>
@@ -265,15 +258,15 @@ export default function CreateDesign() {
   if (alias === 'businesscard') {
     template = (
       <div
+        className="template"
         style={{
           width: '336px',
           height: '192px',
-          backgroundColor: 'white',
-          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
           backgroundImage: `url(${biz})`,
           backgroundSize: 'contain',
           backgroundRepeat: 'no-repeat',
           backgroundPositionX: 'center',
+          backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
       </div>
@@ -282,13 +275,12 @@ export default function CreateDesign() {
   if (alias === 'infograph') {
     template = (
       <div
+        className="template"
         style={{
           width: '200px',
           height: '500px',
-          backgroundColor: 'white',
-          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
           backgroundImage: `url(${infogr})`,
-          backgroundSize: 'cover',
+          backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
       </div>
@@ -296,13 +288,21 @@ export default function CreateDesign() {
   }
 
   return (
-    <div>
+    <div className="create-des-container">
+
       <form className='create-des-form' onSubmit={handleSubmit}>
         <div id='home-button' onClick={() => history.push('/designs')}>
           <img src={left} alt='left' height='14px' />
           Home
         </div>
         <div>
+        {hasSubmit && validationErrs.length > 0 && (
+            <div className='errors' id='des-errs'>
+            {validationErrs.map((error, idx) => (
+              <div key={idx}>{error}</div>
+            ))}
+            </div>
+          )}
         <input
           id='des-name'
           type='text'
@@ -362,30 +362,38 @@ export default function CreateDesign() {
             </div>
           )}
 
-          {/* <button onClick={openBrandMenu}>Brands</button>
+          <button onClick={openBrandMenu}>Brands</button>
           {showBrandMenu && (
-            <div id='temp-menu-item'>
-              {Object.values(brands).map(brand => (
-                <div className="des-brand-colors">
-                  {brand.colors.map(color => (
-                  <div>{color.name}</div>
-                  ))}
-                  {brand.fonts.map(font => (
-                    <div>
-                      {font.name}
-                    </div>
-                  ))}
-                </div>
-              ))}
+            <div id='temp-menu-item-brand'>
+            Oops! Looks like this feature is still in the works.
             </div>
-          )} */}
+            // <div id='temp-menu-item'>
+            //   {Object.values(brands).map(brand => (
+            //     <div className="des-brand-colors">
+            //       {brand.colors.map(color => (
+            //       <div
+            //         onClick={() => {
+            //           setBackgroundColor(color.name);
+            //           localStorage.setItem('backgroundColor', color.name)
+            //         }}
+            //       >{color.name}</div>
+            //       ))}
+            //       {brand.fonts.map(font => (
+            //         <div>
+            //           {font.name}
+            //         </div>
+            //       ))}
+            //     </div>
+            //   ))}
+            // </div>
+          )}
           {/* <button onClick={openSideMenu}>Text</button>
         <button onClick={openSideMenu}>Styles</button>
         <button onClick={openSideMenu}>Logos</button> */}
         </div>
 
         <div className="edit-area">
-          <div id='under-construction'>This feature is in the making</div>
+          {/* <div id='under-construction'>This feature is in the making</div> */}
           <div id="inserted-temp">{template}</div>
           {/* <div
             id='drag-text'

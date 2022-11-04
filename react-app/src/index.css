@@ -6,9 +6,12 @@
   font-family: 'Noto Sans', Helvetica, Arial, sans-serif;
 }
 
-html, body {
+html, body, p, h1 {
   top: 0;
   left: 0;
+  bottom: 0;
+  right: 0;
+  box-sizing: border-box;
   margin: 0;
   color: rgb(72, 76, 79);
 }

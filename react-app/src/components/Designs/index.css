@@ -46,6 +46,12 @@
   margin: 20px;
 }
 
+#des-errs {
+  position: absolute;
+  top: 58px;
+  width: 338px;
+}
+
 #temp-text {
   display: flex;
   justify-content: center;
@@ -62,7 +68,7 @@
 .temp-cards {
   display: flex;
   flex-wrap: nowrap;
-  overflow: hidden;
+  /* overflow: hidden; */
   /* overflow-x: hidden; */
   justify-content: center;
 

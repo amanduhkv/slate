@@ -1,12 +1,20 @@
+.create-des-container {
+  height: 100vh;
+  /* border: red solid 1px; */
+}
+
 .edit-container {
   display: flex;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
+
+  height: 100%;
+  width: 100%;
 }
 
 .edit-area {
   background-color: rgb(235,236,240);
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   padding: 40px;
   display: flex;
   justify-content: center;
@@ -40,7 +48,6 @@
   display: flex;
   flex-direction: column;
   width: 80px;
-
   background-color: rgb(45, 46, 47);
 }
 
@@ -62,7 +69,8 @@
   overflow: hidden;
 }
 
-#temp-menu-item {
+#temp-menu-item,
+#temp-menu-item-brand {
   display: flex;
   flex-direction: column;
 
@@ -85,9 +93,17 @@
 
   font-weight: 700;
   font-size: 16px;
-  color: rgb(72, 76, 79);
+  color: white;
   cursor: pointer;
+}
 
+#temp-menu-item-brand {
+  font-weight: 700;
+  font-size: 16px;
+  color: white;
+
+  align-items: center;
+  overflow: hidden;
 }
 
 #warning {
@@ -144,7 +160,7 @@
 }
 
 #des-name::placeholder {
-  opacity: 50%;
+  color: rgb(215, 215, 215)
 }
 
 #home-button {

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory, useLocation } from "react-router-dom";
 import { getADesign, updateDesign, clearData, getAllDesigns } from "../../store/designs";
+import { getAllBrands } from "../../store/brands"
 
 import left from '../../icons/left.svg';
 import present from '../../icons/temps/presentation.png';
@@ -19,6 +20,7 @@ export default function SingleDesign() {
   const { designId } = useParams();
   const singleDesign = useSelector(state => state.designs.singleDesign);
   const allDesigns = useSelector(state => state.designs.allDesigns);
+  const brands = useSelector(state => state.brands.allBrands);
   const user = useSelector(state => state.session.user);
 
   const history = useHistory();
@@ -32,15 +34,17 @@ export default function SingleDesign() {
   const [validationErrs, setValidationErrs] = useState([]);
   const [hasSubmit, setHasSubmit] = useState(false);
   const [showSideMenu, setShowSideMenu] = useState(false);
-  const [showEleMenu, setShowEleMenu] = useState(false);
+  const [showBrandMenu, setShowBrandMenu] = useState(false);
 
-
+  const [backgroundColor, setBackgroundColor] = useState('white');
+  const [currFont, setCurrFont] = useState('');
 
   useEffect(() => {
     dispatch(getADesign(designId))
     dispatch(getAllDesigns());
+    dispatch(getAllBrands());
 
-    // return () => dispatch(clearData())
+    return () => dispatch(clearData())
   }, [dispatch, designId])
 
 
@@ -59,20 +63,28 @@ export default function SingleDesign() {
     return () => document.removeEventListener("click", closeSideMenu);
   }, [showSideMenu]);
 
-  const openEleMenu = () => {
-    if (showEleMenu) return;
-    setShowEleMenu(true);
+  const openBrandMenu = () => {
+    if (showBrandMenu) return;
+    setShowBrandMenu(true);
   };
 
   useEffect(() => {
-    if (!showEleMenu) return;
-    const closeEleMenu = () => {
-      setShowEleMenu(false);
+    if (!showBrandMenu) return;
+    const closeBrandMenu = () => {
+      setShowBrandMenu(false);
     };
-    document.addEventListener('click', closeEleMenu);
-    return () => document.removeEventListener("click", closeEleMenu);
-  }, [showEleMenu]);
+    document.addEventListener('click', closeBrandMenu);
+    return () => document.removeEventListener("click", closeBrandMenu);
+  }, [showBrandMenu]);
 
+  // CHANGING BCKGD COLOR FXNS ------------------------------------------
+  useEffect(() => {
+    const resultingTemp = document.getElementsByClassName('template')[0];
+    console.log('RESULTING TEMPS', resultingTemp);
+    if(singleDesign) {
+      resultingTemp.style['background-color'] = backgroundColor
+    }
+  }, [backgroundColor])
 
   // LOADING TEMPLATES --------------------------------------------------
   let template;
@@ -82,117 +94,206 @@ export default function SingleDesign() {
   if (alias === 'presentation') {
     template = (
       <div
+        className="template"
         style={{
           width: '960px',
           height: '540px',
-          backgroundColor: 'white',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          backgroundColor: 'white'
         }}
       >
+        <div id='template-words'
+          style={{
+            fontFamily: `${localStorage.getItem('font')}`
+          }}
+        >
+          <h1>Hello World!</h1>
+          <p>You can't add anything here yet, but try changing the template, font, or background color by clicking on the buttons in the sidebar!</p>
+        </div>
       </div>
     )
   }
   if (alias === 'website') {
     template = (
       <div
+        className="template"
         style={{
           width: '683px',
           height: '384px',
-          backgroundColor: 'white',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          backgroundColor: `${backgroundColor}`
         }}
       >
+        <div id='template-words'
+          style={{
+            fontFamily: `${localStorage.getItem('font')}`
+          }}
+        >
+          <h1>Hello World!</h1>
+          <p>You can't add anything here yet, but try changing the template, font, or background color by clicking on the buttons in the sidebar!</p>
+        </div>
       </div>
     )
   }
   if (alias === 'resume') {
     template = (
       <div
+        className="template"
         style={{
           width: '637.5px',
           height: '825px',
-          backgroundColor: 'white',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          backgroundColor: 'white'
         }}
       >
+        <div id='template-words'
+          style={{
+            fontFamily: `${localStorage.getItem('font')}`
+          }}
+        >
+          <h1>Hello World!</h1>
+          <p>You can't add anything here yet, but try changing the template, font, or background color by clicking on the buttons in the sidebar!</p>
+        </div>
       </div>
     )
   }
   if (alias === 'igpost') {
     template = (
       <div
+        className="template"
         style={{
           width: '480px',
           height: '480px',
-          backgroundColor: 'white',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          backgroundColor: 'white'
         }}
       >
+        <div id='template-words'
+          style={{
+            fontFamily: `${localStorage.getItem('font')}`
+          }}
+        >
+          <h1>Hello World!</h1>
+          <p>You can't add anything here yet, but try changing the template, font, or background color by clicking on the buttons in the sidebar!</p>
+        </div>
       </div>
     )
   }
   if (alias === 'igstory') {
     template = (
       <div
+        className="template"
         style={{
           width: '270px',
           height: '480px',
-          backgroundColor: 'white',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          backgroundColor: 'white'
         }}
       >
+        <div id='template-words'
+          style={{
+            fontFamily: `${localStorage.getItem('font')}`
+          }}
+        >
+          <h1>Hello World!</h1>
+          <p>You can't add anything here yet, but try changing the template, font, or background color by clicking on the buttons in the sidebar!</p>
+        </div>
       </div>
     )
   }
   if (alias === 'fbpost') {
     template = (
       <div
+        className="template"
         style={{
           width: '470px',
           height: '394px',
-          backgroundColor: 'white',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          backgroundColor: 'white'
         }}
       >
+        <div id='template-words'
+          style={{
+            fontFamily: `${localStorage.getItem('font')}`
+          }}
+        >
+          <h1>Hello World!</h1>
+          <p>You can't add anything here yet, but try changing the template, font, or background color by clicking on the buttons in the sidebar!</p>
+        </div>
       </div>
     )
   }
   if (alias === 'invitation') {
     template = (
       <div
+        className="template"
         style={{
           width: '375px',
           height: '525px',
-          backgroundColor: 'white',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          backgroundColor: 'white'
         }}
       >
+        <div id='template-words'
+          style={{
+            fontFamily: `${localStorage.getItem('font')}`
+          }}
+        >
+          <h1>Hello World!</h1>
+          <p>You can't add anything here yet, but try changing the template, font, or background color by clicking on the buttons in the sidebar!</p>
+        </div>
       </div>
     )
   }
   if (alias === 'businesscard') {
     template = (
       <div
+        className="template"
         style={{
           width: '336px',
           height: '192px',
-          backgroundColor: 'white',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          backgroundColor: 'white'
         }}
       >
+        <div id='template-words'
+          style={{
+            fontFamily: `${localStorage.getItem('font')}`
+          }}
+        >
+          <h1>Hello World!</h1>
+          <p>You can't add anything here yet, but try changing the template, font, or background color by clicking on the buttons in the sidebar!</p>
+        </div>
       </div>
     )
   }
   if (alias === 'infograph') {
     template = (
       <div
+        className="template"
         style={{
           width: '200px',
           height: '500px',
-          backgroundColor: 'white',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          backgroundColor: 'white'
         }}
       >
+        <div id='template-words'>
+          <h1
+            style={{
+              fontFamily: `${localStorage.getItem('font')}`
+            }}
+          >
+            Hello World!
+          </h1>
+          <p
+          style={{
+            fontFamily: `${localStorage.getItem('font')}`
+          }}
+          >
+            You can't add anything here yet, but try changing the template, font, or background color by clicking on the buttons in the sidebar!
+          </p>
+        </div>
       </div>
     )
   }
@@ -209,7 +310,7 @@ export default function SingleDesign() {
   useEffect(() => {
     const errors = [];
 
-    if (!name.length) errors.push('Please enter a name for the design.')
+    if (!name.length) errors.push('Please confirm these changes by re-entering the name for this design, or entering a new name for the design.')
     setValidationErrs(errors);
   }, [name]);
 
@@ -226,7 +327,7 @@ export default function SingleDesign() {
     if (!validationErrs.length) {
       let updatedDes = await dispatch(updateDesign(singleDesign.id, payload));
       console.log('updatedDes', updatedDes)
-      // if (updatedDes) history.push(`/designs/${updatedDes.id}/${alias}`);
+
       if (updatedDes) history.push(`/designs`);
     };
   };
@@ -241,7 +342,15 @@ export default function SingleDesign() {
           <img src={left} alt='left' height='14px' />
           Home
         </div>
+
         <div>
+          {hasSubmit && validationErrs.length > 0 && (
+            <div className='errors' id='des-errs'>
+            {validationErrs.map((error, idx) => (
+              <div key={idx}>{error}</div>
+            ))}
+            </div>
+          )}
           <input
             id='des-name'
             type='text'
@@ -304,15 +413,35 @@ export default function SingleDesign() {
             </div>
           )}
 
-          {/* <button onClick={openEleMenu}>Elements</button>
-          {showEleMenu && (
-            <div id='temp-menu-item'>
-              elements here
+          <button onClick={openBrandMenu}>Brands</button>
+          {showBrandMenu && (
+            <div id='temp-menu-item-brand'>
+            Oops! Looks like this feature is still in the works.
             </div>
-          )} */}
-          {/* <button onClick={openSideMenu}>Text</button>
-        <button onClick={openSideMenu}>Styles</button>
-        <button onClick={openSideMenu}>Logos</button> */}
+            // <div id='temp-menu-item'>
+            //   {Object.values(brands).map(brand => (
+            //     <div className="des-brand-colors">
+            //       {brand.colors.map(color => (
+            //         <div
+            //           onClick={() => {
+            //             setBackgroundColor(color.name);
+            //             localStorage.setItem('backgroundColor', color.name)
+            //           }}
+            //         >{color.name}</div>
+            //       ))}
+            //       {brand.fonts.map(font => (
+            //         <div
+            //           onClick={() => {
+            //             setCurrFont(font.name);
+            //           }}
+            //         >
+            //           {font.name}
+            //         </div>
+            //       ))}
+            //     </div>
+            //   ))}
+            // </div>
+          )}
         </div>
 
         <div className="edit-area">
