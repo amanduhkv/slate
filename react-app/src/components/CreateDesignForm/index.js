@@ -5,6 +5,7 @@ import { createDesign, getAllDesigns, clearData } from "../../store/designs";
 
 import './CreateDesignForm.css';
 import './Draggable.css';
+// import '../Designs/index.css';
 
 import left from '../../icons/left.svg';
 
@@ -214,11 +215,19 @@ export default function CreateDesign() {
           backgroundColor: `${backgroundColor}`
         }}
       >
-        <div>
+        <div id='template-inputs'>
           <input
+            id='input1'
             type='text'
+            placeholder="Title Here"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
           />
         </div>
       </div>
@@ -235,7 +244,21 @@ export default function CreateDesign() {
           backgroundColor: `${backgroundColor}`
         }}
       >
-
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -250,6 +273,21 @@ export default function CreateDesign() {
           backgroundColor: `${backgroundColor}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -264,6 +302,26 @@ export default function CreateDesign() {
           backgroundColor: `${backgroundColor}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+            style={{
+              resize: 'none',
+              height: '295px',
+              width: '400px'
+            }}
+          />
+        </div>
       </div>
     )
   }
@@ -278,6 +336,21 @@ export default function CreateDesign() {
           backgroundColor: `${backgroundColor}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -293,6 +366,21 @@ export default function CreateDesign() {
           backgroundColor: `${backgroundColor}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -307,6 +395,21 @@ export default function CreateDesign() {
           backgroundColor: `${backgroundColor}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -321,6 +424,21 @@ export default function CreateDesign() {
           backgroundColor: `${backgroundColor}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -335,6 +453,21 @@ export default function CreateDesign() {
           backgroundColor: `${backgroundColor}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -349,6 +482,21 @@ export default function CreateDesign() {
           backgroundColor: `${backgroundColor}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -364,6 +512,21 @@ export default function CreateDesign() {
           backgroundColor: `${backgroundColor}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -378,6 +541,21 @@ export default function CreateDesign() {
           backgroundColor: `${backgroundColor}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -392,6 +570,21 @@ export default function CreateDesign() {
           backgroundColor: `${backgroundColor}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -406,6 +599,21 @@ export default function CreateDesign() {
           backgroundColor: `${backgroundColor}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -420,6 +628,21 @@ export default function CreateDesign() {
           backgroundColor: `${backgroundColor}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -435,6 +658,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -449,6 +687,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -463,6 +716,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -477,6 +745,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -491,6 +774,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -506,6 +804,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -520,6 +833,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -534,6 +862,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -548,6 +891,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -562,6 +920,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -577,6 +950,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -591,6 +979,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -605,6 +1008,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -619,6 +1037,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -633,6 +1066,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -648,6 +1096,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -662,6 +1125,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -676,6 +1154,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -690,6 +1183,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -704,6 +1212,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -722,6 +1245,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -739,6 +1277,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -756,6 +1309,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -773,6 +1341,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -790,6 +1373,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -805,6 +1403,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -819,6 +1432,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -833,6 +1461,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -847,6 +1490,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -861,7 +1519,21 @@ export default function CreateDesign() {
           backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
-
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+          />
+        </div>
       </div>
     )
   }
@@ -874,7 +1546,7 @@ export default function CreateDesign() {
           <img src={left} alt='left' height='14px' />
           Home
         </div>
-        <div>
+        <div className="form-inputs">
           {hasSubmit && validationErrs.length > 0 && (
             <div className='errors' id='des-errs'>
               {validationErrs.map((error, idx) => (
@@ -893,14 +1565,20 @@ export default function CreateDesign() {
             <input
               type='text'
               value={alias}
-              // hidden
+              hidden
               onChange={e => {
                 setTemp(e.target.value)
               }}
             />
             <textarea
+              hidden
               value={input1}
               onChange={(e) => setInput1(e.target.value)}
+            />
+            <textarea
+              hidden
+              value={input2}
+              onChange={(e) => setInput3(e.target.value)}
             />
           </div>
           <button id='create-des-button' type='submit'>Save new design</button>

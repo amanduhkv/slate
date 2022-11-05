@@ -21,6 +21,11 @@
   /* align-items: center; */
 }
 
+.form-inputs {
+  display: flex;
+
+}
+
 #inserted-temp {
   top: 80px;
 }
@@ -173,7 +178,7 @@
 }
 
 #des-name::placeholder {
-  color: rgb(215, 215, 215)
+  color: rgb(225, 225, 225)
 }
 
 #home-button {
