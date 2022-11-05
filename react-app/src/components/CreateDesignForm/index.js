@@ -228,6 +228,14 @@ export default function CreateDesign() {
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '880px',
+              height: '440px',
+              maxWidth: '880px',
+              maxHeight:'440px',
+              minWidth: '347px',
+              minHeight: '120px'
+            }}
           />
         </div>
       </div>
@@ -257,6 +265,14 @@ export default function CreateDesign() {
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '880px',
+              height: '440px',
+              maxWidth: '880px',
+              maxHeight:'440px',
+              minWidth: '347px',
+              minHeight: '120px'
+            }}
           />
         </div>
       </div>
@@ -286,6 +302,14 @@ export default function CreateDesign() {
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '880px',
+              height: '440px',
+              maxWidth: '880px',
+              maxHeight:'440px',
+              minWidth: '347px',
+              minHeight: '120px'
+            }}
           />
         </div>
       </div>
@@ -343,12 +367,24 @@ export default function CreateDesign() {
             placeholder="Title Here"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
+            style={{
+              marginLeft: '120px'
+            }}
           />
           <textarea
             id='input2'
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '680px',
+              height: '440px',
+              maxWidth: '680px',
+              maxHeight:'440px',
+              minWidth: '347px',
+              minHeight: '120px',
+              marginLeft: '120px'
+            }}
           />
         </div>
       </div>
@@ -379,6 +415,14 @@ export default function CreateDesign() {
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '580px',
+              height: '240px',
+              maxWidth: '580px',
+              maxHeight:'240px',
+              minWidth: '347px',
+              minHeight: '120px'
+            }}
           />
         </div>
       </div>
@@ -408,6 +452,14 @@ export default function CreateDesign() {
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '580px',
+              height: '240px',
+              maxWidth: '580px',
+              maxHeight:'240px',
+              minWidth: '347px',
+              minHeight: '120px'
+            }}
           />
         </div>
       </div>
@@ -437,6 +489,14 @@ export default function CreateDesign() {
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '580px',
+              height: '240px',
+              maxWidth: '580px',
+              maxHeight:'240px',
+              minWidth: '347px',
+              minHeight: '120px'
+            }}
           />
         </div>
       </div>
@@ -460,12 +520,29 @@ export default function CreateDesign() {
             placeholder="Title Here"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
+            style={{
+              width: '200px',
+              height: '27px',
+              marginTop: '8px',
+              marginLeft: '276px',
+              fontSize: '20px'
+            }}
           />
           <textarea
             id='input2'
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '210px',
+              height: '240px',
+              resize: 'none',
+              maxWidth: '210px',
+              maxHeight:'240px',
+              // minWidth: '347px',
+              minHeight: '120px',
+              marginLeft: '270px'
+            }}
           />
         </div>
       </div>
@@ -489,12 +566,22 @@ export default function CreateDesign() {
             placeholder="Title Here"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
+            style={{
+              marginLeft: '310px'
+            }}
           />
           <textarea
             id='input2'
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '350px',
+              height: '280px',
+              marginTop: '8px',
+              marginLeft: '310px',
+              resize: 'none'
+            }}
           />
         </div>
       </div>
@@ -525,6 +612,12 @@ export default function CreateDesign() {
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '370px',
+              height: '430px',
+              marginTop: '8px',
+              resize: 'none'
+            }}
           />
         </div>
       </div>
@@ -554,6 +647,12 @@ export default function CreateDesign() {
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '370px',
+              height: '430px',
+              marginTop: '8px',
+              resize: 'none'
+            }}
           />
         </div>
       </div>
@@ -583,6 +682,12 @@ export default function CreateDesign() {
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '370px',
+              height: '430px',
+              marginTop: '8px',
+              resize: 'none'
+            }}
           />
         </div>
       </div>
@@ -606,12 +711,26 @@ export default function CreateDesign() {
             placeholder="Title Here"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
+            style={{
+              width: '235px',
+              height: '40px',
+              marginTop: '68px',
+              marginRight: '122px',
+              resize: 'none'
+            }}
           />
           <textarea
             id='input2'
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '165px',
+              height: '280px',
+              marginTop: '88px',
+              marginRight: '122px',
+              resize: 'none'
+            }}
           />
         </div>
       </div>
@@ -635,12 +754,25 @@ export default function CreateDesign() {
             placeholder="Title Here"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
+            style={{
+              width: '270px',
+              marginTop: '8px',
+              marginLeft: '80px',
+              resize: 'none'
+            }}
           />
           <textarea
             id='input2'
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '270px',
+              height: '430px',
+              marginTop: '8px',
+              marginLeft: '80px',
+              resize: 'none'
+            }}
           />
         </div>
       </div>
@@ -671,6 +803,12 @@ export default function CreateDesign() {
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '406px',
+              height: '346px',
+              marginTop: '8px',
+              resize: 'none'
+            }}
           />
         </div>
       </div>
@@ -700,6 +838,12 @@ export default function CreateDesign() {
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '406px',
+              height: '346px',
+              marginTop: '8px',
+              resize: 'none'
+            }}
           />
         </div>
       </div>
@@ -729,6 +873,12 @@ export default function CreateDesign() {
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '406px',
+              height: '346px',
+              marginTop: '8px',
+              resize: 'none'
+            }}
           />
         </div>
       </div>
@@ -752,12 +902,21 @@ export default function CreateDesign() {
             placeholder="Title Here"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
+            style={{
+              marginTop: '180px'
+            }}
           />
           <textarea
             id='input2'
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '406px',
+              height: '146px',
+              marginTop: '8px',
+              resize: 'none'
+            }}
           />
         </div>
       </div>
@@ -781,12 +940,23 @@ export default function CreateDesign() {
             placeholder="Title Here"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
+            style={{
+              width: '246px',
+              marginLeft: '190px',
+            }}
           />
           <textarea
             id='input2'
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '246px',
+              height: '346px',
+              marginTop: '8px',
+              marginLeft: '190px',
+              resize: 'none'
+            }}
           />
         </div>
       </div>
@@ -811,12 +981,20 @@ export default function CreateDesign() {
             placeholder="Title Here"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
+            style={{
+              width: '230px'
+            }}
           />
           <textarea
             id='input2'
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '230px',
+              height: '346px',
+              resize: 'none'
+            }}
           />
         </div>
       </div>
@@ -840,12 +1018,20 @@ export default function CreateDesign() {
             placeholder="Title Here"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
+            style={{
+              width: '230px'
+            }}
           />
           <textarea
             id='input2'
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '230px',
+              height: '346px',
+              resize: 'none'
+            }}
           />
         </div>
       </div>
@@ -869,12 +1055,20 @@ export default function CreateDesign() {
             placeholder="Title Here"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
+            style={{
+              width: '230px'
+            }}
           />
           <textarea
             id='input2'
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '230px',
+              height: '346px',
+              resize: 'none'
+            }}
           />
         </div>
       </div>
@@ -898,13 +1092,17 @@ export default function CreateDesign() {
             placeholder="Title Here"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
+            style={{
+              width: '200px',
+              marginTop: '40px'
+            }}
           />
-          <textarea
+          {/* <textarea
             id='input2'
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
-          />
+          /> */}
         </div>
       </div>
     )
@@ -927,13 +1125,19 @@ export default function CreateDesign() {
             placeholder="Title Here"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
+            style={{
+              width: '200px',
+              marginBottom: '40px',
+              marginLeft: '24px',
+              transform: 'rotate(4deg)'
+            }}
           />
-          <textarea
+          {/* <textarea
             id='input2'
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
-          />
+          /> */}
         </div>
       </div>
     )
@@ -947,7 +1151,7 @@ export default function CreateDesign() {
           width: '470px',
           height: '394px',
           backgroundImage: `url(${fb1})`,
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
+          backgroundColor: 'white'
         }}
       >
         <div id='template-inputs'>
@@ -963,6 +1167,11 @@ export default function CreateDesign() {
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '430px',
+              height: '290px',
+              resize: 'none'
+            }}
           />
         </div>
       </div>
@@ -992,6 +1201,11 @@ export default function CreateDesign() {
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '430px',
+              height: '290px',
+              resize: 'none'
+            }}
           />
         </div>
       </div>
@@ -1021,6 +1235,11 @@ export default function CreateDesign() {
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '430px',
+              height: '290px',
+              resize: 'none'
+            }}
           />
         </div>
       </div>
@@ -1044,12 +1263,20 @@ export default function CreateDesign() {
             placeholder="Title Here"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
+            style={{
+              marginTop: '180px'
+            }}
           />
           <textarea
             id='input2'
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '430px',
+              height: '150px',
+              resize: 'none'
+            }}
           />
         </div>
       </div>
@@ -1073,13 +1300,16 @@ export default function CreateDesign() {
             placeholder="Title Here"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
+            style={{
+              marginBottom: '235px'
+            }}
           />
-          <textarea
+          {/* <textarea
             id='input2'
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
-          />
+          /> */}
         </div>
       </div>
     )
@@ -1109,6 +1339,11 @@ export default function CreateDesign() {
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '350px',
+              height: '425px',
+              resize: 'none'
+            }}
           />
         </div>
       </div>
@@ -1138,6 +1373,11 @@ export default function CreateDesign() {
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '350px',
+              height: '425px',
+              resize: 'none'
+            }}
           />
         </div>
       </div>
@@ -1167,6 +1407,11 @@ export default function CreateDesign() {
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '350px',
+              height: '425px',
+              resize: 'none'
+            }}
           />
         </div>
       </div>
@@ -1190,12 +1435,20 @@ export default function CreateDesign() {
             placeholder="Title Here"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
+            style={{
+              marginTop: '230px'
+            }}
           />
           <textarea
             id='input2'
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '344px',
+              height: '188px',
+              resize: 'none'
+            }}
           />
         </div>
       </div>
@@ -1219,12 +1472,26 @@ export default function CreateDesign() {
             placeholder="Title Here"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
+            style={{
+              width: '270px',
+              height: '45px',
+              resize: 'none',
+              marginTop: '15px',
+              marginLeft: '80px'
+            }}
           />
           <textarea
             id='input2'
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '270px',
+              height: '225px',
+              resize: 'none',
+              marginTop: '210px',
+              marginLeft: '80px'
+            }}
           />
         </div>
       </div>
@@ -1252,12 +1519,22 @@ export default function CreateDesign() {
             placeholder="Title Here"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
+            style={{
+              width: '280px',
+              marginLeft: '8px'
+            }}
           />
           <textarea
             id='input2'
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '280px',
+              height: '72px',
+              resize: 'none',
+              marginLeft: '8px'
+            }}
           />
         </div>
       </div>
@@ -1284,12 +1561,22 @@ export default function CreateDesign() {
             placeholder="Title Here"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
+            style={{
+              width: '280px',
+              marginLeft: '8px'
+            }}
           />
           <textarea
             id='input2'
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '280px',
+              height: '72px',
+              resize: 'none',
+              marginLeft: '8px'
+            }}
           />
         </div>
       </div>
@@ -1316,12 +1603,22 @@ export default function CreateDesign() {
             placeholder="Title Here"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
+            style={{
+              width: '280px',
+              marginLeft: '8px'
+            }}
           />
           <textarea
             id='input2'
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '280px',
+              height: '72px',
+              resize: 'none',
+              marginLeft: '8px'
+            }}
           />
         </div>
       </div>
@@ -1348,12 +1645,24 @@ export default function CreateDesign() {
             placeholder="Title Here"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
+            style={{
+              width: '160px',
+              marginLeft: '140px',
+              marginTop: '65px'
+            }}
           />
           <textarea
             id='input2'
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '160px',
+              height: '62px',
+              resize: 'none',
+              marginLeft: '140px',
+              marginTop: '-5px'
+            }}
           />
         </div>
       </div>
@@ -1380,12 +1689,24 @@ export default function CreateDesign() {
             placeholder="Title Here"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
+            style={{
+              width: '190px',
+              marginLeft: '130px',
+              marginTop: '65px'
+            }}
           />
           <textarea
             id='input2'
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '190px',
+              height: '62px',
+              resize: 'none',
+              marginLeft: '130px',
+              marginTop: '-5px'
+            }}
           />
         </div>
       </div>
@@ -1410,12 +1731,24 @@ export default function CreateDesign() {
             placeholder="Title Here"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
+            style={{
+              width: '150px',
+
+            }}
           />
           <textarea
             id='input2'
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '150px',
+              height: '400px',
+              maxWidth: '150px',
+              minWidth: '150px',
+              maxHeight: '400px',
+              minHeight: '150px'
+            }}
           />
         </div>
       </div>
@@ -1439,12 +1772,23 @@ export default function CreateDesign() {
             placeholder="Title Here"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
+            style={{
+              width: '150px'
+            }}
           />
           <textarea
             id='input2'
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '150px',
+              height: '400px',
+              maxWidth: '150px',
+              minWidth: '150px',
+              maxHeight: '400px',
+              minHeight: '150px'
+            }}
           />
         </div>
       </div>
@@ -1468,12 +1812,23 @@ export default function CreateDesign() {
             placeholder="Title Here"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
+            style={{
+              width: '150px'
+            }}
           />
           <textarea
             id='input2'
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '150px',
+              height: '400px',
+              maxWidth: '150px',
+              minWidth: '150px',
+              maxHeight: '400px',
+              minHeight: '150px'
+            }}
           />
         </div>
       </div>
@@ -1497,12 +1852,23 @@ export default function CreateDesign() {
             placeholder="Title Here"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
+            style={{
+              width: '150px'
+            }}
           />
           <textarea
             id='input2'
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '150px',
+              height: '400px',
+              maxWidth: '150px',
+              minWidth: '150px',
+              maxHeight: '400px',
+              minHeight: '150px'
+            }}
           />
         </div>
       </div>
@@ -1526,12 +1892,23 @@ export default function CreateDesign() {
             placeholder="Title Here"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
+            style={{
+              width: '150px'
+            }}
           />
           <textarea
             id='input2'
             value={input2}
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '150px',
+              height: '400px',
+              maxWidth: '150px',
+              minWidth: '150px',
+              maxHeight: '400px',
+              minHeight: '150px'
+            }}
           />
         </div>
       </div>

@@ -7,7 +7,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
+
 }
 
 #drag-text {
@@ -30,7 +30,7 @@
 #input1 {
   font-size: 22px;
   font-weight: 700;
-  resize: both;
+  /* resize: both; */
 }
 
 #input1,
@@ -52,12 +52,12 @@
   outline: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-#input2 {
+/* #input2 {
   max-width: 400px;
   max-height: 400px;
   min-width: 184px;
   min-height: 120px;
-}
+} */
 
 #template-words {
   padding: 30px;
