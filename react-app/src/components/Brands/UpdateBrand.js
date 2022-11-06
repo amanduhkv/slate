@@ -36,17 +36,28 @@ export default function UpdateBrand() {
   useEffect(() => {
     const errs = [];
 
+    if (!name?.length) {
+      errs.push('Please enter a brand name.')
+    }
     if (name?.length && name.length < 2) {
       errs.push('Brand names must be at least 2 characters.')
     }
     if (name?.length && name.length > 25) {
       errs.push('This brand name is too long.')
     }
-    if (colors?.length && colors.length > 5) {
-      errs.push('Too many colors selected. Please choose up to 5.')
+    // if (colors?.length && colors.length > 5) {
+    //   errs.push('Too many colors selected. Please choose up to 5.')
+    // }
+    if(logo?.length) {
+      if (!logo.endsWith('.jpg') && !logo.endsWith('jpeg') && !logo.endsWith('.png')) {
+        errs.push('Invalid logo url. Must end with ".jpg", ".jpeg", or ".png"')
+      }
+      if (!logo.startsWith('http://') && !logo.startsWith('https://')) {
+        errs.push('Invalid logo url. Must start with "http://" or "https://"')
+      }
     }
     setValidationErrs(errs);
-  }, [name]);
+  }, [name, logo]);
 
   // inputs original data
   useEffect(() => {
@@ -79,6 +90,7 @@ export default function UpdateBrand() {
 
   // inputs checks from original data
   useEffect(() => {
+    if(colors) {
     const currentColors = document.querySelectorAll('#brand-colors');
     // console.log('currentColors', currentColors)
     colors.forEach(color => {
@@ -88,13 +100,15 @@ export default function UpdateBrand() {
         if (checkedColor.value === color.name) checkedColor.checked = true;
       })
     });
-
+  }
+  if (fonts) {
     const currFonts = document.querySelectorAll('#brand-fonts');
     fonts.forEach(font => {
       currFonts.forEach(checkedFont => {
         if (checkedFont.value === font.name) checkedFont.checked = true;
       })
     });
+  }
   }, [brand, colors, fonts])
 
   const handleSubmit = async e => {
@@ -124,25 +138,35 @@ export default function UpdateBrand() {
         <div id='req'>
           * = required
         </div>
+        <div className="input-errs">
+          <div className="name-logo">
+            <label id='brand-tag' for='brand-name-tag'>Brand name *</label>
+            <input
+              id='brand-name-tag'
+              placeholder='Your brand here'
+              type='text'
+              value={name}
+              onChange={e => setName(e.target.value)}
+            />
 
-        <label id='brand-tag' for='brand-name-tag'>Brand name *</label>
-        <input
-          id='brand-name-tag'
-          placeholder='Your brand here'
-          type='text'
-          value={name}
-          onChange={e => setName(e.target.value)}
-        />
+            <label id='brand-tag' for='brand-logo'>Brand logo</label>
+            <input
+              id='brand-logo'
+              type='text'
+              value={logo}
+              onChange={e => setLogo(e.target.value)}
+              placeholder='image.url'
+            />
+          </div>
 
-        <label id='brand-tag' for='brand-logo'>Brand logo</label>
-        <input
-          id='brand-logo'
-          type='text'
-          value={logo}
-          onChange={e => setLogo(e.target.value)}
-          placeholder='image.url'
-        />
-
+          {hasSubmit && validationErrs.length > 0 && (
+            <div className='errors' id='br-err'>
+              {validationErrs.map((error, idx) => (
+                <div key={idx}>{error}</div>
+              ))}
+            </div>
+          )}
+        </div>
         <label id='brand-tag' for='brand-colors'>Brand colors:</label>
         <div className="color-container">
           {__colors.map((color, idx) => (
@@ -219,13 +243,7 @@ export default function UpdateBrand() {
         </div>
         <div className="update-button-container">
           <button id='brand-submit-button' type='submit'>Update brand</button>
-          {hasSubmit && validationErrs.length > 0 && (
-            <div className='errors' id='br-err'>
-              {validationErrs.map((error, idx) => (
-                <div key={idx}>{error}</div>
-              ))}
-            </div>
-          )}
+          <button onClick={() => history.push('/brand')}>Cancel</button>
         </div>
       </form>
 

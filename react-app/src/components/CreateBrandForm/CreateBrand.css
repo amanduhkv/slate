@@ -22,6 +22,19 @@
   margin: 20px;
 }
 
+.input-errs {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.name-logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 
 /* COLORS--------------------------------------- */
 .color-container {
@@ -105,14 +118,14 @@
 /* SUBMIT ----------------------------------------- */
 .update-button-container {
   display: flex;
-  /* justify-content: center; */
-
+  align-items: center;
+  margin-top: 20px;
 }
 
 #brand-submit-button {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+
   background-color: white;
   color: rgb(75,97,110);
   width: 150px;
@@ -124,6 +137,6 @@
   bottom: 25px;
   left: 200px; */
   padding: 8px 12px;
-  margin: 8px;
+
   width: 450px;
 }

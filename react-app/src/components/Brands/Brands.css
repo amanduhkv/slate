@@ -83,9 +83,15 @@
 
 /* ----------------------- COLORS AREA ----------------------- */
 #indiv-colors {
+  width: 100%;
   display: flex;
-  padding: 0 auto;
+  padding: auto;
+  flex-wrap: wrap;
 }
 
+#brand-color-indiv {
+  width: 60px;
+  height: 60px;
+}
 
 /* ----------------------- FONTS AREA ----------------------- */

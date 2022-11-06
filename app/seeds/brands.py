@@ -33157,28 +33157,28 @@ def seed_brands():
   neutrals = Brand(
                     name='Neutrals',
                     user_id=1,
-                    logo='https://images.unsplash.com/photo-1610177498775-8a1c5230437c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bmV1dHJhbHxlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60',
+                    logo='https://images.pexels.com/photos/2789545/pexels-photo-2789545.jpeg',
                     fonts=[font_dict["Poppins"]],
                     colors=[color_dict['cornsilk'], color_dict['blanchedalmond'], color_dict['tan']]
                     )
   pastel = Brand(
                   name='Pastel',
                   user_id=1,
-                  logo='https://images.unsplash.com/photo-1528459709161-157d86910939?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHBhc3RlbHxlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60',
+                  logo='https://images.pexels.com/photos/2310713/pexels-photo-2310713.jpeg',
                   fonts=[font_dict["Poppins"]],
                   colors=[color_dict['honeydew'], color_dict['aliceblue'], color_dict['lavenderblush'], color_dict['snow'], color_dict['azure']]
                   )
   monochromatic = Brand(
                         name='Monochromatic',
                         user_id=1,
-                        logo='https://images.unsplash.com/photo-1629198881307-ff39566b25fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1vbm9jaHJvbWF0aWN8ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+                        logo='https://images.pexels.com/photos/3639003/pexels-photo-3639003.jpeg',
                         fonts=[font_dict["Poppins"]],
                         colors=[color_dict['gainsboro'], color_dict['darkgray'], color_dict['dimgray']]
                         )
   developer = Brand(
                     name='Developer',
                     user_id=1,
-                    logo='https://images.unsplash.com/photo-1515405295579-ba7b45403062?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z3JhZGllbnQlMjBibHVlfGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60',
+                    logo='https://images.pexels.com/photos/3987066/pexels-photo-3987066.jpeg',
                     fonts=[font_dict["Poppins"]],
                     colors=[color_dict['blue'], color_dict['cyan'], color_dict['orangered']]
                     )

@@ -219,13 +219,18 @@ nav {
   background-color: rgb(245, 245, 245);
 }
 
+.des-dropdown div {
+  font-size: 16px;
+  margin-top: 8px;
+}
+
 
 /* ------------------ CREATE DD ------------------ */
 .create-dropdown {
   position: absolute;
   background-color: white;
-  width: 300px;
-  height: auto;
+  width: 500px;
+  height: 400px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
   top: 75px;
@@ -240,6 +245,12 @@ nav {
   font-size: 16px; */
   color: rgb(72, 76, 79);
   cursor: default;
+
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 #temp-name {
@@ -247,6 +258,7 @@ nav {
   padding: 8px 12px;
   border-radius: 4px;
   text-align: left;
+  width: 220px;
 }
 
 #temp-name:hover {
