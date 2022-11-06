@@ -20,6 +20,7 @@ export default function UpdateBrand() {
   const [colors, setColors] = useState(brand.colors);
   const [fonts, setFonts] = useState(brand.fonts);
 
+  const [hasSubmit, setHasSubmit] = useState(false);
   const [validationErrs, setValidationErrs] = useState([]);
 
   if (!user) {
@@ -38,20 +39,23 @@ export default function UpdateBrand() {
     if (name?.length && name.length < 2) {
       errs.push('Brand names must be at least 2 characters.')
     }
-    if (name?.length && name.length > 255) {
+    if (name?.length && name.length > 25) {
       errs.push('This brand name is too long.')
+    }
+    if (colors?.length && colors.length > 5) {
+      errs.push('Too many colors selected. Please choose up to 5.')
     }
     setValidationErrs(errs);
   }, [name]);
 
   // inputs original data
   useEffect(() => {
-    if(brand) {
+    if (brand) {
       setName(brand.name);
       setLogo(brand.logo);
 
       const originalColors = [];
-      if(brand.colors && brand.colors.length > 0) {
+      if (brand.colors && brand.colors.length > 0) {
         console.log('brand.colors', brand.colors)
         brand.colors.forEach(color => {
           console.log('COLOR IN CURR BRAND', color)
@@ -62,7 +66,7 @@ export default function UpdateBrand() {
       setColors(originalColors);
 
       const originalFonts = [];
-      if(brand.fonts && brand.fonts.length > 0) {
+      if (brand.fonts && brand.fonts.length > 0) {
         brand.fonts.forEach(font => {
           console.log('FONT IN CURR BRAND', font)
           originalFonts.push(font.name)
@@ -81,20 +85,22 @@ export default function UpdateBrand() {
       // console.log('CHECKING COLOR', color)
       currentColors.forEach(checkedColor => {
         // console.log('checkedColor', checkedColor)
-        if(checkedColor.value === color.name) checkedColor.checked = true;
+        if (checkedColor.value === color.name) checkedColor.checked = true;
       })
     });
 
     const currFonts = document.querySelectorAll('#brand-fonts');
     fonts.forEach(font => {
       currFonts.forEach(checkedFont => {
-        if(checkedFont.value === font.name) checkedFont.checked = true;
+        if (checkedFont.value === font.name) checkedFont.checked = true;
       })
     });
   }, [brand, colors, fonts])
 
   const handleSubmit = async e => {
     e.preventDefault();
+
+    setHasSubmit(true)
 
     const editBrand = {
       name,
@@ -103,8 +109,8 @@ export default function UpdateBrand() {
       fonts
     }
     if (!validationErrs.length) {
-      console.log('WORKING')
-      console.log('brand', editBrand)
+      // console.log('WORKING')
+      // console.log('brand', editBrand)
       const updatedBrand = await dispatch(updateBrand(brand.id, editBrand));
 
       if (updatedBrand) history.push(`/brand/${updatedBrand.id}`);
@@ -166,7 +172,9 @@ export default function UpdateBrand() {
                   color: `white`,
                   padding: '8px',
                   borderRadius: '3px',
-                  textShadow: '#000 0 0 10px'
+                  textShadow: '#000 0 0 10px',
+                  width: '164px',
+                  textOverflow: 'clip'
                 }}>
                 {color.alias}
               </label>
@@ -189,7 +197,6 @@ export default function UpdateBrand() {
                     fontList = [...fonts, e.target.value]
                   }
                   else {
-                    const i = fontList.indexOf(e.target.value);
                     fontList.splice(fonts.indexOf(e.target.value), 1);
                   }
                   setFonts(fontList)
@@ -210,8 +217,16 @@ export default function UpdateBrand() {
             </div>
           ))}
         </div>
-
-        <button id='brand-submit-button' type='submit'>Update brand</button>
+        <div className="update-button-container">
+          <button id='brand-submit-button' type='submit'>Update brand</button>
+          {hasSubmit && validationErrs.length > 0 && (
+            <div className='errors' id='br-err'>
+              {validationErrs.map((error, idx) => (
+                <div key={idx}>{error}</div>
+              ))}
+            </div>
+          )}
+        </div>
       </form>
 
     </div>

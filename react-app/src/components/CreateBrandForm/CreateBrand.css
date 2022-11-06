@@ -76,19 +76,25 @@
 /* FONTS------------------------------------------ */
 .font-container {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   flex-wrap: wrap;
   /* margin: 10px; */
   height: 200px;
+
   text-align: justify;
   overflow: scroll;
-  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .fonts {
   display: flex;
   align-items: center;
   margin: 10px;
+
+}
+
+.fonts label {
+  width: 164px;
 }
 
 #brand-fonts {
@@ -97,6 +103,12 @@
 }
 
 /* SUBMIT ----------------------------------------- */
+.update-button-container {
+  display: flex;
+  /* justify-content: center; */
+
+}
+
 #brand-submit-button {
   display: flex;
   justify-content: center;
@@ -105,4 +117,13 @@
   color: rgb(75,97,110);
   width: 150px;
   padding: 8px 12px;
+}
+
+#br-err {
+  /* position: absolute;
+  bottom: 25px;
+  left: 200px; */
+  padding: 8px 12px;
+  margin: 8px;
+  width: 450px;
 }
