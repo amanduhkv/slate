@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { getAllDesigns, clearData } from "../../store/designs";
+import { getAllUserDesigns, clearData } from "../../store/designs";
 
 export default function UserDesigns() {
   const designs = useSelector(state => state.designs.allDesigns);
@@ -11,7 +11,7 @@ export default function UserDesigns() {
   console.log('DESARR', desArr)
 
   useEffect(() => {
-    dispatch(getAllDesigns())
+    dispatch(getAllUserDesigns())
 
     return () => dispatch(clearData())
   }, [dispatch])
@@ -19,7 +19,7 @@ export default function UserDesigns() {
   return (
     <div className="recent-des">
       {desArr.map(des => (
-        <div className="des-containers" onClick={() => history.push(`/designs/${des.id}/${des.template[0].alias}`)}>
+        <div className="des-containers" onClick={() => history.push(`/designs/${des.id}/`)}>
           <h3>{des.name}</h3>
         </div>
       ))}

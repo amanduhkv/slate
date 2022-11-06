@@ -104,6 +104,7 @@ export const updateDesign = (designId, design) => async dispatch => {
   console.log('REPONSE for update', response)
   if (response.ok) {
     const updatedDesign = await response.json();
+    console.log('UPDATED DES IN THUNK')
     dispatch(update_des(designId, updatedDesign));
     return updatedDesign;
   };

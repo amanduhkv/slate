@@ -74,7 +74,7 @@ export default function SingleDesign() {
   const { designId } = useParams();
   const singleDesign = useSelector(state => state.designs.singleDesign);
   const allDesigns = useSelector(state => state.designs.allDesigns);
-  const brands = useSelector(state => state.brands.allBrands);
+
   const user = useSelector(state => state.session.user);
 
   const history = useHistory();
@@ -91,12 +91,12 @@ export default function SingleDesign() {
   const [showBrandMenu, setShowBrandMenu] = useState(false);
   const [input1, setInput1] = useState('');
   const [input2, setInput2] = useState('');
-  const [input3, setInput3] = useState('');
-  const [input4, setInput4] = useState('');
-  const [input5, setInput5] = useState('');
+  // const [input3, setInput3] = useState('');
+  // const [input4, setInput4] = useState('');
+  // const [input5, setInput5] = useState('');
 
   const [backgroundColor, setBackgroundColor] = useState('white');
-  const [currFont, setCurrFont] = useState('');
+  // const [currFont, setCurrFont] = useState('');
 
   useEffect(() => {
     dispatch(getADesign(designId))
@@ -374,7 +374,9 @@ export default function SingleDesign() {
   // LOADING PREV DATA ---------------------------------------
   useEffect(() => {
     if(singleDesign) {
-      // setTemp(singleDesign.template[0].alias ? singleDesign.template[0].alias : '')
+      if(alias) {
+        setTemp(alias)
+      }
       setInput1(singleDesign.text_input_1 ? singleDesign.text_input_1 : '')
       setInput2(singleDesign.text_input_2 ? singleDesign.text_input_2 : '')
     }

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
 import { createDesign, getAllDesigns, clearData } from "../../store/designs";
@@ -86,9 +86,9 @@ export default function CreateDesign() {
   const [showBrandMenu, setShowBrandMenu] = useState(false);
   const [input1, setInput1] = useState('');
   const [input2, setInput2] = useState('');
-  const [input3, setInput3] = useState('');
-  const [input4, setInput4] = useState('');
-  const [input5, setInput5] = useState('');
+  // const [input3, setInput3] = useState('');
+  // const [input4, setInput4] = useState('');
+  // const [input5, setInput5] = useState('');
 
   const [backgroundColor, setBackgroundColor] = useState('white');
 
@@ -99,47 +99,47 @@ export default function CreateDesign() {
   }, [dispatch])
 
   // DRAG FXNS -------------------------------
-  const dragItem = (item) => {
-    // console.log('ITEM', item)
-    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    if (document.getElementById(item)) {
-      item.onmousedown = dragMouseDown;
-    }
+  // const dragItem = (item) => {
+  //   // console.log('ITEM', item)
+  //   let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  //   if (document.getElementById(item)) {
+  //     item.onmousedown = dragMouseDown;
+  //   }
 
-    const dragMouseDown = (e) => {
-      e = e || window.event;
-      e.preventDefault();
-      // grabs mouse position on start
-      pos3 = e.clientX;
-      pos4 = e.clientY;
+  //   const dragMouseDown = (e) => {
+  //     e = e || window.event;
+  //     e.preventDefault();
+  //     // grabs mouse position on start
+  //     pos3 = e.clientX;
+  //     pos4 = e.clientY;
 
-      document.onmouseup = closeDragItem;
-      // this happens when cursor moves
-      document.onmousemove = itemDrag;
-    }
+  //     document.onmouseup = closeDragItem;
+  //     // this happens when cursor moves
+  //     document.onmousemove = itemDrag;
+  //   }
 
-    const itemDrag = (e) => {
-      e = e || window.event;
-      e.preventDefault();
+  //   const itemDrag = (e) => {
+  //     e = e || window.event;
+  //     e.preventDefault();
 
-      // calculates the item's new position (x, y coords)
-      pos1 = pos3 - e.clientX;
-      pos2 = pos4 - e.clientY;
-      pos3 = e.clientX;
-      pos4 = e.clientY;
-      // sets the new position
-      item.style.top = (item.offsetTop - pos2) + 'px';
-      item.style.left = (item.offsetLeft - pos1) + 'px';
-    }
+  //     // calculates the item's new position (x, y coords)
+  //     pos1 = pos3 - e.clientX;
+  //     pos2 = pos4 - e.clientY;
+  //     pos3 = e.clientX;
+  //     pos4 = e.clientY;
+  //     // sets the new position
+  //     item.style.top = (item.offsetTop - pos2) + 'px';
+  //     item.style.left = (item.offsetLeft - pos1) + 'px';
+  //   }
 
-    const closeDragItem = () => {
-      // item stops moving when mouse is released
-      document.onmouseup = null;
-      document.onmousemove = null;
-    }
-  }
+  //   const closeDragItem = () => {
+  //     // item stops moving when mouse is released
+  //     document.onmouseup = null;
+  //     document.onmousemove = null;
+  //   }
+  // }
 
-  dragItem(document.getElementById('drag-text'));
+  // dragItem(document.getElementById('drag-text'));
 
   // SIDEBAR MENU FXNS ---------------------------------------------
   const openSideMenu = () => {
@@ -189,9 +189,9 @@ export default function CreateDesign() {
       template: alias,
       text_input_1: input1,
       text_input_2: input2,
-      text_input_3: input3,
-      text_input_4: input4,
-      text_input_5: input5,
+      // text_input_3: input3,
+      // text_input_4: input4,
+      // text_input_5: input5,
     };
 
     if (!validationErrs.length) {
@@ -1942,7 +1942,7 @@ export default function CreateDesign() {
             <input
               type='text'
               value={alias}
-              hidden
+              // hidden
               onChange={e => {
                 setTemp(e.target.value)
               }}
@@ -1955,7 +1955,7 @@ export default function CreateDesign() {
             <textarea
               hidden
               value={input2}
-              onChange={(e) => setInput3(e.target.value)}
+              onChange={(e) => setInput2(e.target.value)}
             />
           </div>
           <button id='create-des-button' type='submit'>Save new design</button>
@@ -2083,7 +2083,7 @@ export default function CreateDesign() {
 
                 <button
                   onClick={() => history.push('/brand')}
-                >Create a new brand</button>
+                >Go to brands</button>
               </div>
             </div>
             // <div id='temp-menu-item'>

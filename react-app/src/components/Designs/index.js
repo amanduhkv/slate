@@ -6,15 +6,6 @@ import pres from '../../icons/pres.png';
 import web from '../../icons/website.png';
 import ig from '../../icons/ig.png';
 import invite from '../../icons/invite.png';
-import present from '../../icons/temps/presentation.png';
-import website from '../../icons/temps/website.png';
-import resume from '../../icons/temps/resume.png';
-import igpost from '../../icons/temps/igpost.png';
-import igstory from '../../icons/temps/igstory.png';
-import fbpost from '../../icons/temps/fbpost.png';
-import inv from '../../icons/temps/invitation.png';
-import bizcard from '../../icons/temps/businesscard.png';
-import info from '../../icons/temps/infograph.png';
 
 import pres1 from '../../icons/change-temps/present-temp/pres-original.svg';
 import pres2 from '../../icons/change-temps/present-temp/pres-fun.svg';
