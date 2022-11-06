@@ -56,12 +56,11 @@ export const getAllDesigns = () => async dispatch => {
 // user designs
 export const getAllUserDesigns = () => async dispatch => {
   const response = await csrfFetch('/api/designs/current');
-
+  console.log('USER SPOTS RES', response)
   if (response.ok) {
-    const designs = await response.json();
-    dispatch(load(designs));
-
-    return designs;
+    const userDesigns = await response.json();
+    console.log('USER DES', userDesigns)
+    dispatch(load(userDesigns));
   }
 };
 // single design

@@ -69,7 +69,7 @@
 }
 
 .temp-cards {
-  width: fit-content;
+  width: 100%;
   object-fit: cover;
   display: flex;
   flex-wrap: wrap;
@@ -86,8 +86,9 @@
 #temp-box {
   display: flex;
   /* width: 400px; */
-  width: 100vw;
+  width: 100%;
   overflow: scroll;
+  overflow-y: hidden;
 }
 
 .temp-box {

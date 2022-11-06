@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { getAllUserDesigns, clearData } from "../../store/designs";
+import { getAllDesigns, clearData } from "../../store/designs";
 
 export default function UserDesigns() {
   const designs = useSelector(state => state.designs.allDesigns);
@@ -11,7 +11,7 @@ export default function UserDesigns() {
   console.log('DESARR', desArr)
 
   useEffect(() => {
-    dispatch(getAllUserDesigns())
+    dispatch(getAllDesigns())
 
     return () => dispatch(clearData())
   }, [dispatch])

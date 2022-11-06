@@ -184,13 +184,13 @@ export default function UpdateBrand() {
                 id='brand-fonts'
                 value={font.family}
                 onChange={e => {
-                  const fontList = [];
+                  let fontList = [...fonts];
                   if (e.target.checked) {
-                    fontList.push(e.target.value)
+                    fontList = [...fonts, e.target.value]
                   }
                   else {
                     const i = fontList.indexOf(e.target.value);
-                    fontList.splice(i, 1);
+                    fontList.splice(fonts.indexOf(e.target.value), 1);
                   }
                   setFonts(fontList)
                 }}

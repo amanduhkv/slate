@@ -77,12 +77,17 @@ def get_all_user_designs():
   current_des = []
 
 
-
+  # print('----CURR USER----', user)
+  # print('----CURR USER_ID----', user_id)
+  # print('----CURR DES----', all_designs)
   if len(all_designs) > 0:
     for design in all_designs:
       templates = [temp.to_dict() for temp in design['template']]
+      # print('----TEMP----', templates)
       design['template'] = templates
+      # print('----Des----', design)
       current_des.append(design)
+      # print('----CURR DES ARR----', current_des)
     return jsonify({
       'Designs': current_des
     })

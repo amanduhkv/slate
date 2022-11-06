@@ -341,24 +341,44 @@ export default function SingleDesign() {
             })`
         }}
       >
-        <div>
+        <div id='template-inputs'>
           <input
+            id='input1'
             type='text'
+            placeholder="Title Here"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
+            style={{
+              width: '150px'
+            }}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '150px',
+              height: '400px',
+              maxWidth: '150px',
+              minWidth: '150px',
+              maxHeight: '400px',
+              minHeight: '150px'
+            }}
           />
         </div>
       </div>
     )
   }
 
-  // // LOADING PREV DATA ---------------------------------------
-  // useEffect(() => {
-  //   if(singleDesign) {
-  //     setName(singleDesign.name);
-  //     setTemp(singleDesign.template[0])
-  //   }
-  // }, [singleDesign])
+  // LOADING PREV DATA ---------------------------------------
+  useEffect(() => {
+    if(singleDesign) {
+      // setTemp(singleDesign.template[0].alias ? singleDesign.template[0].alias : '')
+      setInput1(singleDesign.text_input_1 ? singleDesign.text_input_1 : '')
+      setInput2(singleDesign.text_input_2 ? singleDesign.text_input_2 : '')
+    }
+  }, [singleDesign])
 
   // SUBMIT FXNS ---------------------------------------------
   useEffect(() => {
@@ -375,7 +395,9 @@ export default function SingleDesign() {
 
     const payload = {
       name: name,
-      template: alias
+      template: temp,
+      text_input_1: input1,
+      text_input_2: input2,
     };
 
     if (!validationErrs.length) {
@@ -405,6 +427,13 @@ export default function SingleDesign() {
               ))}
             </div>
           )}
+          {user && user.id !== singleDesign.user_id && (
+            <h2 style={{margin: '0'}}>
+              {singleDesign.name}
+            </h2>
+          )}
+          {user && user.id === singleDesign.user_id && (
+          <>
           <input
             id='des-name'
             type='text'
@@ -415,18 +444,19 @@ export default function SingleDesign() {
           <input
             type='text'
             value={temp}
-            hidden
-            onChange={e => setTemp(e.target.value)}
+            // hidden
+            onChange={e => {
+              console.log('TARGET', e.target)
+              setTemp(e.target.value)}}
           />
-          {user && user.id === singleDesign.user_id && (
-            <>
               <button id='create-des-button' type='submit'>Save design</button>
               <DeleteDesign />
-            </>
+          </>
           )}
         </div>
       </form>
       <div className="edit-container">
+        {user && user.id === singleDesign.user_id && (
         <div className="sidebar">
           <button onClick={openSideMenu}>Templates</button>
           {showSideMenu && (
@@ -497,7 +527,7 @@ export default function SingleDesign() {
             // </div>
           )}
         </div>
-
+        )}
         <div className="edit-area">
           <div id="inserted-temp">
             {template}
