@@ -34,7 +34,7 @@
 * [User Stories](https://github.com/amanduhkv/slate/wiki/User-Stories)
 * [Database Schema and Backend Routes](https://github.com/amanduhkv/slate/wiki/Database-Schema-and-Backend-Routes)
 * [Features List](https://github.com/amanduhkv/slate/wiki/Features-List)
-* [Redux State Shape](https://github.com/amanduhkv/Squeal/wiki/Redux-Store-Shape)
+* [Redux State Shape](https://github.com/amanduhkv/slate/wiki/Redux-Store-State)
 * [Wireframes](https://github.com/amanduhkv/slate/wiki/Wireframes)
 
 
