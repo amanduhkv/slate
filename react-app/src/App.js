@@ -17,6 +17,7 @@ import UserBrands from './components/Brands/UserBrands';
 import SingleBrand from './components/Brands/SingleBrand';
 import CreateBrand from './components/CreateBrandForm/CreateBrand';
 import UpdateBrand from './components/Brands/UpdateBrand';
+import ErrPage from './components/Err';
 
 function App() {
   const user = useSelector(state => state.session.user);
@@ -39,7 +40,7 @@ function App() {
       <Switch>
         <ProtectedRoute path='/' exact={true} >
           {user && (
-            <Redirect to='/designs' />
+            <Redirect to='/designs' exact={true}/>
           )}
           {!user && (
             <Redirect to='/login' />
@@ -62,11 +63,11 @@ function App() {
           <NavBar />
           <UserDesigns />
         </Route>
-        <Route path='/designs/new'>
+        <Route path='/designs/new' exact={true}>
           {/* <NavBar /> */}
           <CreateDesign />
         </Route>
-        <Route path='/designs/:designId' >
+        <Route path='/designs/:designId' exact={true}>
           {/* <NavBar /> */}
           <SingleDesign />
         </Route>
@@ -74,9 +75,12 @@ function App() {
           <Designs />
         </Route>
 
-        <Route path='/brand/current' exact={true}>
+        {/* <Route path='/brand/current' exact={true}>
           <NavBar />
           <UserBrands />
+        </Route> */}
+        <Route path='/brand/current' exact={true}>
+          <ErrPage />
         </Route>
         <Route path='/brand/new' exact={true}>
           <NavBar />
@@ -94,6 +98,10 @@ function App() {
           <NavBar />
           <Brands />
         </Route>
+        <Route path='*'>
+          <ErrPage />
+        </Route>
+
       </Switch>
     </BrowserRouter>
   );

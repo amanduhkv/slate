@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+
 import { getAllUserBrands, clearData } from "../../store/brands";
 
+
 export default function UserBrands() {
-  const brands = useSelector(state => state.brands.allBrands);
-  const brandArr = Object.values(brands);
+  // const brands = useSelector(state => state.brands.allBrands);
+
 
   const dispatch = useDispatch();
 
@@ -18,7 +19,15 @@ export default function UserBrands() {
   return (
     <div>
       <h1>Brand</h1>
-      User's Brands Here
+      {/* <img
+        src={err404}
+        alt='err-page'
+        style={{
+          width: '600px',
+          display: 'flex',
+          justifyContent: 'center'
+        }}
+       /> */}
     </div>
   )
 }

@@ -67,11 +67,11 @@ export default function UpdateBrand() {
 
       const originalColors = [];
       if (brand.colors && brand.colors.length > 0) {
-        console.log('brand.colors', brand.colors)
+        // console.log('brand.colors', brand.colors)
         brand.colors.forEach(color => {
-          console.log('COLOR IN CURR BRAND', color)
+          // console.log('COLOR IN CURR BRAND', color)
           originalColors.push(color.name)
-          console.log('COLOR ARR', originalColors)
+          // console.log('COLOR ARR', originalColors)
         })
       }
       setColors(originalColors);
@@ -79,9 +79,9 @@ export default function UpdateBrand() {
       const originalFonts = [];
       if (brand.fonts && brand.fonts.length > 0) {
         brand.fonts.forEach(font => {
-          console.log('FONT IN CURR BRAND', font)
+          // console.log('FONT IN CURR BRAND', font)
           originalFonts.push(font.name)
-          console.log('FONT ARR', originalFonts)
+          // console.log('FONT ARR', originalFonts)
         })
       }
       setFonts(originalFonts);
@@ -177,15 +177,15 @@ export default function UpdateBrand() {
                 value={color.alias}
                 onChange={e => {
                   let colorList = [...colors];
-                  console.log('COLORLIST', colorList)
+                  // console.log('COLORLIST', colorList)
                   if (e.target.checked) {
-                    console.log('COLOR TARGET', e.target)
+                    // console.log('COLOR TARGET', e.target)
                     colorList = [...colors, e.target.value]
                   }
                   else {
                     colorList.splice(colors.indexOf(e.target.value), 1);
                   }
-                  console.log('COLORLIST second', colorList)
+                  // console.log('COLORLIST second', colorList)
                   setColors(colorList)
                 }}
               />

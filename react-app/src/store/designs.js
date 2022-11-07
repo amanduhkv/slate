@@ -56,10 +56,10 @@ export const getAllDesigns = () => async dispatch => {
 // user designs
 export const getAllUserDesigns = () => async dispatch => {
   const response = await csrfFetch('/api/designs/current');
-  console.log('USER SPOTS RES', response)
+  // console.log('USER SPOTS RES', response)
   if (response.ok) {
     const userDesigns = await response.json();
-    console.log('USER DES', userDesigns)
+    // console.log('USER DES', userDesigns)
     dispatch(load(userDesigns));
   }
 };
@@ -101,12 +101,12 @@ export const updateDesign = (designId, design) => async dispatch => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(design)
   });
-  console.log('REPONSE for update', response)
+  // console.log('REPONSE for update', response)
   if (response.ok) {
     const updatedDesign = await response.json();
-    console.log('UPDATED DES IN THUNK', updatedDesign)
+    // console.log('UPDATED DES IN THUNK', updatedDesign)
     dispatch(update_des(designId, updatedDesign));
-    console.log('THIS WAS UPDATED')
+    // console.log('THIS WAS UPDATED')
     return updatedDesign;
   };
 };
