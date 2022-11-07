@@ -178,12 +178,12 @@ const NavBar = () => {
                 <div id='user-initial-big'>
                   {sessionUser ? sessionUser.firstname[0] : <img src={avi} height='20px' alt='avatar' />}
                 </div>
-                <h3 id='user-name'>
+                <div id='user-name'>
                   {sessionUser.firstname} {sessionUser.lastname}
                   <h5 id='user-email'>
                     {sessionUser.email}
                   </h5>
-                </h3>
+                </div>
               </div>
             </div>
             <div id='logout'>

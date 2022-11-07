@@ -133,6 +133,7 @@ export default function CreateBrand() {
                 }}
               />
               <label
+                id='color-label'
                 for={color.alias}
                 style={{
                   backgroundColor: `${color.alias}`,

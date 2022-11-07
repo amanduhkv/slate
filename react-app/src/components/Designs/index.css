@@ -156,8 +156,12 @@
 
 .des-containers h3 {
   display: flex;
-
+  justify-content: center;
+  width: 142px;
   align-items: center;
   color: whitesmoke;
   font-style: oblique;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
