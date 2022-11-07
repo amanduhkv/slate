@@ -40,7 +40,7 @@ function App() {
       <Switch>
         <ProtectedRoute path='/' exact={true} >
           {user && (
-            <Redirect to='/designs' />
+            <Redirect to='/designs' exact={true}/>
           )}
           {!user && (
             <Redirect to='/login' />
@@ -63,11 +63,11 @@ function App() {
           <NavBar />
           <UserDesigns />
         </Route>
-        <Route path='/designs/new'>
+        <Route path='/designs/new' exact={true}>
           {/* <NavBar /> */}
           <CreateDesign />
         </Route>
-        <Route path='/designs/:designId' >
+        <Route path='/designs/:designId' exact={true}>
           {/* <NavBar /> */}
           <SingleDesign />
         </Route>
@@ -79,7 +79,7 @@ function App() {
           <NavBar />
           <UserBrands />
         </Route> */}
-        <Route path='/brand/current'>
+        <Route path='/brand/current' exact={true}>
           <ErrPage />
         </Route>
         <Route path='/brand/new' exact={true}>
@@ -97,6 +97,9 @@ function App() {
         <Route path='/brand' exact={true}>
           <NavBar />
           <Brands />
+        </Route>
+        <Route path='*'>
+          <ErrPage />
         </Route>
 
       </Switch>
