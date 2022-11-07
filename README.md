@@ -60,7 +60,7 @@
 <!-- SAMPLE FEATURES -->
 ## Sample Features
 ### Log in or sign up
-![login](https://user-images.githubusercontent.com/105696861/200228063-cd57e7cc-f7e2-432d-a82a-4fd50fbf9ce4.png)
+![login](https://user-images.githubusercontent.com/105696861/200228982-0f0eba9e-e035-4fd5-bb56-56b5d7c08e2b.png)
 ### Design Page
 ![despage](https://user-images.githubusercontent.com/105696861/200228161-cafef450-e27b-422f-8c99-be6b0c280c19.png)
 ### Create a Design
