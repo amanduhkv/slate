@@ -10,6 +10,7 @@ const SignUpForm = () => {
   const [lastname, setLastname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
@@ -25,8 +26,9 @@ const SignUpForm = () => {
 
     if(password.length < 6) errs.push('Passwords must be at least 6 characters.');
 
+    if(password !== confirmPassword) errs.push('Passwords do not match.')
     setValidationErr(errs);
-  }, [firstname, lastname, email, password]);
+  }, [firstname, lastname, email, password, confirmPassword]);
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -55,6 +57,10 @@ const SignUpForm = () => {
 
   const updatePassword = (e) => {
     setPassword(e.target.value);
+  };
+
+  const updateConfirmPassword = (e) => {
+    setConfirmPassword(e.target.value);
   };
 
 
@@ -125,6 +131,16 @@ const SignUpForm = () => {
           placeholder='Enter password'
           onChange={updatePassword}
           value={password}
+        ></input>
+      </div>
+      <div id='form-input'>
+        <label>Confirm password</label>
+        <input
+          type='password'
+          name='password'
+          placeholder='Confirm password'
+          onChange={updateConfirmPassword}
+          value={confirmPassword}
         ></input>
       </div>
       <button id='login-submit' type='submit'>Sign Up</button>
