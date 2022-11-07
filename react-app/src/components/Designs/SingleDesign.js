@@ -400,7 +400,7 @@ export default function SingleDesign() {
 
     const payload = {
       name: name,
-      template: singleDesign?.template[0].alias,
+      template: alias,
       text_input_1: input1,
       text_input_2: input2,
     };
@@ -449,17 +449,18 @@ export default function SingleDesign() {
               <input
                 type='text'
                 value={temp}
-              // hidden
-              onChange={e => {
-                setTemp(e.target.value)}}
+                // hidden
+                onChange={e => {
+                  setTemp(e.target.value)
+                }}
               />
               <textarea
-                // hidden
+                hidden
                 value={input1}
                 onChange={(e) => setInput1(e.target.value)}
               />
               <textarea
-                // hidden
+                hidden
                 value={input2}
                 onChange={(e) => setInput2(e.target.value)}
               />
@@ -479,7 +480,7 @@ export default function SingleDesign() {
                 <div id='temp-menu-item'>
                   {allDesigns[1].template.map(temp => (
                     <div id='temp-container-des' onClick={() => {
-                      setTemp(temp)
+                      setTemp(temp.alias)
                       history.push(`/designs/${designId}/${temp.alias}`)
                     }}>
                       {temp.alias === 'presentation' ?
@@ -514,7 +515,12 @@ export default function SingleDesign() {
             <button onClick={openBrandMenu}>Brands</button>
             {showBrandMenu && (
               <div id='temp-menu-item-brand'>
-                Oops! Looks like this feature is still in the works.
+                <div id='brand-side-content'>Oops! Looks like this feature is still in the works. In the meantime, try checking out brands for the future!
+
+                  <button
+                    onClick={() => history.push('/brand')}
+                  >Go to brands</button>
+                </div>
               </div>
               // <div id='temp-menu-item'>
               //   {Object.values(brands).map(brand => (
