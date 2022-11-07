@@ -153,12 +153,6 @@ Project Link: [https://github.com/amanduhkv/slate](https://github.com/amanduhkv/
 [linkedin-icon]: https://skillicons.dev/icons?i=linkedin
 [github-icon]: https://skillicons.dev/icons?i=github
 [linkedin-url-amanda]: https://www.linkedin.com/in/amandakvien/
-[linkedin-url-brandon]: https://www.linkedin.com/in/brandon-tasaki/
-[linkedin-url-jae]: https://www.linkedin.com/in/jae-hwang-71654490/
-[linkedin-url-michael]: https://linkedin.com/in/michael-h-jung/
 [github-url-amanda]: https://github.com/amanduhkv
-[github-url-brandon]: https://github.com/MacFlyOSX
-[github-url-jae]: https://github.com/jaeyoungh1
-[github-url-michael]: https://github.com/michaelhjung
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
