@@ -53,6 +53,7 @@
   box-sizing: content-box;
   /* width: 100%; */
   /* width: fit-content; */
+
   display: flex;
   align-items: center;
   margin: 8px;
@@ -81,8 +82,10 @@
 }
 
 #color-label {
-  width: 15px;
-  height: 15px;
+  width: 180px;
+  height: 40px;
+  vertical-align: center;
+  text-align: center;
 }
 
 
@@ -119,13 +122,13 @@
 .update-button-container {
   display: flex;
   align-items: center;
-  margin-top: 20px;
+
 }
 
 #brand-submit-button {
   display: flex;
   justify-content: center;
-
+  margin-top: 20px;
   background-color: white;
   color: rgb(75,97,110);
   width: 150px;

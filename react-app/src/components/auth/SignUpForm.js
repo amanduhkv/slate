@@ -18,8 +18,11 @@ const SignUpForm = () => {
     let errs = [];
 
     if(firstname.length < 2) errs.push('First name must be at least 2 characters.');
+    // if(firstname.length > 25) errs.push('First name is too long (25 characters max).');
     if(lastname.length < 2) errs.push('Last name must be at least 2 characters.');
+    // if(lastname.length > 25) errs.push('Last name is too long (25 characters max).');
     if(!email.length || !email.includes('@') || !email.includes('.')) errs.push('Invalid email. (Must include "@" and ".")');
+
     if(password.length < 6) errs.push('Passwords must be at least 6 characters.');
 
     setValidationErr(errs);

@@ -145,7 +145,10 @@ nav {
   margin: 5px 0;
   font-weight: 400;
   font-size: 12px;
-  color: rgb(156, 156, 156)
+  color: rgb(156, 156, 156);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 #user-initial-big {
@@ -164,7 +167,14 @@ nav {
 
 #user-name {
   font-size: 20px;
+  font-weight: 600;
   margin: 0;
+
+  width: 150px;
+  height: 60px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* ----------------- HAMBURGER DD ----------------- */
