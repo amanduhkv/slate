@@ -34,7 +34,10 @@ const SignUpForm = () => {
     setSubmitted(true);
 
     if (!validationErr.length) {
-      await dispatch(signUp(firstname, lastname, email, password));
+      const data = await dispatch(signUp(firstname, lastname, email, password));
+      if(data) {
+        setValidationErr(['Email is already in use.'])
+      }
     }
   };
 
