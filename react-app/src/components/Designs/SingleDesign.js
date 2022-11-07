@@ -139,6 +139,28 @@ export default function SingleDesign() {
     return () => document.removeEventListener("click", closeBrandMenu);
   }, [showBrandMenu]);
 
+    // LOADING PREV DATA ---------------------------------------
+    useEffect(() => {
+      if (singleDesign) {
+        if (alias) {
+          setTemp(alias)
+        }
+        setInput1(singleDesign.text_input_1 ? singleDesign.text_input_1 : '')
+        setInput2(singleDesign.text_input_2 ? singleDesign.text_input_2 : '')
+      }
+    }, [singleDesign])
+
+    // SUBMIT FXNS ---------------------------------------------
+    useEffect(() => {
+      const errors = [];
+
+      if (!name.length) {
+        errors.push('Please confirm these changes by re-entering the name for this design, or entering a new name for the design.')
+      }
+
+      setValidationErrs(errors);
+    }, [name]);
+
   // CHANGING BCKGD COLOR FXNS ------------------------------------------
   // useEffect(() => {
   //   const resultingTemp = document.getElementsByClassName('template')[0];
@@ -940,24 +962,7 @@ export default function SingleDesign() {
     )
   }
 
-  // LOADING PREV DATA ---------------------------------------
-  useEffect(() => {
-    if (singleDesign) {
-      if (alias) {
-        setTemp(alias)
-      }
-      setInput1(singleDesign.text_input_1 ? singleDesign.text_input_1 : '')
-      setInput2(singleDesign.text_input_2 ? singleDesign.text_input_2 : '')
-    }
-  }, [singleDesign])
 
-  // SUBMIT FXNS ---------------------------------------------
-  useEffect(() => {
-    const errors = [];
-
-    if (!name.length) errors.push('Please confirm these changes by re-entering the name for this design, or entering a new name for the design.')
-    setValidationErrs(errors);
-  }, [name]);
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -970,10 +975,10 @@ export default function SingleDesign() {
       text_input_1: input1,
       text_input_2: input2,
     };
-    console.log('PAYLOAD', payload)
+    // console.log('PAYLOAD', payload)
     if (!validationErrs.length) {
       let updatedDes = await dispatch(updateDesign(singleDesign.id, payload));
-      console.log('updatedDes', updatedDes)
+      // console.log('updatedDes', updatedDes)
 
       if (updatedDes) history.push(`/designs`);
     };
@@ -1187,9 +1192,16 @@ export default function SingleDesign() {
           </div>
         )}
         <div className="edit-area">
+          {user && user.id === singleDesign.user_id && (
           <div id="inserted-temp">
             {template}
           </div>
+          )}
+          {user && user.id !== singleDesign.user_id && (
+          <div id="inserted-temp" style={{ pointerEvents: 'none' }}>
+            {template}
+          </div>
+          )}
         </div>
       </div>
       {/* {template} */}

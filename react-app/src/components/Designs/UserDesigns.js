@@ -8,7 +8,7 @@ export default function UserDesigns() {
   const desArr = Object.values(designs);
   const dispatch = useDispatch();
   const history = useHistory();
-  console.log('DESARR', desArr)
+  // console.log('DESARR', desArr)
 
   useEffect(() => {
     dispatch(getAllUserDesigns())

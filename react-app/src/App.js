@@ -17,6 +17,7 @@ import UserBrands from './components/Brands/UserBrands';
 import SingleBrand from './components/Brands/SingleBrand';
 import CreateBrand from './components/CreateBrandForm/CreateBrand';
 import UpdateBrand from './components/Brands/UpdateBrand';
+import ErrPage from './components/Err';
 
 function App() {
   const user = useSelector(state => state.session.user);
@@ -74,9 +75,12 @@ function App() {
           <Designs />
         </Route>
 
-        <Route path='/brand/current' exact={true}>
+        {/* <Route path='/brand/current' exact={true}>
           <NavBar />
           <UserBrands />
+        </Route> */}
+        <Route path='/brand/current'>
+          <ErrPage />
         </Route>
         <Route path='/brand/new' exact={true}>
           <NavBar />
@@ -94,6 +98,7 @@ function App() {
           <NavBar />
           <Brands />
         </Route>
+
       </Switch>
     </BrowserRouter>
   );
