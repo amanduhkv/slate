@@ -36,18 +36,29 @@ const LoginPage = () => {
         <div id='logo'>
           <img src={slate} alt='title' width='80px' />
           <span id='login-text' onMouseOver={openDesMenu} >
-            Design spotlight
+            Dev spotlight
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#FFF" d="m11.71 6.47-3.53 3.54c-.1.1-.26.1-.36 0L4.3 6.47a.75.75 0 1 0-1.06 1.06l3.53 3.54c.69.68 1.8.68 2.48 0l3.53-3.54a.75.75 0 0 0-1.06-1.06z"></path></svg>
             {showDesMenu && (
-            <div className='des-dropdown-login' onMouseLeave={closeDesMenu}>
-              Past projects
-              <a href='https://github.com/amanduhkv/Behrbnb' target="_blank" rel="noreferrer" >
+            <div onMouseLeave={closeDesMenu}>
+            <div className='des-dropdown' >
+              <div>Past projects</div>
+              <a href='https://github.com/amanduhkv/Behrbnb' target="_blank" rel="noreferrer">
                 Behrbnb
               </a>
-              <a href='https://github.com/amanduhkv/Squeal' target="_blank" rel="noreferrer" >
+              <a href='https://github.com/amanduhkv/Squeal' target="_blank" rel="noreferrer">
                 Squeal
               </a>
+
+              <div>Links</div>
+              <a href='https://github.com/amanduhkv/' target="_blank" rel="noreferrer">
+                Github
+              </a>
+              <a href='https://www.linkedin.com/in/amandakvien/' target="_blank" rel="noreferrer">
+                LinkedIn
+              </a>
             </div>
+
+          </div>
           )}
           </span>
 
