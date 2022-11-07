@@ -63,11 +63,11 @@ function App() {
           <NavBar />
           <UserDesigns />
         </Route>
-        <Route path='/designs/new' exact={true}>
+        <Route path='/designs/new'>
           {/* <NavBar /> */}
           <CreateDesign />
         </Route>
-        <Route path='/designs/:designId' exact={true}>
+        <Route path='/designs/:designId'>
           {/* <NavBar /> */}
           <SingleDesign />
         </Route>
@@ -82,11 +82,11 @@ function App() {
         <Route path='/brand/current' exact={true}>
           <ErrPage />
         </Route>
-        <Route path='/brand/new' exact={true}>
+        <Route path='/brand/new' >
           <NavBar />
           <CreateBrand />
         </Route>
-        <Route path='/brand/:brandId/edit' exact={true}>
+        <Route path='/brand/:brandId/edit' >
           <NavBar />
           <UpdateBrand />
         </Route>
