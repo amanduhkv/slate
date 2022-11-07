@@ -193,7 +193,7 @@ export default function CreateDesign() {
       // text_input_4: input4,
       // text_input_5: input5,
     };
-
+    console.log('CREATE PAYLOAD', payload)
     if (!validationErrs.length) {
       let createdDes = await dispatch(createDesign(payload));
       console.log('template', alias)

@@ -252,21 +252,23 @@ def edit_design(design_id):
   if user_id == design_update.to_dict()['user_id']:
       if form.validate_on_submit():
         temp_list = []
+        print('\n\n\n---TEMPLATE DATA----', form.data['template'])
 
-        for alias in form.data['template']:
-          filtered_temp = [i for i in templates if i['alias'] == alias]
-          form.data['template'] = filtered_temp
-          if type(filtered_temp) is list:
-            for i in filtered_temp:
-              new_list = list(i.values())
-              alias = new_list[0]
-              title = new_list[1]
-              t = (Template(name=title, alias=alias))
+
+        filtered_temp = [i for i in templates if i['alias'] == form.data['template']]
+        form.data['template'] = filtered_temp
+        print('\n\n\n---TEMPLATE DATA inside for loop---', form.data['template'])
+        print('\n\n\n---filtered_temp---', filtered_temp)
+        if type(filtered_temp) is list:
+          for i in filtered_temp:
+              t = (Template(name=i['title'], alias=i['alias']))
               temp_list.append(t)
 
         design_update.user_id = user_id
         design_update.name = form.data['name']
         design_update.template = temp_list
+        design_update.text_input_1 = form.data['text_input_1']
+        design_update.text_input_2 = form.data['text_input_2']
 
         db.session.commit()
 
@@ -274,6 +276,7 @@ def edit_design(design_id):
 
         des = design_update.to_dict()
         des['template'] = temp_list_dict
+        print('\n\n\n\n\n\n', des)
         return des
 
       else:

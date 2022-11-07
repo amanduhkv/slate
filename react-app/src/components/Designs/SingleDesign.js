@@ -97,6 +97,9 @@ export default function SingleDesign() {
 
   const [backgroundColor, setBackgroundColor] = useState('white');
   // const [currFont, setCurrFont] = useState('');
+  if (!Object.values(singleDesign).length) {
+    dispatch(getADesign(designId))
+  }
 
   useEffect(() => {
     dispatch(getADesign(designId))
@@ -373,8 +376,8 @@ export default function SingleDesign() {
 
   // LOADING PREV DATA ---------------------------------------
   useEffect(() => {
-    if(singleDesign) {
-      if(alias) {
+    if (singleDesign) {
+      if (alias) {
         setTemp(alias)
       }
       setInput1(singleDesign.text_input_1 ? singleDesign.text_input_1 : '')
@@ -397,11 +400,11 @@ export default function SingleDesign() {
 
     const payload = {
       name: name,
-      template: temp,
+      template: singleDesign?.template[0].alias,
       text_input_1: input1,
       text_input_2: input2,
     };
-
+    console.log('PAYLOAD', payload)
     if (!validationErrs.length) {
       let updatedDes = await dispatch(updateDesign(singleDesign.id, payload));
       console.log('updatedDes', updatedDes)
@@ -430,105 +433,114 @@ export default function SingleDesign() {
             </div>
           )}
           {user && user.id !== singleDesign.user_id && (
-            <h2 style={{margin: '0'}}>
+            <h2 style={{ margin: '0' }}>
               {singleDesign.name}
             </h2>
           )}
           {user && user.id === singleDesign.user_id && (
-          <>
-          <input
-            id='des-name'
-            type='text'
-            placeholder={singleDesign.name}
-            value={name}
-            onChange={e => setName(e.target.value)}
-          />
-          <input
-            type='text'
-            value={temp}
-            // hidden
-            onChange={e => {
-              console.log('TARGET', e.target)
-              setTemp(e.target.value)}}
-          />
+            <>
+              <input
+                id='des-name'
+                type='text'
+                placeholder={singleDesign.name}
+                value={name}
+                onChange={e => setName(e.target.value)}
+              />
+              <input
+                type='text'
+                value={temp}
+              // hidden
+              onChange={e => {
+                setTemp(e.target.value)}}
+              />
+              <textarea
+                // hidden
+                value={input1}
+                onChange={(e) => setInput1(e.target.value)}
+              />
+              <textarea
+                // hidden
+                value={input2}
+                onChange={(e) => setInput2(e.target.value)}
+              />
               <button id='create-des-button' type='submit'>Save design</button>
               <DeleteDesign />
-          </>
+            </>
           )}
         </div>
       </form>
       <div className="edit-container">
         {user && user.id === singleDesign.user_id && (
-        <div className="sidebar">
-          <button onClick={openSideMenu}>Templates</button>
-          {showSideMenu && (
-            <div className="temp-menu-container">
-              {/* <div id='warning'>Warning: Switching templates deletes any previous work made.</div> */}
-              <div id='temp-menu-item'>
-                {allDesigns[1].template.map(temp => (
-                  <div id='temp-container-des' onClick={() => {
-                    setTemp(temp)
-                    history.push(`/designs/${designId}/${temp.alias}`)
-                  }}>
-                    {temp.alias === 'presentation' ?
-                      <img id='temp-img-des' src={present} alt='pres' width='130px' /> :
-                      temp.alias === 'website' ?
-                        <img id='temp-img-des' src={website} alt='pres' width='130px' /> :
-                        temp.alias === 'resume' ?
-                          <img id='temp-img-des' src={resume} alt='pres' width='130px' /> :
-                          temp.alias === 'igpost' ?
-                            <img id='temp-img-des' src={igpost} alt='pres' width='130px' /> :
-                            temp.alias === 'igstory' ?
-                              <img id='temp-img-des' src={igstory} alt='pres' width='130px' /> :
-                              temp.alias === 'fbpost' ?
-                                <img id='temp-img-des' src={fbpost} alt='pres' width='130px' /> :
-                                temp.alias === 'invitation' ?
-                                  <img id='temp-img-des' src={inv} alt='pres' width='130px' /> :
-                                  temp.alias === 'businesscard' ?
-                                    <img id='temp-img-des' src={bizcard} alt='pres' width='130px' /> :
-                                    temp.alias === 'infograph' ?
-                                      <img id='temp-img-des' src={info} alt='pres' width='130px' /> :
-                                      "Your template here"
-                    }
-                    <button id='create-des-temp-button'>{temp.name}</button>
-                  </div>
-                ))}
+          <div className="sidebar">
+            <button onClick={openSideMenu}>Templates</button>
+            {showSideMenu && (
+              <div className="temp-menu-container">
+                {/* <div id='warning'>Warning: Switching templates deletes any previous work made.</div> */}
+                <div id='temp-menu-item'>
+                  {allDesigns[1].template.map(temp => (
+                    <div id='temp-container-des' onClick={() => {
+                      setTemp(temp)
+                      history.push(`/designs/${designId}/${temp.alias}`)
+                    }}>
+                      {temp.alias === 'presentation' ?
+                        <img id='temp-img-des' src={present} alt='pres' width='130px' /> :
+                        temp.alias === 'website' ?
+                          <img id='temp-img-des' src={website} alt='pres' width='130px' /> :
+                          temp.alias === 'resume' ?
+                            <img id='temp-img-des' src={resume} alt='pres' width='130px' /> :
+                            temp.alias === 'igpost' ?
+                              <img id='temp-img-des' src={igpost} alt='pres' width='130px' /> :
+                              temp.alias === 'igstory' ?
+                                <img id='temp-img-des' src={igstory} alt='pres' width='130px' /> :
+                                temp.alias === 'fbpost' ?
+                                  <img id='temp-img-des' src={fbpost} alt='pres' width='130px' /> :
+                                  temp.alias === 'invitation' ?
+                                    <img id='temp-img-des' src={inv} alt='pres' width='130px' /> :
+                                    temp.alias === 'businesscard' ?
+                                      <img id='temp-img-des' src={bizcard} alt='pres' width='130px' /> :
+                                      temp.alias === 'infograph' ?
+                                        <img id='temp-img-des' src={info} alt='pres' width='130px' /> :
+                                        "Your template here"
+                      }
+                      <button id='create-des-temp-button'>{temp.name}</button>
+                    </div>
+                  ))}
+
+                </div>
 
               </div>
+            )}
 
-            </div>
-          )}
-
-          <button onClick={openBrandMenu}>Brands</button>
-          {showBrandMenu && (
-            <div id='temp-menu-item-brand'>
-              Oops! Looks like this feature is still in the works.
-            </div>
-            // <div id='temp-menu-item'>
-            //   {Object.values(brands).map(brand => (
-            //     <div className="des-brand-colors">
-            //       {brand.colors.map(color => (
-            //         <div
-            //           onClick={() => {
-            //             setBackgroundColor(color.name);
-            //             localStorage.setItem('backgroundColor', color.name)
-            //           }}
-            //         >{color.name}</div>
-            //       ))}
-            //       {brand.fonts.map(font => (
-            //         <div
-            //           onClick={() => {
-            //             setCurrFont(font.name);
-            //           }}
-            //         >
-            //           {font.name}
-            //         </div>
-            //       ))}
-            //     </div>
-            //   ))}
-            // </div>
-          )}
-        </div>
+            <button onClick={openBrandMenu}>Brands</button>
+            {showBrandMenu && (
+              <div id='temp-menu-item-brand'>
+                Oops! Looks like this feature is still in the works.
+              </div>
+              // <div id='temp-menu-item'>
+              //   {Object.values(brands).map(brand => (
+              //     <div className="des-brand-colors">
+              //       {brand.colors.map(color => (
+              //         <div
+              //           onClick={() => {
+              //             setBackgroundColor(color.name);
+              //             localStorage.setItem('backgroundColor', color.name)
+              //           }}
+              //         >{color.name}</div>
+              //       ))}
+              //       {brand.fonts.map(font => (
+              //         <div
+              //           onClick={() => {
+              //             setCurrFont(font.name);
+              //           }}
+              //         >
+              //           {font.name}
+              //         </div>
+              //       ))}
+              //     </div>
+              //   ))}
+              // </div>
+            )}
+          </div>
         )}
         <div className="edit-area">
           <div id="inserted-temp">
