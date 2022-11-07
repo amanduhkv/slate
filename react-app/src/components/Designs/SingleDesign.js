@@ -142,6 +142,7 @@ export default function SingleDesign() {
     // LOADING PREV DATA ---------------------------------------
     useEffect(() => {
       if (singleDesign) {
+        setName(singleDesign.name)
         if (alias) {
           setTemp(alias)
         }
@@ -154,7 +155,7 @@ export default function SingleDesign() {
     useEffect(() => {
       const errors = [];
 
-      if (!name.length) {
+      if (!name?.length) {
         errors.push('Please confirm these changes by re-entering the name for this design, or entering a new name for the design.')
       }
 
