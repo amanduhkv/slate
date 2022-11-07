@@ -56,12 +56,11 @@ export const getAllDesigns = () => async dispatch => {
 // user designs
 export const getAllUserDesigns = () => async dispatch => {
   const response = await csrfFetch('/api/designs/current');
-
+  console.log('USER SPOTS RES', response)
   if (response.ok) {
-    const designs = await response.json();
-    dispatch(load(designs));
-
-    return designs;
+    const userDesigns = await response.json();
+    console.log('USER DES', userDesigns)
+    dispatch(load(userDesigns));
   }
 };
 // single design
@@ -105,7 +104,9 @@ export const updateDesign = (designId, design) => async dispatch => {
   console.log('REPONSE for update', response)
   if (response.ok) {
     const updatedDesign = await response.json();
+    console.log('UPDATED DES IN THUNK', updatedDesign)
     dispatch(update_des(designId, updatedDesign));
+    console.log('THIS WAS UPDATED')
     return updatedDesign;
   };
 };
@@ -146,19 +147,22 @@ const designReducer = (state = initialState, action) => {
       return newState;
     case LOAD_ONE:
       newState = { ...state, allDesigns: { ...state.allDesigns }, singleDesign: { ...state.singleDesign } };
-      const newOneDes = { ...action.designId };
+      const newOneDes = action.designId;
       newState.singleDesign = newOneDes;
       return newState;
     case CREATE_DES:
     case UPDATE_DES:
-      newState = { ...state, allDesigns: { ...state.allDesigns }, singleDesign: { ...state.singleDesign } };
-      const newDesign = { ...action.design };
+      newState = { ...state, allDesigns: { ...state.allDesigns } };
+      const newDesign = action.design;
       newState.singleDesign[action.design.id] = newDesign;
       return newState;
     case DELETE_DES:
       newState = { ...state, allDesigns: { ...state.allDesigns }, singleDesign: { ...state.singleDesign } };
       delete newState.allDesigns[action.designId];
-      newState = { ...newState };
+      if (newState.singleDesign.id === action.designId) {
+        newState.singleDesign = {}
+      }
+      // newState = { ...newState };
       return newState;
     default:
       return state;

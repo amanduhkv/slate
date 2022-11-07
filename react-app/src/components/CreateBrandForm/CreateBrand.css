@@ -22,6 +22,19 @@
   margin: 20px;
 }
 
+.input-errs {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.name-logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 
 /* COLORS--------------------------------------- */
 .color-container {
@@ -76,19 +89,25 @@
 /* FONTS------------------------------------------ */
 .font-container {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   flex-wrap: wrap;
   /* margin: 10px; */
   height: 200px;
+
   text-align: justify;
   overflow: scroll;
-  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .fonts {
   display: flex;
   align-items: center;
   margin: 10px;
+
+}
+
+.fonts label {
+  width: 164px;
 }
 
 #brand-fonts {
@@ -97,12 +116,27 @@
 }
 
 /* SUBMIT ----------------------------------------- */
+.update-button-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
 #brand-submit-button {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+
   background-color: white;
   color: rgb(75,97,110);
   width: 150px;
   padding: 8px 12px;
+}
+
+#br-err {
+  /* position: absolute;
+  bottom: 25px;
+  left: 200px; */
+  padding: 8px 12px;
+
+  width: 450px;
 }

@@ -1,20 +1,51 @@
+.create-des-container {
+  height: 100vh;
+  /* border: red solid 1px; */
+}
+
 .edit-container {
   display: flex;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
+
+  height: 100%;
+  width: 100%;
 }
 
 .edit-area {
   background-color: rgb(235,236,240);
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   padding: 40px;
   display: flex;
   justify-content: center;
   /* align-items: center; */
 }
 
+.form-inputs {
+  display: flex;
+
+}
+
 #inserted-temp {
   top: 80px;
+}
+
+#under-construction {
+  position: absolute;
+  z-index: 5;
+
+  top: 70px;
+  width: 1000px;
+  height: 700px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(205, 205, 205, 0.7);
+
+  font-size: 40px;
+  font-weight: 700;
+  font-style: oblique;
 }
 
 /* SIDEBAR */
@@ -22,7 +53,6 @@
   display: flex;
   flex-direction: column;
   width: 80px;
-
   background-color: rgb(45, 46, 47);
 }
 
@@ -44,9 +74,11 @@
   overflow: hidden;
 }
 
-#temp-menu-item {
+#temp-menu-item,
+#temp-menu-item-brand {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 
   flex-flow: wrap row;
   overflow: scroll;
@@ -55,21 +87,41 @@
 
   position: absolute;
   background-color: rgb(45, 46, 47);
-  width: 360px;
+  width: 400px;
   height: 100vh;
 
   z-index: 1;
   top: 68px;
   left: 65px;
 
-  text-align: left;
+  text-align: center;
   padding: 20px;
+
 
   font-weight: 700;
   font-size: 16px;
-  color: rgb(72, 76, 79);
+  color: white;
   cursor: pointer;
+}
 
+#brand-side-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  color: white;
+
+  align-items: center;
+  overflow: hidden;
+}
+
+#brand-side-content button {
+  background-color: rgb(153,170,179);
+  height: fit-content;
+  font-size: 16px;
+  margin-top: 20px;
+  padding: 8px 12px;
 }
 
 #warning {
@@ -126,7 +178,7 @@
 }
 
 #des-name::placeholder {
-  opacity: 50%;
+  color: rgb(225, 225, 225)
 }
 
 #home-button {

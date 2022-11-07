@@ -46,6 +46,13 @@
   margin: 20px;
 }
 
+#des-errs {
+  position: absolute;
+  top: 58px;
+  right: 20px;
+  width: 338px;
+}
+
 #temp-text {
   display: flex;
   justify-content: center;
@@ -54,15 +61,19 @@
 }
 
 
+
+
 /* -------------------- TEMPLATE BOXES -------------------- */
 .temp-box-container {
   padding: 30px;
 }
 
 .temp-cards {
+  width: 100%;
+  object-fit: cover;
   display: flex;
-  flex-wrap: nowrap;
-  overflow: hidden;
+  flex-wrap: wrap;
+  /* overflow: scroll; */
   /* overflow-x: hidden; */
   justify-content: center;
 
@@ -75,6 +86,9 @@
 #temp-box {
   display: flex;
   /* width: 400px; */
+  width: 100%;
+  overflow: scroll;
+  overflow-y: hidden;
 }
 
 .temp-box {
@@ -87,8 +101,18 @@
 
 }
 
+#temp-container-des {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #temp-img {
   border-radius: 8px;
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
 }
 
 
@@ -119,6 +143,10 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.des-containers:first-of-type {
+  display: none;
 }
 
 .des-containers:hover {

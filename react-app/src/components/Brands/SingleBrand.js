@@ -52,7 +52,7 @@ export default function SingleBrand() {
                     backgroundColor: `${color.name}`,
                     width: '60px',
                     height: '60px',
-                    marginRight: '5px',
+                    margin: '5px',
                     border: `1px solid rgb(153,170,179)`,
                     borderRadius: '3px'
                   }}></div>

@@ -1,0 +1,71 @@
+.template {
+  /* background-color: white; */
+  background-size: cover;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#drag-text {
+  position: absolute;
+  z-index: 100;
+  background-color: #f1f1f1;
+  /* text-align: center; */
+  border: 1px solid #d3d3d3;
+  cursor: move;
+  /* resize: both; */
+  height: 100px;
+  width: 100px;
+}
+
+#template-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+#input1 {
+  font-size: 22px;
+  font-weight: 700;
+  /* resize: both; */
+}
+
+#input1,
+#input2 {
+  padding: 8px 12px;
+  border: rgba(0,0,0,0.2);
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 10px;
+
+  font-family: 'Noto Sans', Helvetica, Arial, sans-serif;
+  color: rgb(45, 46, 47);
+
+  text-overflow: ellipsis;
+}
+
+#input1:focus,
+#input2:focus {
+  outline: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#input2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* #input2 {
+  max-width: 400px;
+  max-height: 400px;
+  min-width: 184px;
+  min-height: 120px;
+} */
+
+#template-words {
+  padding: 30px;
+  text-align: center;
+  width: 60%;
+}
