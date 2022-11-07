@@ -98,9 +98,9 @@ function App() {
           <NavBar />
           <Brands />
         </Route>
-        <Route path='*'>
+        {/* <Route path='*'>
           <ErrPage />
-        </Route>
+        </Route> */}
 
       </Switch>
     </BrowserRouter>
