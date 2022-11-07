@@ -141,7 +141,7 @@
 
 #form-input input::placeholder,
 #form-input-1 input::placeholder {
-  opacity: 70%;
+  color: rgba(225, 225, 225, 1);
   font-family: 'Noto Sans', Helvetica, Arial, sans-serif;
 }
 

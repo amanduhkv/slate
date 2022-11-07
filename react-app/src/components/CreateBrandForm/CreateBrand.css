@@ -78,7 +78,7 @@
 #brand-logo::placeholder {
   font-style: italic;
   font-weight: 400;
-  opacity: 40%;
+  color: rgba(225, 225, 225, 1)
 }
 
 #color-label {
