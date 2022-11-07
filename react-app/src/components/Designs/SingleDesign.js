@@ -169,6 +169,78 @@ export default function SingleDesign() {
             })`
         }}
       >
+        {alias.includes('original') || alias.includes('fun') || alias.includes('aesthetic') ?
+          <div id='template-inputs'>
+            <input
+              id='input1'
+              type='text'
+              placeholder="Title Here"
+              value={input1}
+              onChange={(e) => setInput1(e.target.value)}
+            />
+            <textarea
+              id='input2'
+              value={input2}
+              placeholder="Your text here"
+              onChange={(e) => setInput2(e.target.value)}
+              style={{
+                width: '880px',
+                height: '440px',
+                maxWidth: '880px',
+                maxHeight: '440px',
+                minWidth: '347px',
+                minHeight: '120px'
+              }}
+            />
+          </div> : alias.includes('green') ?
+            <div id='template-inputs'>
+              <input
+                id='input1'
+                type='text'
+                placeholder="Title Here"
+                value={input1}
+                onChange={(e) => setInput1(e.target.value)}
+              />
+              <textarea
+                id='input2'
+                value={input2}
+                placeholder="Your text here"
+                onChange={(e) => setInput2(e.target.value)}
+                style={{
+                  resize: 'none',
+                  height: '295px',
+                  width: '400px'
+                }}
+              />
+            </div> : alias.includes('bw') ?
+              <div id='template-inputs'>
+                <input
+                  id='input1'
+                  type='text'
+                  placeholder="Title Here"
+                  value={input1}
+                  onChange={(e) => setInput1(e.target.value)}
+                  style={{
+                    marginLeft: '120px'
+                  }}
+                />
+                <textarea
+                  id='input2'
+                  value={input2}
+                  placeholder="Your text here"
+                  onChange={(e) => setInput2(e.target.value)}
+                  style={{
+                    width: '680px',
+                    height: '440px',
+                    maxWidth: '680px',
+                    maxHeight: '440px',
+                    minWidth: '347px',
+                    minHeight: '120px',
+                    marginLeft: '120px'
+                  }}
+                />
+              </div> : null
+        }
       </div>
     )
   }
@@ -190,7 +262,88 @@ export default function SingleDesign() {
             })`
         }}
       >
-
+        {alias.includes('original') || alias.includes('fun') || alias.includes('aesthetic') ?
+          <div id='template-inputs'>
+            <input
+              id='input1'
+              type='text'
+              placeholder="Title Here"
+              value={input1}
+              onChange={(e) => setInput1(e.target.value)}
+            />
+            <textarea
+              id='input2'
+              value={input2}
+              placeholder="Your text here"
+              onChange={(e) => setInput2(e.target.value)}
+              style={{
+                width: '580px',
+                height: '240px',
+                maxWidth: '580px',
+                maxHeight: '240px',
+                minWidth: '347px',
+                minHeight: '120px'
+              }}
+            />
+          </div> : alias.includes('green') ?
+            <div id='template-inputs'>
+              <input
+                id='input1'
+                type='text'
+                placeholder="Title Here"
+                value={input1}
+                onChange={(e) => setInput1(e.target.value)}
+                style={{
+                  width: '200px',
+                  height: '27px',
+                  marginTop: '8px',
+                  marginLeft: '276px',
+                  fontSize: '20px'
+                }}
+              />
+              <textarea
+                id='input2'
+                value={input2}
+                placeholder="Your text here"
+                onChange={(e) => setInput2(e.target.value)}
+                style={{
+                  width: '210px',
+                  height: '240px',
+                  resize: 'none',
+                  maxWidth: '210px',
+                  maxHeight: '240px',
+                  // minWidth: '347px',
+                  minHeight: '120px',
+                  marginLeft: '270px'
+                }}
+              />
+            </div> : alias.includes('bw') ?
+              <div id='template-inputs'>
+                <input
+                  id='input1'
+                  type='text'
+                  placeholder="Title Here"
+                  value={input1}
+                  onChange={(e) => setInput1(e.target.value)}
+                  style={{
+                    marginLeft: '310px'
+                  }}
+                />
+                <textarea
+                  id='input2'
+                  value={input2}
+                  placeholder="Your text here"
+                  onChange={(e) => setInput2(e.target.value)}
+                  style={{
+                    width: '350px',
+                    height: '280px',
+                    marginTop: '8px',
+                    marginLeft: '310px',
+                    resize: 'none'
+                  }}
+                />
+              </div> : null
+        }
       </div>
     )
   }
@@ -199,8 +352,8 @@ export default function SingleDesign() {
       <div
         className="template"
         style={{
-          width: '637.5px',
-          height: '825px',
+          width: '425px',
+          height: '550px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
           backgroundColor: 'white',
           backgroundImage: `url(${alias.includes('original') ? res1 :
@@ -212,7 +365,86 @@ export default function SingleDesign() {
             })`
         }}
       >
-
+        {alias.includes('original') || alias.includes('fun') || alias.includes('aesthetic') ?
+          <div id='template-inputs'>
+            <input
+              id='input1'
+              type='text'
+              placeholder="Title Here"
+              value={input1}
+              onChange={(e) => setInput1(e.target.value)}
+            />
+            <textarea
+              id='input2'
+              value={input2}
+              placeholder="Your text here"
+              onChange={(e) => setInput2(e.target.value)}
+              style={{
+                width: '370px',
+                height: '430px',
+                marginTop: '8px',
+                resize: 'none'
+              }}
+            />
+          </div> : alias.includes('green') ?
+            <div id='template-inputs'>
+              <input
+                id='input1'
+                type='text'
+                placeholder="Title Here"
+                value={input1}
+                onChange={(e) => setInput1(e.target.value)}
+                style={{
+                  width: '235px',
+                  height: '40px',
+                  marginTop: '68px',
+                  marginRight: '122px',
+                  resize: 'none'
+                }}
+              />
+              <textarea
+                id='input2'
+                value={input2}
+                placeholder="Your text here"
+                onChange={(e) => setInput2(e.target.value)}
+                style={{
+                  width: '165px',
+                  height: '280px',
+                  marginTop: '88px',
+                  marginRight: '122px',
+                  resize: 'none'
+                }}
+              />
+            </div> : alias.includes('bw') ?
+              <div id='template-inputs'>
+                <input
+                  id='input1'
+                  type='text'
+                  placeholder="Title Here"
+                  value={input1}
+                  onChange={(e) => setInput1(e.target.value)}
+                  style={{
+                    width: '270px',
+                    marginTop: '8px',
+                    marginLeft: '80px',
+                    resize: 'none'
+                  }}
+                />
+                <textarea
+                  id='input2'
+                  value={input2}
+                  placeholder="Your text here"
+                  onChange={(e) => setInput2(e.target.value)}
+                  style={{
+                    width: '270px',
+                    height: '430px',
+                    marginTop: '8px',
+                    marginLeft: '80px',
+                    resize: 'none'
+                  }}
+                />
+              </div> : null
+        }
       </div>
     )
   }
@@ -234,7 +466,79 @@ export default function SingleDesign() {
             })`
         }}
       >
-
+        {alias.includes('original') || alias.includes('fun') || alias.includes('aesthetic') ?
+          <div id='template-inputs'>
+            <input
+              id='input1'
+              type='text'
+              placeholder="Title Here"
+              value={input1}
+              onChange={(e) => setInput1(e.target.value)}
+            />
+            <textarea
+              id='input2'
+              value={input2}
+              placeholder="Your text here"
+              onChange={(e) => setInput2(e.target.value)}
+              style={{
+                width: '406px',
+                height: '346px',
+                marginTop: '8px',
+                resize: 'none'
+              }}
+            />
+          </div> : alias.includes('green') ?
+            <div id='template-inputs'>
+              <input
+                id='input1'
+                type='text'
+                placeholder="Title Here"
+                value={input1}
+                onChange={(e) => setInput1(e.target.value)}
+                style={{
+                  marginTop: '180px'
+                }}
+              />
+              <textarea
+                id='input2'
+                value={input2}
+                placeholder="Your text here"
+                onChange={(e) => setInput2(e.target.value)}
+                style={{
+                  width: '406px',
+                  height: '146px',
+                  marginTop: '8px',
+                  resize: 'none'
+                }}
+              />
+            </div> : alias.includes('bw') ?
+              <div id='template-inputs'>
+                <input
+                  id='input1'
+                  type='text'
+                  placeholder="Title Here"
+                  value={input1}
+                  onChange={(e) => setInput1(e.target.value)}
+                  style={{
+                    width: '246px',
+                    marginLeft: '190px',
+                  }}
+                />
+                <textarea
+                  id='input2'
+                  value={input2}
+                  placeholder="Your text here"
+                  onChange={(e) => setInput2(e.target.value)}
+                  style={{
+                    width: '246px',
+                    height: '346px',
+                    marginTop: '8px',
+                    marginLeft: '190px',
+                    resize: 'none'
+                  }}
+                />
+              </div> : null
+        }
       </div>
     )
   }
@@ -256,7 +560,59 @@ export default function SingleDesign() {
             })`
         }}
       >
-
+        {alias.includes('original') || alias.includes('fun') || alias.includes('aesthetic') ?
+          <div id='template-inputs'>
+            <input
+              id='input1'
+              type='text'
+              placeholder="Title Here"
+              value={input1}
+              onChange={(e) => setInput1(e.target.value)}
+              style={{
+                width: '230px'
+              }}
+            />
+            <textarea
+              id='input2'
+              value={input2}
+              placeholder="Your text here"
+              onChange={(e) => setInput2(e.target.value)}
+              style={{
+                width: '230px',
+                height: '346px',
+                resize: 'none'
+              }}
+            />
+          </div> : alias.includes('green') ?
+            <div id='template-inputs'>
+              <input
+                id='input1'
+                type='text'
+                placeholder="Title Here"
+                value={input1}
+                onChange={(e) => setInput1(e.target.value)}
+                style={{
+                  width: '200px',
+                  marginTop: '40px'
+                }}
+              />
+            </div> : alias.includes('pink') ?
+              <div id='template-inputs'>
+                <input
+                  id='input1'
+                  type='text'
+                  placeholder="Title Here"
+                  value={input1}
+                  onChange={(e) => setInput1(e.target.value)}
+                  style={{
+                    width: '200px',
+                    marginBottom: '40px',
+                    marginLeft: '24px',
+                    transform: 'rotate(4deg)'
+                  }}
+                />
+              </div> : null
+        }
       </div>
     )
   }
@@ -278,7 +634,63 @@ export default function SingleDesign() {
             })`
         }}
       >
-
+        {alias.includes('original') || alias.includes('fun') || alias.includes('aesthetic') ?
+          <div id='template-inputs'>
+            <input
+              id='input1'
+              type='text'
+              placeholder="Title Here"
+              value={input1}
+              onChange={(e) => setInput1(e.target.value)}
+            />
+            <textarea
+              id='input2'
+              value={input2}
+              placeholder="Your text here"
+              onChange={(e) => setInput2(e.target.value)}
+              style={{
+                width: '430px',
+                height: '290px',
+                resize: 'none'
+              }}
+            />
+          </div> : alias.includes('green') ?
+            <div id='template-inputs'>
+              <input
+                id='input1'
+                type='text'
+                placeholder="Title Here"
+                value={input1}
+                onChange={(e) => setInput1(e.target.value)}
+                style={{
+                  marginTop: '180px'
+                }}
+              />
+              <textarea
+                id='input2'
+                value={input2}
+                placeholder="Your text here"
+                onChange={(e) => setInput2(e.target.value)}
+                style={{
+                  width: '430px',
+                  height: '150px',
+                  resize: 'none'
+                }}
+              />
+            </div> : alias.includes('bw') ?
+              <div id='template-inputs'>
+                <input
+                  id='input1'
+                  type='text'
+                  placeholder="Title Here"
+                  value={input1}
+                  onChange={(e) => setInput1(e.target.value)}
+                  style={{
+                    marginBottom: '235px'
+                  }}
+                />
+              </div> : null
+        }
       </div>
     )
   }
@@ -300,7 +712,80 @@ export default function SingleDesign() {
             })`
         }}
       >
-
+        {alias.includes('original') || alias.includes('fun') || alias.includes('aesthetic') ?
+          <div id='template-inputs'>
+            <input
+              id='input1'
+              type='text'
+              placeholder="Title Here"
+              value={input1}
+              onChange={(e) => setInput1(e.target.value)}
+            />
+            <textarea
+              id='input2'
+              value={input2}
+              placeholder="Your text here"
+              onChange={(e) => setInput2(e.target.value)}
+              style={{
+                width: '350px',
+                height: '425px',
+                resize: 'none'
+              }}
+            />
+          </div> : alias.includes('green') ?
+            <div id='template-inputs'>
+              <input
+                id='input1'
+                type='text'
+                placeholder="Title Here"
+                value={input1}
+                onChange={(e) => setInput1(e.target.value)}
+                style={{
+                  marginTop: '230px'
+                }}
+              />
+              <textarea
+                id='input2'
+                value={input2}
+                placeholder="Your text here"
+                onChange={(e) => setInput2(e.target.value)}
+                style={{
+                  width: '344px',
+                  height: '188px',
+                  resize: 'none'
+                }}
+              />
+            </div> : alias.includes('bw') ?
+              <div id='template-inputs'>
+                <input
+                  id='input1'
+                  type='text'
+                  placeholder="Title Here"
+                  value={input1}
+                  onChange={(e) => setInput1(e.target.value)}
+                  style={{
+                    width: '270px',
+                    height: '45px',
+                    resize: 'none',
+                    marginTop: '15px',
+                    marginLeft: '80px'
+                  }}
+                />
+                <textarea
+                  id='input2'
+                  value={input2}
+                  placeholder="Your text here"
+                  onChange={(e) => setInput2(e.target.value)}
+                  style={{
+                    width: '270px',
+                    height: '225px',
+                    resize: 'none',
+                    marginTop: '210px',
+                    marginLeft: '80px'
+                  }}
+                />
+              </div> : null
+        }
       </div>
     )
   }
@@ -322,6 +807,87 @@ export default function SingleDesign() {
             })`
         }}
       >
+        {alias.includes('original') || alias.includes('fun') || alias.includes('aesthetic') ?
+          <div id='template-inputs'>
+            <input
+              id='input1'
+              type='text'
+              placeholder="Title Here"
+              value={input1}
+              onChange={(e) => setInput1(e.target.value)}
+              style={{
+                width: '280px',
+                marginLeft: '8px'
+              }}
+            />
+            <textarea
+              id='input2'
+              value={input2}
+              placeholder="Your text here"
+              onChange={(e) => setInput2(e.target.value)}
+              style={{
+                width: '280px',
+                height: '72px',
+                resize: 'none',
+                marginLeft: '8px'
+              }}
+            />
+          </div> : alias.includes('green') ?
+            <div id='template-inputs'>
+              <input
+                id='input1'
+                type='text'
+                placeholder="Title Here"
+                value={input1}
+                onChange={(e) => setInput1(e.target.value)}
+                style={{
+                  width: '160px',
+                  marginLeft: '140px',
+                  marginTop: '65px'
+                }}
+              />
+              <textarea
+                id='input2'
+                value={input2}
+                placeholder="Your text here"
+                onChange={(e) => setInput2(e.target.value)}
+                style={{
+                  width: '160px',
+                  height: '62px',
+                  resize: 'none',
+                  marginLeft: '140px',
+                  marginTop: '-5px'
+                }}
+              />
+            </div> : alias.includes('bw') ?
+              <div id='template-inputs'>
+                <input
+                  id='input1'
+                  type='text'
+                  placeholder="Title Here"
+                  value={input1}
+                  onChange={(e) => setInput1(e.target.value)}
+                  style={{
+                    width: '190px',
+                    marginLeft: '130px',
+                    marginTop: '65px'
+                  }}
+                />
+                <textarea
+                  id='input2'
+                  value={input2}
+                  placeholder="Your text here"
+                  onChange={(e) => setInput2(e.target.value)}
+                  style={{
+                    width: '190px',
+                    height: '62px',
+                    resize: 'none',
+                    marginLeft: '130px',
+                    marginTop: '-5px'
+                  }}
+                />
+              </div> : null
+        }
 
       </div>
     )
@@ -449,7 +1015,7 @@ export default function SingleDesign() {
               <input
                 type='text'
                 value={temp}
-                // hidden
+                hidden
                 onChange={e => {
                   setTemp(e.target.value)
                 }}
@@ -483,25 +1049,97 @@ export default function SingleDesign() {
                       setTemp(temp.alias)
                       history.push(`/designs/${designId}/${temp.alias}`)
                     }}>
-                      {temp.alias === 'presentation' ?
-                        <img id='temp-img-des' src={present} alt='pres' width='130px' /> :
-                        temp.alias === 'website' ?
-                          <img id='temp-img-des' src={website} alt='pres' width='130px' /> :
-                          temp.alias === 'resume' ?
-                            <img id='temp-img-des' src={resume} alt='pres' width='130px' /> :
-                            temp.alias === 'igpost' ?
-                              <img id='temp-img-des' src={igpost} alt='pres' width='130px' /> :
-                              temp.alias === 'igstory' ?
-                                <img id='temp-img-des' src={igstory} alt='pres' width='130px' /> :
-                                temp.alias === 'fbpost' ?
-                                  <img id='temp-img-des' src={fbpost} alt='pres' width='130px' /> :
-                                  temp.alias === 'invitation' ?
-                                    <img id='temp-img-des' src={inv} alt='pres' width='130px' /> :
-                                    temp.alias === 'businesscard' ?
-                                      <img id='temp-img-des' src={bizcard} alt='pres' width='130px' /> :
-                                      temp.alias === 'infograph' ?
-                                        <img id='temp-img-des' src={info} alt='pres' width='130px' /> :
-                                        "Your template here"
+                      {temp.alias === 'presentation-original' ?
+                        <img id='temp-img' src={pres1} alt='pres' width='160px' /> :
+                        temp.alias === 'presentation-fun' ?
+                          <img id='temp-img' src={pres2} alt='pres' width='160px' /> :
+                          temp.alias === 'presentation-aesthetic' ?
+                            <img id='temp-img' src={pres3} alt='pres' width='160px' /> :
+                            temp.alias === 'presentation-green' ?
+                              <img id='temp-img' src={pres4} alt='pres' width='160px' /> :
+                              temp.alias === 'presentation-bw' ?
+                                <img id='temp-img' src={pres5} alt='pres' width='160px' /> :
+                                temp.alias === 'website-original' ?
+                                  <img id='temp-img' src={web1} alt='pres' width='160px' /> :
+                                  temp.alias === 'website-fun' ?
+                                    <img id='temp-img' src={web2} alt='pres' width='160px' /> :
+                                    temp.alias === 'website-aesthetic' ?
+                                      <img id='temp-img' src={web3} alt='pres' width='160px' /> :
+                                      temp.alias === 'website-green' ?
+                                        <img id='temp-img' src={web4} alt='pres' width='160px' /> :
+                                        temp.alias === 'website-bw' ?
+                                          <img id='temp-img' src={web5} alt='pres' width='160px' /> :
+                                          temp.alias === 'resume-original' ?
+                                            <img id='temp-img' src={res1} alt='pres' width='160px' /> :
+                                            temp.alias === 'resume-fun' ?
+                                              <img id='temp-img' src={res2} alt='pres' width='160px' /> :
+                                              temp.alias === 'resume-aesthetic' ?
+                                                <img id='temp-img' src={res3} alt='pres' width='160px' /> :
+                                                temp.alias === 'resume-green' ?
+                                                  <img id='temp-img' src={res4} alt='pres' width='160px' /> :
+                                                  temp.alias === 'resume-bw' ?
+                                                    <img id='temp-img' src={res5} alt='pres' width='160px' /> :
+                                                    temp.alias === 'igpost-original' ?
+                                                      <img id='temp-img' src={ig1} alt='pres' width='160px' /> :
+                                                      temp.alias === 'igpost-fun' ?
+                                                        <img id='temp-img' src={ig2} alt='pres' width='160px' /> :
+                                                        temp.alias === 'igpost-aesthetic' ?
+                                                          <img id='temp-img' src={ig3} alt='pres' width='160px' /> :
+                                                          temp.alias === 'igpost-green' ?
+                                                            <img id='temp-img' src={ig4} alt='pres' width='160px' /> :
+                                                            temp.alias === 'igpost-bw' ?
+                                                              <img id='temp-img' src={ig5} alt='pres' width='160px' /> :
+                                                              temp.alias === 'igstory-original' ?
+                                                                <img id='temp-img' src={igs1} alt='pres' width='160px' /> :
+                                                                temp.alias === 'igstory-fun' ?
+                                                                  <img id='temp-img' src={igs2} alt='pres' width='160px' /> :
+                                                                  temp.alias === 'igstory-aesthetic' ?
+                                                                    <img id='temp-img' src={igs3} alt='pres' width='160px' /> :
+                                                                    temp.alias === 'igstory-green' ?
+                                                                      <img id='temp-img' src={igs4} alt='pres' width='160px' /> :
+                                                                      temp.alias === 'igstory-pink' ?
+                                                                        <img id='temp-img' src={igs5} alt='pres' width='160px' /> :
+                                                                        temp.alias === 'fbpost-original' ?
+                                                                          <img id='temp-img' src={fb1} alt='pres' width='160px' /> :
+                                                                          temp.alias === 'fbpost-fun' ?
+                                                                            <img id='temp-img' src={fb2} alt='pres' width='160px' /> :
+                                                                            temp.alias === 'fbpost-aesthetic' ?
+                                                                              <img id='temp-img' src={fb3} alt='pres' width='160px' /> :
+                                                                              temp.alias === 'fbpost-green' ?
+                                                                                <img id='temp-img' src={fb4} alt='pres' width='160px' /> :
+                                                                                temp.alias === 'fbpost-bw' ?
+                                                                                  <img id='temp-img' src={fb5} alt='pres' width='160px' /> :
+                                                                                  temp.alias === 'invitation-original' ?
+                                                                                    <img id='temp-img' src={inv1} alt='pres' width='160px' /> :
+                                                                                    temp.alias === 'invitation-fun' ?
+                                                                                      <img id='temp-img' src={inv2} alt='pres' width='160px' /> :
+                                                                                      temp.alias === 'invitation-aesthetic' ?
+                                                                                        <img id='temp-img' src={inv3} alt='pres' width='160px' /> :
+                                                                                        temp.alias === 'invitation-green' ?
+                                                                                          <img id='temp-img' src={inv4} alt='pres' width='160px' /> :
+                                                                                          temp.alias === 'invitation-bw' ?
+                                                                                            <img id='temp-img' src={inv5} alt='pres' width='160px' /> :
+                                                                                            temp.alias === 'businesscard-original' ?
+                                                                                              <img id='temp-img' src={biz1} alt='pres' width='160px' /> :
+                                                                                              temp.alias === 'businesscard-fun' ?
+                                                                                                <img id='temp-img' src={biz2} alt='pres' width='160px' /> :
+                                                                                                temp.alias === 'businesscard-aesthetic' ?
+                                                                                                  <img id='temp-img' src={biz3} alt='pres' width='160px' /> :
+                                                                                                  temp.alias === 'businesscard-green' ?
+                                                                                                    <img id='temp-img' src={biz4} alt='pres' width='160px' /> :
+                                                                                                    temp.alias === 'businesscard-bw' ?
+                                                                                                      <img id='temp-img' src={biz5} alt='pres' width='160px' /> :
+                                                                                                      temp.alias === 'infograph-original' ?
+                                                                                                        <img id='temp-img' src={info1} alt='pres' width='160px' /> :
+                                                                                                        temp.alias === 'infograph-fun' ?
+                                                                                                          <img id='temp-img' src={info2} alt='pres' width='160px' /> :
+                                                                                                          temp.alias === 'infograph-aesthetic' ?
+                                                                                                            <img id='temp-img' src={info3} alt='pres' width='160px' /> :
+                                                                                                            temp.alias === 'infograph-green' ?
+                                                                                                              <img id='temp-img' src={info4} alt='pres' width='160px' /> :
+                                                                                                              temp.alias === 'infograph-bw' ?
+                                                                                                                <img id='temp-img' src={info5} alt='pres' width='160px' /> :
+                                                                                                                "Your template here"
                       }
                       <button id='create-des-temp-button'>{temp.name}</button>
                     </div>
