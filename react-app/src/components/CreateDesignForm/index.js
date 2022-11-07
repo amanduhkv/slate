@@ -1942,7 +1942,7 @@ export default function CreateDesign() {
             <input
               type='text'
               value={alias}
-              // hidden
+              hidden
               onChange={e => {
                 setTemp(e.target.value)
               }}
