@@ -191,6 +191,8 @@ def add_design():
         user_id=user_id,
         name=form.data["name"],
         template=temp_list,
+        color=form.data["color"],
+        font=form.data["font"],
         text_input_1=form.data["text_input_1"],
         text_input_2=form.data["text_input_2"],
         text_input_3=form.data["text_input_3"],
