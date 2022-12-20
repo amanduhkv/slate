@@ -25,6 +25,7 @@ class Brand(db.Model):
   updated_at = db.Column(db.String(255), default=datetime.now, onupdate=datetime.now)
 
   user = db.relationship('User', back_populates='brand')
+  designs = db.relationship('Design', backref='brand')
 
 
   logo = db.Column(db.String(1000))
