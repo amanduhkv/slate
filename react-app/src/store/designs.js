@@ -85,6 +85,7 @@ export const createDesign = (design) => async dispatch => {
     },
     body: JSON.stringify(design)
   });
+  // console.log('This is the response for CREATE DES', response)
 
   if (response.ok) {
     const newDesign = await response.json();

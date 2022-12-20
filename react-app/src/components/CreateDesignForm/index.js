@@ -84,6 +84,8 @@ export default function CreateDesign() {
   const [hasSubmit, setHasSubmit] = useState(false);
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [showBrandMenu, setShowBrandMenu] = useState(false);
+  const [color, setColor] = useState('');
+  const [font, setFont] = useState('');
   const [input1, setInput1] = useState('');
   const [input2, setInput2] = useState('');
   // const [input3, setInput3] = useState('');
@@ -186,6 +188,8 @@ export default function CreateDesign() {
 
     const payload = {
       name,
+      color: color,
+      font: font,
       template: alias,
       text_input_1: input1,
       text_input_2: input2,
@@ -1947,6 +1951,22 @@ export default function CreateDesign() {
                 setTemp(e.target.value)
               }}
             />
+            <input
+              type='text'
+              value={color}
+              // hidden
+              onChange={e => {
+                setColor(e.target.value)
+              }}
+            />
+            <input
+              type='text'
+              value={font}
+              // hidden
+              onChange={e => {
+                setFont(e.target.value)
+              }}
+            />
             <textarea
               hidden
               value={input1}
@@ -2078,33 +2098,35 @@ export default function CreateDesign() {
 
           <button onClick={openBrandMenu}>Brands</button>
           {showBrandMenu && (
-            <div id='temp-menu-item-brand'>
-              <div id='brand-side-content'>Oops! Looks like this feature is still in the works. In the meantime, try checking out brands for the future!
+            // <div id='temp-menu-item-brand'>
+            //   <div id='brand-side-content'>Oops! Looks like this feature is still in the works. In the meantime, try checking out brands for the future!
 
-                <button
-                  onClick={() => history.push('/brand')}
-                >Go to brands</button>
-              </div>
-            </div>
-            // <div id='temp-menu-item'>
-            //   {Object.values(brands).map(brand => (
-            //     <div className="des-brand-colors">
-            //       {brand.colors.map(color => (
-            //       <div
-            //         onClick={() => {
-            //           setBackgroundColor(color.name);
-            //           localStorage.setItem('backgroundColor', color.name)
-            //         }}
-            //       >{color.name}</div>
-            //       ))}
-            //       {brand.fonts.map(font => (
-            //         <div>
-            //           {font.name}
-            //         </div>
-            //       ))}
-            //     </div>
-            //   ))}
+            //     <button
+            //       onClick={() => history.push('/brand')}
+            //     >Go to brands</button>
+            //   </div>
             // </div>
+            <div id='temp-menu-item'>
+              {Object.values(brands).map(brand => (
+                <div className="des-brand-colors">
+                  {brand.colors.map(color => (
+                  <div
+                    onClick={() => {
+                      setColor(color.name);
+                      // localStorage.setItem('backgroundColor', color.name)
+                    }}
+                  >{color.name}</div>
+                  ))}
+                  {brand.fonts.map(font => (
+                    <div
+                      onClick={() => setFont(font.name)}
+                    >
+                      {font.name}
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
           )}
           {/* <button onClick={openSideMenu}>Text</button>
         <button onClick={openSideMenu}>Styles</button>

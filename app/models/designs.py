@@ -23,6 +23,8 @@ class Design(db.Model):
   name = db.Column(db.String(255), nullable=False)
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
   brand_id = db.Column(db.Integer, db.ForeignKey('brands.id'))
+  color = db.Column(db.String)
+  font = db.Column(db.String)
   created_at = db.Column(db.String(255), default=datetime.now)
   updated_at = db.Column(db.String, default=datetime.now, onupdate=datetime.now)
   text_input_1 = db.Column(db.String)
@@ -43,6 +45,8 @@ class Design(db.Model):
             "name": self.name,
             "user_id": self.user_id,
             "brand_id": self.brand_id,
+            "color": self.color,
+            "font": self.font,
             "template": self.template,
             "created_at": self.created_at,
             "updated_at": self.updated_at,
