@@ -200,6 +200,10 @@ export default function SingleDesign() {
               placeholder="Title Here"
               value={input1}
               onChange={(e) => setInput1(e.target.value)}
+              style={{
+                // fontFamily: `${singleDesign.font} ? ${singleDesign.font} : "Noto Sans"`,
+                color: `${singleDesign.color}`
+              }}
             />
             <textarea
               id='input2'

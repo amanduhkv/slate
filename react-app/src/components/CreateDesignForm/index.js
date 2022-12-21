@@ -2111,11 +2111,18 @@ export default function CreateDesign() {
                 <div className="des-brand-colors">
                   {brand.colors.map(color => (
                   <div
+                    id='each-color'
                     onClick={() => {
                       setColor(color.name);
+                      setBackgroundColor(color.name)
                       // localStorage.setItem('backgroundColor', color.name)
                     }}
-                  >{color.name}</div>
+                    style={{
+                      backgroundColor: `${color.name}`
+                    }}
+                  >
+                    {/* {color.name} */}
+                  </div>
                   ))}
                   {brand.fonts.map(font => (
                     <div
