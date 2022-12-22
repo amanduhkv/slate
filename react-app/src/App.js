@@ -13,7 +13,7 @@ import UserDesigns from './components/Designs/UserDesigns';
 import SingleDesign from './components/Designs/SingleDesign';
 import CreateDesign from './components/CreateDesignForm';
 import Brands from './components/Brands';
-import UserBrands from './components/Brands/UserBrands';
+// import UserBrands from './components/Brands/UserBrands';
 import SingleBrand from './components/Brands/SingleBrand';
 import CreateBrand from './components/CreateBrandForm/CreateBrand';
 import UpdateBrand from './components/Brands/UpdateBrand';

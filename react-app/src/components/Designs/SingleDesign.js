@@ -5,15 +5,15 @@ import { getADesign, updateDesign, clearData, getAllDesigns } from "../../store/
 import { getAllBrands } from "../../store/brands"
 
 import left from '../../icons/left.svg';
-import present from '../../icons/temps/presentation.png';
-import website from '../../icons/temps/website.png';
-import resume from '../../icons/temps/resume.png';
-import igpost from '../../icons/temps/igpost.png';
-import igstory from '../../icons/temps/igstory.png';
-import fbpost from '../../icons/temps/fbpost.png';
-import inv from '../../icons/temps/invitation.png';
-import bizcard from '../../icons/temps/businesscard.png';
-import info from '../../icons/temps/infograph.png';
+// import present from '../../icons/temps/presentation.png';
+// import website from '../../icons/temps/website.png';
+// import resume from '../../icons/temps/resume.png';
+// import igpost from '../../icons/temps/igpost.png';
+// import igstory from '../../icons/temps/igstory.png';
+// import fbpost from '../../icons/temps/fbpost.png';
+// import inv from '../../icons/temps/invitation.png';
+// import bizcard from '../../icons/temps/businesscard.png';
+// import info from '../../icons/temps/infograph.png';
 import DeleteDesign from "../DeleteDesignForm";
 
 import pres1 from '../../icons/change-temps/present-temp/pres-original.svg';
@@ -149,7 +149,7 @@ export default function SingleDesign() {
         setInput1(singleDesign.text_input_1 ? singleDesign.text_input_1 : '')
         setInput2(singleDesign.text_input_2 ? singleDesign.text_input_2 : '')
       }
-    }, [singleDesign])
+    }, [singleDesign, alias])
 
     // SUBMIT FXNS ---------------------------------------------
     useEffect(() => {
