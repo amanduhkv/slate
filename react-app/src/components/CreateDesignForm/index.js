@@ -1954,7 +1954,7 @@ export default function CreateDesign() {
             <input
               type='text'
               value={color}
-              // hidden
+              hidden
               onChange={e => {
                 setColor(e.target.value)
               }}
@@ -1962,7 +1962,7 @@ export default function CreateDesign() {
             <input
               type='text'
               value={font}
-              // hidden
+              hidden
               onChange={e => {
                 setFont(e.target.value)
               }}
