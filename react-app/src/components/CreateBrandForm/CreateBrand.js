@@ -13,7 +13,7 @@ export default function CreateBrand() {
   const history = useHistory();
 
   const user = useSelector(state => state.session.user);
-  const brands = useSelector(state => state.brands.allBrands);
+  // const brands = useSelector(state => state.brands.allBrands);
 
   const [name, setName] = useState('');
   const [logo, setLogo] = useState('');
