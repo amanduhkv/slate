@@ -156,6 +156,7 @@ Amanda Vien:
 <br>
 [![linked in][linkedin-icon]][linkedin-url-amanda]
 [![linked in][github-icon]][github-url-amanda]
+[![linked in][angellist-icon]][angellist-url-amanda]
 <br>
 
 
@@ -168,7 +169,9 @@ Project Link: [https://github.com/amanduhkv/slate](https://github.com/amanduhkv/
 <!-- MARKDOWN LINKS & IMAGES -->
 [linkedin-icon]: https://skillicons.dev/icons?i=linkedin
 [github-icon]: https://skillicons.dev/icons?i=github
+[angellist-icon]: https://img.shields.io/badge/AngelList-%23D4D4D4.svg?style=for-the-badge&logo=AngelList&logoColor=black
 [linkedin-url-amanda]: https://www.linkedin.com/in/amandakvien/
 [github-url-amanda]: https://github.com/amanduhkv
+[angellist-url-amanda]: https://angel.co/u/amanda-vien
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
