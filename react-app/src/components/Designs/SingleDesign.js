@@ -95,7 +95,7 @@ export default function SingleDesign() {
   // const [input4, setInput4] = useState('');
   // const [input5, setInput5] = useState('');
 
-  const [backgroundColor, setBackgroundColor] = useState('white');
+  const [background, setBackground] = useState(alias);
   // const [currFont, setCurrFont] = useState('');
   if (!Object.values(singleDesign).length) {
     dispatch(getADesign(designId))
@@ -279,7 +279,7 @@ export default function SingleDesign() {
           width: '683px',
           height: '384px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          backgroundColor: `${backgroundColor}`,
+          background: `${background}`,
           backgroundImage: `url(${alias.includes('original') ? web1 :
             alias.includes('fun') ? web2 :
               alias.includes('aesthetic') ? web3 :
