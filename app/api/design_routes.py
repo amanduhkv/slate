@@ -191,6 +191,7 @@ def add_design():
         user_id=user_id,
         name=form.data["name"],
         template=temp_list,
+        background=form.data["background"],
         color=form.data["color"],
         font=form.data["font"],
         text_input_1=form.data["text_input_1"],
@@ -268,6 +269,9 @@ def edit_design(design_id):
 
         design_update.user_id = user_id
         design_update.name = form.data['name']
+        design_update.background = form.data['background']
+        design_update.color = form.data['color']
+        design_update.font = form.data['font']
         design_update.template = temp_list
         design_update.text_input_1 = form.data['text_input_1']
         design_update.text_input_2 = form.data['text_input_2']
