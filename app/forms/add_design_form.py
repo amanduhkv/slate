@@ -53,6 +53,7 @@ templates = [
 class AddDesignForm(FlaskForm):
   name = StringField('Name', validators=[DataRequired()])
   template = SelectField('Template', validators=[DataRequired()], choices=templates)
+  background = StringField('Background')
   color = StringField('Color')
   font = StringField('Font')
   text_input_1 = TextAreaField('Input 1')
