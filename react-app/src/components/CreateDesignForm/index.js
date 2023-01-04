@@ -188,6 +188,7 @@ export default function CreateDesign() {
 
     const payload = {
       name,
+      background: background,
       color: color,
       font: font,
       template: alias,
@@ -197,7 +198,7 @@ export default function CreateDesign() {
       // text_input_4: input4,
       // text_input_5: input5,
     };
-    // console.log('CREATE PAYLOAD', payload)
+    console.log('CREATE PAYLOAD', payload)
     if (!validationErrs.length) {
       let createdDes = await dispatch(createDesign(payload));
       // console.log('template', alias)
@@ -216,7 +217,7 @@ export default function CreateDesign() {
           width: '960px',
           height: '540px',
           // backgroundImage: `url(${pres1})`,
-          background: background.includes('original') ? `url(${pres1})` : background
+          background: background.includes('original') ? `url(${pres1})` : color
         }}
       >
         <div id='template-inputs'>
@@ -1949,6 +1950,14 @@ export default function CreateDesign() {
               hidden
               onChange={e => {
                 setTemp(e.target.value)
+              }}
+            />
+            <input
+              type='text'
+              value={background}
+              // hidden
+              onChange={e => {
+                setBackground(e.target.value)
               }}
             />
             <input
