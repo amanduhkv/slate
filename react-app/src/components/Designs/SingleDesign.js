@@ -73,6 +73,7 @@ import res5 from '../../icons/change-temps/res-temp/res-bw.svg';
 export default function SingleDesign() {
   const { designId } = useParams();
   const singleDesign = useSelector(state => state.designs.singleDesign);
+  console.log('This is the single design deets', singleDesign)
   const allDesigns = useSelector(state => state.designs.allDesigns);
 
   const user = useSelector(state => state.session.user);
@@ -95,7 +96,7 @@ export default function SingleDesign() {
   // const [input4, setInput4] = useState('');
   // const [input5, setInput5] = useState('');
 
-  const [backgroundColor, setBackgroundColor] = useState('white');
+  const [background, setBackground] = useState(alias);
   // const [currFont, setCurrFont] = useState('');
   if (!Object.values(singleDesign).length) {
     dispatch(getADesign(designId))
@@ -139,30 +140,33 @@ export default function SingleDesign() {
     return () => document.removeEventListener("click", closeBrandMenu);
   }, [showBrandMenu]);
 
-    // LOADING PREV DATA ---------------------------------------
-    useEffect(() => {
-      if (singleDesign) {
-        setName(singleDesign.name)
-        if (alias) {
-          setTemp(alias)
-        }
-        setInput1(singleDesign.text_input_1 ? singleDesign.text_input_1 : '')
-        setInput2(singleDesign.text_input_2 ? singleDesign.text_input_2 : '')
+  // LOADING PREV DATA ---------------------------------------
+  useEffect(() => {
+    if (singleDesign) {
+      setName(singleDesign.name)
+      if (alias) {
+        setTemp(alias)
       }
-    }, [singleDesign, alias])
+      setInput1(singleDesign.text_input_1 ? singleDesign.text_input_1 : '')
+      setInput2(singleDesign.text_input_2 ? singleDesign.text_input_2 : '')
+    }
+  }, [singleDesign, alias])
 
-    // SUBMIT FXNS ---------------------------------------------
-    useEffect(() => {
-      const errors = [];
+  // SUBMIT FXNS ---------------------------------------------
+  useEffect(() => {
+    const errors = [];
 
-      if (!name?.length) {
-        errors.push('Please confirm these changes by re-entering the name for this design, or entering a new name for the design.')
-      }
+    if (!name?.length) {
+      errors.push('Please confirm these changes by re-entering the name for this design, or entering a new name for the design.')
+    }
 
-      setValidationErrs(errors);
-    }, [name]);
+    setValidationErrs(errors);
+  }, [name]);
 
   // CHANGING BCKGD COLOR FXNS ------------------------------------------
+  // if (singleDesign.color) {
+  //   setBackground(singleDesign.color)
+  // }
   // useEffect(() => {
   //   const resultingTemp = document.getElementsByClassName('template')[0];
   //   console.log('RESULTING TEMPS', resultingTemp);
@@ -182,14 +186,19 @@ export default function SingleDesign() {
           width: '960px',
           height: '540px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          backgroundColor: 'white',
-          backgroundImage: `url(${alias.includes('original') ? pres1 :
-            alias.includes('fun') ? pres2 :
-              alias.includes('aesthetic') ? pres3 :
-                alias.includes('green') ? pres4 :
-                  alias.includes('bw') ? pres5 :
-                    null
-            })`
+          // backgroundColor: 'white',
+          background: singleDesign.color ?? (background.includes('original') ? `url(${pres1})` : background.includes('fun') ? `url(${pres2})` :
+            background.includes('aesthetic') ? `url(${pres3})` :
+              background.includes('green') ? `url(${pres4})` :
+                background.includes('bw') ? `url(${pres5})` :
+                  null)
+          // `url(${alias.includes('original') ? pres1 :
+          //   alias.includes('fun') ? pres2 :
+          //     alias.includes('aesthetic') ? pres3 :
+          //       alias.includes('green') ? pres4 :
+          //         alias.includes('bw') ? pres5 :
+          //           null
+          //   })`
         }}
       >
         {alias.includes('original') || alias.includes('fun') || alias.includes('aesthetic') ?
@@ -279,7 +288,7 @@ export default function SingleDesign() {
           width: '683px',
           height: '384px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          backgroundColor: `${backgroundColor}`,
+          background: `${background}`,
           backgroundImage: `url(${alias.includes('original') ? web1 :
             alias.includes('fun') ? web2 :
               alias.includes('aesthetic') ? web3 :
@@ -1198,14 +1207,14 @@ export default function SingleDesign() {
         )}
         <div className="edit-area">
           {user && user.id === singleDesign.user_id && (
-          <div id="inserted-temp">
-            {template}
-          </div>
+            <div id="inserted-temp">
+              {template}
+            </div>
           )}
           {user && user.id !== singleDesign.user_id && (
-          <div id="inserted-temp" style={{ pointerEvents: 'none' }}>
-            {template}
-          </div>
+            <div id="inserted-temp" style={{ pointerEvents: 'none' }}>
+              {template}
+            </div>
           )}
         </div>
       </div>

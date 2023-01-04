@@ -92,7 +92,7 @@ export default function CreateDesign() {
   // const [input4, setInput4] = useState('');
   // const [input5, setInput5] = useState('');
 
-  const [backgroundColor, setBackgroundColor] = useState('white');
+  const [background, setBackground] = useState(alias);
 
   useEffect(() => {
     dispatch(getAllDesigns());
@@ -188,6 +188,7 @@ export default function CreateDesign() {
 
     const payload = {
       name,
+      background: background,
       color: color,
       font: font,
       template: alias,
@@ -197,7 +198,7 @@ export default function CreateDesign() {
       // text_input_4: input4,
       // text_input_5: input5,
     };
-    // console.log('CREATE PAYLOAD', payload)
+    console.log('CREATE PAYLOAD', payload)
     if (!validationErrs.length) {
       let createdDes = await dispatch(createDesign(payload));
       // console.log('template', alias)
@@ -215,8 +216,8 @@ export default function CreateDesign() {
         style={{
           width: '960px',
           height: '540px',
-          backgroundImage: `url(${pres1})`,
-          backgroundColor: `${backgroundColor}`
+          // backgroundImage: `url(${pres1})`,
+          background: background.includes('original') ? `url(${pres1})` : color
         }}
       >
         <div id='template-inputs'>
@@ -253,7 +254,7 @@ export default function CreateDesign() {
           width: '960px',
           height: '540px',
           backgroundImage: `url(${pres2})`,
-          backgroundColor: `${backgroundColor}`
+          background: `${background}`
         }}
       >
         <div id='template-inputs'>
@@ -290,7 +291,7 @@ export default function CreateDesign() {
           width: '960px',
           height: '540px',
           backgroundImage: `url(${pres3})`,
-          backgroundColor: `${backgroundColor}`
+          background: `${background}`
         }}
       >
         <div id='template-inputs'>
@@ -327,7 +328,7 @@ export default function CreateDesign() {
           width: '960px',
           height: '540px',
           backgroundImage: `url(${pres4})`,
-          backgroundColor: `${backgroundColor}`
+          background: `${background}`
         }}
       >
         <div id='template-inputs'>
@@ -361,7 +362,7 @@ export default function CreateDesign() {
           width: '960px',
           height: '540px',
           backgroundImage: `url(${pres5})`,
-          backgroundColor: `${backgroundColor}`
+          background: `${background}`
         }}
       >
         <div id='template-inputs'>
@@ -403,7 +404,7 @@ export default function CreateDesign() {
           width: '683px',
           height: '384px',
           backgroundImage: `url(${web1})`,
-          backgroundColor: `${backgroundColor}`
+          background: `${background}`
         }}
       >
         <div id='template-inputs'>
@@ -440,7 +441,7 @@ export default function CreateDesign() {
           width: '683px',
           height: '384px',
           backgroundImage: `url(${web2})`,
-          backgroundColor: `${backgroundColor}`
+          background: `${background}`
         }}
       >
         <div id='template-inputs'>
@@ -477,7 +478,7 @@ export default function CreateDesign() {
           width: '683px',
           height: '384px',
           backgroundImage: `url(${web3})`,
-          backgroundColor: `${backgroundColor}`
+          background: `${background}`
         }}
       >
         <div id='template-inputs'>
@@ -514,7 +515,7 @@ export default function CreateDesign() {
           width: '683px',
           height: '384px',
           backgroundImage: `url(${web4})`,
-          backgroundColor: `${backgroundColor}`
+          background: `${background}`
         }}
       >
         <div id='template-inputs'>
@@ -560,7 +561,7 @@ export default function CreateDesign() {
           width: '683px',
           height: '384px',
           backgroundImage: `url(${web5})`,
-          backgroundColor: `${backgroundColor}`
+          background: `${background}`
         }}
       >
         <div id='template-inputs'>
@@ -600,7 +601,7 @@ export default function CreateDesign() {
           width: '425px',
           height: '550px',
           backgroundImage: `url(${res1})`,
-          backgroundColor: `${backgroundColor}`
+          background: `${background}`
         }}
       >
         <div id='template-inputs'>
@@ -635,7 +636,7 @@ export default function CreateDesign() {
           width: '425px',
           height: '550px',
           backgroundImage: `url(${res2})`,
-          backgroundColor: `${backgroundColor}`
+          background: `${background}`
         }}
       >
         <div id='template-inputs'>
@@ -670,7 +671,7 @@ export default function CreateDesign() {
           width: '425px',
           height: '550px',
           backgroundImage: `url(${res3})`,
-          backgroundColor: `${backgroundColor}`
+          background: `${background}`
         }}
       >
         <div id='template-inputs'>
@@ -705,7 +706,7 @@ export default function CreateDesign() {
           width: '425px',
           height: '550px',
           backgroundImage: `url(${res4})`,
-          backgroundColor: `${backgroundColor}`
+          background: `${background}`
         }}
       >
         <div id='template-inputs'>
@@ -748,7 +749,7 @@ export default function CreateDesign() {
           width: '425px',
           height: '550px',
           backgroundImage: `url(${res5})`,
-          backgroundColor: `${backgroundColor}`
+          background: `${background}`
         }}
       >
         <div id='template-inputs'>
@@ -791,7 +792,7 @@ export default function CreateDesign() {
           width: '480px',
           height: '480px',
           backgroundImage: `url(${ig1})`,
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
+          // backgroundColor: `${localStorage.getItem('backgroundColor')}`
         }}
       >
         <div id='template-inputs'>
@@ -1953,8 +1954,16 @@ export default function CreateDesign() {
             />
             <input
               type='text'
-              value={color}
+              value={background}
               // hidden
+              onChange={e => {
+                setBackground(e.target.value)
+              }}
+            />
+            <input
+              type='text'
+              value={color}
+              hidden
               onChange={e => {
                 setColor(e.target.value)
               }}
@@ -1962,7 +1971,7 @@ export default function CreateDesign() {
             <input
               type='text'
               value={font}
-              // hidden
+              hidden
               onChange={e => {
                 setFont(e.target.value)
               }}
@@ -2114,7 +2123,7 @@ export default function CreateDesign() {
                     id='each-color'
                     onClick={() => {
                       setColor(color.name);
-                      setBackgroundColor(color.name)
+                      setBackground(color.name)
                       // localStorage.setItem('backgroundColor', color.name)
                     }}
                     style={{

@@ -23,6 +23,7 @@ class Design(db.Model):
   name = db.Column(db.String(255), nullable=False)
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
   brand_id = db.Column(db.Integer, db.ForeignKey('brands.id'))
+  background = db.Column(db.String)
   color = db.Column(db.String)
   font = db.Column(db.String)
   created_at = db.Column(db.String(255), default=datetime.now)
@@ -45,6 +46,7 @@ class Design(db.Model):
             "name": self.name,
             "user_id": self.user_id,
             "brand_id": self.brand_id,
+            "background": self.background,
             "color": self.color,
             "font": self.font,
             "template": self.template,
