@@ -73,8 +73,9 @@ import res5 from '../../icons/change-temps/res-temp/res-bw.svg';
 export default function SingleDesign() {
   const { designId } = useParams();
   const singleDesign = useSelector(state => state.designs.singleDesign);
-  console.log('This is the single design deets', singleDesign)
+  // console.log('This is the single design deets', singleDesign)
   const allDesigns = useSelector(state => state.designs.allDesigns);
+  const brands = useSelector(state => state.brands.allBrands);
 
   const user = useSelector(state => state.session.user);
 
@@ -95,8 +96,10 @@ export default function SingleDesign() {
   // const [input3, setInput3] = useState('');
   // const [input4, setInput4] = useState('');
   // const [input5, setInput5] = useState('');
+  const [color, setColor] = useState('');
+  const [font, setFont] = useState('');
 
-  const [background, setBackground] = useState(alias);
+  const [background, setBackground] = useState('');
   // const [currFont, setCurrFont] = useState('');
   if (!Object.values(singleDesign).length) {
     dispatch(getADesign(designId))
@@ -147,6 +150,7 @@ export default function SingleDesign() {
       if (alias) {
         setTemp(alias)
       }
+      setBackground(singleDesign.background ?? '')
       setInput1(singleDesign.text_input_1 ? singleDesign.text_input_1 : '')
       setInput2(singleDesign.text_input_2 ? singleDesign.text_input_2 : '')
     }
@@ -178,6 +182,11 @@ export default function SingleDesign() {
   // LOADING TEMPLATES --------------------------------------------------
   let template;
 
+  console.log('CURRENT alias', alias)
+  console.log('CURRENT Background', background)
+  console.log('CURRENT SINGLEDES.BG', singleDesign.background)
+  console.log('SINGLE DES', singleDesign)
+
   if (alias.includes('presentation')) {
     template = (
       <div
@@ -187,11 +196,12 @@ export default function SingleDesign() {
           height: '540px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
           // backgroundColor: 'white',
-          background: singleDesign.color ?? (background.includes('original') ? `url(${pres1})` : background.includes('fun') ? `url(${pres2})` :
+          background: (background.includes('original') ? `url(${pres1})` :
+          background.includes('fun') ? `url(${pres2})` :
             background.includes('aesthetic') ? `url(${pres3})` :
               background.includes('green') ? `url(${pres4})` :
                 background.includes('bw') ? `url(${pres5})` :
-                  null)
+                  background)
           // `url(${alias.includes('original') ? pres1 :
           //   alias.includes('fun') ? pres2 :
           //     alias.includes('aesthetic') ? pres3 :
@@ -982,10 +992,13 @@ export default function SingleDesign() {
     e.preventDefault();
 
     setHasSubmit(true);
-
+    console.log('THIS IS BG BEFORE PAYLOAD', background)
     const payload = {
       name: name,
       template: alias,
+      background: background,
+      color: color,
+      font: font,
       text_input_1: input1,
       text_input_2: input2,
     };
@@ -1039,6 +1052,30 @@ export default function SingleDesign() {
                   setTemp(e.target.value)
                 }}
               />
+              <input
+                type='text'
+                value={background}
+                // hidden
+                onChange={e => {
+                  setBackground(e.target.value)
+                }}
+              />
+              <input
+                type='text'
+                value={color}
+                hidden
+                onChange={e => {
+                  setColor(e.target.value)
+                }}
+              />
+              <input
+                type='text'
+                value={font}
+                hidden
+                onChange={e => {
+                  setFont(e.target.value)
+                }}
+              />
               <textarea
                 hidden
                 value={input1}
@@ -1066,6 +1103,7 @@ export default function SingleDesign() {
                   {allDesigns[1].template.map(temp => (
                     <div id='temp-container-des' onClick={() => {
                       setTemp(temp.alias)
+                      setBackground(temp.alias)
                       history.push(`/designs/${designId}/${temp.alias}`)
                     }}>
                       {temp.alias === 'presentation-original' ?
@@ -1171,37 +1209,42 @@ export default function SingleDesign() {
 
             <button onClick={openBrandMenu}>Brands</button>
             {showBrandMenu && (
-              <div id='temp-menu-item-brand'>
-                <div id='brand-side-content'>Oops! Looks like this feature is still in the works. In the meantime, try checking out brands for the future!
+              // <div id='temp-menu-item-brand'>
+              //   <div id='brand-side-content'>Oops! Looks like this feature is still in the works. In the meantime, try checking out brands for the future!
 
-                  <button
-                    onClick={() => history.push('/brand')}
-                  >Go to brands</button>
-                </div>
-              </div>
-              // <div id='temp-menu-item'>
-              //   {Object.values(brands).map(brand => (
-              //     <div className="des-brand-colors">
-              //       {brand.colors.map(color => (
-              //         <div
-              //           onClick={() => {
-              //             setBackgroundColor(color.name);
-              //             localStorage.setItem('backgroundColor', color.name)
-              //           }}
-              //         >{color.name}</div>
-              //       ))}
-              //       {brand.fonts.map(font => (
-              //         <div
-              //           onClick={() => {
-              //             setCurrFont(font.name);
-              //           }}
-              //         >
-              //           {font.name}
-              //         </div>
-              //       ))}
-              //     </div>
-              //   ))}
+              //     <button
+              //       onClick={() => history.push('/brand')}
+              //     >Go to brands</button>
+              //   </div>
               // </div>
+              <div id='temp-menu-item'>
+                {Object.values(brands).map(brand => (
+                  <div className="des-brand-colors">
+                    {brand.colors.map(color => (
+                      <div
+                        id='each-color'
+                        onClick={() => {
+                          setColor(color.name);
+                          setBackground(color.name)
+                          // localStorage.setItem('backgroundColor', color.name)
+                        }}
+                        style={{
+                          backgroundColor: `${color.name}`
+                        }}
+                      >
+                        {/* {color.name} */}
+                      </div>
+                    ))}
+                    {brand.fonts.map(font => (
+                      <div
+                        onClick={() => setFont(font.name)}
+                      >
+                        {font.name}
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
             )}
           </div>
         )}
