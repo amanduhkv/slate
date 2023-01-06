@@ -872,7 +872,7 @@ export default function SingleDesign() {
       </div>
     )
   }
-  if (alias.includes('businesscard')) {
+  if (background.includes('businesscard')) {
     template = (
       <div
         className="template"
@@ -880,17 +880,15 @@ export default function SingleDesign() {
           width: '336px',
           height: '192px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          backgroundColor: 'white',
-          backgroundImage: `url(${alias.includes('original') ? biz1 :
-            alias.includes('fun') ? biz2 :
-              alias.includes('aesthetic') ? biz3 :
-                alias.includes('green') ? biz4 :
-                  alias.includes('bw') ? biz5 :
-                    null
-            })`
+          background: (background.includes('original') ? `center / contain url(${biz1})` :
+          background.includes('fun') ? `center / contain url(${biz2})` :
+            background.includes('aesthetic') ? `center / contain url(${biz3})` :
+              background.includes('green') ? `center / contain url(${biz4})` :
+                background.includes('bw') ? `center / contain url(${biz5})` :
+                  background)
         }}
       >
-        {alias.includes('original') || alias.includes('fun') || alias.includes('aesthetic') ?
+        {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
           <div id='template-inputs'>
             <input
               id='input1'
@@ -915,7 +913,7 @@ export default function SingleDesign() {
                 marginLeft: '8px'
               }}
             />
-          </div> : alias.includes('green') ?
+          </div> : background.includes('green') ?
             <div id='template-inputs'>
               <input
                 id='input1'
@@ -942,7 +940,7 @@ export default function SingleDesign() {
                   marginTop: '-5px'
                 }}
               />
-            </div> : alias.includes('bw') ?
+            </div> : background.includes('bw') ?
               <div id='template-inputs'>
                 <input
                   id='input1'
