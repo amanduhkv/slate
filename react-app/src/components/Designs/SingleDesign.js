@@ -973,7 +973,7 @@ export default function SingleDesign() {
       </div>
     )
   }
-  if (alias.includes('infograph')) {
+  if (background.includes('infograph')) {
     template = (
       <div
         className="template"
@@ -981,14 +981,12 @@ export default function SingleDesign() {
           width: '200px',
           height: '500px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          backgroundColor: 'white',
-          backgroundImage: `url(${alias.includes('original') ? info1 :
-            alias.includes('fun') ? info2 :
-              alias.includes('aesthetic') ? info3 :
-                alias.includes('green') ? info4 :
-                  alias.includes('bw') ? info5 :
-                    null
-            })`
+          background: (background.includes('original') ? `center / contain url(${info1})` :
+          background.includes('fun') ? `center / contain url(${info2})` :
+            background.includes('aesthetic') ? `center / contain url(${info3})` :
+              background.includes('green') ? `center / contain url(${info4})` :
+                background.includes('bw') ? `center / contain url(${info5})` :
+                  background)
         }}
       >
         <div id='template-inputs'>
