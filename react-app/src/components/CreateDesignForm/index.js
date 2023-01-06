@@ -216,8 +216,8 @@ export default function CreateDesign() {
         style={{
           width: '960px',
           height: '540px',
-          // backgroundImage: `url(${pres1})`,
-          background: background.includes('original') ? `url(${pres1})` : color
+          backgroundImage: `url(${pres1})`,
+          // background: background.includes('original') ? `url(${pres1})` : color
         }}
       >
         <div id='template-inputs'>

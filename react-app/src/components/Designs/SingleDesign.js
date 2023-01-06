@@ -70,6 +70,8 @@ import res3 from '../../icons/change-temps/res-temp/res-aesthetic.svg';
 import res4 from '../../icons/change-temps/res-temp/res-green.svg';
 import res5 from '../../icons/change-temps/res-temp/res-bw.svg';
 
+import {__colors} from '../../assets/colors.js';
+
 const TEMPLATES = {
   'presentation-original': pres1,
   'presentation-fun': pres2,
@@ -146,9 +148,8 @@ export default function SingleDesign() {
   // const [input5, setInput5] = useState('');
   const [color, setColor] = useState('');
   const [font, setFont] = useState('');
-
+  const [activeColor, setActiveColor] = useState(false);
   const [background, setBackground] = useState('');
-  // const [currFont, setCurrFont] = useState('');
   if (!Object.values(singleDesign).length) {
     dispatch(getADesign(designId))
   }
@@ -195,9 +196,6 @@ export default function SingleDesign() {
   useEffect(() => {
     if (singleDesign) {
       setName(singleDesign.name)
-      if (alias) {
-        // setTemp(alias)
-      }
       setTemp(singleDesign.background ? singleDesign.background : alias)
       setBackground(singleDesign.background ? singleDesign.background : alias)
       setInput1(singleDesign.text_input_1 ? singleDesign.text_input_1 : '')
@@ -216,7 +214,20 @@ export default function SingleDesign() {
     setValidationErrs(errors);
   }, [name]);
 
+  const toggleBG = () => {
+    if(singleDesign.color) {
+      setBackground(singleDesign.color)
+    } else {
+      setBackground('')
+    }
+  }
+
   // CHANGING BCKGD COLOR FXNS ------------------------------------------
+  useEffect(() => {
+    if(singleDesign.color) {
+      setBackground(singleDesign.color)
+    }
+  }, [singleDesign.color])
   // if (singleDesign.color) {
   //   setBackground(singleDesign.color)
   // }
@@ -244,7 +255,6 @@ export default function SingleDesign() {
           width: '960px',
           height: '540px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          // backgroundColor: 'white',
           background: (background.includes('original') ? `center / contain url(${pres1})` :
           background.includes('fun') ? `center / contain url(${pres2})` :
             background.includes('aesthetic') ? `center / contain url(${pres3})` :
@@ -1019,16 +1029,58 @@ export default function SingleDesign() {
     )
   }
 
+  if(__colors.find(e => e.alias === background)) {
+    template = (
+      <div
+        className="template"
+        style={{
+          width: '960px',
+          height: '540px',
+          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          background: background
+        }}
+      >
+          <div id='template-inputs'>
+            <input
+              id='input1'
+              type='text'
+              placeholder="Title Here"
+              value={input1}
+              onChange={(e) => setInput1(e.target.value)}
+              style={{
+                // fontFamily: `${singleDesign.font} ? ${singleDesign.font} : "Noto Sans"`,
+                color: `${singleDesign.color}`
+              }}
+            />
+            <textarea
+              id='input2'
+              value={input2}
+              placeholder="Your text here"
+              onChange={(e) => setInput2(e.target.value)}
+              style={{
+                width: '880px',
+                height: '440px',
+                maxWidth: '880px',
+                maxHeight: '440px',
+                minWidth: '347px',
+                minHeight: '120px'
+              }}
+            />
+          </div>
+      </div>
+    )
+  }
+
 
 
   const handleSubmit = async e => {
     e.preventDefault();
 
     setHasSubmit(true);
-    console.log('THIS IS BG BEFORE PAYLOAD', background)
+    // console.log('THIS IS BG BEFORE PAYLOAD', background)
     const payload = {
       name: name,
-      template: background,
+      template: alias,
       background: background,
       color: color,
       font: font,
@@ -1246,7 +1298,7 @@ export default function SingleDesign() {
               </div>
             )}
 
-            <button onClick={openBrandMenu}>Brands</button>
+            <button onClick={openBrandMenu}>Brand Colors</button>
             {showBrandMenu && (
               // <div id='temp-menu-item-brand'>
               //   <div id='brand-side-content'>Oops! Looks like this feature is still in the works. In the meantime, try checking out brands for the future!
@@ -1257,6 +1309,10 @@ export default function SingleDesign() {
               //   </div>
               // </div>
               <div id='temp-menu-item'>
+                {/* <button
+                  onClick={() => setColor('')}>
+                    Clear color selection
+                  </button> */}
                 {Object.values(brands).map(brand => (
                   <div className="des-brand-colors">
                     {brand.colors.map(color => (
@@ -1264,7 +1320,7 @@ export default function SingleDesign() {
                         id='each-color'
                         onClick={() => {
                           setColor(color.name);
-                          setBackground(color.name)
+                          setBackground(color.name);
                           // localStorage.setItem('backgroundColor', color.name)
                         }}
                         style={{
@@ -1274,13 +1330,14 @@ export default function SingleDesign() {
                         {/* {color.name} */}
                       </div>
                     ))}
-                    {brand.fonts.map(font => (
+                    {brand.name}
+                    {/* {brand.fonts.map(font => (
                       <div
                         onClick={() => setFont(font.name)}
                       >
                         {font.name}
                       </div>
-                    ))}
+                    ))} */}
                   </div>
                 ))}
               </div>
