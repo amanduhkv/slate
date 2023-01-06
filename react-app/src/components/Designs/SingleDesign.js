@@ -539,7 +539,7 @@ export default function SingleDesign() {
       </div>
     )
   }
-  if (alias.includes('igpost')) {
+  if (background.includes('igpost')) {
     template = (
       <div
         className="template"
@@ -547,17 +547,15 @@ export default function SingleDesign() {
           width: '480px',
           height: '480px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          backgroundColor: 'white',
-          backgroundImage: `url(${alias.includes('original') ? ig1 :
-            alias.includes('fun') ? ig2 :
-              alias.includes('aesthetic') ? ig3 :
-                alias.includes('green') ? ig4 :
-                  alias.includes('bw') ? ig5 :
-                    null
-            })`
+          background: (background.includes('original') ? `center / contain url(${ig1})` :
+          background.includes('fun') ? `center / contain url(${ig2})` :
+            background.includes('aesthetic') ? `center / contain url(${ig3})` :
+              background.includes('green') ? `center / contain url(${ig4})` :
+                background.includes('bw') ? `center / contain url(${ig5})` :
+                  background)
         }}
       >
-        {alias.includes('original') || alias.includes('fun') || alias.includes('aesthetic') ?
+        {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
           <div id='template-inputs'>
             <input
               id='input1'
@@ -578,7 +576,7 @@ export default function SingleDesign() {
                 resize: 'none'
               }}
             />
-          </div> : alias.includes('green') ?
+          </div> : background.includes('green') ?
             <div id='template-inputs'>
               <input
                 id='input1'
@@ -602,7 +600,7 @@ export default function SingleDesign() {
                   resize: 'none'
                 }}
               />
-            </div> : alias.includes('bw') ?
+            </div> : background.includes('bw') ?
               <div id='template-inputs'>
                 <input
                   id='input1'
