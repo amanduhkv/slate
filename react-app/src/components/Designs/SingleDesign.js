@@ -70,11 +70,60 @@ import res3 from '../../icons/change-temps/res-temp/res-aesthetic.svg';
 import res4 from '../../icons/change-temps/res-temp/res-green.svg';
 import res5 from '../../icons/change-temps/res-temp/res-bw.svg';
 
+const TEMPLATES = {
+  'presentation-original': pres1,
+  'presentation-fun': pres2,
+  'presentation-aesthetic': pres3,
+  'presentation-green': pres4,
+  'presentation-bw': pres5,
+  'website-original': web1,
+  'website-fun': web2,
+  'website-aesthetic': web3,
+  'website-green': web4,
+  'website-bw': web5,
+  'igpost-original': ig1,
+  'igpost-fun': ig2,
+  'igpost-aesthetic': ig3,
+  'igpost-green': ig4,
+  'igpost-bw': ig5,
+  'igstory-original': igs1,
+  'igstory-fun': igs2,
+  'igstory-aesthetic': igs3,
+  'igstory-green': igs4,
+  'igstory-pink': igs5,
+  'fbpost-original': fb1,
+  'fbpost-fun': fb2,
+  'fbpost-aesthetic': fb3,
+  'fbpost-green': fb4,
+  'fbpost-bw': fb5,
+  'invitation-original': inv1,
+  'invitation-fun': inv2,
+  'invitation-aesthetic': inv3,
+  'invitation-green': inv4,
+  'invitation-bw': inv5,
+  'businesscard-original': biz1,
+  'businesscard-fun': biz2,
+  'businesscard-aesthetic': biz3,
+  'businesscard-green': biz4,
+  'businesscard-bw': biz5,
+  'infograph-original': info1,
+  'infograph-fun': info2,
+  'infograph-aesthetic': info3,
+  'infograph-green': info4,
+  'infograph-bw': info5,
+  'resume-original': res1,
+  'resume-fun': res2,
+  'resume-aesthetic': res3,
+  'resume-green': res4,
+  'resume-bw': res5,
+}
+
 export default function SingleDesign() {
   const { designId } = useParams();
   const singleDesign = useSelector(state => state.designs.singleDesign);
-  console.log('This is the single design deets', singleDesign)
+  // console.log('This is the single design deets', singleDesign)
   const allDesigns = useSelector(state => state.designs.allDesigns);
+  const brands = useSelector(state => state.brands.allBrands);
 
   const user = useSelector(state => state.session.user);
 
@@ -95,8 +144,10 @@ export default function SingleDesign() {
   // const [input3, setInput3] = useState('');
   // const [input4, setInput4] = useState('');
   // const [input5, setInput5] = useState('');
+  const [color, setColor] = useState('');
+  const [font, setFont] = useState('');
 
-  const [background, setBackground] = useState(alias);
+  const [background, setBackground] = useState('');
   // const [currFont, setCurrFont] = useState('');
   if (!Object.values(singleDesign).length) {
     dispatch(getADesign(designId))
@@ -145,8 +196,10 @@ export default function SingleDesign() {
     if (singleDesign) {
       setName(singleDesign.name)
       if (alias) {
-        setTemp(alias)
+        // setTemp(alias)
       }
+      setTemp(singleDesign.background ? singleDesign.background : alias)
+      setBackground(singleDesign.background ? singleDesign.background : alias)
       setInput1(singleDesign.text_input_1 ? singleDesign.text_input_1 : '')
       setInput2(singleDesign.text_input_2 ? singleDesign.text_input_2 : '')
     }
@@ -178,7 +231,12 @@ export default function SingleDesign() {
   // LOADING TEMPLATES --------------------------------------------------
   let template;
 
-  if (alias.includes('presentation')) {
+  console.log('CURRENT alias', alias)
+  console.log('CURRENT Background', background)
+  console.log('CURRENT SINGLEDES.BG', singleDesign.background)
+  console.log('SINGLE DES', singleDesign)
+
+  if (background.includes('presentation')) {
     template = (
       <div
         className="template"
@@ -187,11 +245,12 @@ export default function SingleDesign() {
           height: '540px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
           // backgroundColor: 'white',
-          background: singleDesign.color ?? (background.includes('original') ? `url(${pres1})` : background.includes('fun') ? `url(${pres2})` :
-            background.includes('aesthetic') ? `url(${pres3})` :
-              background.includes('green') ? `url(${pres4})` :
-                background.includes('bw') ? `url(${pres5})` :
-                  null)
+          background: (background.includes('original') ? `center / contain url(${pres1})` :
+          background.includes('fun') ? `center / contain url(${pres2})` :
+            background.includes('aesthetic') ? `center / contain url(${pres3})` :
+              background.includes('green') ? `center / contain url(${pres4})` :
+                background.includes('bw') ? `center / contain url(${pres5})` :
+                  background)
           // `url(${alias.includes('original') ? pres1 :
           //   alias.includes('fun') ? pres2 :
           //     alias.includes('aesthetic') ? pres3 :
@@ -201,7 +260,7 @@ export default function SingleDesign() {
           //   })`
         }}
       >
-        {alias.includes('original') || alias.includes('fun') || alias.includes('aesthetic') ?
+        {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
           <div id='template-inputs'>
             <input
               id='input1'
@@ -228,7 +287,7 @@ export default function SingleDesign() {
                 minHeight: '120px'
               }}
             />
-          </div> : alias.includes('green') ?
+          </div> : background.includes('green') ?
             <div id='template-inputs'>
               <input
                 id='input1'
@@ -248,7 +307,7 @@ export default function SingleDesign() {
                   width: '400px'
                 }}
               />
-            </div> : alias.includes('bw') ?
+            </div> : background.includes('bw') ?
               <div id='template-inputs'>
                 <input
                   id='input1'
@@ -280,7 +339,7 @@ export default function SingleDesign() {
       </div>
     )
   }
-  if (alias.includes('website')) {
+  if (background.includes('website')) {
     template = (
       <div
         className="template"
@@ -288,17 +347,15 @@ export default function SingleDesign() {
           width: '683px',
           height: '384px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          background: `${background}`,
-          backgroundImage: `url(${alias.includes('original') ? web1 :
-            alias.includes('fun') ? web2 :
-              alias.includes('aesthetic') ? web3 :
-                alias.includes('green') ? web4 :
-                  alias.includes('bw') ? web5 :
-                    null
-            })`
+          background: background.includes('original') ? `center / contain url(${web1})` :
+          background.includes('fun') ? `center / contain url(${web2})` :
+          background.includes('aesthetic') ? `center / contain url(${web3})` :
+            background.includes('green') ? `center / contain url(${web4})` :
+              background.includes('bw') ? `center / contain url(${web5})` :
+                background
         }}
       >
-        {alias.includes('original') || alias.includes('fun') || alias.includes('aesthetic') ?
+        {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
           <div id='template-inputs'>
             <input
               id='input1'
@@ -321,7 +378,7 @@ export default function SingleDesign() {
                 minHeight: '120px'
               }}
             />
-          </div> : alias.includes('green') ?
+          </div> : background.includes('green') ?
             <div id='template-inputs'>
               <input
                 id='input1'
@@ -353,7 +410,7 @@ export default function SingleDesign() {
                   marginLeft: '270px'
                 }}
               />
-            </div> : alias.includes('bw') ?
+            </div> : background.includes('bw') ?
               <div id='template-inputs'>
                 <input
                   id='input1'
@@ -383,7 +440,7 @@ export default function SingleDesign() {
       </div>
     )
   }
-  if (alias.includes('resume')) {
+  if (background.includes('resume')) {
     template = (
       <div
         className="template"
@@ -391,17 +448,15 @@ export default function SingleDesign() {
           width: '425px',
           height: '550px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          backgroundColor: 'white',
-          backgroundImage: `url(${alias.includes('original') ? res1 :
-            alias.includes('fun') ? res2 :
-              alias.includes('aesthetic') ? res3 :
-                alias.includes('green') ? res4 :
-                  alias.includes('bw') ? res5 :
-                    null
-            })`
+          background: (background.includes('original') ? `center / contain url(${res1})` :
+          background.includes('fun') ? `center / contain url(${res2})` :
+            background.includes('aesthetic') ? `center / contain url(${res3})` :
+              background.includes('green') ? `center / contain url(${res4})` :
+                background.includes('bw') ? `center / contain url(${res5})` :
+                  background)
         }}
       >
-        {alias.includes('original') || alias.includes('fun') || alias.includes('aesthetic') ?
+        {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
           <div id='template-inputs'>
             <input
               id='input1'
@@ -422,7 +477,7 @@ export default function SingleDesign() {
                 resize: 'none'
               }}
             />
-          </div> : alias.includes('green') ?
+          </div> : background.includes('green') ?
             <div id='template-inputs'>
               <input
                 id='input1'
@@ -451,7 +506,7 @@ export default function SingleDesign() {
                   resize: 'none'
                 }}
               />
-            </div> : alias.includes('bw') ?
+            </div> : background.includes('bw') ?
               <div id='template-inputs'>
                 <input
                   id='input1'
@@ -484,7 +539,7 @@ export default function SingleDesign() {
       </div>
     )
   }
-  if (alias.includes('igpost')) {
+  if (background.includes('igpost')) {
     template = (
       <div
         className="template"
@@ -492,17 +547,15 @@ export default function SingleDesign() {
           width: '480px',
           height: '480px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          backgroundColor: 'white',
-          backgroundImage: `url(${alias.includes('original') ? ig1 :
-            alias.includes('fun') ? ig2 :
-              alias.includes('aesthetic') ? ig3 :
-                alias.includes('green') ? ig4 :
-                  alias.includes('bw') ? ig5 :
-                    null
-            })`
+          background: (background.includes('original') ? `center / contain url(${ig1})` :
+          background.includes('fun') ? `center / contain url(${ig2})` :
+            background.includes('aesthetic') ? `center / contain url(${ig3})` :
+              background.includes('green') ? `center / contain url(${ig4})` :
+                background.includes('bw') ? `center / contain url(${ig5})` :
+                  background)
         }}
       >
-        {alias.includes('original') || alias.includes('fun') || alias.includes('aesthetic') ?
+        {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
           <div id='template-inputs'>
             <input
               id='input1'
@@ -523,7 +576,7 @@ export default function SingleDesign() {
                 resize: 'none'
               }}
             />
-          </div> : alias.includes('green') ?
+          </div> : background.includes('green') ?
             <div id='template-inputs'>
               <input
                 id='input1'
@@ -547,7 +600,7 @@ export default function SingleDesign() {
                   resize: 'none'
                 }}
               />
-            </div> : alias.includes('bw') ?
+            </div> : background.includes('bw') ?
               <div id='template-inputs'>
                 <input
                   id='input1'
@@ -578,7 +631,7 @@ export default function SingleDesign() {
       </div>
     )
   }
-  if (alias.includes('igstory')) {
+  if (background.includes('igstory')) {
     template = (
       <div
         className="template"
@@ -586,17 +639,15 @@ export default function SingleDesign() {
           width: '270px',
           height: '480px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          backgroundColor: 'white',
-          backgroundImage: `url(${alias.includes('original') ? igs1 :
-            alias.includes('fun') ? igs2 :
-              alias.includes('aesthetic') ? igs3 :
-                alias.includes('green') ? igs4 :
-                  alias.includes('pink') ? igs5 :
-                    null
-            })`
+          background: (background.includes('original') ? `center / contain url(${igs1})` :
+          background.includes('fun') ? `center / contain url(${igs2})` :
+            background.includes('aesthetic') ? `center / contain url(${igs3})` :
+              background.includes('green') ? `center / contain url(${igs4})` :
+                background.includes('bw') ? `center / contain url(${igs5})` :
+                  background)
         }}
       >
-        {alias.includes('original') || alias.includes('fun') || alias.includes('aesthetic') ?
+        {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
           <div id='template-inputs'>
             <input
               id='input1'
@@ -619,7 +670,7 @@ export default function SingleDesign() {
                 resize: 'none'
               }}
             />
-          </div> : alias.includes('green') ?
+          </div> : background.includes('green') ?
             <div id='template-inputs'>
               <input
                 id='input1'
@@ -632,7 +683,7 @@ export default function SingleDesign() {
                   marginTop: '40px'
                 }}
               />
-            </div> : alias.includes('pink') ?
+            </div> : background.includes('pink') ?
               <div id='template-inputs'>
                 <input
                   id='input1'
@@ -652,7 +703,7 @@ export default function SingleDesign() {
       </div>
     )
   }
-  if (alias.includes('fbpost')) {
+  if (background.includes('fbpost')) {
     template = (
       <div
         className="template"
@@ -660,17 +711,15 @@ export default function SingleDesign() {
           width: '470px',
           height: '394px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          backgroundColor: 'white',
-          backgroundImage: `url(${alias.includes('original') ? fb1 :
-            alias.includes('fun') ? fb2 :
-              alias.includes('aesthetic') ? fb3 :
-                alias.includes('green') ? fb4 :
-                  alias.includes('bw') ? fb5 :
-                    null
-            })`
+          background: (background.includes('original') ? `center / contain url(${fb1})` :
+          background.includes('fun') ? `center / contain url(${fb2})` :
+            background.includes('aesthetic') ? `center / contain url(${fb3})` :
+              background.includes('green') ? `center / contain url(${fb4})` :
+                background.includes('bw') ? `center / contain url(${fb5})` :
+                  background)
         }}
       >
-        {alias.includes('original') || alias.includes('fun') || alias.includes('aesthetic') ?
+        {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
           <div id='template-inputs'>
             <input
               id='input1'
@@ -690,7 +739,7 @@ export default function SingleDesign() {
                 resize: 'none'
               }}
             />
-          </div> : alias.includes('green') ?
+          </div> : background.includes('green') ?
             <div id='template-inputs'>
               <input
                 id='input1'
@@ -713,7 +762,7 @@ export default function SingleDesign() {
                   resize: 'none'
                 }}
               />
-            </div> : alias.includes('bw') ?
+            </div> : background.includes('bw') ?
               <div id='template-inputs'>
                 <input
                   id='input1'
@@ -730,7 +779,7 @@ export default function SingleDesign() {
       </div>
     )
   }
-  if (alias.includes('invitation')) {
+  if (background.includes('invitation')) {
     template = (
       <div
         className="template"
@@ -738,17 +787,15 @@ export default function SingleDesign() {
           width: '375px',
           height: '525px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          backgroundColor: 'white',
-          backgroundImage: `url(${alias.includes('original') ? inv1 :
-            alias.includes('fun') ? inv2 :
-              alias.includes('aesthetic') ? inv3 :
-                alias.includes('green') ? inv4 :
-                  alias.includes('bw') ? inv5 :
-                    null
-            })`
+          background: (background.includes('original') ? `center / contain url(${inv1})` :
+          background.includes('fun') ? `center / contain url(${inv2})` :
+            background.includes('aesthetic') ? `center / contain url(${inv3})` :
+              background.includes('green') ? `center / contain url(${inv4})` :
+                background.includes('bw') ? `center / contain url(${inv5})` :
+                  background)
         }}
       >
-        {alias.includes('original') || alias.includes('fun') || alias.includes('aesthetic') ?
+        {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
           <div id='template-inputs'>
             <input
               id='input1'
@@ -768,7 +815,7 @@ export default function SingleDesign() {
                 resize: 'none'
               }}
             />
-          </div> : alias.includes('green') ?
+          </div> : background.includes('green') ?
             <div id='template-inputs'>
               <input
                 id='input1'
@@ -791,7 +838,7 @@ export default function SingleDesign() {
                   resize: 'none'
                 }}
               />
-            </div> : alias.includes('bw') ?
+            </div> : background.includes('bw') ?
               <div id='template-inputs'>
                 <input
                   id='input1'
@@ -825,7 +872,7 @@ export default function SingleDesign() {
       </div>
     )
   }
-  if (alias.includes('businesscard')) {
+  if (background.includes('businesscard')) {
     template = (
       <div
         className="template"
@@ -833,17 +880,15 @@ export default function SingleDesign() {
           width: '336px',
           height: '192px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          backgroundColor: 'white',
-          backgroundImage: `url(${alias.includes('original') ? biz1 :
-            alias.includes('fun') ? biz2 :
-              alias.includes('aesthetic') ? biz3 :
-                alias.includes('green') ? biz4 :
-                  alias.includes('bw') ? biz5 :
-                    null
-            })`
+          background: (background.includes('original') ? `center / contain url(${biz1})` :
+          background.includes('fun') ? `center / contain url(${biz2})` :
+            background.includes('aesthetic') ? `center / contain url(${biz3})` :
+              background.includes('green') ? `center / contain url(${biz4})` :
+                background.includes('bw') ? `center / contain url(${biz5})` :
+                  background)
         }}
       >
-        {alias.includes('original') || alias.includes('fun') || alias.includes('aesthetic') ?
+        {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
           <div id='template-inputs'>
             <input
               id='input1'
@@ -868,7 +913,7 @@ export default function SingleDesign() {
                 marginLeft: '8px'
               }}
             />
-          </div> : alias.includes('green') ?
+          </div> : background.includes('green') ?
             <div id='template-inputs'>
               <input
                 id='input1'
@@ -895,7 +940,7 @@ export default function SingleDesign() {
                   marginTop: '-5px'
                 }}
               />
-            </div> : alias.includes('bw') ?
+            </div> : background.includes('bw') ?
               <div id='template-inputs'>
                 <input
                   id='input1'
@@ -928,7 +973,7 @@ export default function SingleDesign() {
       </div>
     )
   }
-  if (alias.includes('infograph')) {
+  if (background.includes('infograph')) {
     template = (
       <div
         className="template"
@@ -936,14 +981,12 @@ export default function SingleDesign() {
           width: '200px',
           height: '500px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          backgroundColor: 'white',
-          backgroundImage: `url(${alias.includes('original') ? info1 :
-            alias.includes('fun') ? info2 :
-              alias.includes('aesthetic') ? info3 :
-                alias.includes('green') ? info4 :
-                  alias.includes('bw') ? info5 :
-                    null
-            })`
+          background: (background.includes('original') ? `center / contain url(${info1})` :
+          background.includes('fun') ? `center / contain url(${info2})` :
+            background.includes('aesthetic') ? `center / contain url(${info3})` :
+              background.includes('green') ? `center / contain url(${info4})` :
+                background.includes('bw') ? `center / contain url(${info5})` :
+                  background)
         }}
       >
         <div id='template-inputs'>
@@ -982,10 +1025,13 @@ export default function SingleDesign() {
     e.preventDefault();
 
     setHasSubmit(true);
-
+    console.log('THIS IS BG BEFORE PAYLOAD', background)
     const payload = {
       name: name,
-      template: alias,
+      template: background,
+      background: background,
+      color: color,
+      font: font,
       text_input_1: input1,
       text_input_2: input2,
     };
@@ -1039,6 +1085,30 @@ export default function SingleDesign() {
                   setTemp(e.target.value)
                 }}
               />
+              <input
+                type='text'
+                value={background}
+                // hidden
+                onChange={e => {
+                  setBackground(e.target.value)
+                }}
+              />
+              <input
+                type='text'
+                value={color}
+                hidden
+                onChange={e => {
+                  setColor(e.target.value)
+                }}
+              />
+              <input
+                type='text'
+                value={font}
+                hidden
+                onChange={e => {
+                  setFont(e.target.value)
+                }}
+              />
               <textarea
                 hidden
                 value={input1}
@@ -1066,7 +1136,14 @@ export default function SingleDesign() {
                   {allDesigns[1].template.map(temp => (
                     <div id='temp-container-des' onClick={() => {
                       setTemp(temp.alias)
-                      history.push(`/designs/${designId}/${temp.alias}`)
+                      setBackground(temp.alias)
+                      const image = document.getElementById('temp-img')
+                      image.src = TEMPLATES[temp.alias]
+                      console.log('image', image)
+                      console.log('temp.alias', temp.alias)
+                      // if (temp.alias) {
+                      //   history.push(`/designs/${designId}/${temp.alias}`)
+                      // }
                     }}>
                       {temp.alias === 'presentation-original' ?
                         <img id='temp-img' src={pres1} alt='pres' width='160px' /> :
@@ -1171,37 +1248,42 @@ export default function SingleDesign() {
 
             <button onClick={openBrandMenu}>Brands</button>
             {showBrandMenu && (
-              <div id='temp-menu-item-brand'>
-                <div id='brand-side-content'>Oops! Looks like this feature is still in the works. In the meantime, try checking out brands for the future!
+              // <div id='temp-menu-item-brand'>
+              //   <div id='brand-side-content'>Oops! Looks like this feature is still in the works. In the meantime, try checking out brands for the future!
 
-                  <button
-                    onClick={() => history.push('/brand')}
-                  >Go to brands</button>
-                </div>
-              </div>
-              // <div id='temp-menu-item'>
-              //   {Object.values(brands).map(brand => (
-              //     <div className="des-brand-colors">
-              //       {brand.colors.map(color => (
-              //         <div
-              //           onClick={() => {
-              //             setBackgroundColor(color.name);
-              //             localStorage.setItem('backgroundColor', color.name)
-              //           }}
-              //         >{color.name}</div>
-              //       ))}
-              //       {brand.fonts.map(font => (
-              //         <div
-              //           onClick={() => {
-              //             setCurrFont(font.name);
-              //           }}
-              //         >
-              //           {font.name}
-              //         </div>
-              //       ))}
-              //     </div>
-              //   ))}
+              //     <button
+              //       onClick={() => history.push('/brand')}
+              //     >Go to brands</button>
+              //   </div>
               // </div>
+              <div id='temp-menu-item'>
+                {Object.values(brands).map(brand => (
+                  <div className="des-brand-colors">
+                    {brand.colors.map(color => (
+                      <div
+                        id='each-color'
+                        onClick={() => {
+                          setColor(color.name);
+                          setBackground(color.name)
+                          // localStorage.setItem('backgroundColor', color.name)
+                        }}
+                        style={{
+                          backgroundColor: `${color.name}`
+                        }}
+                      >
+                        {/* {color.name} */}
+                      </div>
+                    ))}
+                    {brand.fonts.map(font => (
+                      <div
+                        onClick={() => setFont(font.name)}
+                      >
+                        {font.name}
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
             )}
           </div>
         )}
