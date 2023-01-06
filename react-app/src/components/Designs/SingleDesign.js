@@ -631,7 +631,7 @@ export default function SingleDesign() {
       </div>
     )
   }
-  if (alias.includes('igstory')) {
+  if (background.includes('igstory')) {
     template = (
       <div
         className="template"
@@ -639,17 +639,15 @@ export default function SingleDesign() {
           width: '270px',
           height: '480px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          backgroundColor: 'white',
-          backgroundImage: `url(${alias.includes('original') ? igs1 :
-            alias.includes('fun') ? igs2 :
-              alias.includes('aesthetic') ? igs3 :
-                alias.includes('green') ? igs4 :
-                  alias.includes('pink') ? igs5 :
-                    null
-            })`
+          background: (background.includes('original') ? `center / contain url(${igs1})` :
+          background.includes('fun') ? `center / contain url(${igs2})` :
+            background.includes('aesthetic') ? `center / contain url(${igs3})` :
+              background.includes('green') ? `center / contain url(${igs4})` :
+                background.includes('bw') ? `center / contain url(${igs5})` :
+                  background)
         }}
       >
-        {alias.includes('original') || alias.includes('fun') || alias.includes('aesthetic') ?
+        {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
           <div id='template-inputs'>
             <input
               id='input1'
@@ -672,7 +670,7 @@ export default function SingleDesign() {
                 resize: 'none'
               }}
             />
-          </div> : alias.includes('green') ?
+          </div> : background.includes('green') ?
             <div id='template-inputs'>
               <input
                 id='input1'
@@ -685,7 +683,7 @@ export default function SingleDesign() {
                   marginTop: '40px'
                 }}
               />
-            </div> : alias.includes('pink') ?
+            </div> : background.includes('pink') ?
               <div id='template-inputs'>
                 <input
                   id='input1'
@@ -705,7 +703,7 @@ export default function SingleDesign() {
       </div>
     )
   }
-  if (alias.includes('fbpost')) {
+  if (background.includes('fbpost')) {
     template = (
       <div
         className="template"
@@ -713,17 +711,15 @@ export default function SingleDesign() {
           width: '470px',
           height: '394px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          backgroundColor: 'white',
-          backgroundImage: `url(${alias.includes('original') ? fb1 :
-            alias.includes('fun') ? fb2 :
-              alias.includes('aesthetic') ? fb3 :
-                alias.includes('green') ? fb4 :
-                  alias.includes('bw') ? fb5 :
-                    null
-            })`
+          background: (background.includes('original') ? `center / contain url(${fb1})` :
+          background.includes('fun') ? `center / contain url(${fb2})` :
+            background.includes('aesthetic') ? `center / contain url(${fb3})` :
+              background.includes('green') ? `center / contain url(${fb4})` :
+                background.includes('bw') ? `center / contain url(${fb5})` :
+                  background)
         }}
       >
-        {alias.includes('original') || alias.includes('fun') || alias.includes('aesthetic') ?
+        {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
           <div id='template-inputs'>
             <input
               id='input1'
@@ -743,7 +739,7 @@ export default function SingleDesign() {
                 resize: 'none'
               }}
             />
-          </div> : alias.includes('green') ?
+          </div> : background.includes('green') ?
             <div id='template-inputs'>
               <input
                 id='input1'
@@ -766,7 +762,7 @@ export default function SingleDesign() {
                   resize: 'none'
                 }}
               />
-            </div> : alias.includes('bw') ?
+            </div> : background.includes('bw') ?
               <div id='template-inputs'>
                 <input
                   id='input1'
