@@ -1140,7 +1140,7 @@ export default function SingleDesign() {
               <input
                 type='text'
                 value={background}
-                // hidden
+                hidden
                 onChange={e => {
                   setBackground(e.target.value)
                 }}
