@@ -1264,7 +1264,7 @@ export default function CreateDesign() {
             </div>
           )}
 
-          <button id='sidebar' onClick={openSideMenu}>
+          <button id='sidebar' onClick={openBrandMenu}>
             <img src={colors} alt='temp' height='40px' />
             Brand Colors
           </button>

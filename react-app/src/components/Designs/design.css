@@ -1,0 +1,9 @@
+#add-page {
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+#inserted-temp {
+  display: flex;
+  flex-direction: column;
+}
