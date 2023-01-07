@@ -5,6 +5,8 @@ import { getADesign, updateDesign, clearData, getAllDesigns } from "../../store/
 import { getAllBrands } from "../../store/brands"
 
 import left from '../../icons/left.svg';
+import outlinetemp from '../../icons/outline-temp.png';
+import colors from '../../icons/colors.svg';
 // import present from '../../icons/temps/presentation.png';
 // import website from '../../icons/temps/website.png';
 // import resume from '../../icons/temps/resume.png';
@@ -1172,7 +1174,10 @@ export default function SingleDesign() {
       <div className="edit-container">
         {user && user.id === singleDesign.user_id && (
           <div className="sidebar">
-            <button onClick={openSideMenu}>Templates</button>
+            <button id='sidebar' onClick={openSideMenu}>
+              <img src={outlinetemp} alt='temp' height='40px' />
+              Templates
+            </button>
             {showSideMenu && (
               <div className="temp-menu-container">
                 {/* <div id='warning'>Warning: Switching templates deletes any previous work made.</div> */}
@@ -1290,7 +1295,10 @@ export default function SingleDesign() {
               </div>
             )}
 
-            <button onClick={openBrandMenu}>Brand Colors</button>
+            <button id='sidebar' onClick={openSideMenu}>
+              <img src={colors} alt='temp' height='40px' />
+              Brand Colors
+            </button>
             {showBrandMenu && (
               // <div id='temp-menu-item-brand'>
               //   <div id='brand-side-content'>Oops! Looks like this feature is still in the works. In the meantime, try checking out brands for the future!

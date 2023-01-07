@@ -64,6 +64,13 @@
 
 
 /* -------------------- TEMPLATE BOXES -------------------- */
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
 .temp-box-container {
   padding: 30px;
 }
