@@ -149,6 +149,10 @@ export default function CreateDesign() {
     return () => dispatch(clearData())
   }, [dispatch])
 
+  useEffect(() => {
+    setBackground(alias)
+  }, [alias])
+
   // DRAG FXNS -------------------------------
   // const dragItem = (item) => {
   //   // console.log('ITEM', item)
