@@ -64,6 +64,55 @@ import res4 from '../../icons/change-temps/res-temp/res-green.svg';
 import res5 from '../../icons/change-temps/res-temp/res-bw.svg';
 
 import { getAllBrands } from "../../store/brands";
+import { __colors } from "../../assets/colors";
+
+const TEMPLATES = {
+  'presentation-original': pres1,
+  'presentation-fun': pres2,
+  'presentation-aesthetic': pres3,
+  'presentation-green': pres4,
+  'presentation-bw': pres5,
+  'website-original': web1,
+  'website-fun': web2,
+  'website-aesthetic': web3,
+  'website-green': web4,
+  'website-bw': web5,
+  'igpost-original': ig1,
+  'igpost-fun': ig2,
+  'igpost-aesthetic': ig3,
+  'igpost-green': ig4,
+  'igpost-bw': ig5,
+  'igstory-original': igs1,
+  'igstory-fun': igs2,
+  'igstory-aesthetic': igs3,
+  'igstory-green': igs4,
+  'igstory-pink': igs5,
+  'fbpost-original': fb1,
+  'fbpost-fun': fb2,
+  'fbpost-aesthetic': fb3,
+  'fbpost-green': fb4,
+  'fbpost-bw': fb5,
+  'invitation-original': inv1,
+  'invitation-fun': inv2,
+  'invitation-aesthetic': inv3,
+  'invitation-green': inv4,
+  'invitation-bw': inv5,
+  'businesscard-original': biz1,
+  'businesscard-fun': biz2,
+  'businesscard-aesthetic': biz3,
+  'businesscard-green': biz4,
+  'businesscard-bw': biz5,
+  'infograph-original': info1,
+  'infograph-fun': info2,
+  'infograph-aesthetic': info3,
+  'infograph-green': info4,
+  'infograph-bw': info5,
+  'resume-original': res1,
+  'resume-fun': res2,
+  'resume-aesthetic': res3,
+  'resume-green': res4,
+  'resume-bw': res5,
+}
 
 export default function CreateDesign() {
   const dispatch = useDispatch();
@@ -92,13 +141,17 @@ export default function CreateDesign() {
   // const [input4, setInput4] = useState('');
   // const [input5, setInput5] = useState('');
 
-  const [background, setBackground] = useState(alias);
+  const [background, setBackground] = useState('');
 
   useEffect(() => {
     dispatch(getAllDesigns());
     dispatch(getAllBrands());
     return () => dispatch(clearData())
   }, [dispatch])
+
+  useEffect(() => {
+    setBackground(alias)
+  }, [alias])
 
   // DRAG FXNS -------------------------------
   // const dragItem = (item) => {
@@ -198,7 +251,7 @@ export default function CreateDesign() {
       // text_input_4: input4,
       // text_input_5: input5,
     };
-    console.log('CREATE PAYLOAD', payload)
+    // console.log('CREATE PAYLOAD', payload)
     if (!validationErrs.length) {
       let createdDes = await dispatch(createDesign(payload));
       // console.log('template', alias)
@@ -209,1565 +262,745 @@ export default function CreateDesign() {
   // LOADING TEMPLATES --------------------------------------------------
   let template;
   // PRESENTATION -----------------------------------
-  if (alias === 'presentation-original') {
+  if (background.includes('presentation')) {
     template = (
       <div
         className="template"
         style={{
           width: '960px',
           height: '540px',
-          backgroundImage: `url(${pres1})`,
-          // background: background.includes('original') ? `url(${pres1})` : color
+          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          background: (background.includes('original') ? `center / contain url(${pres1})` :
+          background.includes('fun') ? `center / contain url(${pres2})` :
+            background.includes('aesthetic') ? `center / contain url(${pres3})` :
+              background.includes('green') ? `center / contain url(${pres4})` :
+                background.includes('bw') ? `center / contain url(${pres5})` :
+                  background)
         }}
       >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '880px',
-              height: '440px',
-              maxWidth: '880px',
-              maxHeight:'440px',
-              minWidth: '347px',
-              minHeight: '120px'
-            }}
-          />
-        </div>
+        {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
+          <div id='template-inputs'>
+            <input
+              id='input1'
+              type='text'
+              placeholder="Title Here"
+              value={input1}
+              onChange={(e) => setInput1(e.target.value)}
+            />
+            <textarea
+              id='input2'
+              value={input2}
+              placeholder="Your text here"
+              onChange={(e) => setInput2(e.target.value)}
+              style={{
+                width: '880px',
+                height: '440px',
+                maxWidth: '880px',
+                maxHeight: '440px',
+                minWidth: '347px',
+                minHeight: '120px'
+              }}
+            />
+          </div> : background.includes('green') ?
+            <div id='template-inputs'>
+              <input
+                id='input1'
+                type='text'
+                placeholder="Title Here"
+                value={input1}
+                onChange={(e) => setInput1(e.target.value)}
+              />
+              <textarea
+                id='input2'
+                value={input2}
+                placeholder="Your text here"
+                onChange={(e) => setInput2(e.target.value)}
+                style={{
+                  resize: 'none',
+                  height: '295px',
+                  width: '400px'
+                }}
+              />
+            </div> : background.includes('bw') ?
+              <div id='template-inputs'>
+                <input
+                  id='input1'
+                  type='text'
+                  placeholder="Title Here"
+                  value={input1}
+                  onChange={(e) => setInput1(e.target.value)}
+                  style={{
+                    marginLeft: '120px'
+                  }}
+                />
+                <textarea
+                  id='input2'
+                  value={input2}
+                  placeholder="Your text here"
+                  onChange={(e) => setInput2(e.target.value)}
+                  style={{
+                    width: '680px',
+                    height: '440px',
+                    maxWidth: '680px',
+                    maxHeight: '440px',
+                    minWidth: '347px',
+                    minHeight: '120px',
+                    marginLeft: '120px'
+                  }}
+                />
+              </div> : null
+        }
       </div>
     )
   }
-  if (alias === 'presentation-fun') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '960px',
-          height: '540px',
-          backgroundImage: `url(${pres2})`,
-          background: `${background}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '880px',
-              height: '440px',
-              maxWidth: '880px',
-              maxHeight:'440px',
-              minWidth: '347px',
-              minHeight: '120px'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  if (alias === 'presentation-aesthetic') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '960px',
-          height: '540px',
-          backgroundImage: `url(${pres3})`,
-          background: `${background}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '880px',
-              height: '440px',
-              maxWidth: '880px',
-              maxHeight:'440px',
-              minWidth: '347px',
-              minHeight: '120px'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  if (alias === 'presentation-green') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '960px',
-          height: '540px',
-          backgroundImage: `url(${pres4})`,
-          background: `${background}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              resize: 'none',
-              height: '295px',
-              width: '400px'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  if (alias === 'presentation-bw') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '960px',
-          height: '540px',
-          backgroundImage: `url(${pres5})`,
-          background: `${background}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-            style={{
-              marginLeft: '120px'
-            }}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '680px',
-              height: '440px',
-              maxWidth: '680px',
-              maxHeight:'440px',
-              minWidth: '347px',
-              minHeight: '120px',
-              marginLeft: '120px'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  // WEBSITE -----------------------------------
-  if (alias === 'website-original') {
+  if (background.includes('website')) {
     template = (
       <div
         className="template"
         style={{
           width: '683px',
           height: '384px',
-          backgroundImage: `url(${web1})`,
-          background: `${background}`
+          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          background: background.includes('original') ? `center / contain url(${web1})` :
+          background.includes('fun') ? `center / contain url(${web2})` :
+          background.includes('aesthetic') ? `center / contain url(${web3})` :
+            background.includes('green') ? `center / contain url(${web4})` :
+              background.includes('bw') ? `center / contain url(${web5})` :
+                background
         }}
       >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '580px',
-              height: '240px',
-              maxWidth: '580px',
-              maxHeight:'240px',
-              minWidth: '347px',
-              minHeight: '120px'
-            }}
-          />
-        </div>
+        {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
+          <div id='template-inputs'>
+            <input
+              id='input1'
+              type='text'
+              placeholder="Title Here"
+              value={input1}
+              onChange={(e) => setInput1(e.target.value)}
+            />
+            <textarea
+              id='input2'
+              value={input2}
+              placeholder="Your text here"
+              onChange={(e) => setInput2(e.target.value)}
+              style={{
+                width: '580px',
+                height: '240px',
+                maxWidth: '580px',
+                maxHeight: '240px',
+                minWidth: '347px',
+                minHeight: '120px'
+              }}
+            />
+          </div> : background.includes('green') ?
+            <div id='template-inputs'>
+              <input
+                id='input1'
+                type='text'
+                placeholder="Title Here"
+                value={input1}
+                onChange={(e) => setInput1(e.target.value)}
+                style={{
+                  width: '200px',
+                  height: '27px',
+                  marginTop: '8px',
+                  marginLeft: '276px',
+                  fontSize: '20px'
+                }}
+              />
+              <textarea
+                id='input2'
+                value={input2}
+                placeholder="Your text here"
+                onChange={(e) => setInput2(e.target.value)}
+                style={{
+                  width: '210px',
+                  height: '240px',
+                  resize: 'none',
+                  maxWidth: '210px',
+                  maxHeight: '240px',
+                  // minWidth: '347px',
+                  minHeight: '120px',
+                  marginLeft: '270px'
+                }}
+              />
+            </div> : background.includes('bw') ?
+              <div id='template-inputs'>
+                <input
+                  id='input1'
+                  type='text'
+                  placeholder="Title Here"
+                  value={input1}
+                  onChange={(e) => setInput1(e.target.value)}
+                  style={{
+                    marginLeft: '310px'
+                  }}
+                />
+                <textarea
+                  id='input2'
+                  value={input2}
+                  placeholder="Your text here"
+                  onChange={(e) => setInput2(e.target.value)}
+                  style={{
+                    width: '350px',
+                    height: '280px',
+                    marginTop: '8px',
+                    marginLeft: '310px',
+                    resize: 'none'
+                  }}
+                />
+              </div> : null
+        }
       </div>
     )
   }
-  if (alias === 'website-fun') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '683px',
-          height: '384px',
-          backgroundImage: `url(${web2})`,
-          background: `${background}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '580px',
-              height: '240px',
-              maxWidth: '580px',
-              maxHeight:'240px',
-              minWidth: '347px',
-              minHeight: '120px'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  if (alias === 'website-aesthetic') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '683px',
-          height: '384px',
-          backgroundImage: `url(${web3})`,
-          background: `${background}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '580px',
-              height: '240px',
-              maxWidth: '580px',
-              maxHeight:'240px',
-              minWidth: '347px',
-              minHeight: '120px'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  if (alias === 'website-green') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '683px',
-          height: '384px',
-          backgroundImage: `url(${web4})`,
-          background: `${background}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-            style={{
-              width: '200px',
-              height: '27px',
-              marginTop: '8px',
-              marginLeft: '276px',
-              fontSize: '20px'
-            }}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '210px',
-              height: '240px',
-              resize: 'none',
-              maxWidth: '210px',
-              maxHeight:'240px',
-              // minWidth: '347px',
-              minHeight: '120px',
-              marginLeft: '270px'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  if (alias === 'website-bw') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '683px',
-          height: '384px',
-          backgroundImage: `url(${web5})`,
-          background: `${background}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-            style={{
-              marginLeft: '310px'
-            }}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '350px',
-              height: '280px',
-              marginTop: '8px',
-              marginLeft: '310px',
-              resize: 'none'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  // RESUME -----------------------------------
-  if (alias === 'resume-original') {
+  if (background.includes('resume')) {
     template = (
       <div
         className="template"
         style={{
           width: '425px',
           height: '550px',
-          backgroundImage: `url(${res1})`,
-          background: `${background}`
+          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          background: (background.includes('original') ? `center / contain url(${res1})` :
+          background.includes('fun') ? `center / contain url(${res2})` :
+            background.includes('aesthetic') ? `center / contain url(${res3})` :
+              background.includes('green') ? `center / contain url(${res4})` :
+                background.includes('bw') ? `center / contain url(${res5})` :
+                  background)
         }}
       >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '370px',
-              height: '430px',
-              marginTop: '8px',
-              resize: 'none'
-            }}
-          />
-        </div>
+        {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
+          <div id='template-inputs'>
+            <input
+              id='input1'
+              type='text'
+              placeholder="Title Here"
+              value={input1}
+              onChange={(e) => setInput1(e.target.value)}
+            />
+            <textarea
+              id='input2'
+              value={input2}
+              placeholder="Your text here"
+              onChange={(e) => setInput2(e.target.value)}
+              style={{
+                width: '370px',
+                height: '430px',
+                marginTop: '8px',
+                resize: 'none'
+              }}
+            />
+          </div> : background.includes('green') ?
+            <div id='template-inputs'>
+              <input
+                id='input1'
+                type='text'
+                placeholder="Title Here"
+                value={input1}
+                onChange={(e) => setInput1(e.target.value)}
+                style={{
+                  width: '235px',
+                  height: '40px',
+                  marginTop: '68px',
+                  marginRight: '122px',
+                  resize: 'none'
+                }}
+              />
+              <textarea
+                id='input2'
+                value={input2}
+                placeholder="Your text here"
+                onChange={(e) => setInput2(e.target.value)}
+                style={{
+                  width: '165px',
+                  height: '280px',
+                  marginTop: '88px',
+                  marginRight: '122px',
+                  resize: 'none'
+                }}
+              />
+            </div> : background.includes('bw') ?
+              <div id='template-inputs'>
+                <input
+                  id='input1'
+                  type='text'
+                  placeholder="Title Here"
+                  value={input1}
+                  onChange={(e) => setInput1(e.target.value)}
+                  style={{
+                    width: '270px',
+                    marginTop: '8px',
+                    marginLeft: '80px',
+                    resize: 'none'
+                  }}
+                />
+                <textarea
+                  id='input2'
+                  value={input2}
+                  placeholder="Your text here"
+                  onChange={(e) => setInput2(e.target.value)}
+                  style={{
+                    width: '270px',
+                    height: '430px',
+                    marginTop: '8px',
+                    marginLeft: '80px',
+                    resize: 'none'
+                  }}
+                />
+              </div> : null
+        }
       </div>
     )
   }
-  if (alias === 'resume-fun') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '425px',
-          height: '550px',
-          backgroundImage: `url(${res2})`,
-          background: `${background}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '370px',
-              height: '430px',
-              marginTop: '8px',
-              resize: 'none'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  if (alias === 'resume-aesthetic') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '425px',
-          height: '550px',
-          backgroundImage: `url(${res3})`,
-          background: `${background}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '370px',
-              height: '430px',
-              marginTop: '8px',
-              resize: 'none'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  if (alias === 'resume-green') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '425px',
-          height: '550px',
-          backgroundImage: `url(${res4})`,
-          background: `${background}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-            style={{
-              width: '235px',
-              height: '40px',
-              marginTop: '68px',
-              marginRight: '122px',
-              resize: 'none'
-            }}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '165px',
-              height: '280px',
-              marginTop: '88px',
-              marginRight: '122px',
-              resize: 'none'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  if (alias === 'resume-bw') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '425px',
-          height: '550px',
-          backgroundImage: `url(${res5})`,
-          background: `${background}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-            style={{
-              width: '270px',
-              marginTop: '8px',
-              marginLeft: '80px',
-              resize: 'none'
-            }}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '270px',
-              height: '430px',
-              marginTop: '8px',
-              marginLeft: '80px',
-              resize: 'none'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  // IG POST -----------------------------------
-  if (alias === 'igpost-original') {
+  if (background.includes('igpost')) {
     template = (
       <div
         className="template"
         style={{
           width: '480px',
           height: '480px',
-          backgroundImage: `url(${ig1})`,
-          // backgroundColor: `${localStorage.getItem('backgroundColor')}`
+          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          background: (background.includes('original') ? `center / contain url(${ig1})` :
+          background.includes('fun') ? `center / contain url(${ig2})` :
+            background.includes('aesthetic') ? `center / contain url(${ig3})` :
+              background.includes('green') ? `center / contain url(${ig4})` :
+                background.includes('bw') ? `center / contain url(${ig5})` :
+                  background)
         }}
       >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '406px',
-              height: '346px',
-              marginTop: '8px',
-              resize: 'none'
-            }}
-          />
-        </div>
+        {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
+          <div id='template-inputs'>
+            <input
+              id='input1'
+              type='text'
+              placeholder="Title Here"
+              value={input1}
+              onChange={(e) => setInput1(e.target.value)}
+            />
+            <textarea
+              id='input2'
+              value={input2}
+              placeholder="Your text here"
+              onChange={(e) => setInput2(e.target.value)}
+              style={{
+                width: '406px',
+                height: '346px',
+                marginTop: '8px',
+                resize: 'none'
+              }}
+            />
+          </div> : background.includes('green') ?
+            <div id='template-inputs'>
+              <input
+                id='input1'
+                type='text'
+                placeholder="Title Here"
+                value={input1}
+                onChange={(e) => setInput1(e.target.value)}
+                style={{
+                  marginTop: '180px'
+                }}
+              />
+              <textarea
+                id='input2'
+                value={input2}
+                placeholder="Your text here"
+                onChange={(e) => setInput2(e.target.value)}
+                style={{
+                  width: '406px',
+                  height: '146px',
+                  marginTop: '8px',
+                  resize: 'none'
+                }}
+              />
+            </div> : background.includes('bw') ?
+              <div id='template-inputs'>
+                <input
+                  id='input1'
+                  type='text'
+                  placeholder="Title Here"
+                  value={input1}
+                  onChange={(e) => setInput1(e.target.value)}
+                  style={{
+                    width: '246px',
+                    marginLeft: '190px',
+                  }}
+                />
+                <textarea
+                  id='input2'
+                  value={input2}
+                  placeholder="Your text here"
+                  onChange={(e) => setInput2(e.target.value)}
+                  style={{
+                    width: '246px',
+                    height: '346px',
+                    marginTop: '8px',
+                    marginLeft: '190px',
+                    resize: 'none'
+                  }}
+                />
+              </div> : null
+        }
       </div>
     )
   }
-  if (alias === 'igpost-fun') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '480px',
-          height: '480px',
-          backgroundImage: `url(${ig2})`,
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '406px',
-              height: '346px',
-              marginTop: '8px',
-              resize: 'none'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  if (alias === 'igpost-aesthetic') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '480px',
-          height: '480px',
-          backgroundImage: `url(${ig3})`,
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '406px',
-              height: '346px',
-              marginTop: '8px',
-              resize: 'none'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  if (alias === 'igpost-green') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '480px',
-          height: '480px',
-          backgroundImage: `url(${ig4})`,
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-            style={{
-              marginTop: '180px'
-            }}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '406px',
-              height: '146px',
-              marginTop: '8px',
-              resize: 'none'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  if (alias === 'igpost-bw') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '480px',
-          height: '480px',
-          backgroundImage: `url(${ig5})`,
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-            style={{
-              width: '246px',
-              marginLeft: '190px',
-            }}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '246px',
-              height: '346px',
-              marginTop: '8px',
-              marginLeft: '190px',
-              resize: 'none'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  // IG STORY -----------------------------------
-  if (alias === 'igstory-original') {
+  if (background.includes('igstory')) {
     template = (
       <div
         className="template"
         style={{
           width: '270px',
           height: '480px',
-          backgroundImage: `url(${igs1})`,
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
+          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          background: (background.includes('original') ? `center / contain url(${igs1})` :
+          background.includes('fun') ? `center / contain url(${igs2})` :
+            background.includes('aesthetic') ? `center / contain url(${igs3})` :
+              background.includes('green') ? `center / contain url(${igs4})` :
+                background.includes('bw') ? `center / contain url(${igs5})` :
+                  background)
         }}
       >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-            style={{
-              width: '230px'
-            }}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '230px',
-              height: '346px',
-              resize: 'none'
-            }}
-          />
-        </div>
+        {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
+          <div id='template-inputs'>
+            <input
+              id='input1'
+              type='text'
+              placeholder="Title Here"
+              value={input1}
+              onChange={(e) => setInput1(e.target.value)}
+              style={{
+                width: '230px'
+              }}
+            />
+            <textarea
+              id='input2'
+              value={input2}
+              placeholder="Your text here"
+              onChange={(e) => setInput2(e.target.value)}
+              style={{
+                width: '230px',
+                height: '346px',
+                resize: 'none'
+              }}
+            />
+          </div> : background.includes('green') ?
+            <div id='template-inputs'>
+              <input
+                id='input1'
+                type='text'
+                placeholder="Title Here"
+                value={input1}
+                onChange={(e) => setInput1(e.target.value)}
+                style={{
+                  width: '200px',
+                  marginTop: '40px'
+                }}
+              />
+            </div> : background.includes('pink') ?
+              <div id='template-inputs'>
+                <input
+                  id='input1'
+                  type='text'
+                  placeholder="Title Here"
+                  value={input1}
+                  onChange={(e) => setInput1(e.target.value)}
+                  style={{
+                    width: '200px',
+                    marginBottom: '40px',
+                    marginLeft: '24px',
+                    transform: 'rotate(4deg)'
+                  }}
+                />
+              </div> : null
+        }
       </div>
     )
   }
-  if (alias === 'igstory-fun') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '270px',
-          height: '480px',
-          backgroundImage: `url(${igs2})`,
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-            style={{
-              width: '230px'
-            }}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '230px',
-              height: '346px',
-              resize: 'none'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  if (alias === 'igstory-aesthetic') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '270px',
-          height: '480px',
-          backgroundImage: `url(${igs3})`,
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-            style={{
-              width: '230px'
-            }}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '230px',
-              height: '346px',
-              resize: 'none'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  if (alias === 'igstory-green') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '270px',
-          height: '480px',
-          backgroundImage: `url(${igs4})`,
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-            style={{
-              width: '200px',
-              marginTop: '40px'
-            }}
-          />
-          {/* <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-          /> */}
-        </div>
-      </div>
-    )
-  }
-  if (alias === 'igstory-pink') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '270px',
-          height: '480px',
-          backgroundImage: `url(${igs5})`,
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-            style={{
-              width: '200px',
-              marginBottom: '40px',
-              marginLeft: '24px',
-              transform: 'rotate(4deg)'
-            }}
-          />
-          {/* <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-          /> */}
-        </div>
-      </div>
-    )
-  }
-  // FB POST -----------------------------------
-  if (alias === 'fbpost-original') {
+  if (background.includes('fbpost')) {
     template = (
       <div
         className="template"
         style={{
           width: '470px',
           height: '394px',
-          backgroundImage: `url(${fb1})`,
-          backgroundColor: 'white'
+          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          background: (background.includes('original') ? `center / contain url(${fb1})` :
+          background.includes('fun') ? `center / contain url(${fb2})` :
+            background.includes('aesthetic') ? `center / contain url(${fb3})` :
+              background.includes('green') ? `center / contain url(${fb4})` :
+                background.includes('bw') ? `center / contain url(${fb5})` :
+                  background)
         }}
       >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '430px',
-              height: '290px',
-              resize: 'none'
-            }}
-          />
-        </div>
+        {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
+          <div id='template-inputs'>
+            <input
+              id='input1'
+              type='text'
+              placeholder="Title Here"
+              value={input1}
+              onChange={(e) => setInput1(e.target.value)}
+            />
+            <textarea
+              id='input2'
+              value={input2}
+              placeholder="Your text here"
+              onChange={(e) => setInput2(e.target.value)}
+              style={{
+                width: '430px',
+                height: '290px',
+                resize: 'none'
+              }}
+            />
+          </div> : background.includes('green') ?
+            <div id='template-inputs'>
+              <input
+                id='input1'
+                type='text'
+                placeholder="Title Here"
+                value={input1}
+                onChange={(e) => setInput1(e.target.value)}
+                style={{
+                  marginTop: '180px'
+                }}
+              />
+              <textarea
+                id='input2'
+                value={input2}
+                placeholder="Your text here"
+                onChange={(e) => setInput2(e.target.value)}
+                style={{
+                  width: '430px',
+                  height: '150px',
+                  resize: 'none'
+                }}
+              />
+            </div> : background.includes('bw') ?
+              <div id='template-inputs'>
+                <input
+                  id='input1'
+                  type='text'
+                  placeholder="Title Here"
+                  value={input1}
+                  onChange={(e) => setInput1(e.target.value)}
+                  style={{
+                    marginBottom: '235px'
+                  }}
+                />
+              </div> : null
+        }
       </div>
     )
   }
-  if (alias === 'fbpost-fun') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '470px',
-          height: '394px',
-          backgroundImage: `url(${fb2})`,
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '430px',
-              height: '290px',
-              resize: 'none'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  if (alias === 'fbpost-aesthetic') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '470px',
-          height: '394px',
-          backgroundImage: `url(${fb3})`,
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '430px',
-              height: '290px',
-              resize: 'none'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  if (alias === 'fbpost-green') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '470px',
-          height: '394px',
-          backgroundImage: `url(${fb4})`,
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-            style={{
-              marginTop: '180px'
-            }}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '430px',
-              height: '150px',
-              resize: 'none'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  if (alias === 'fbpost-bw') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '470px',
-          height: '394px',
-          backgroundImage: `url(${fb5})`,
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-            style={{
-              marginBottom: '235px'
-            }}
-          />
-          {/* <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-          /> */}
-        </div>
-      </div>
-    )
-  }
-  // INVITE -----------------------------------
-  if (alias === 'invitation-original') {
+  if (background.includes('invitation')) {
     template = (
       <div
         className="template"
         style={{
           width: '375px',
           height: '525px',
-          backgroundImage: `url(${inv1})`,
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
+          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          background: (background.includes('original') ? `center / contain url(${inv1})` :
+          background.includes('fun') ? `center / contain url(${inv2})` :
+            background.includes('aesthetic') ? `center / contain url(${inv3})` :
+              background.includes('green') ? `center / contain url(${inv4})` :
+                background.includes('bw') ? `center / contain url(${inv5})` :
+                  background)
         }}
       >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '350px',
-              height: '425px',
-              resize: 'none'
-            }}
-          />
-        </div>
+        {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
+          <div id='template-inputs'>
+            <input
+              id='input1'
+              type='text'
+              placeholder="Title Here"
+              value={input1}
+              onChange={(e) => setInput1(e.target.value)}
+            />
+            <textarea
+              id='input2'
+              value={input2}
+              placeholder="Your text here"
+              onChange={(e) => setInput2(e.target.value)}
+              style={{
+                width: '350px',
+                height: '425px',
+                resize: 'none'
+              }}
+            />
+          </div> : background.includes('green') ?
+            <div id='template-inputs'>
+              <input
+                id='input1'
+                type='text'
+                placeholder="Title Here"
+                value={input1}
+                onChange={(e) => setInput1(e.target.value)}
+                style={{
+                  marginTop: '230px'
+                }}
+              />
+              <textarea
+                id='input2'
+                value={input2}
+                placeholder="Your text here"
+                onChange={(e) => setInput2(e.target.value)}
+                style={{
+                  width: '344px',
+                  height: '188px',
+                  resize: 'none'
+                }}
+              />
+            </div> : background.includes('bw') ?
+              <div id='template-inputs'>
+                <input
+                  id='input1'
+                  type='text'
+                  placeholder="Title Here"
+                  value={input1}
+                  onChange={(e) => setInput1(e.target.value)}
+                  style={{
+                    width: '270px',
+                    height: '45px',
+                    resize: 'none',
+                    marginTop: '15px',
+                    marginLeft: '80px'
+                  }}
+                />
+                <textarea
+                  id='input2'
+                  value={input2}
+                  placeholder="Your text here"
+                  onChange={(e) => setInput2(e.target.value)}
+                  style={{
+                    width: '270px',
+                    height: '225px',
+                    resize: 'none',
+                    marginTop: '210px',
+                    marginLeft: '80px'
+                  }}
+                />
+              </div> : null
+        }
       </div>
     )
   }
-  if (alias === 'invitation-fun') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '375px',
-          height: '525px',
-          backgroundImage: `url(${inv2})`,
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '350px',
-              height: '425px',
-              resize: 'none'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  if (alias === 'invitation-aesthetic') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '375px',
-          height: '525px',
-          backgroundImage: `url(${inv3})`,
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '350px',
-              height: '425px',
-              resize: 'none'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  if (alias === 'invitation-green') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '375px',
-          height: '525px',
-          backgroundImage: `url(${inv4})`,
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-            style={{
-              marginTop: '230px'
-            }}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '344px',
-              height: '188px',
-              resize: 'none'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  if (alias === 'invitation-bw') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '375px',
-          height: '525px',
-          backgroundImage: `url(${inv5})`,
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-            style={{
-              width: '270px',
-              height: '45px',
-              resize: 'none',
-              marginTop: '15px',
-              marginLeft: '80px'
-            }}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '270px',
-              height: '225px',
-              resize: 'none',
-              marginTop: '210px',
-              marginLeft: '80px'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  // BIZCARD -----------------------------------
-  if (alias === 'businesscard-original') {
+  if (background.includes('businesscard')) {
     template = (
       <div
         className="template"
         style={{
           width: '336px',
           height: '192px',
-          backgroundImage: `url(${biz1})`,
-          backgroundSize: 'contain',
-          backgroundRepeat: 'no-repeat',
-          backgroundPositionX: 'center',
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
+          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          background: (background.includes('original') ? `center / contain url(${biz1})` :
+          background.includes('fun') ? `center / contain url(${biz2})` :
+            background.includes('aesthetic') ? `center / contain url(${biz3})` :
+              background.includes('green') ? `center / contain url(${biz4})` :
+                background.includes('bw') ? `center / contain url(${biz5})` :
+                  background)
         }}
       >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-            style={{
-              width: '280px',
-              marginLeft: '8px'
-            }}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '280px',
-              height: '72px',
-              resize: 'none',
-              marginLeft: '8px'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  if (alias === 'businesscard-fun') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '336px',
-          height: '192px',
-          backgroundImage: `url(${biz2})`,
-          backgroundSize: 'contain',
-          backgroundRepeat: 'no-repeat',
-          backgroundPositionX: 'center',
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-            style={{
-              width: '280px',
-              marginLeft: '8px'
-            }}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '280px',
-              height: '72px',
-              resize: 'none',
-              marginLeft: '8px'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  if (alias === 'businesscard-aesthetic') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '336px',
-          height: '192px',
-          backgroundImage: `url(${biz3})`,
-          backgroundSize: 'contain',
-          backgroundRepeat: 'no-repeat',
-          backgroundPositionX: 'center',
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-            style={{
-              width: '280px',
-              marginLeft: '8px'
-            }}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '280px',
-              height: '72px',
-              resize: 'none',
-              marginLeft: '8px'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  if (alias === 'businesscard-green') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '336px',
-          height: '192px',
-          backgroundImage: `url(${biz4})`,
-          backgroundSize: 'contain',
-          backgroundRepeat: 'no-repeat',
-          backgroundPositionX: 'center',
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-            style={{
-              width: '160px',
-              marginLeft: '140px',
-              marginTop: '65px'
-            }}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '160px',
-              height: '62px',
-              resize: 'none',
-              marginLeft: '140px',
-              marginTop: '-5px'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  if (alias === 'businesscard-bw') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '336px',
-          height: '192px',
-          backgroundImage: `url(${biz5})`,
-          backgroundSize: 'contain',
-          backgroundRepeat: 'no-repeat',
-          backgroundPositionX: 'center',
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-            style={{
-              width: '190px',
-              marginLeft: '130px',
-              marginTop: '65px'
-            }}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '190px',
-              height: '62px',
-              resize: 'none',
-              marginLeft: '130px',
-              marginTop: '-5px'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  // INFOGRAPH -------------------------
-  if (alias === 'infograph-original') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '200px',
-          height: '500px',
-          backgroundImage: `url(${info1})`,
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-            style={{
-              width: '150px',
+        {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
+          <div id='template-inputs'>
+            <input
+              id='input1'
+              type='text'
+              placeholder="Title Here"
+              value={input1}
+              onChange={(e) => setInput1(e.target.value)}
+              style={{
+                width: '280px',
+                marginLeft: '8px'
+              }}
+            />
+            <textarea
+              id='input2'
+              value={input2}
+              placeholder="Your text here"
+              onChange={(e) => setInput2(e.target.value)}
+              style={{
+                width: '280px',
+                height: '72px',
+                resize: 'none',
+                marginLeft: '8px'
+              }}
+            />
+          </div> : background.includes('green') ?
+            <div id='template-inputs'>
+              <input
+                id='input1'
+                type='text'
+                placeholder="Title Here"
+                value={input1}
+                onChange={(e) => setInput1(e.target.value)}
+                style={{
+                  width: '160px',
+                  marginLeft: '140px',
+                  marginTop: '65px'
+                }}
+              />
+              <textarea
+                id='input2'
+                value={input2}
+                placeholder="Your text here"
+                onChange={(e) => setInput2(e.target.value)}
+                style={{
+                  width: '160px',
+                  height: '62px',
+                  resize: 'none',
+                  marginLeft: '140px',
+                  marginTop: '-5px'
+                }}
+              />
+            </div> : background.includes('bw') ?
+              <div id='template-inputs'>
+                <input
+                  id='input1'
+                  type='text'
+                  placeholder="Title Here"
+                  value={input1}
+                  onChange={(e) => setInput1(e.target.value)}
+                  style={{
+                    width: '190px',
+                    marginLeft: '130px',
+                    marginTop: '65px'
+                  }}
+                />
+                <textarea
+                  id='input2'
+                  value={input2}
+                  placeholder="Your text here"
+                  onChange={(e) => setInput2(e.target.value)}
+                  style={{
+                    width: '190px',
+                    height: '62px',
+                    resize: 'none',
+                    marginLeft: '130px',
+                    marginTop: '-5px'
+                  }}
+                />
+              </div> : null
+        }
 
-            }}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '150px',
-              height: '400px',
-              maxWidth: '150px',
-              minWidth: '150px',
-              maxHeight: '400px',
-              minHeight: '150px'
-            }}
-          />
-        </div>
       </div>
     )
   }
-  if (alias === 'infograph-fun') {
+  if (background.includes('infograph')) {
     template = (
       <div
         className="template"
         style={{
           width: '200px',
           height: '500px',
-          backgroundImage: `url(${info2})`,
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
+          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          background: (background.includes('original') ? `center / contain url(${info1})` :
+          background.includes('fun') ? `center / contain url(${info2})` :
+            background.includes('aesthetic') ? `center / contain url(${info3})` :
+              background.includes('green') ? `center / contain url(${info4})` :
+                background.includes('bw') ? `center / contain url(${info5})` :
+                  background)
         }}
       >
         <div id='template-inputs'>
@@ -1799,123 +1032,41 @@ export default function CreateDesign() {
       </div>
     )
   }
-  if (alias === 'infograph-aesthetic') {
+
+  if(__colors.find(e => e.alias === background)) {
     template = (
       <div
         className="template"
         style={{
-          width: '200px',
-          height: '500px',
-          backgroundImage: `url(${info3})`,
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
+          width: '960px',
+          height: '540px',
+          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+          background: background
         }}
       >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-            style={{
-              width: '150px'
-            }}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '150px',
-              height: '400px',
-              maxWidth: '150px',
-              minWidth: '150px',
-              maxHeight: '400px',
-              minHeight: '150px'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  if (alias === 'infograph-green') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '200px',
-          height: '500px',
-          backgroundImage: `url(${info4})`,
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-            style={{
-              width: '150px'
-            }}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '150px',
-              height: '400px',
-              maxWidth: '150px',
-              minWidth: '150px',
-              maxHeight: '400px',
-              minHeight: '150px'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
-  if (alias === 'infograph-bw') {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '200px',
-          height: '500px',
-          backgroundImage: `url(${info5})`,
-          backgroundColor: `${localStorage.getItem('backgroundColor')}`
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-            style={{
-              width: '150px'
-            }}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '150px',
-              height: '400px',
-              maxWidth: '150px',
-              minWidth: '150px',
-              maxHeight: '400px',
-              minHeight: '150px'
-            }}
-          />
-        </div>
+          <div id='template-inputs'>
+            <input
+              id='input1'
+              type='text'
+              placeholder="Title Here"
+              value={input1}
+              onChange={(e) => setInput1(e.target.value)}
+            />
+            <textarea
+              id='input2'
+              value={input2}
+              placeholder="Your text here"
+              onChange={(e) => setInput2(e.target.value)}
+              style={{
+                width: '880px',
+                height: '440px',
+                maxWidth: '880px',
+                maxHeight: '440px',
+                minWidth: '347px',
+                minHeight: '120px'
+              }}
+            />
+          </div>
       </div>
     )
   }
@@ -1955,7 +1106,7 @@ export default function CreateDesign() {
             <input
               type='text'
               value={background}
-              // hidden
+              hidden
               onChange={e => {
                 setBackground(e.target.value)
               }}
@@ -2002,7 +1153,10 @@ export default function CreateDesign() {
                   <div id='temp-container-des' onClick={() => {
                     // console.log('TEMP', temp)
                     setTemp(temp)
-                    history.push(`/designs/new/${temp.alias}`)
+                    setBackground(temp.alias)
+                    const image = document.getElementById('temp-img')
+                    image.src = TEMPLATES[temp.alias]
+                    // history.push(`/designs/new/${temp.alias}`)
                   }}>
                     {temp.alias === 'presentation-original' ?
                       <img id='temp-img' src={pres1} alt='pres' width='160px' /> :

@@ -148,7 +148,6 @@ export default function SingleDesign() {
   // const [input5, setInput5] = useState('');
   const [color, setColor] = useState('');
   const [font, setFont] = useState('');
-  const [activeColor, setActiveColor] = useState(false);
   const [background, setBackground] = useState('');
   if (!Object.values(singleDesign).length) {
     dispatch(getADesign(designId))
@@ -242,10 +241,10 @@ export default function SingleDesign() {
   // LOADING TEMPLATES --------------------------------------------------
   let template;
 
-  console.log('CURRENT alias', alias)
-  console.log('CURRENT Background', background)
-  console.log('CURRENT SINGLEDES.BG', singleDesign.background)
-  console.log('SINGLE DES', singleDesign)
+  // console.log('CURRENT alias', alias)
+  // console.log('CURRENT Background', background)
+  // console.log('CURRENT SINGLEDES.BG', singleDesign.background)
+  // console.log('SINGLE DES', singleDesign)
 
   if (background.includes('presentation')) {
     template = (
@@ -261,13 +260,6 @@ export default function SingleDesign() {
               background.includes('green') ? `center / contain url(${pres4})` :
                 background.includes('bw') ? `center / contain url(${pres5})` :
                   background)
-          // `url(${alias.includes('original') ? pres1 :
-          //   alias.includes('fun') ? pres2 :
-          //     alias.includes('aesthetic') ? pres3 :
-          //       alias.includes('green') ? pres4 :
-          //         alias.includes('bw') ? pres5 :
-          //           null
-          //   })`
         }}
       >
         {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
@@ -1140,7 +1132,7 @@ export default function SingleDesign() {
               <input
                 type='text'
                 value={background}
-                // hidden
+                hidden
                 onChange={e => {
                   setBackground(e.target.value)
                 }}
@@ -1191,8 +1183,8 @@ export default function SingleDesign() {
                       setBackground(temp.alias)
                       const image = document.getElementById('temp-img')
                       image.src = TEMPLATES[temp.alias]
-                      console.log('image', image)
-                      console.log('temp.alias', temp.alias)
+                      // console.log('image', image)
+                      // console.log('temp.alias', temp.alias)
                       // if (temp.alias) {
                       //   history.push(`/designs/${designId}/${temp.alias}`)
                       // }
