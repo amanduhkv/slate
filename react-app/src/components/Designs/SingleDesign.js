@@ -2,9 +2,12 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory, useLocation } from "react-router-dom";
 import { getADesign, updateDesign, clearData, getAllDesigns } from "../../store/designs";
-import { getAllBrands } from "../../store/brands"
+import { getAllBrands } from "../../store/brands";
+import './design.css';
 
 import left from '../../icons/left.svg';
+import outlinetemp from '../../icons/outline-temp.png';
+import colors from '../../icons/colors.svg';
 // import present from '../../icons/temps/presentation.png';
 // import website from '../../icons/temps/website.png';
 // import resume from '../../icons/temps/resume.png';
@@ -213,13 +216,6 @@ export default function SingleDesign() {
     setValidationErrs(errors);
   }, [name]);
 
-  const toggleBG = () => {
-    if(singleDesign.color) {
-      setBackground(singleDesign.color)
-    } else {
-      setBackground('')
-    }
-  }
 
   // CHANGING BCKGD COLOR FXNS ------------------------------------------
   useEffect(() => {
@@ -227,16 +223,12 @@ export default function SingleDesign() {
       setBackground(singleDesign.color)
     }
   }, [singleDesign.color])
-  // if (singleDesign.color) {
-  //   setBackground(singleDesign.color)
-  // }
-  // useEffect(() => {
-  //   const resultingTemp = document.getElementsByClassName('template')[0];
-  //   console.log('RESULTING TEMPS', resultingTemp);
-  //   if(singleDesign) {
-  //     resultingTemp.style['background-color'] = backgroundColor
-  //   }
-  // }, [backgroundColor])
+
+  // ADDING ANOTHER PAGE ------------------------------------------------
+  const addPage = () => {
+    const page = document.getElementById('adding-another');
+    page.innerHTML = template;
+  }
 
   // LOADING TEMPLATES --------------------------------------------------
   let template;
@@ -1169,10 +1161,14 @@ export default function SingleDesign() {
           )}
         </div>
       </form>
+
       <div className="edit-container">
         {user && user.id === singleDesign.user_id && (
           <div className="sidebar">
-            <button onClick={openSideMenu}>Templates</button>
+            <button id='sidebar' onClick={openSideMenu}>
+              <img src={outlinetemp} alt='temp' height='40px' />
+              Templates
+            </button>
             {showSideMenu && (
               <div className="temp-menu-container">
                 {/* <div id='warning'>Warning: Switching templates deletes any previous work made.</div> */}
@@ -1290,7 +1286,11 @@ export default function SingleDesign() {
               </div>
             )}
 
-            <button onClick={openBrandMenu}>Brand Colors</button>
+
+            <button id='sidebar' onClick={openBrandMenu}>
+              <img src={colors} alt='temp' height='40px' />
+              Brand Colors
+            </button>
             {showBrandMenu && (
               // <div id='temp-menu-item-brand'>
               //   <div id='brand-side-content'>Oops! Looks like this feature is still in the works. In the meantime, try checking out brands for the future!
@@ -1339,7 +1339,20 @@ export default function SingleDesign() {
         <div className="edit-area">
           {user && user.id === singleDesign.user_id && (
             <div id="inserted-temp">
-              {template}
+              <div>
+                {template}
+                {/* <div id='adding-another'>
+                  {template}
+                </div> */}
+              </div>
+              {/* <button id='add-page'
+              onClick={() => {
+                const page = document.getElementById('adding-another');
+                page.innerHTML = {template};
+              }}
+              >
+                +
+              </button> */}
             </div>
           )}
           {user && user.id !== singleDesign.user_id && (

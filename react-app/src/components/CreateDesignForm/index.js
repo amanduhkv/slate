@@ -8,6 +8,8 @@ import './Draggable.css';
 // import '../Designs/index.css';
 
 import left from '../../icons/left.svg';
+import outlinetemp from '../../icons/outline-temp.png';
+import colors from '../../icons/colors.svg';
 
 import pres1 from '../../icons/change-temps/present-temp/pres-original.svg';
 import pres2 from '../../icons/change-temps/present-temp/pres-fun.svg';
@@ -271,11 +273,11 @@ export default function CreateDesign() {
           height: '540px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
           background: (background.includes('original') ? `center / contain url(${pres1})` :
-          background.includes('fun') ? `center / contain url(${pres2})` :
-            background.includes('aesthetic') ? `center / contain url(${pres3})` :
-              background.includes('green') ? `center / contain url(${pres4})` :
-                background.includes('bw') ? `center / contain url(${pres5})` :
-                  background)
+            background.includes('fun') ? `center / contain url(${pres2})` :
+              background.includes('aesthetic') ? `center / contain url(${pres3})` :
+                background.includes('green') ? `center / contain url(${pres4})` :
+                  background.includes('bw') ? `center / contain url(${pres5})` :
+                    background)
         }}
       >
         {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
@@ -362,11 +364,11 @@ export default function CreateDesign() {
           height: '384px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
           background: background.includes('original') ? `center / contain url(${web1})` :
-          background.includes('fun') ? `center / contain url(${web2})` :
-          background.includes('aesthetic') ? `center / contain url(${web3})` :
-            background.includes('green') ? `center / contain url(${web4})` :
-              background.includes('bw') ? `center / contain url(${web5})` :
-                background
+            background.includes('fun') ? `center / contain url(${web2})` :
+              background.includes('aesthetic') ? `center / contain url(${web3})` :
+                background.includes('green') ? `center / contain url(${web4})` :
+                  background.includes('bw') ? `center / contain url(${web5})` :
+                    background
         }}
       >
         {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
@@ -463,11 +465,11 @@ export default function CreateDesign() {
           height: '550px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
           background: (background.includes('original') ? `center / contain url(${res1})` :
-          background.includes('fun') ? `center / contain url(${res2})` :
-            background.includes('aesthetic') ? `center / contain url(${res3})` :
-              background.includes('green') ? `center / contain url(${res4})` :
-                background.includes('bw') ? `center / contain url(${res5})` :
-                  background)
+            background.includes('fun') ? `center / contain url(${res2})` :
+              background.includes('aesthetic') ? `center / contain url(${res3})` :
+                background.includes('green') ? `center / contain url(${res4})` :
+                  background.includes('bw') ? `center / contain url(${res5})` :
+                    background)
         }}
       >
         {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
@@ -562,11 +564,11 @@ export default function CreateDesign() {
           height: '480px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
           background: (background.includes('original') ? `center / contain url(${ig1})` :
-          background.includes('fun') ? `center / contain url(${ig2})` :
-            background.includes('aesthetic') ? `center / contain url(${ig3})` :
-              background.includes('green') ? `center / contain url(${ig4})` :
-                background.includes('bw') ? `center / contain url(${ig5})` :
-                  background)
+            background.includes('fun') ? `center / contain url(${ig2})` :
+              background.includes('aesthetic') ? `center / contain url(${ig3})` :
+                background.includes('green') ? `center / contain url(${ig4})` :
+                  background.includes('bw') ? `center / contain url(${ig5})` :
+                    background)
         }}
       >
         {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
@@ -654,11 +656,11 @@ export default function CreateDesign() {
           height: '480px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
           background: (background.includes('original') ? `center / contain url(${igs1})` :
-          background.includes('fun') ? `center / contain url(${igs2})` :
-            background.includes('aesthetic') ? `center / contain url(${igs3})` :
-              background.includes('green') ? `center / contain url(${igs4})` :
-                background.includes('bw') ? `center / contain url(${igs5})` :
-                  background)
+            background.includes('fun') ? `center / contain url(${igs2})` :
+              background.includes('aesthetic') ? `center / contain url(${igs3})` :
+                background.includes('green') ? `center / contain url(${igs4})` :
+                  background.includes('bw') ? `center / contain url(${igs5})` :
+                    background)
         }}
       >
         {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
@@ -726,11 +728,11 @@ export default function CreateDesign() {
           height: '394px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
           background: (background.includes('original') ? `center / contain url(${fb1})` :
-          background.includes('fun') ? `center / contain url(${fb2})` :
-            background.includes('aesthetic') ? `center / contain url(${fb3})` :
-              background.includes('green') ? `center / contain url(${fb4})` :
-                background.includes('bw') ? `center / contain url(${fb5})` :
-                  background)
+            background.includes('fun') ? `center / contain url(${fb2})` :
+              background.includes('aesthetic') ? `center / contain url(${fb3})` :
+                background.includes('green') ? `center / contain url(${fb4})` :
+                  background.includes('bw') ? `center / contain url(${fb5})` :
+                    background)
         }}
       >
         {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
@@ -802,11 +804,11 @@ export default function CreateDesign() {
           height: '525px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
           background: (background.includes('original') ? `center / contain url(${inv1})` :
-          background.includes('fun') ? `center / contain url(${inv2})` :
-            background.includes('aesthetic') ? `center / contain url(${inv3})` :
-              background.includes('green') ? `center / contain url(${inv4})` :
-                background.includes('bw') ? `center / contain url(${inv5})` :
-                  background)
+            background.includes('fun') ? `center / contain url(${inv2})` :
+              background.includes('aesthetic') ? `center / contain url(${inv3})` :
+                background.includes('green') ? `center / contain url(${inv4})` :
+                  background.includes('bw') ? `center / contain url(${inv5})` :
+                    background)
         }}
       >
         {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
@@ -895,11 +897,11 @@ export default function CreateDesign() {
           height: '192px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
           background: (background.includes('original') ? `center / contain url(${biz1})` :
-          background.includes('fun') ? `center / contain url(${biz2})` :
-            background.includes('aesthetic') ? `center / contain url(${biz3})` :
-              background.includes('green') ? `center / contain url(${biz4})` :
-                background.includes('bw') ? `center / contain url(${biz5})` :
-                  background)
+            background.includes('fun') ? `center / contain url(${biz2})` :
+              background.includes('aesthetic') ? `center / contain url(${biz3})` :
+                background.includes('green') ? `center / contain url(${biz4})` :
+                  background.includes('bw') ? `center / contain url(${biz5})` :
+                    background)
         }}
       >
         {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
@@ -996,11 +998,11 @@ export default function CreateDesign() {
           height: '500px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
           background: (background.includes('original') ? `center / contain url(${info1})` :
-          background.includes('fun') ? `center / contain url(${info2})` :
-            background.includes('aesthetic') ? `center / contain url(${info3})` :
-              background.includes('green') ? `center / contain url(${info4})` :
-                background.includes('bw') ? `center / contain url(${info5})` :
-                  background)
+            background.includes('fun') ? `center / contain url(${info2})` :
+              background.includes('aesthetic') ? `center / contain url(${info3})` :
+                background.includes('green') ? `center / contain url(${info4})` :
+                  background.includes('bw') ? `center / contain url(${info5})` :
+                    background)
         }}
       >
         <div id='template-inputs'>
@@ -1033,7 +1035,7 @@ export default function CreateDesign() {
     )
   }
 
-  if(__colors.find(e => e.alias === background)) {
+  if (__colors.find(e => e.alias === background)) {
     template = (
       <div
         className="template"
@@ -1044,29 +1046,29 @@ export default function CreateDesign() {
           background: background
         }}
       >
-          <div id='template-inputs'>
-            <input
-              id='input1'
-              type='text'
-              placeholder="Title Here"
-              value={input1}
-              onChange={(e) => setInput1(e.target.value)}
-            />
-            <textarea
-              id='input2'
-              value={input2}
-              placeholder="Your text here"
-              onChange={(e) => setInput2(e.target.value)}
-              style={{
-                width: '880px',
-                height: '440px',
-                maxWidth: '880px',
-                maxHeight: '440px',
-                minWidth: '347px',
-                minHeight: '120px'
-              }}
-            />
-          </div>
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '880px',
+              height: '440px',
+              maxWidth: '880px',
+              maxHeight: '440px',
+              minWidth: '347px',
+              minHeight: '120px'
+            }}
+          />
+        </div>
       </div>
     )
   }
@@ -1144,7 +1146,10 @@ export default function CreateDesign() {
 
       <div className="edit-container">
         <div className="sidebar">
-          <button onClick={openSideMenu}>Templates</button>
+          <button id='sidebar' onClick={openSideMenu}>
+            <img src={outlinetemp} alt='temp' height='40px' />
+            Templates
+          </button>
           {showSideMenu && (
             <div className="temp-menu-container">
               {/* <div id='warning'>Warning: Switching templates deletes any previous work made.</div> */}
@@ -1259,7 +1264,10 @@ export default function CreateDesign() {
             </div>
           )}
 
-          <button onClick={openBrandMenu}>Brands</button>
+          <button id='sidebar' onClick={openBrandMenu}>
+            <img src={colors} alt='temp' height='40px' />
+            Brand Colors
+          </button>
           {showBrandMenu && (
             // <div id='temp-menu-item-brand'>
             //   <div id='brand-side-content'>Oops! Looks like this feature is still in the works. In the meantime, try checking out brands for the future!
@@ -1273,19 +1281,19 @@ export default function CreateDesign() {
               {Object.values(brands).map(brand => (
                 <div className="des-brand-colors">
                   {brand.colors.map(color => (
-                  <div
-                    id='each-color'
-                    onClick={() => {
-                      setColor(color.name);
-                      setBackground(color.name)
-                      // localStorage.setItem('backgroundColor', color.name)
-                    }}
-                    style={{
-                      backgroundColor: `${color.name}`
-                    }}
-                  >
-                    {/* {color.name} */}
-                  </div>
+                    <div
+                      id='each-color'
+                      onClick={() => {
+                        setColor(color.name);
+                        setBackground(color.name)
+                        // localStorage.setItem('backgroundColor', color.name)
+                      }}
+                      style={{
+                        backgroundColor: `${color.name}`
+                      }}
+                    >
+                      {/* {color.name} */}
+                    </div>
                   ))}
                   {brand.fonts.map(font => (
                     <div
