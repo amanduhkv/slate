@@ -200,6 +200,7 @@ export default function SingleDesign() {
       setName(singleDesign.name)
       setTemp(singleDesign.background ? singleDesign.background : alias)
       setBackground(singleDesign.background ? singleDesign.background : alias)
+      setColor(singleDesign.color ? singleDesign.color : '')
       setInput1(singleDesign.text_input_1 ? singleDesign.text_input_1 : '')
       setInput2(singleDesign.text_input_2 ? singleDesign.text_input_2 : '')
     }
@@ -218,11 +219,11 @@ export default function SingleDesign() {
 
 
   // CHANGING BCKGD COLOR FXNS ------------------------------------------
-  useEffect(() => {
-    if(singleDesign.color) {
-      setBackground(singleDesign.color)
-    }
-  }, [singleDesign.color])
+  // useEffect(() => {
+  //   if(singleDesign.color) {
+  //     setBackground(singleDesign.color)
+  //   }
+  // }, [singleDesign.color])
 
   // ADDING ANOTHER PAGE ------------------------------------------------
   const addPage = () => {
@@ -874,11 +875,11 @@ export default function SingleDesign() {
           width: '336px',
           height: '192px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          background: (background.includes('original') ? `center / contain url(${biz1})` :
-          background.includes('fun') ? `center / contain url(${biz2})` :
-            background.includes('aesthetic') ? `center / contain url(${biz3})` :
-              background.includes('green') ? `center / contain url(${biz4})` :
-                background.includes('bw') ? `center / contain url(${biz5})` :
+          background: (background.includes('original') ? `center / contain url(${biz1}) ${color}` :
+          background.includes('fun') ? `center / contain url(${biz2}) ${color}` :
+            background.includes('aesthetic') ? `center / contain url(${biz3}) ${color}` :
+              background.includes('green') ? `center / contain url(${biz4}) ${color}` :
+                background.includes('bw') ? `center / contain url(${biz5}) ${color}` :
                   background)
         }}
       >
@@ -1312,7 +1313,7 @@ export default function SingleDesign() {
                         id='each-color'
                         onClick={() => {
                           setColor(color.name);
-                          setBackground(color.name);
+                          // setBackground(color.name);
                           // localStorage.setItem('backgroundColor', color.name)
                         }}
                         style={{

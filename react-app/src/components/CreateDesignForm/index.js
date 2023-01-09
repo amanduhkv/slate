@@ -896,11 +896,11 @@ export default function CreateDesign() {
           width: '336px',
           height: '192px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          background: (background.includes('original') ? `center / contain url(${biz1})` :
-            background.includes('fun') ? `center / contain url(${biz2})` :
-              background.includes('aesthetic') ? `center / contain url(${biz3})` :
-                background.includes('green') ? `center / contain url(${biz4})` :
-                  background.includes('bw') ? `center / contain url(${biz5})` :
+          background: (background.includes('original') ? `center / contain url(${biz1}) ${color}` :
+            background.includes('fun') ? `center / contain url(${biz2}) ${color}` :
+              background.includes('aesthetic') ? `center / contain url(${biz3}) ${color}` :
+                background.includes('green') ? `center / contain url(${biz4}) ${color}` :
+                  background.includes('bw') ? `center / contain url(${biz5}) ${color}` :
                     background)
         }}
       >
@@ -1285,7 +1285,7 @@ export default function CreateDesign() {
                       id='each-color'
                       onClick={() => {
                         setColor(color.name);
-                        setBackground(color.name)
+                        // setBackground(color.name)
                         // localStorage.setItem('backgroundColor', color.name)
                       }}
                       style={{
