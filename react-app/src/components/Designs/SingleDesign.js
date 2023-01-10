@@ -25,11 +25,11 @@ import pres3 from '../../icons/change-temps/present-temp/pres-aesthetic.svg';
 import pres4 from '../../icons/change-temps/present-temp/pres-green.svg';
 import pres5 from '../../icons/change-temps/present-temp/pres-bw.svg';
 
-import web1 from '../../icons/change-temps/website-temp/web-original.png';
-import web2 from '../../icons/change-temps/website-temp/web-fun.png';
-import web3 from '../../icons/change-temps/website-temp/web-aesthetic.png';
-import web4 from '../../icons/change-temps/website-temp/web-green.png';
-import web5 from '../../icons/change-temps/website-temp/web-bw.png';
+import web1 from '../../icons/change-temps/website-temp/web-original.svg';
+import web2 from '../../icons/change-temps/website-temp/web-fun.svg';
+import web3 from '../../icons/change-temps/website-temp/web-aesthetic.svg';
+import web4 from '../../icons/change-temps/website-temp/web-green.svg';
+import web5 from '../../icons/change-temps/website-temp/web-bw.svg';
 
 import ig1 from '../../icons/change-temps/ig-temp/ig-original.svg';
 import ig2 from '../../icons/change-temps/ig-temp/ig-fun.svg';
@@ -73,7 +73,7 @@ import res3 from '../../icons/change-temps/res-temp/res-aesthetic.svg';
 import res4 from '../../icons/change-temps/res-temp/res-green.svg';
 import res5 from '../../icons/change-temps/res-temp/res-bw.svg';
 
-import {__colors} from '../../assets/colors.js';
+import { __colors, colorsByHue } from '../../assets/colors.js';
 
 const TEMPLATES = {
   'presentation-original': pres1,
@@ -200,6 +200,7 @@ export default function SingleDesign() {
       setName(singleDesign.name)
       setTemp(singleDesign.background ? singleDesign.background : alias)
       setBackground(singleDesign.background ? singleDesign.background : alias)
+      setColor(singleDesign.color ? singleDesign.color : '')
       setInput1(singleDesign.text_input_1 ? singleDesign.text_input_1 : '')
       setInput2(singleDesign.text_input_2 ? singleDesign.text_input_2 : '')
     }
@@ -218,11 +219,11 @@ export default function SingleDesign() {
 
 
   // CHANGING BCKGD COLOR FXNS ------------------------------------------
-  useEffect(() => {
-    if(singleDesign.color) {
-      setBackground(singleDesign.color)
-    }
-  }, [singleDesign.color])
+  // useEffect(() => {
+  //   if(singleDesign.color) {
+  //     setBackground(singleDesign.color)
+  //   }
+  // }, [singleDesign.color])
 
   // ADDING ANOTHER PAGE ------------------------------------------------
   const addPage = () => {
@@ -246,12 +247,12 @@ export default function SingleDesign() {
           width: '960px',
           height: '540px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          background: (background.includes('original') ? `center / contain url(${pres1})` :
-          background.includes('fun') ? `center / contain url(${pres2})` :
-            background.includes('aesthetic') ? `center / contain url(${pres3})` :
-              background.includes('green') ? `center / contain url(${pres4})` :
-                background.includes('bw') ? `center / contain url(${pres5})` :
-                  background)
+          background: (background.includes('original') ? `center / contain url(${pres1}) ${color}` :
+            background.includes('fun') ? `center / contain url(${pres2}) ${color}` :
+              background.includes('aesthetic') ? `center / contain url(${pres3}) ${color}` :
+                background.includes('green') ? `center / contain url(${pres4}) ${color}` :
+                  background.includes('bw') ? `center / contain url(${pres5}) ${color}` :
+                    background)
         }}
       >
         {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
@@ -341,12 +342,12 @@ export default function SingleDesign() {
           width: '683px',
           height: '384px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          background: background.includes('original') ? `center / contain url(${web1})` :
-          background.includes('fun') ? `center / contain url(${web2})` :
-          background.includes('aesthetic') ? `center / contain url(${web3})` :
-            background.includes('green') ? `center / contain url(${web4})` :
-              background.includes('bw') ? `center / contain url(${web5})` :
-                background
+          background: background.includes('original') ? `center / contain url(${web1}) ${color}` :
+            background.includes('fun') ? `center / contain url(${web2}) ${color}` :
+              background.includes('aesthetic') ? `center / contain url(${web3}) ${color}` :
+                background.includes('green') ? `center / contain url(${web4}) ${color}` :
+                  background.includes('bw') ? `center / contain url(${web5}) ${color}` :
+                    background
         }}
       >
         {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
@@ -442,12 +443,12 @@ export default function SingleDesign() {
           width: '425px',
           height: '550px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          background: (background.includes('original') ? `center / contain url(${res1})` :
-          background.includes('fun') ? `center / contain url(${res2})` :
-            background.includes('aesthetic') ? `center / contain url(${res3})` :
-              background.includes('green') ? `center / contain url(${res4})` :
-                background.includes('bw') ? `center / contain url(${res5})` :
-                  background)
+          background: (background.includes('original') ? `center / contain url(${res1}) ${color}` :
+            background.includes('fun') ? `center / contain url(${res2}) ${color}` :
+              background.includes('aesthetic') ? `center / contain url(${res3}) ${color}` :
+                background.includes('green') ? `center / contain url(${res4}) ${color}` :
+                  background.includes('bw') ? `center / contain url(${res5}) ${color}` :
+                    background)
         }}
       >
         {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
@@ -541,12 +542,12 @@ export default function SingleDesign() {
           width: '480px',
           height: '480px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          background: (background.includes('original') ? `center / contain url(${ig1})` :
-          background.includes('fun') ? `center / contain url(${ig2})` :
-            background.includes('aesthetic') ? `center / contain url(${ig3})` :
-              background.includes('green') ? `center / contain url(${ig4})` :
-                background.includes('bw') ? `center / contain url(${ig5})` :
-                  background)
+          background: (background.includes('original') ? `center / contain url(${ig1}) ${color}` :
+            background.includes('fun') ? `center / contain url(${ig2}) ${color}` :
+              background.includes('aesthetic') ? `center / contain url(${ig3}) ${color}` :
+                background.includes('green') ? `center / contain url(${ig4}) ${color}` :
+                  background.includes('bw') ? `center / contain url(${ig5}) ${color}` :
+                    background)
         }}
       >
         {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
@@ -633,12 +634,12 @@ export default function SingleDesign() {
           width: '270px',
           height: '480px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          background: (background.includes('original') ? `center / contain url(${igs1})` :
-          background.includes('fun') ? `center / contain url(${igs2})` :
-            background.includes('aesthetic') ? `center / contain url(${igs3})` :
-              background.includes('green') ? `center / contain url(${igs4})` :
-                background.includes('bw') ? `center / contain url(${igs5})` :
-                  background)
+          background: (background.includes('original') ? `center / contain url(${igs1}) ${color}` :
+            background.includes('fun') ? `center / contain url(${igs2}) ${color}` :
+              background.includes('aesthetic') ? `center / contain url(${igs3}) ${color}` :
+                background.includes('green') ? `center / contain url(${igs4}) ${color}` :
+                  background.includes('bw') ? `center / contain url(${igs5}) ${color}` :
+                    background)
         }}
       >
         {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
@@ -705,12 +706,12 @@ export default function SingleDesign() {
           width: '470px',
           height: '394px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          background: (background.includes('original') ? `center / contain url(${fb1})` :
-          background.includes('fun') ? `center / contain url(${fb2})` :
-            background.includes('aesthetic') ? `center / contain url(${fb3})` :
-              background.includes('green') ? `center / contain url(${fb4})` :
-                background.includes('bw') ? `center / contain url(${fb5})` :
-                  background)
+          background: (background.includes('original') ? `center / contain url(${fb1}) ${color}` :
+            background.includes('fun') ? `center / contain url(${fb2}) ${color}` :
+              background.includes('aesthetic') ? `center / contain url(${fb3}) ${color}` :
+                background.includes('green') ? `center / contain url(${fb4}) ${color}` :
+                  background.includes('bw') ? `center / contain url(${fb5}) ${color}` :
+                    background)
         }}
       >
         {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
@@ -781,12 +782,12 @@ export default function SingleDesign() {
           width: '375px',
           height: '525px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          background: (background.includes('original') ? `center / contain url(${inv1})` :
-          background.includes('fun') ? `center / contain url(${inv2})` :
-            background.includes('aesthetic') ? `center / contain url(${inv3})` :
-              background.includes('green') ? `center / contain url(${inv4})` :
-                background.includes('bw') ? `center / contain url(${inv5})` :
-                  background)
+          background: (background.includes('original') ? `center / contain url(${inv1}) ${color}` :
+            background.includes('fun') ? `center / contain url(${inv2}) ${color}` :
+              background.includes('aesthetic') ? `center / contain url(${inv3}) ${color}` :
+                background.includes('green') ? `center / contain url(${inv4}) ${color}` :
+                  background.includes('bw') ? `center / contain url(${inv5}) ${color}` :
+                    background)
         }}
       >
         {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
@@ -874,12 +875,12 @@ export default function SingleDesign() {
           width: '336px',
           height: '192px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          background: (background.includes('original') ? `center / contain url(${biz1})` :
-          background.includes('fun') ? `center / contain url(${biz2})` :
-            background.includes('aesthetic') ? `center / contain url(${biz3})` :
-              background.includes('green') ? `center / contain url(${biz4})` :
-                background.includes('bw') ? `center / contain url(${biz5})` :
-                  background)
+          background: (background.includes('original') ? `center / contain url(${biz1}) ${color}` :
+            background.includes('fun') ? `center / contain url(${biz2}) ${color}` :
+              background.includes('aesthetic') ? `center / contain url(${biz3}) ${color}` :
+                background.includes('green') ? `center / contain url(${biz4}) ${color}` :
+                  background.includes('bw') ? `center / contain url(${biz5}) ${color}` :
+                    background)
         }}
       >
         {background.includes('original') || background.includes('fun') || background.includes('aesthetic') ?
@@ -975,12 +976,12 @@ export default function SingleDesign() {
           width: '200px',
           height: '500px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          background: (background.includes('original') ? `center / contain url(${info1})` :
-          background.includes('fun') ? `center / contain url(${info2})` :
-            background.includes('aesthetic') ? `center / contain url(${info3})` :
-              background.includes('green') ? `center / contain url(${info4})` :
-                background.includes('bw') ? `center / contain url(${info5})` :
-                  background)
+          background: (background.includes('original') ? `center / contain url(${info1}) ${color}` :
+            background.includes('fun') ? `center / contain url(${info2}) ${color}` :
+              background.includes('aesthetic') ? `center / contain url(${info3}) ${color}` :
+                background.includes('green') ? `center / contain url(${info4}) ${color}` :
+                  background.includes('bw') ? `center / contain url(${info5}) ${color}` :
+                    background)
         }}
       >
         <div id='template-inputs'>
@@ -1013,7 +1014,7 @@ export default function SingleDesign() {
     )
   }
 
-  if(__colors.find(e => e.alias === background)) {
+  if (__colors.find(e => e.alias === background)) {
     template = (
       <div
         className="template"
@@ -1024,33 +1025,33 @@ export default function SingleDesign() {
           background: background
         }}
       >
-          <div id='template-inputs'>
-            <input
-              id='input1'
-              type='text'
-              placeholder="Title Here"
-              value={input1}
-              onChange={(e) => setInput1(e.target.value)}
-              style={{
-                // fontFamily: `${singleDesign.font} ? ${singleDesign.font} : "Noto Sans"`,
-                color: `${singleDesign.color}`
-              }}
-            />
-            <textarea
-              id='input2'
-              value={input2}
-              placeholder="Your text here"
-              onChange={(e) => setInput2(e.target.value)}
-              style={{
-                width: '880px',
-                height: '440px',
-                maxWidth: '880px',
-                maxHeight: '440px',
-                minWidth: '347px',
-                minHeight: '120px'
-              }}
-            />
-          </div>
+        <div id='template-inputs'>
+          <input
+            id='input1'
+            type='text'
+            placeholder="Title Here"
+            value={input1}
+            onChange={(e) => setInput1(e.target.value)}
+            style={{
+              // fontFamily: `${singleDesign.font} ? ${singleDesign.font} : "Noto Sans"`,
+              color: `${singleDesign.color}`
+            }}
+          />
+          <textarea
+            id='input2'
+            value={input2}
+            placeholder="Your text here"
+            onChange={(e) => setInput2(e.target.value)}
+            style={{
+              width: '880px',
+              height: '440px',
+              maxWidth: '880px',
+              maxHeight: '440px',
+              minWidth: '347px',
+              minHeight: '120px'
+            }}
+          />
+        </div>
       </div>
     )
   }
@@ -1289,49 +1290,66 @@ export default function SingleDesign() {
 
             <button id='sidebar' onClick={openBrandMenu}>
               <img src={colors} alt='temp' height='40px' />
-              Brand Colors
+              Background Colors
             </button>
             {showBrandMenu && (
-              // <div id='temp-menu-item-brand'>
-              //   <div id='brand-side-content'>Oops! Looks like this feature is still in the works. In the meantime, try checking out brands for the future!
-
-              //     <button
-              //       onClick={() => history.push('/brand')}
-              //     >Go to brands</button>
-              //   </div>
-              // </div>
               <div id='temp-menu-item'>
-                {/* <button
-                  onClick={() => setColor('')}>
-                    Clear color selection
-                  </button> */}
-                {Object.values(brands).map(brand => (
-                  <div className="des-brand-colors">
-                    {brand.colors.map(color => (
-                      <div
-                        id='each-color'
-                        onClick={() => {
-                          setColor(color.name);
-                          setBackground(color.name);
-                          // localStorage.setItem('backgroundColor', color.name)
-                        }}
-                        style={{
-                          backgroundColor: `${color.name}`
-                        }}
-                      >
-                        {/* {color.name} */}
-                      </div>
-                    ))}
-                    {brand.name}
-                    {/* {brand.fonts.map(font => (
+                <div className='brands-menu-item'>
+                  <div id='temp-brand-title'>
+                    Brands
+                  </div>
+                  <div className="colors-container">
+                    {Object.values(brands).map(brand => (
+                      <div className="des-brand-colors">
+                        <div id='des-brand-name'>
+                          {brand.name}
+                        </div>
+                        <div id='brand-color-container'>
+                        {brand.colors.map(color => (
+                          <div
+                            id='each-color'
+                            onClick={() => {
+                              setColor(color.name);
+                            }}
+                            style={{
+                              backgroundColor: `${color.name}`
+                            }}
+                          >
+                            {/* {color.name} */}
+                          </div>
+                        ))}
+                        </div>
+                        {/* {brand.fonts.map(font => (
                       <div
                         onClick={() => setFont(font.name)}
                       >
                         {font.name}
                       </div>
                     ))} */}
+                      </div>
+                    ))}
                   </div>
-                ))}
+                </div>
+                <div className='brands-menu-item'>
+                  <div id='color-title'>
+                    Colors
+                  </div>
+                  <div className='color-container'>
+                    {colorsByHue.map(color => (
+                      <div
+                      id='each-color'
+                      onClick={() => {
+                        setColor(color.alias);
+                      }}
+                      style={{
+                        backgroundColor: `${color.alias}`
+                      }}
+                    >
+                      {/* {color.name} */}
+                    </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             )}
           </div>

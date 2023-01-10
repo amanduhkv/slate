@@ -17,11 +17,11 @@ import pres3 from '../../icons/change-temps/present-temp/pres-aesthetic.svg';
 import pres4 from '../../icons/change-temps/present-temp/pres-green.svg';
 import pres5 from '../../icons/change-temps/present-temp/pres-bw.svg';
 
-import web1 from '../../icons/change-temps/website-temp/web-original.png';
-import web2 from '../../icons/change-temps/website-temp/web-fun.png';
-import web3 from '../../icons/change-temps/website-temp/web-aesthetic.png';
-import web4 from '../../icons/change-temps/website-temp/web-green.png';
-import web5 from '../../icons/change-temps/website-temp/web-bw.png';
+import web1 from '../../icons/change-temps/website-temp/web-original.svg';
+import web2 from '../../icons/change-temps/website-temp/web-fun.svg';
+import web3 from '../../icons/change-temps/website-temp/web-aesthetic.svg';
+import web4 from '../../icons/change-temps/website-temp/web-green.svg';
+import web5 from '../../icons/change-temps/website-temp/web-bw.svg';
 
 import ig1 from '../../icons/change-temps/ig-temp/ig-original.svg';
 import ig2 from '../../icons/change-temps/ig-temp/ig-fun.svg';
@@ -272,11 +272,11 @@ export default function CreateDesign() {
           width: '960px',
           height: '540px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          background: (background.includes('original') ? `center / contain url(${pres1})` :
-            background.includes('fun') ? `center / contain url(${pres2})` :
-              background.includes('aesthetic') ? `center / contain url(${pres3})` :
-                background.includes('green') ? `center / contain url(${pres4})` :
-                  background.includes('bw') ? `center / contain url(${pres5})` :
+          background: (background.includes('original') ? `center / contain url(${pres1}) ${color}` :
+            background.includes('fun') ? `center / contain url(${pres2}) ${color}` :
+              background.includes('aesthetic') ? `center / contain url(${pres3}) ${color}` :
+                background.includes('green') ? `center / contain url(${pres4}) ${color}` :
+                  background.includes('bw') ? `center / contain url(${pres5}) ${color}` :
                     background)
         }}
       >
@@ -363,11 +363,11 @@ export default function CreateDesign() {
           width: '683px',
           height: '384px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          background: background.includes('original') ? `center / contain url(${web1})` :
-            background.includes('fun') ? `center / contain url(${web2})` :
-              background.includes('aesthetic') ? `center / contain url(${web3})` :
-                background.includes('green') ? `center / contain url(${web4})` :
-                  background.includes('bw') ? `center / contain url(${web5})` :
+          background: background.includes('original') ? `center / contain url(${web1}) ${color}` :
+            background.includes('fun') ? `center / contain url(${web2}) ${color}` :
+              background.includes('aesthetic') ? `center / contain url(${web3}) ${color}` :
+                background.includes('green') ? `center / contain url(${web4}) ${color}` :
+                  background.includes('bw') ? `center / contain url(${web5}) ${color}` :
                     background
         }}
       >
@@ -464,11 +464,11 @@ export default function CreateDesign() {
           width: '425px',
           height: '550px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          background: (background.includes('original') ? `center / contain url(${res1})` :
-            background.includes('fun') ? `center / contain url(${res2})` :
-              background.includes('aesthetic') ? `center / contain url(${res3})` :
-                background.includes('green') ? `center / contain url(${res4})` :
-                  background.includes('bw') ? `center / contain url(${res5})` :
+          background: (background.includes('original') ? `center / contain url(${res1}) ${color}` :
+            background.includes('fun') ? `center / contain url(${res2}) ${color}` :
+              background.includes('aesthetic') ? `center / contain url(${res3}) ${color}` :
+                background.includes('green') ? `center / contain url(${res4}) ${color}` :
+                  background.includes('bw') ? `center / contain url(${res5}) ${color}` :
                     background)
         }}
       >
@@ -563,11 +563,11 @@ export default function CreateDesign() {
           width: '480px',
           height: '480px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          background: (background.includes('original') ? `center / contain url(${ig1})` :
-            background.includes('fun') ? `center / contain url(${ig2})` :
-              background.includes('aesthetic') ? `center / contain url(${ig3})` :
-                background.includes('green') ? `center / contain url(${ig4})` :
-                  background.includes('bw') ? `center / contain url(${ig5})` :
+          background: (background.includes('original') ? `center / contain url(${ig1}) ${color}` :
+            background.includes('fun') ? `center / contain url(${ig2}) ${color}` :
+              background.includes('aesthetic') ? `center / contain url(${ig3}) ${color}` :
+                background.includes('green') ? `center / contain url(${ig4}) ${color}` :
+                  background.includes('bw') ? `center / contain url(${ig5}) ${color}` :
                     background)
         }}
       >
@@ -655,11 +655,11 @@ export default function CreateDesign() {
           width: '270px',
           height: '480px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          background: (background.includes('original') ? `center / contain url(${igs1})` :
-            background.includes('fun') ? `center / contain url(${igs2})` :
-              background.includes('aesthetic') ? `center / contain url(${igs3})` :
-                background.includes('green') ? `center / contain url(${igs4})` :
-                  background.includes('bw') ? `center / contain url(${igs5})` :
+          background: (background.includes('original') ? `center / contain url(${igs1}) ${color}` :
+            background.includes('fun') ? `center / contain url(${igs2}) ${color}` :
+              background.includes('aesthetic') ? `center / contain url(${igs3}) ${color}` :
+                background.includes('green') ? `center / contain url(${igs4}) ${color}` :
+                  background.includes('bw') ? `center / contain url(${igs5}) ${color}` :
                     background)
         }}
       >
@@ -727,11 +727,11 @@ export default function CreateDesign() {
           width: '470px',
           height: '394px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          background: (background.includes('original') ? `center / contain url(${fb1})` :
-            background.includes('fun') ? `center / contain url(${fb2})` :
-              background.includes('aesthetic') ? `center / contain url(${fb3})` :
-                background.includes('green') ? `center / contain url(${fb4})` :
-                  background.includes('bw') ? `center / contain url(${fb5})` :
+          background: (background.includes('original') ? `center / contain url(${fb1}) ${color}` :
+            background.includes('fun') ? `center / contain url(${fb2}) ${color}` :
+              background.includes('aesthetic') ? `center / contain url(${fb3}) ${color}` :
+                background.includes('green') ? `center / contain url(${fb4}) ${color}` :
+                  background.includes('bw') ? `center / contain url(${fb5}) ${color}` :
                     background)
         }}
       >
@@ -803,11 +803,11 @@ export default function CreateDesign() {
           width: '375px',
           height: '525px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          background: (background.includes('original') ? `center / contain url(${inv1})` :
-            background.includes('fun') ? `center / contain url(${inv2})` :
-              background.includes('aesthetic') ? `center / contain url(${inv3})` :
-                background.includes('green') ? `center / contain url(${inv4})` :
-                  background.includes('bw') ? `center / contain url(${inv5})` :
+          background: (background.includes('original') ? `center / contain url(${inv1}) ${color}` :
+            background.includes('fun') ? `center / contain url(${inv2}) ${color}` :
+              background.includes('aesthetic') ? `center / contain url(${inv3}) ${color}` :
+                background.includes('green') ? `center / contain url(${inv4}) ${color}` :
+                  background.includes('bw') ? `center / contain url(${inv5}) ${color}` :
                     background)
         }}
       >
@@ -896,11 +896,11 @@ export default function CreateDesign() {
           width: '336px',
           height: '192px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          background: (background.includes('original') ? `center / contain url(${biz1})` :
-            background.includes('fun') ? `center / contain url(${biz2})` :
-              background.includes('aesthetic') ? `center / contain url(${biz3})` :
-                background.includes('green') ? `center / contain url(${biz4})` :
-                  background.includes('bw') ? `center / contain url(${biz5})` :
+          background: (background.includes('original') ? `center / contain url(${biz1}) ${color}` :
+            background.includes('fun') ? `center / contain url(${biz2}) ${color}` :
+              background.includes('aesthetic') ? `center / contain url(${biz3}) ${color}` :
+                background.includes('green') ? `center / contain url(${biz4}) ${color}` :
+                  background.includes('bw') ? `center / contain url(${biz5}) ${color}` :
                     background)
         }}
       >
@@ -997,11 +997,11 @@ export default function CreateDesign() {
           width: '200px',
           height: '500px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          background: (background.includes('original') ? `center / contain url(${info1})` :
-            background.includes('fun') ? `center / contain url(${info2})` :
-              background.includes('aesthetic') ? `center / contain url(${info3})` :
-                background.includes('green') ? `center / contain url(${info4})` :
-                  background.includes('bw') ? `center / contain url(${info5})` :
+          background: (background.includes('original') ? `center / contain url(${info1}) ${color}` :
+            background.includes('fun') ? `center / contain url(${info2}) ${color}` :
+              background.includes('aesthetic') ? `center / contain url(${info3}) ${color}` :
+                background.includes('green') ? `center / contain url(${info4}) ${color}` :
+                  background.includes('bw') ? `center / contain url(${info5}) ${color}` :
                     background)
         }}
       >
@@ -1285,7 +1285,7 @@ export default function CreateDesign() {
                       id='each-color'
                       onClick={() => {
                         setColor(color.name);
-                        setBackground(color.name)
+                        // setBackground(color.name)
                         // localStorage.setItem('backgroundColor', color.name)
                       }}
                       style={{

@@ -4,11 +4,11 @@ import pres3 from '../../icons/change-temps/present-temp/pres-aesthetic.svg';
 import pres4 from '../../icons/change-temps/present-temp/pres-green.svg';
 import pres5 from '../../icons/change-temps/present-temp/pres-bw.svg';
 
-import web1 from '../../icons/change-temps/website-temp/web-original.png';
-import web2 from '../../icons/change-temps/website-temp/web-fun.png';
-import web3 from '../../icons/change-temps/website-temp/web-aesthetic.png';
-import web4 from '../../icons/change-temps/website-temp/web-green.png';
-import web5 from '../../icons/change-temps/website-temp/web-bw.png';
+import web1 from '../../icons/change-temps/website-temp/web-original.svg';
+import web2 from '../../icons/change-temps/website-temp/web-fun.svg';
+import web3 from '../../icons/change-temps/website-temp/web-aesthetic.svg';
+import web4 from '../../icons/change-temps/website-temp/web-green.svg';
+import web5 from '../../icons/change-temps/website-temp/web-bw.svg';
 
 import ig1 from '../../icons/change-temps/ig-temp/ig-original.svg';
 import ig2 from '../../icons/change-temps/ig-temp/ig-fun.svg';
