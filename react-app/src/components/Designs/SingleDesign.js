@@ -1180,102 +1180,97 @@ export default function SingleDesign() {
                       setBackground(temp.alias)
                       const image = document.getElementById('temp-img')
                       image.src = TEMPLATES[temp.alias]
-                      // console.log('image', image)
-                      // console.log('temp.alias', temp.alias)
-                      // if (temp.alias) {
-                      //   history.push(`/designs/${designId}/${temp.alias}`)
-                      // }
                     }}>
                       {temp.alias === 'presentation-original' ?
-                        <img id='temp-img' src={pres1} alt='pres' width='160px' /> :
+                        <img id='temp-img' src={pres1} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                         temp.alias === 'presentation-fun' ?
-                          <img id='temp-img' src={pres2} alt='pres' width='160px' /> :
+                          <img id='temp-img' src={pres2} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                           temp.alias === 'presentation-aesthetic' ?
-                            <img id='temp-img' src={pres3} alt='pres' width='160px' /> :
+                            <img id='temp-img' src={pres3} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                             temp.alias === 'presentation-green' ?
-                              <img id='temp-img' src={pres4} alt='pres' width='160px' /> :
+                              <img id='temp-img' src={pres4} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                               temp.alias === 'presentation-bw' ?
-                                <img id='temp-img' src={pres5} alt='pres' width='160px' /> :
+                                <img id='temp-img' src={pres5} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                 temp.alias === 'website-original' ?
-                                  <img id='temp-img' src={web1} alt='pres' width='160px' /> :
+                                  <img id='temp-img' src={web1} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                   temp.alias === 'website-fun' ?
-                                    <img id='temp-img' src={web2} alt='pres' width='160px' /> :
+                                    <img id='temp-img' src={web2} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                     temp.alias === 'website-aesthetic' ?
-                                      <img id='temp-img' src={web3} alt='pres' width='160px' /> :
+                                      <img id='temp-img' src={web3} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                       temp.alias === 'website-green' ?
-                                        <img id='temp-img' src={web4} alt='pres' width='160px' /> :
+                                        <img id='temp-img' src={web4} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                         temp.alias === 'website-bw' ?
-                                          <img id='temp-img' src={web5} alt='pres' width='160px' /> :
+                                          <img id='temp-img' src={web5} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                           temp.alias === 'resume-original' ?
-                                            <img id='temp-img' src={res1} alt='pres' width='160px' /> :
+                                            <img id='temp-img' src={res1} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                             temp.alias === 'resume-fun' ?
-                                              <img id='temp-img' src={res2} alt='pres' width='160px' /> :
+                                              <img id='temp-img' src={res2} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                               temp.alias === 'resume-aesthetic' ?
-                                                <img id='temp-img' src={res3} alt='pres' width='160px' /> :
+                                                <img id='temp-img' src={res3} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                 temp.alias === 'resume-green' ?
-                                                  <img id='temp-img' src={res4} alt='pres' width='160px' /> :
+                                                  <img id='temp-img' src={res4} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                   temp.alias === 'resume-bw' ?
-                                                    <img id='temp-img' src={res5} alt='pres' width='160px' /> :
+                                                    <img id='temp-img' src={res5} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                     temp.alias === 'igpost-original' ?
-                                                      <img id='temp-img' src={ig1} alt='pres' width='160px' /> :
+                                                      <img id='temp-img' src={ig1} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                       temp.alias === 'igpost-fun' ?
-                                                        <img id='temp-img' src={ig2} alt='pres' width='160px' /> :
+                                                        <img id='temp-img' src={ig2} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                         temp.alias === 'igpost-aesthetic' ?
-                                                          <img id='temp-img' src={ig3} alt='pres' width='160px' /> :
+                                                          <img id='temp-img' src={ig3} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                           temp.alias === 'igpost-green' ?
-                                                            <img id='temp-img' src={ig4} alt='pres' width='160px' /> :
+                                                            <img id='temp-img' src={ig4} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                             temp.alias === 'igpost-bw' ?
-                                                              <img id='temp-img' src={ig5} alt='pres' width='160px' /> :
+                                                              <img id='temp-img' src={ig5} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                               temp.alias === 'igstory-original' ?
-                                                                <img id='temp-img' src={igs1} alt='pres' width='160px' /> :
+                                                                <img id='temp-img' src={igs1} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                                 temp.alias === 'igstory-fun' ?
-                                                                  <img id='temp-img' src={igs2} alt='pres' width='160px' /> :
+                                                                  <img id='temp-img' src={igs2} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                                   temp.alias === 'igstory-aesthetic' ?
-                                                                    <img id='temp-img' src={igs3} alt='pres' width='160px' /> :
+                                                                    <img id='temp-img' src={igs3} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                                     temp.alias === 'igstory-green' ?
-                                                                      <img id='temp-img' src={igs4} alt='pres' width='160px' /> :
+                                                                      <img id='temp-img' src={igs4} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                                       temp.alias === 'igstory-pink' ?
-                                                                        <img id='temp-img' src={igs5} alt='pres' width='160px' /> :
+                                                                        <img id='temp-img' src={igs5} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                                         temp.alias === 'fbpost-original' ?
-                                                                          <img id='temp-img' src={fb1} alt='pres' width='160px' /> :
+                                                                          <img id='temp-img' src={fb1} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                                           temp.alias === 'fbpost-fun' ?
-                                                                            <img id='temp-img' src={fb2} alt='pres' width='160px' /> :
+                                                                            <img id='temp-img' src={fb2} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                                             temp.alias === 'fbpost-aesthetic' ?
-                                                                              <img id='temp-img' src={fb3} alt='pres' width='160px' /> :
+                                                                              <img id='temp-img' src={fb3} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                                               temp.alias === 'fbpost-green' ?
-                                                                                <img id='temp-img' src={fb4} alt='pres' width='160px' /> :
+                                                                                <img id='temp-img' src={fb4} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                                                 temp.alias === 'fbpost-bw' ?
-                                                                                  <img id='temp-img' src={fb5} alt='pres' width='160px' /> :
+                                                                                  <img id='temp-img' src={fb5} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                                                   temp.alias === 'invitation-original' ?
-                                                                                    <img id='temp-img' src={inv1} alt='pres' width='160px' /> :
+                                                                                    <img id='temp-img' src={inv1} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                                                     temp.alias === 'invitation-fun' ?
-                                                                                      <img id='temp-img' src={inv2} alt='pres' width='160px' /> :
+                                                                                      <img id='temp-img' src={inv2} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                                                       temp.alias === 'invitation-aesthetic' ?
-                                                                                        <img id='temp-img' src={inv3} alt='pres' width='160px' /> :
+                                                                                        <img id='temp-img' src={inv3} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                                                         temp.alias === 'invitation-green' ?
-                                                                                          <img id='temp-img' src={inv4} alt='pres' width='160px' /> :
+                                                                                          <img id='temp-img' src={inv4} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                                                           temp.alias === 'invitation-bw' ?
-                                                                                            <img id='temp-img' src={inv5} alt='pres' width='160px' /> :
+                                                                                            <img id='temp-img' src={inv5} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                                                             temp.alias === 'businesscard-original' ?
-                                                                                              <img id='temp-img' src={biz1} alt='pres' width='160px' /> :
+                                                                                              <img id='temp-img' src={biz1} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                                                               temp.alias === 'businesscard-fun' ?
-                                                                                                <img id='temp-img' src={biz2} alt='pres' width='160px' /> :
+                                                                                                <img id='temp-img' src={biz2} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                                                                 temp.alias === 'businesscard-aesthetic' ?
-                                                                                                  <img id='temp-img' src={biz3} alt='pres' width='160px' /> :
+                                                                                                  <img id='temp-img' src={biz3} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                                                                   temp.alias === 'businesscard-green' ?
-                                                                                                    <img id='temp-img' src={biz4} alt='pres' width='160px' /> :
+                                                                                                    <img id='temp-img' src={biz4} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                                                                     temp.alias === 'businesscard-bw' ?
-                                                                                                      <img id='temp-img' src={biz5} alt='pres' width='160px' /> :
+                                                                                                      <img id='temp-img' src={biz5} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                                                                       temp.alias === 'infograph-original' ?
-                                                                                                        <img id='temp-img' src={info1} alt='pres' width='160px' /> :
+                                                                                                        <img id='temp-img' src={info1} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                                                                         temp.alias === 'infograph-fun' ?
-                                                                                                          <img id='temp-img' src={info2} alt='pres' width='160px' /> :
+                                                                                                          <img id='temp-img' src={info2} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                                                                           temp.alias === 'infograph-aesthetic' ?
-                                                                                                            <img id='temp-img' src={info3} alt='pres' width='160px' /> :
+                                                                                                            <img id='temp-img' src={info3} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                                                                             temp.alias === 'infograph-green' ?
-                                                                                                              <img id='temp-img' src={info4} alt='pres' width='160px' /> :
+                                                                                                              <img id='temp-img' src={info4} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                                                                               temp.alias === 'infograph-bw' ?
-                                                                                                                <img id='temp-img' src={info5} alt='pres' width='160px' /> :
+                                                                                                                <img id='temp-img' src={info5} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} /> :
                                                                                                                 "Your template here"
                       }
                       <button id='create-des-temp-button'>{temp.name}</button>
