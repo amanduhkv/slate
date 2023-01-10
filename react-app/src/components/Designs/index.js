@@ -113,7 +113,7 @@ export default function Designs() {
               <div className="temp-box" onClick={() => history.push(`/designs/new/${temp.alias}`)}>
                 <div>
                   {
-                    <img id='temp-img' src={imgs[allTemplates[temp.alias]]} alt='pres' width='160px' />
+                    <img id='temp-img' src={imgs[allTemplates[temp.alias]]} alt='pres' width='160px' style={{background: 'rgb(242,243,245)'}} />
 
                   }
                   <div>{temp.alias ? temp.name : null}</div>
