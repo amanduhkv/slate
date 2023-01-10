@@ -1,3 +1,12 @@
+#brand-color-container {
+  display: flex;
+  width: 100%;
+}
+
+.brands-menu-item {
+  width: 100%;
+}
+
 .create-des-container {
   height: 100vh;
   /* border: red solid 1px; */
@@ -52,13 +61,29 @@
 .des-brand-colors {
   display: flex;
   width: 100%;
+  height: fit-content;
+  margin-top: 20px;
 }
 
+.des-brand-colors:first-of-type {
+  margin-top: 0px;
+}
+
+.color-container #each-color,
 .des-brand-colors #each-color {
+  /* display: flex;
+  flex-direction: column; */
   width: 25px;
   height: 25px;
   margin: 2px;
   /* border: red solid 1px; */
+}
+
+#des-brand-name {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  margin-right: 20px;
 }
 
 .sidebar {
@@ -86,10 +111,25 @@
   overflow: hidden;
 }
 
+#color-title,
+#temp-brand-title {
+  font-size: 18px;
+  height: fit-content;
+  margin: 0 auto 20px auto;
+}
+
+#color-title {
+  margin-top: 20px;
+}
+
+#temp-brand-title:first-of-type {
+  margin-top: 0px;
+}
+
 #temp-menu-item,
 #temp-menu-item-brand {
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   justify-content: center;
 
   flex-flow: wrap row;
@@ -104,7 +144,9 @@
 
   z-index: 1;
   top: 68px;
-  left: 65px;
+  left: 72px;
+  /* top: 14vh;
+  left: 4.1vw; */
 
   text-align: center;
   padding: 20px;
