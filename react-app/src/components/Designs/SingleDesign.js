@@ -782,11 +782,11 @@ export default function SingleDesign() {
           width: '375px',
           height: '525px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          background: (background.includes('original') ? `center / contain url(${inv1})` :
-          background.includes('fun') ? `center / contain url(${inv2})` :
-            background.includes('aesthetic') ? `center / contain url(${inv3})` :
-              background.includes('green') ? `center / contain url(${inv4})` :
-                background.includes('bw') ? `center / contain url(${inv5})` :
+          background: (background.includes('original') ? `center / contain url(${inv1}) ${color}` :
+          background.includes('fun') ? `center / contain url(${inv2}) ${color}` :
+            background.includes('aesthetic') ? `center / contain url(${inv3}) ${color}` :
+              background.includes('green') ? `center / contain url(${inv4}) ${color}` :
+                background.includes('bw') ? `center / contain url(${inv5}) ${color}` :
                   background)
         }}
       >
@@ -976,11 +976,11 @@ export default function SingleDesign() {
           width: '200px',
           height: '500px',
           boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          background: (background.includes('original') ? `center / contain url(${info1})` :
-          background.includes('fun') ? `center / contain url(${info2})` :
-            background.includes('aesthetic') ? `center / contain url(${info3})` :
-              background.includes('green') ? `center / contain url(${info4})` :
-                background.includes('bw') ? `center / contain url(${info5})` :
+          background: (background.includes('original') ? `center / contain url(${info1}) ${color}` :
+          background.includes('fun') ? `center / contain url(${info2}) ${color}` :
+            background.includes('aesthetic') ? `center / contain url(${info3}) ${color}` :
+              background.includes('green') ? `center / contain url(${info4}) ${color}` :
+                background.includes('bw') ? `center / contain url(${info5}) ${color}` :
                   background)
         }}
       >
