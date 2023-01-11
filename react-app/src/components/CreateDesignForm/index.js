@@ -138,6 +138,7 @@ export default function CreateDesign() {
   const [hasSubmit, setHasSubmit] = useState(false);
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [showBrandMenu, setShowBrandMenu] = useState(false);
+  const [showFontMenu, setShowFontMenu] = useState(false);
   const [color, setColor] = useState('');
   const [font, setFont] = useState('');
   const [input1, setInput1] = useState('');
@@ -208,6 +209,7 @@ export default function CreateDesign() {
   // dragItem(document.getElementById('drag-text'));
 
   // SIDEBAR MENU FXNS ---------------------------------------------
+  //template ===========
   const openSideMenu = () => {
     if (showSideMenu) return;
     setShowSideMenu(true);
@@ -222,6 +224,7 @@ export default function CreateDesign() {
     return () => document.removeEventListener("click", closeSideMenu);
   }, [showSideMenu]);
 
+  //brand ============
   const openBrandMenu = () => {
     if (showBrandMenu) return;
     setShowBrandMenu(true);
@@ -235,6 +238,21 @@ export default function CreateDesign() {
     document.addEventListener('click', closeBrandMenu);
     return () => document.removeEventListener("click", closeBrandMenu);
   }, [showBrandMenu]);
+
+  //font ============
+  const openFontMenu = () => {
+    if (showBrandMenu) return;
+    setShowFontMenu(true);
+  };
+
+  useEffect(() => {
+    if (!showFontMenu) return;
+    const closeFontMenu = () => {
+      setShowFontMenu(false);
+    };
+    document.addEventListener('click', closeFontMenu);
+    return () => document.removeEventListener("click", closeFontMenu);
+  }, [showFontMenu]);
 
   // SUBMIT FXNS ---------------------------------------------
   useEffect(() => {
@@ -1361,7 +1379,28 @@ export default function CreateDesign() {
               </div>
             </div>
           )}
-
+          <button id='sidebar' onClick={openFontMenu}>
+              <img src={fonts} alt='temp' height='34px' />
+              Fonts
+            </button>
+            {showFontMenu && (
+              <div id='temp-menu-item'>
+                {__fonts.map(font => (
+                  <div
+                    id='each-font'
+                    onClick={() => {
+                      setFont(font.family)
+                    }}
+                    style={{
+                      // fontFamily: `Poppins`,
+                      fontSize: '18px'
+                    }}
+                  >
+                    {font.family}
+                  </div>
+                ))}
+              </div>
+            )}
         </div>
 
         <div className="edit-area">
