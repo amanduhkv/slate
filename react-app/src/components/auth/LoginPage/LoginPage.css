@@ -110,9 +110,10 @@
 /* --------------LOGIN/SIGNUP FORMS-------------- */
 #demo-user {
   width: 100%;
+  margin-top: 10px;
   padding: 8px;
-  background-color: white;
-  color:rgb(72, 76, 79);
+  /* background-color: white;
+  color:rgb(72, 76, 79); */
 }
 
 #demo-user:hover {
