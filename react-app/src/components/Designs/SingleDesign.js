@@ -1420,12 +1420,17 @@ export default function SingleDesign() {
         )}
         <div className="edit-area">
           {user && user.id === singleDesign.user_id && (
-            <div id="inserted-temp">
-              <div>
+            <>
+              <div id='top-menu'>
+                <div id='tm-font-title'>
+                  font:
+                </div>
+                <div id='tm-font'>
+                  {singleDesign.font}
+                </div>
+              </div>
+              <div id="inserted-temp">
                 {template}
-                {/* <div id='adding-another'>
-                  {template}
-                </div> */}
               </div>
               {/* <button id='add-page'
               onClick={() => {
@@ -1435,7 +1440,7 @@ export default function SingleDesign() {
               >
                 +
               </button> */}
-            </div>
+            </>
           )}
           {user && user.id !== singleDesign.user_id && (
             <div id="inserted-temp" style={{ pointerEvents: 'none' }}>
