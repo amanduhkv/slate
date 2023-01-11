@@ -7,3 +7,9 @@
   display: flex;
   flex-direction: column;
 }
+
+#each-font {
+  margin: 15px;
+  width: 100%;
+  text-align: left;
+}

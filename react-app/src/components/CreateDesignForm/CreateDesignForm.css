@@ -130,7 +130,7 @@
 #temp-menu-item-brand {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
 
   flex-flow: wrap row;
   overflow: scroll;
