@@ -6,10 +6,59 @@
 #inserted-temp {
   display: flex;
   flex-direction: column;
+  margin-top: 45px;
 }
 
 #each-font {
-  margin: 15px;
+  padding: 15px;
   width: 100%;
   text-align: left;
+}
+
+#each-font:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+}
+
+#top-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  width: 100%;
+  height: 45px;
+  padding: 10px;
+}
+
+#tm-font {
+  border: 0.5px solid rgba(0, 0, 0, 0.3);
+  background-color: white;
+  color:rgba(0, 0, 0, 0.7);
+
+  padding: 5px 10px;
+  margin-right: 10px;
+  border-radius: 4px;
+  width: 150px;
+  text-align: left;
+}
+
+#tm-font:hover,
+.tm-font-button:hover {
+  background-color: rgba(88, 88, 88, 0.2);
+}
+
+.tm-font-button #effects {
+  font-size: 14px;
+}
+
+.tm-font-button {
+  /* border: 0.5px solid rgba(0, 0, 0, 0.3); */
+  background-color: white;
+  color:rgba(0, 0, 0, 0.7);
+
+  padding: 2.5px 10px;
+  margin-right: 10px;
+  border-radius: 4px;
+
+  font-size: 18px;
 }

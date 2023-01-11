@@ -10,6 +10,7 @@ import './Draggable.css';
 import left from '../../icons/left.svg';
 import outlinetemp from '../../icons/outline-temp.png';
 import colors from '../../icons/colors.svg';
+import fonts from '../../icons/fonts.svg';
 
 import pres1 from '../../icons/change-temps/present-temp/pres-original.svg';
 import pres2 from '../../icons/change-temps/present-temp/pres-fun.svg';
@@ -67,6 +68,8 @@ import res5 from '../../icons/change-temps/res-temp/res-bw.svg';
 
 import { getAllBrands } from "../../store/brands";
 import { __colors, colorsByHue } from "../../assets/colors";
+import { __fonts } from "../../assets/fonts";
+import WebFont from 'webfontloader';
 
 const TEMPLATES = {
   'presentation-original': pres1,
@@ -135,6 +138,7 @@ export default function CreateDesign() {
   const [hasSubmit, setHasSubmit] = useState(false);
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [showBrandMenu, setShowBrandMenu] = useState(false);
+  const [showFontMenu, setShowFontMenu] = useState(false);
   const [color, setColor] = useState('');
   const [font, setFont] = useState('');
   const [input1, setInput1] = useState('');
@@ -144,6 +148,12 @@ export default function CreateDesign() {
   // const [input5, setInput5] = useState('');
 
   const [background, setBackground] = useState('');
+
+  WebFont.load({
+    google: {
+      families: [font]
+    }
+  });
 
   useEffect(() => {
     dispatch(getAllDesigns());
@@ -199,6 +209,7 @@ export default function CreateDesign() {
   // dragItem(document.getElementById('drag-text'));
 
   // SIDEBAR MENU FXNS ---------------------------------------------
+  //template ===========
   const openSideMenu = () => {
     if (showSideMenu) return;
     setShowSideMenu(true);
@@ -213,6 +224,7 @@ export default function CreateDesign() {
     return () => document.removeEventListener("click", closeSideMenu);
   }, [showSideMenu]);
 
+  //brand ============
   const openBrandMenu = () => {
     if (showBrandMenu) return;
     setShowBrandMenu(true);
@@ -226,6 +238,21 @@ export default function CreateDesign() {
     document.addEventListener('click', closeBrandMenu);
     return () => document.removeEventListener("click", closeBrandMenu);
   }, [showBrandMenu]);
+
+  //font ============
+  const openFontMenu = () => {
+    if (showBrandMenu) return;
+    setShowFontMenu(true);
+  };
+
+  useEffect(() => {
+    if (!showFontMenu) return;
+    const closeFontMenu = () => {
+      setShowFontMenu(false);
+    };
+    document.addEventListener('click', closeFontMenu);
+    return () => document.removeEventListener("click", closeFontMenu);
+  }, [showFontMenu]);
 
   // SUBMIT FXNS ---------------------------------------------
   useEffect(() => {
@@ -288,6 +315,9 @@ export default function CreateDesign() {
               placeholder="Title Here"
               value={input1}
               onChange={(e) => setInput1(e.target.value)}
+              style={{
+                fontFamily: `${font}`,
+              }}
             />
             <textarea
               id='input2'
@@ -295,6 +325,7 @@ export default function CreateDesign() {
               placeholder="Your text here"
               onChange={(e) => setInput2(e.target.value)}
               style={{
+                fontFamily: `${font}`,
                 width: '880px',
                 height: '440px',
                 maxWidth: '880px',
@@ -311,6 +342,9 @@ export default function CreateDesign() {
                 placeholder="Title Here"
                 value={input1}
                 onChange={(e) => setInput1(e.target.value)}
+                style={{
+                  fontFamily: `${font}`,
+                }}
               />
               <textarea
                 id='input2'
@@ -318,6 +352,7 @@ export default function CreateDesign() {
                 placeholder="Your text here"
                 onChange={(e) => setInput2(e.target.value)}
                 style={{
+                  fontFamily: `${font}`,
                   resize: 'none',
                   height: '295px',
                   width: '400px'
@@ -332,6 +367,7 @@ export default function CreateDesign() {
                   value={input1}
                   onChange={(e) => setInput1(e.target.value)}
                   style={{
+                    fontFamily: `${font}`,
                     marginLeft: '120px'
                   }}
                 />
@@ -341,6 +377,7 @@ export default function CreateDesign() {
                   placeholder="Your text here"
                   onChange={(e) => setInput2(e.target.value)}
                   style={{
+                    fontFamily: `${font}`,
                     width: '680px',
                     height: '440px',
                     maxWidth: '680px',
@@ -379,6 +416,9 @@ export default function CreateDesign() {
               placeholder="Title Here"
               value={input1}
               onChange={(e) => setInput1(e.target.value)}
+              style={{
+                fontFamily: `${font}`,
+              }}
             />
             <textarea
               id='input2'
@@ -386,6 +426,7 @@ export default function CreateDesign() {
               placeholder="Your text here"
               onChange={(e) => setInput2(e.target.value)}
               style={{
+                fontFamily: `${font}`,
                 width: '580px',
                 height: '240px',
                 maxWidth: '580px',
@@ -403,6 +444,7 @@ export default function CreateDesign() {
                 value={input1}
                 onChange={(e) => setInput1(e.target.value)}
                 style={{
+                  fontFamily: `${font}`,
                   width: '200px',
                   height: '27px',
                   marginTop: '8px',
@@ -416,6 +458,7 @@ export default function CreateDesign() {
                 placeholder="Your text here"
                 onChange={(e) => setInput2(e.target.value)}
                 style={{
+                  fontFamily: `${font}`,
                   width: '210px',
                   height: '240px',
                   resize: 'none',
@@ -435,6 +478,7 @@ export default function CreateDesign() {
                   value={input1}
                   onChange={(e) => setInput1(e.target.value)}
                   style={{
+                    fontFamily: `${font}`,
                     marginLeft: '310px'
                   }}
                 />
@@ -444,6 +488,7 @@ export default function CreateDesign() {
                   placeholder="Your text here"
                   onChange={(e) => setInput2(e.target.value)}
                   style={{
+                    fontFamily: `${font}`,
                     width: '350px',
                     height: '280px',
                     marginTop: '8px',
@@ -480,6 +525,9 @@ export default function CreateDesign() {
               placeholder="Title Here"
               value={input1}
               onChange={(e) => setInput1(e.target.value)}
+              style={{
+                fontFamily: `${font}`,
+              }}
             />
             <textarea
               id='input2'
@@ -487,6 +535,7 @@ export default function CreateDesign() {
               placeholder="Your text here"
               onChange={(e) => setInput2(e.target.value)}
               style={{
+                fontFamily: `${font}`,
                 width: '370px',
                 height: '430px',
                 marginTop: '8px',
@@ -502,6 +551,7 @@ export default function CreateDesign() {
                 value={input1}
                 onChange={(e) => setInput1(e.target.value)}
                 style={{
+                  fontFamily: `${font}`,
                   width: '235px',
                   height: '40px',
                   marginTop: '68px',
@@ -515,6 +565,7 @@ export default function CreateDesign() {
                 placeholder="Your text here"
                 onChange={(e) => setInput2(e.target.value)}
                 style={{
+                  fontFamily: `${font}`,
                   width: '165px',
                   height: '280px',
                   marginTop: '88px',
@@ -531,6 +582,7 @@ export default function CreateDesign() {
                   value={input1}
                   onChange={(e) => setInput1(e.target.value)}
                   style={{
+                    fontFamily: `${font}`,
                     width: '270px',
                     marginTop: '8px',
                     marginLeft: '80px',
@@ -543,6 +595,7 @@ export default function CreateDesign() {
                   placeholder="Your text here"
                   onChange={(e) => setInput2(e.target.value)}
                   style={{
+                    fontFamily: `${font}`,
                     width: '270px',
                     height: '430px',
                     marginTop: '8px',
@@ -579,6 +632,9 @@ export default function CreateDesign() {
               placeholder="Title Here"
               value={input1}
               onChange={(e) => setInput1(e.target.value)}
+              style={{
+                fontFamily: `${font}`,
+              }}
             />
             <textarea
               id='input2'
@@ -586,6 +642,7 @@ export default function CreateDesign() {
               placeholder="Your text here"
               onChange={(e) => setInput2(e.target.value)}
               style={{
+                fontFamily: `${font}`,
                 width: '406px',
                 height: '346px',
                 marginTop: '8px',
@@ -601,6 +658,7 @@ export default function CreateDesign() {
                 value={input1}
                 onChange={(e) => setInput1(e.target.value)}
                 style={{
+                  fontFamily: `${font}`,
                   marginTop: '180px'
                 }}
               />
@@ -610,6 +668,7 @@ export default function CreateDesign() {
                 placeholder="Your text here"
                 onChange={(e) => setInput2(e.target.value)}
                 style={{
+                  fontFamily: `${font}`,
                   width: '406px',
                   height: '146px',
                   marginTop: '8px',
@@ -625,6 +684,7 @@ export default function CreateDesign() {
                   value={input1}
                   onChange={(e) => setInput1(e.target.value)}
                   style={{
+                    fontFamily: `${font}`,
                     width: '246px',
                     marginLeft: '190px',
                   }}
@@ -635,6 +695,7 @@ export default function CreateDesign() {
                   placeholder="Your text here"
                   onChange={(e) => setInput2(e.target.value)}
                   style={{
+                    fontFamily: `${font}`,
                     width: '246px',
                     height: '346px',
                     marginTop: '8px',
@@ -672,6 +733,7 @@ export default function CreateDesign() {
               value={input1}
               onChange={(e) => setInput1(e.target.value)}
               style={{
+                fontFamily: `${font}`,
                 width: '230px'
               }}
             />
@@ -681,6 +743,7 @@ export default function CreateDesign() {
               placeholder="Your text here"
               onChange={(e) => setInput2(e.target.value)}
               style={{
+                fontFamily: `${font}`,
                 width: '230px',
                 height: '346px',
                 resize: 'none'
@@ -695,6 +758,7 @@ export default function CreateDesign() {
                 value={input1}
                 onChange={(e) => setInput1(e.target.value)}
                 style={{
+                  fontFamily: `${font}`,
                   width: '200px',
                   marginTop: '40px'
                 }}
@@ -708,6 +772,7 @@ export default function CreateDesign() {
                   value={input1}
                   onChange={(e) => setInput1(e.target.value)}
                   style={{
+                    fontFamily: `${font}`,
                     width: '200px',
                     marginBottom: '40px',
                     marginLeft: '24px',
@@ -743,6 +808,9 @@ export default function CreateDesign() {
               placeholder="Title Here"
               value={input1}
               onChange={(e) => setInput1(e.target.value)}
+              style={{
+                fontFamily: `${font}`,
+              }}
             />
             <textarea
               id='input2'
@@ -750,6 +818,7 @@ export default function CreateDesign() {
               placeholder="Your text here"
               onChange={(e) => setInput2(e.target.value)}
               style={{
+                fontFamily: `${font}`,
                 width: '430px',
                 height: '290px',
                 resize: 'none'
@@ -764,6 +833,7 @@ export default function CreateDesign() {
                 value={input1}
                 onChange={(e) => setInput1(e.target.value)}
                 style={{
+                  fontFamily: `${font}`,
                   marginTop: '180px'
                 }}
               />
@@ -773,6 +843,7 @@ export default function CreateDesign() {
                 placeholder="Your text here"
                 onChange={(e) => setInput2(e.target.value)}
                 style={{
+                  fontFamily: `${font}`,
                   width: '430px',
                   height: '150px',
                   resize: 'none'
@@ -787,6 +858,7 @@ export default function CreateDesign() {
                   value={input1}
                   onChange={(e) => setInput1(e.target.value)}
                   style={{
+                    fontFamily: `${font}`,
                     marginBottom: '235px'
                   }}
                 />
@@ -819,6 +891,9 @@ export default function CreateDesign() {
               placeholder="Title Here"
               value={input1}
               onChange={(e) => setInput1(e.target.value)}
+              style={{
+                fontFamily: `${font}`,
+              }}
             />
             <textarea
               id='input2'
@@ -826,6 +901,7 @@ export default function CreateDesign() {
               placeholder="Your text here"
               onChange={(e) => setInput2(e.target.value)}
               style={{
+                fontFamily: `${font}`,
                 width: '350px',
                 height: '425px',
                 resize: 'none'
@@ -840,6 +916,7 @@ export default function CreateDesign() {
                 value={input1}
                 onChange={(e) => setInput1(e.target.value)}
                 style={{
+                  fontFamily: `${font}`,
                   marginTop: '230px'
                 }}
               />
@@ -849,6 +926,7 @@ export default function CreateDesign() {
                 placeholder="Your text here"
                 onChange={(e) => setInput2(e.target.value)}
                 style={{
+                  fontFamily: `${font}`,
                   width: '344px',
                   height: '188px',
                   resize: 'none'
@@ -863,6 +941,7 @@ export default function CreateDesign() {
                   value={input1}
                   onChange={(e) => setInput1(e.target.value)}
                   style={{
+                    fontFamily: `${font}`,
                     width: '270px',
                     height: '45px',
                     resize: 'none',
@@ -876,6 +955,7 @@ export default function CreateDesign() {
                   placeholder="Your text here"
                   onChange={(e) => setInput2(e.target.value)}
                   style={{
+                    fontFamily: `${font}`,
                     width: '270px',
                     height: '225px',
                     resize: 'none',
@@ -913,6 +993,7 @@ export default function CreateDesign() {
               value={input1}
               onChange={(e) => setInput1(e.target.value)}
               style={{
+                fontFamily: `${font}`,
                 width: '280px',
                 marginLeft: '8px'
               }}
@@ -923,6 +1004,7 @@ export default function CreateDesign() {
               placeholder="Your text here"
               onChange={(e) => setInput2(e.target.value)}
               style={{
+                fontFamily: `${font}`,
                 width: '280px',
                 height: '72px',
                 resize: 'none',
@@ -938,6 +1020,7 @@ export default function CreateDesign() {
                 value={input1}
                 onChange={(e) => setInput1(e.target.value)}
                 style={{
+                  fontFamily: `${font}`,
                   width: '160px',
                   marginLeft: '140px',
                   marginTop: '65px'
@@ -949,6 +1032,7 @@ export default function CreateDesign() {
                 placeholder="Your text here"
                 onChange={(e) => setInput2(e.target.value)}
                 style={{
+                  fontFamily: `${font}`,
                   width: '160px',
                   height: '62px',
                   resize: 'none',
@@ -965,6 +1049,7 @@ export default function CreateDesign() {
                   value={input1}
                   onChange={(e) => setInput1(e.target.value)}
                   style={{
+                    fontFamily: `${font}`,
                     width: '190px',
                     marginLeft: '130px',
                     marginTop: '65px'
@@ -976,6 +1061,7 @@ export default function CreateDesign() {
                   placeholder="Your text here"
                   onChange={(e) => setInput2(e.target.value)}
                   style={{
+                    fontFamily: `${font}`,
                     width: '190px',
                     height: '62px',
                     resize: 'none',
@@ -1013,6 +1099,7 @@ export default function CreateDesign() {
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
             style={{
+              fontFamily: `${font}`,
               width: '150px'
             }}
           />
@@ -1022,6 +1109,7 @@ export default function CreateDesign() {
             placeholder="Your text here"
             onChange={(e) => setInput2(e.target.value)}
             style={{
+              fontFamily: `${font}`,
               width: '150px',
               height: '400px',
               maxWidth: '150px',
@@ -1035,43 +1123,6 @@ export default function CreateDesign() {
     )
   }
 
-  if (__colors.find(e => e.alias === background)) {
-    template = (
-      <div
-        className="template"
-        style={{
-          width: '960px',
-          height: '540px',
-          boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-          background: background
-        }}
-      >
-        <div id='template-inputs'>
-          <input
-            id='input1'
-            type='text'
-            placeholder="Title Here"
-            value={input1}
-            onChange={(e) => setInput1(e.target.value)}
-          />
-          <textarea
-            id='input2'
-            value={input2}
-            placeholder="Your text here"
-            onChange={(e) => setInput2(e.target.value)}
-            style={{
-              width: '880px',
-              height: '440px',
-              maxWidth: '880px',
-              maxHeight: '440px',
-              minWidth: '347px',
-              minHeight: '120px'
-            }}
-          />
-        </div>
-      </div>
-    )
-  }
 
   return (
     <div className="create-des-container">
@@ -1328,21 +1379,74 @@ export default function CreateDesign() {
               </div>
             </div>
           )}
-
+          <button id='sidebar' onClick={openFontMenu}>
+              <img src={fonts} alt='temp' height='34px' />
+              Fonts
+            </button>
+            {showFontMenu && (
+              <div id='temp-menu-item'>
+                {__fonts.map(font => (
+                  <div
+                    id='each-font'
+                    onClick={() => {
+                      setFont(font.family)
+                    }}
+                    style={{
+                      // fontFamily: `Poppins`,
+                      fontSize: '18px'
+                    }}
+                  >
+                    {font.family}
+                  </div>
+                ))}
+              </div>
+            )}
         </div>
 
         <div className="edit-area">
-          {/* <div id='under-construction'>This feature is in the making</div> */}
-          <div id="inserted-temp">{template}</div>
-          {/* <div
-            id='drag-text'
+        <div id='top-menu'>
+                <button
+                  id='tm-font'
+                  onClick={() => {
+                    openFontMenu()
+                  }}
+                >
+                  {font}
+                </button>
+                <button
+                  className='tm-font-button'
+                  onClick={() => {
+                    if (document.getElementById('input1').style.fontWeight === '700') {
+                      document.getElementById('input1').style.fontWeight = '400'
+                    } else {
+                      document.getElementById('input1').style.fontWeight = '700'
+                    }
 
-            height='100px'
-            width='100px'
-            // draggable
-          >
-          hi
-          </div> */}
+                    if (document.getElementById('input2').style.fontWeight === '700') {
+                      document.getElementById('input2').style.fontWeight = '400'
+                    } else {
+                      document.getElementById('input2').style.fontWeight = '700'
+                    }
+
+                  }}
+                >
+                  B
+                </button>
+                {/* <button
+                  className='tm-font-button'
+                >
+                  I
+                </button>
+                <div>|</div>
+                <button
+                  className='tm-font-button'
+                  id='effects'
+                >
+                  Effects
+                </button> */}
+              </div>
+          <div id="inserted-temp">{template}</div>
+
         </div>
       </div>
     </div>

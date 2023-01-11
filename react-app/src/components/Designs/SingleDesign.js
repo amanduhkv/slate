@@ -76,7 +76,6 @@ import res5 from '../../icons/change-temps/res-temp/res-bw.svg';
 
 import { __colors, colorsByHue } from '../../assets/colors.js';
 import { __fonts } from "../../assets/fonts";
-import { fontFam } from "../../assets/fontNames";
 import WebFont from 'webfontloader';
 
 const TEMPLATES = {
@@ -148,6 +147,7 @@ export default function SingleDesign() {
   const [hasSubmit, setHasSubmit] = useState(false);
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [showBrandMenu, setShowBrandMenu] = useState(false);
+  const [showFontMenu, setShowFontMenu] = useState(false);
   const [input1, setInput1] = useState('');
   const [input2, setInput2] = useState('');
   // const [input3, setInput3] = useState('');
@@ -157,7 +157,7 @@ export default function SingleDesign() {
   const [font, setFont] = useState('');
   const [background, setBackground] = useState('');
 
-  console.log('current font is', font)
+  // console.log('current font is', font)
     WebFont.load({
       google: {
         families: [font]
@@ -169,6 +169,12 @@ export default function SingleDesign() {
     dispatch(getADesign(designId))
   }
 
+  // set to top of page on render
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [window])
+
+  // dispatches
   useEffect(() => {
     dispatch(getADesign(designId))
     dispatch(getAllDesigns());
@@ -179,6 +185,7 @@ export default function SingleDesign() {
 
 
   // SIDEBAR MENU FXNS ---------------------------------------------
+  //template ===========
   const openSideMenu = () => {
     if (showSideMenu) return;
     setShowSideMenu(true);
@@ -193,6 +200,7 @@ export default function SingleDesign() {
     return () => document.removeEventListener("click", closeSideMenu);
   }, [showSideMenu]);
 
+  //brand ============
   const openBrandMenu = () => {
     if (showBrandMenu) return;
     setShowBrandMenu(true);
@@ -206,6 +214,21 @@ export default function SingleDesign() {
     document.addEventListener('click', closeBrandMenu);
     return () => document.removeEventListener("click", closeBrandMenu);
   }, [showBrandMenu]);
+
+  //font ============
+  const openFontMenu = () => {
+    if (showBrandMenu) return;
+    setShowFontMenu(true);
+  };
+
+  useEffect(() => {
+    if (!showFontMenu) return;
+    const closeFontMenu = () => {
+      setShowFontMenu(false);
+    };
+    document.addEventListener('click', closeFontMenu);
+    return () => document.removeEventListener("click", closeFontMenu);
+  }, [showFontMenu]);
 
   // LOADING PREV DATA ---------------------------------------
   useEffect(() => {
@@ -279,8 +302,6 @@ export default function SingleDesign() {
               onChange={(e) => setInput1(e.target.value)}
               style={{
                 fontFamily: `${font}`,
-                // fontFamily: `${singleDesign.font} ? ${singleDesign.font} : "Noto Sans"`,
-                color: `${singleDesign.color}`
               }}
             />
             <textarea
@@ -1379,12 +1400,13 @@ export default function SingleDesign() {
                 </div>
               </div>
             )}
-            <button id='sidebar' onClick={openBrandMenu}>
+            <button id='sidebar' onClick={openFontMenu}>
               <img src={fonts} alt='temp' height='34px' />
               Fonts
             </button>
-            {showBrandMenu && (
+            {showFontMenu && (
               <div id='temp-menu-item'>
+                {/* {singleDesign.font} */}
                 {__fonts.map(font => (
                   <div
                     id='each-font'
@@ -1405,12 +1427,50 @@ export default function SingleDesign() {
         )}
         <div className="edit-area">
           {user && user.id === singleDesign.user_id && (
-            <div id="inserted-temp">
-              <div>
+            <>
+              <div id='top-menu'>
+                <button
+                  id='tm-font'
+                  onClick={() => {
+                    openFontMenu()
+                  }}
+                >
+                  {singleDesign.font}
+                </button>
+                <button
+                  className='tm-font-button'
+                  onClick={() => {
+                    if (document.getElementById('input1').style.fontWeight === '700') {
+                      document.getElementById('input1').style.fontWeight = '400'
+                    } else {
+                      document.getElementById('input1').style.fontWeight = '700'
+                    }
+
+                    if (document.getElementById('input2').style.fontWeight === '700') {
+                      document.getElementById('input2').style.fontWeight = '400'
+                    } else {
+                      document.getElementById('input2').style.fontWeight = '700'
+                    }
+
+                  }}
+                >
+                  B
+                </button>
+                {/* <button
+                  className='tm-font-button'
+                >
+                  I
+                </button>
+                <div>|</div>
+                <button
+                  className='tm-font-button'
+                  id='effects'
+                >
+                  Effects
+                </button> */}
+              </div>
+              <div id="inserted-temp">
                 {template}
-                {/* <div id='adding-another'>
-                  {template}
-                </div> */}
               </div>
               {/* <button id='add-page'
               onClick={() => {
@@ -1420,7 +1480,7 @@ export default function SingleDesign() {
               >
                 +
               </button> */}
-            </div>
+            </>
           )}
           {user && user.id !== singleDesign.user_id && (
             <div id="inserted-temp" style={{ pointerEvents: 'none' }}>
