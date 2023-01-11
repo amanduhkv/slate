@@ -1411,7 +1411,7 @@ export default function CreateDesign() {
                     openFontMenu()
                   }}
                 >
-                  {font}
+                  {font ? font : 'Noto Sans'}
                 </button>
                 <button
                   className='tm-font-button'
