@@ -169,6 +169,12 @@ export default function SingleDesign() {
     dispatch(getADesign(designId))
   }
 
+  // set to top of page on render
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [window])
+
+  // dispatches
   useEffect(() => {
     dispatch(getADesign(designId))
     dispatch(getAllDesigns());
@@ -1400,6 +1406,7 @@ export default function SingleDesign() {
             </button>
             {showFontMenu && (
               <div id='temp-menu-item'>
+                {/* {singleDesign.font} */}
                 {__fonts.map(font => (
                   <div
                     id='each-font'
@@ -1422,12 +1429,45 @@ export default function SingleDesign() {
           {user && user.id === singleDesign.user_id && (
             <>
               <div id='top-menu'>
-                <div id='tm-font-title'>
-                  font:
-                </div>
-                <div id='tm-font'>
+                <button
+                  id='tm-font'
+                  onClick={() => {
+                    openFontMenu()
+                  }}
+                >
                   {singleDesign.font}
-                </div>
+                </button>
+                <button
+                  className='tm-font-button'
+                  onClick={() => {
+                    if (document.getElementById('input1').style.fontWeight === '700') {
+                      document.getElementById('input1').style.fontWeight = '400'
+                    } else {
+                      document.getElementById('input1').style.fontWeight = '700'
+                    }
+
+                    if (document.getElementById('input2').style.fontWeight === '700') {
+                      document.getElementById('input2').style.fontWeight = '400'
+                    } else {
+                      document.getElementById('input2').style.fontWeight = '700'
+                    }
+
+                  }}
+                >
+                  B
+                </button>
+                {/* <button
+                  className='tm-font-button'
+                >
+                  I
+                </button>
+                <div>|</div>
+                <button
+                  className='tm-font-button'
+                  id='effects'
+                >
+                  Effects
+                </button> */}
               </div>
               <div id="inserted-temp">
                 {template}

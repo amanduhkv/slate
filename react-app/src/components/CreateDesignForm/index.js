@@ -1404,17 +1404,49 @@ export default function CreateDesign() {
         </div>
 
         <div className="edit-area">
-          {/* <div id='under-construction'>This feature is in the making</div> */}
-          <div id="inserted-temp">{template}</div>
-          {/* <div
-            id='drag-text'
+        <div id='top-menu'>
+                <button
+                  id='tm-font'
+                  onClick={() => {
+                    openFontMenu()
+                  }}
+                >
+                  {font}
+                </button>
+                <button
+                  className='tm-font-button'
+                  onClick={() => {
+                    if (document.getElementById('input1').style.fontWeight === '700') {
+                      document.getElementById('input1').style.fontWeight = '400'
+                    } else {
+                      document.getElementById('input1').style.fontWeight = '700'
+                    }
 
-            height='100px'
-            width='100px'
-            // draggable
-          >
-          hi
-          </div> */}
+                    if (document.getElementById('input2').style.fontWeight === '700') {
+                      document.getElementById('input2').style.fontWeight = '400'
+                    } else {
+                      document.getElementById('input2').style.fontWeight = '700'
+                    }
+
+                  }}
+                >
+                  B
+                </button>
+                {/* <button
+                  className='tm-font-button'
+                >
+                  I
+                </button>
+                <div>|</div>
+                <button
+                  className='tm-font-button'
+                  id='effects'
+                >
+                  Effects
+                </button> */}
+              </div>
+          <div id="inserted-temp">{template}</div>
+
         </div>
       </div>
     </div>
