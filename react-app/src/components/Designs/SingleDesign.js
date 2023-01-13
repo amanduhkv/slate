@@ -155,6 +155,7 @@ export default function SingleDesign() {
   // const [input5, setInput5] = useState('');
   const [color, setColor] = useState('');
   const [font, setFont] = useState('');
+  const [bold, setBold] = useState(true);
   const [background, setBackground] = useState('');
 
   // console.log('current font is', font)
@@ -163,6 +164,18 @@ export default function SingleDesign() {
         families: [font]
       }
     });
+
+    let boldness;
+    useEffect(() => {
+      if(bold) {
+        boldness = 700
+      } else {
+        boldness = 400
+      }
+    }, [bold])
+
+  console.log('BOLD', bold)
+  console.log('BOLDNESS', boldness)
 
 
   if (!Object.values(singleDesign).length) {
@@ -182,6 +195,16 @@ export default function SingleDesign() {
 
     return () => dispatch(clearData())
   }, [dispatch, designId])
+
+  // useEffect(() => {
+  //   if(bold) {
+  //     document.getElementById('input1').fontWeight = '700'
+  //     document.getElementById('input2').fontWeight = '700'
+  //   } else {
+  //     document.getElementById('input1').fontWeight = '400'
+  //     document.getElementById('input2').fontWeight = '400'
+  //   }
+  // }, [bold])
 
 
   // SIDEBAR MENU FXNS ---------------------------------------------
@@ -237,6 +260,7 @@ export default function SingleDesign() {
       setTemp(singleDesign.background ? singleDesign.background : alias)
       setBackground(singleDesign.background ? singleDesign.background : alias)
       setFont(singleDesign.font ? singleDesign.font : '')
+      setBold(singleDesign.bold ? singleDesign.bold : '')
       setColor(singleDesign.color ? singleDesign.color : '')
       setInput1(singleDesign.text_input_1 ? singleDesign.text_input_1 : '')
       setInput2(singleDesign.text_input_2 ? singleDesign.text_input_2 : '')
@@ -302,6 +326,7 @@ export default function SingleDesign() {
               onChange={(e) => setInput1(e.target.value)}
               style={{
                 fontFamily: `${font}`,
+                fontWeight: `${boldness}`
               }}
             />
             <textarea
@@ -311,6 +336,7 @@ export default function SingleDesign() {
               onChange={(e) => setInput2(e.target.value)}
               style={{
                 fontFamily: `${font}`,
+                fontWeight: `${boldness}`,
                 width: '880px',
                 height: '440px',
                 maxWidth: '880px',
@@ -1435,23 +1461,12 @@ export default function SingleDesign() {
                     openFontMenu()
                   }}
                 >
-                  {singleDesign.font}
+                  {singleDesign.font ? singleDesign.font : 'Noto Sans'}
                 </button>
                 <button
                   className='tm-font-button'
                   onClick={() => {
-                    if (document.getElementById('input1').style.fontWeight === '700') {
-                      document.getElementById('input1').style.fontWeight = '400'
-                    } else {
-                      document.getElementById('input1').style.fontWeight = '700'
-                    }
-
-                    if (document.getElementById('input2').style.fontWeight === '700') {
-                      document.getElementById('input2').style.fontWeight = '400'
-                    } else {
-                      document.getElementById('input2').style.fontWeight = '700'
-                    }
-
+                    setBold(!bold)
                   }}
                 >
                   B

@@ -141,6 +141,7 @@ export default function CreateDesign() {
   const [showFontMenu, setShowFontMenu] = useState(false);
   const [color, setColor] = useState('');
   const [font, setFont] = useState('');
+  const [bold, setBold] = useState(false);
   const [input1, setInput1] = useState('');
   const [input2, setInput2] = useState('');
   // const [input3, setInput3] = useState('');
@@ -164,6 +165,16 @@ export default function CreateDesign() {
   useEffect(() => {
     setBackground(alias)
   }, [alias])
+
+  // useEffect(() => {
+  //   if(bold) {
+  //     document.getElementById('input1').style.fontWeight = '700'
+  //     document.getElementById('input2').style.fontWeight = '700'
+  //   } else {
+  //     document.getElementById('input1').style.fontWeight = '400'
+  //     document.getElementById('input2').style.fontWeight = '400'
+  //   }
+  // }, [bold])
 
   // DRAG FXNS -------------------------------
   // const dragItem = (item) => {
@@ -273,6 +284,7 @@ export default function CreateDesign() {
       background: background,
       color: color,
       font: font,
+      bold: bold,
       template: alias,
       text_input_1: input1,
       text_input_2: input2,
@@ -1416,18 +1428,7 @@ export default function CreateDesign() {
                 <button
                   className='tm-font-button'
                   onClick={() => {
-                    if (document.getElementById('input1').style.fontWeight === '700') {
-                      document.getElementById('input1').style.fontWeight = '400'
-                    } else {
-                      document.getElementById('input1').style.fontWeight = '700'
-                    }
-
-                    if (document.getElementById('input2').style.fontWeight === '700') {
-                      document.getElementById('input2').style.fontWeight = '400'
-                    } else {
-                      document.getElementById('input2').style.fontWeight = '700'
-                    }
-
+                    setBold(!bold)
                   }}
                 >
                   B
