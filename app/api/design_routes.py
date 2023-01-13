@@ -194,6 +194,7 @@ def add_design():
         background=form.data["background"],
         color=form.data["color"],
         font=form.data["font"],
+        bold=form.data["bold"],
         text_input_1=form.data["text_input_1"],
         text_input_2=form.data["text_input_2"],
         text_input_3=form.data["text_input_3"],
@@ -272,6 +273,7 @@ def edit_design(design_id):
         design_update.background = form.data['background']
         design_update.color = form.data['color']
         design_update.font = form.data['font']
+        design_update.bold = form.data['bold']
         design_update.template = temp_list
         design_update.text_input_1 = form.data['text_input_1']
         design_update.text_input_2 = form.data['text_input_2']

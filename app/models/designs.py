@@ -26,6 +26,7 @@ class Design(db.Model):
   background = db.Column(db.String)
   color = db.Column(db.String)
   font = db.Column(db.String)
+  bold = db.Column(db.Boolean, default=True)
   created_at = db.Column(db.String(255), default=datetime.now)
   updated_at = db.Column(db.String, default=datetime.now, onupdate=datetime.now)
   text_input_1 = db.Column(db.String)
@@ -49,6 +50,7 @@ class Design(db.Model):
             "background": self.background,
             "color": self.color,
             "font": self.font,
+            "bold": self.bold,
             "template": self.template,
             "created_at": self.created_at,
             "updated_at": self.updated_at,
