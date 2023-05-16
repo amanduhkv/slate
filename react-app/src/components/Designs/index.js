@@ -61,7 +61,7 @@ export default function Designs() {
           <div id='temp-button-container'>
             <button
               id='box-temp-buttons'
-              onClick={() => history.push('/designs/new/presentation')}
+              onClick={() => history.push('/designs/new/presentation-original')}
             >
               <img src={pres} alt='presentation-icon' width='30px' height='30px' />
             </button>
@@ -70,7 +70,7 @@ export default function Designs() {
           <div id='temp-button-container'>
             <button
               id='box-temp-buttons'
-              onClick={() => history.push('/designs/new/website')}
+              onClick={() => history.push('/designs/new/website-original')}
             >
               <img src={web} alt='website-icon' width='30px' height='30px' />
             </button>
@@ -79,7 +79,7 @@ export default function Designs() {
           <div id='temp-button-container'>
             <button
               id='box-temp-buttons'
-              onClick={() => history.push('/designs/new/igpost')}
+              onClick={() => history.push('/designs/new/igpost-original')}
             >
               <img src={ig} alt='ig-icon' width='30px' height='30px' />
             </button>
@@ -88,7 +88,7 @@ export default function Designs() {
           <div id='temp-button-container'>
             <button
               id='box-temp-buttons'
-              onClick={() => history.push('/designs/new/invitation')}
+              onClick={() => history.push('/designs/new/invitation-original')}
             >
               <img src={invite} alt='invitation-icon' width='30px' height='30px' />
             </button>
